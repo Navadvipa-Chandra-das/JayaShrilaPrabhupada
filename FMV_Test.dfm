@@ -36,6 +36,7 @@ inherited fmTestVCL: TfmTestVCL
     Top = 8
   end
   inherited coRes: TNNVConfig
+    Version = #1
     Connection = dmvExamples.conDB
     Left = 40
     Top = 8
