@@ -1,6 +1,0 @@
-inherited fmvLogin1: TfmvLogin1
-  ActiveControl = frmLogin.edPassword
-  Caption = 'fmvLogin1'
-  PixelsPerInch = 96
-  TextHeight = 13
-end

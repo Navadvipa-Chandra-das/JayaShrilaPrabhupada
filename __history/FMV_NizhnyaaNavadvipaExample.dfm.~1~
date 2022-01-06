@@ -1,5 +1,0 @@
-inherited fmvRes1: TfmvRes1
-  Caption = 'fmvRes1'
-  PixelsPerInch = 96
-  TextHeight = 13
-end
