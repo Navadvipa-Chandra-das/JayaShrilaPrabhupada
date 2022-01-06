@@ -30,3 +30,14 @@
 *.exe
 *.out
 *.app
+
+# no copy
+*.[oa]
+*.dcu
+*~
+*.ilc
+*.ild
+*.ilf
+*.ils
+*.map
+*.tds
