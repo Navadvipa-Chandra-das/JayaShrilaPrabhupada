@@ -1,0 +1,46 @@
+//---------------------------------------------------------------------------
+
+#ifndef VCL_DMNizhnyayaNavadvipaH
+#define VCL_DMNizhnyayaNavadvipaH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include "VCL_NNConfig.h"
+#include "VCL_NNDmRes.h"
+#include "VCL_NNRightsManager.h"
+#include <Data.DB.hpp>
+#include <FireDAC.Comp.Client.hpp>
+#include <FireDAC.Phys.hpp>
+#include <FireDAC.Phys.Intf.hpp>
+#include <FireDAC.Stan.Async.hpp>
+#include <FireDAC.Stan.Def.hpp>
+#include <FireDAC.Stan.Error.hpp>
+#include <FireDAC.Stan.Intf.hpp>
+#include <FireDAC.Stan.Option.hpp>
+#include <FireDAC.Stan.Pool.hpp>
+#include <FireDAC.UI.Intf.hpp>
+#include <FireDAC.VCLUI.Wait.hpp>
+#include <FireDAC.Phys.PG.hpp>
+#include <FireDAC.Phys.PGDef.hpp>
+#include <System.ImageList.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.ImgList.hpp>
+//---------------------------------------------------------------------------
+class TdmvNizhnyayaNavadvipa1 : public TdmvRes
+{
+__published:	// IDE-managed Components
+  TFDConnection *conDB;
+  TFDTransaction *trDB;
+  TFDPhysPgDriverLink *PgDrLinkDB;
+  TNNVRightsManager *rmDB;
+  TImageList *ilDB;
+  void __fastcall dmvResCreate( TObject *Sender );
+  void __fastcall conDBAfterConnect( TObject *Sender );
+private:	// User declarations
+  typedef TdmvRes inherited;
+public:		// User declarations
+  __fastcall TdmvNizhnyayaNavadvipa1( TComponent* Owner );
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TdmvNizhnyayaNavadvipa1 *dmvNizhnyayaNavadvipa1;
+//---------------------------------------------------------------------------
+#endif

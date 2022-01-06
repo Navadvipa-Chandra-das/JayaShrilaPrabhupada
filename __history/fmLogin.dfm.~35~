@@ -1,0 +1,38 @@
+inherited fmvLogin: TfmvLogin
+  Caption = 'fmvLogin'
+  ClientHeight = 406
+  ClientWidth = 532
+  Position = poDesigned
+  ExplicitWidth = 548
+  ExplicitHeight = 445
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel [0]
+    Left = 372
+    Top = 88
+    Width = 31
+    Height = 13
+    Caption = 'Label1'
+  end
+  inline frmLogin1: TfrmLogin [1]
+    Left = 8
+    Top = 140
+    Width = 437
+    Height = 229
+    TabOrder = 0
+    ExplicitLeft = 8
+    ExplicitTop = 140
+    ExplicitWidth = 437
+    ExplicitHeight = 229
+    inherited edPort: TEdit
+      Top = 151
+      ExplicitTop = 151
+    end
+  end
+  inherited fbRes: TNNVFlagBox [2]
+    caFree = True
+  end
+  inherited coRes: TNNVConfig [3]
+    StoreKind = skFile
+  end
+end

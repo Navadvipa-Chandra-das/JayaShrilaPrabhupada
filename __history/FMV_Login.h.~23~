@@ -1,0 +1,33 @@
+//---------------------------------------------------------------------------
+
+#ifndef FMV_LoginH
+#define FMV_LoginH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include "VCL_NNConfig.h"
+#include "VCL_NNFlagBox.h"
+#include "VCL_NNFmRes.h"
+#include "VCL_NNRightsManager.h"
+#include "VCL_frmLogin.h"
+//---------------------------------------------------------------------------
+class TfmvLogin : public TfmvRes
+{
+__published:	// IDE-managed Components
+  TfrmLogin *frmLogin;
+  void __fastcall coResLoad(TObject *Sender);
+  void __fastcall coResSave(TObject *Sender);
+  void __fastcall FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
+  void __fastcall FormActivate(TObject *Sender);
+private:	// User declarations
+  typedef TfmvRes inherited;
+public:		// User declarations
+  __fastcall TfmvLogin(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TfmvLogin *fmvLogin;
+//---------------------------------------------------------------------------
+#endif
+

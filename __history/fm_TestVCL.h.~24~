@@ -1,0 +1,55 @@
+//---------------------------------------------------------------------------
+
+#ifndef fm_TestVCLH
+#define fm_TestVCLH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <Vcl.ComCtrls.hpp>
+#include <Data.DB.hpp>
+#include <FireDAC.Comp.Client.hpp>
+#include <FireDAC.Comp.DataSet.hpp>
+#include <FireDAC.DApt.hpp>
+#include <FireDAC.DApt.Intf.hpp>
+#include <FireDAC.DatS.hpp>
+#include <FireDAC.Phys.Intf.hpp>
+#include <FireDAC.Stan.Async.hpp>
+#include <FireDAC.Stan.Error.hpp>
+#include <FireDAC.Stan.Intf.hpp>
+#include <FireDAC.Stan.Option.hpp>
+#include <FireDAC.Stan.Param.hpp>
+#include <Vcl.ExtCtrls.hpp>
+#include "VCL_NNDBGrid.h"
+#include <Vcl.DBGrids.hpp>
+#include <Vcl.Grids.hpp>
+#include "VCL_NNStoryData.h"
+#include "VCL_NNConfig.h"
+#include "VCL_NNFlagBox.h"
+#include "VCL_NNFmRes.h"
+#include "VCL_NNRightsManager.h"
+//---------------------------------------------------------------------------
+class TfmTestVCL : public TfmvRes
+{
+__published:	// IDE-managed Components
+  TDateTimePicker *DateTimePicker1;
+  TFDQuery *FDQuery1;
+  TFDQuery *FDQuery2;
+  TDataSource *DataSource1;
+  TDataSource *DataSource2;
+  TEdit *Edit1;
+  TComboBox *ComboBox1;
+  TNNVStoryData *NNVStoryData1;
+  TNNVConfig *NNVConfig1;
+  void __fastcall FormKeyPress(TObject *Sender, System::WideChar &Key);
+  void __fastcall FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
+private:	// User declarations
+  typedef TfmvRes inherited;
+public:		// User declarations
+	__fastcall TfmTestVCL(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TfmTestVCL *fmTestVCL;
+//---------------------------------------------------------------------------
+#endif

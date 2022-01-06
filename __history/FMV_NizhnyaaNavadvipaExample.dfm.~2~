@@ -1,0 +1,10 @@
+inherited fmvRes1: TfmvRes1
+  Caption = #1055#1088#1080#1084#1077#1088#1099' '#1076#1083#1103' '#1073#1080#1073#1083#1080#1086#1090#1077#1082#1080' '#1053#1080#1078#1085#1103#1103' '#1053#1072#1074#1072#1076#1074#1080#1087#1072
+  ClientHeight = 750
+  ClientWidth = 1215
+  ExplicitTop = -4
+  ExplicitWidth = 1231
+  ExplicitHeight = 789
+  PixelsPerInch = 96
+  TextHeight = 13
+end

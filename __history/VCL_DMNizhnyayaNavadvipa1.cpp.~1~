@@ -1,0 +1,39 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "VCL_DMNizhnyayaNavadvipa.h"
+#include "VCL_FMLogin.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma classgroup "Vcl.Controls.TControl"
+#pragma link "VCL_NNConfig"
+#pragma link "VCL_NNDmRes"
+#pragma link "VCL_NNRightsManager"
+#pragma resource "*.dfm"
+TdmvNizhnyayaNavadvipa1 *dmvNizhnyayaNavadvipa;
+//---------------------------------------------------------------------------
+__fastcall TdmvNizhnyayaNavadvipa1::TdmvNizhnyayaNavadvipa1( TComponent* Owner )
+  : inherited( Owner )
+{
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TdmvNizhnyayaNavadvipa1::dmvResCreate( TObject *Sender )
+{
+  fmvLogin = new TfmvLogin( Application );
+  fmvLogin->frmLogin->Connection = conDB;
+
+  if ( fmvLogin->ShowModal() != mrOk )
+    Application->Terminate();
+
+  fmvLogin->coRes->Enabled = conDB->Connected;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TdmvNizhnyayaNavadvipa1::conDBAfterConnect( TObject *Sender )
+{
+  //rmTest->Reload();
+}
+//---------------------------------------------------------------------------
+

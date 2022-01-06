@@ -1,0 +1,63 @@
+inherited fmvExamples: TfmvExamples
+  Caption = #1055#1088#1080#1084#1077#1088#1072' '#1076#1083#1103' '#1073#1080#1073#1083#1080#1086#1090#1077#1082#1080' '#1053#1080#1078#1085#1103#1103' '#1053#1072#1074#1072#1076#1074#1080#1087#1072
+  Position = poDesigned
+  PixelsPerInch = 96
+  TextHeight = 13
+  object NNVSplitter1: TNNVSplitter [0]
+    Left = 189
+    Top = 41
+    Height = 733
+    ExplicitLeft = 176
+    ExplicitTop = 416
+    ExplicitHeight = 100
+  end
+  inherited paT: TNNVPanel
+    ExplicitLeft = 0
+    ExplicitTop = 0
+    ExplicitWidth = 1185
+    inherited DBNavigator1: TDBNavigator
+      Hints.Strings = ()
+    end
+  end
+  object dbtrvExamples: TNNVDBTreeView [2]
+    Left = 0
+    Top = 41
+    Width = 189
+    Height = 733
+    Align = alLeft
+    Indent = 19
+    TabOrder = 1
+    ActiveOrder = 0
+  end
+  object paUsers: TNNVPanel [3]
+    Left = 192
+    Top = 41
+    Width = 993
+    Height = 733
+    Align = alClient
+    TabOrder = 2
+    ExplicitLeft = 252
+    ExplicitTop = 312
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+    object dgUsers: TNNVDBGrid
+      Left = 0
+      Top = 0
+      Width = 993
+      Height = 733
+      Align = alClient
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+    end
+  end
+  inherited fbRes: TNNVFlagBox
+    caFree = True
+  end
+  inherited coRes: TNNVConfig
+    Connection = dmvTest.conTest
+  end
+end

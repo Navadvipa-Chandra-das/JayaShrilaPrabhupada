@@ -1,0 +1,21 @@
+//---------------------------------------------------------------------------
+
+#ifndef DMV_TestH
+#define DMV_TestH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include "VCL_NNConfig.h"
+#include "VCL_NNDmRes.h"
+#include "VCL_NNRightsManager.h"
+//---------------------------------------------------------------------------
+class TdmvTest : public TdmvRes
+{
+__published:	// IDE-managed Components
+private:	// User declarations
+public:		// User declarations
+  __fastcall TdmvTest(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TdmvTest *dmvTest;
+//---------------------------------------------------------------------------
+#endif

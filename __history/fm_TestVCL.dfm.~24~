@@ -1,0 +1,72 @@
+object fmTestVCL: TfmTestVCL
+  Left = 0
+  Top = 0
+  Caption = 'fmTestVCL'
+  ClientHeight = 315
+  ClientWidth = 544
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  KeyPreview = True
+  OldCreateOrder = True
+  OnKeyDown = FormKeyDown
+  OnKeyPress = FormKeyPress
+  PixelsPerInch = 96
+  TextHeight = 13
+  object DateTimePicker1: TDateTimePicker
+    Left = 176
+    Top = 184
+    Width = 186
+    Height = 21
+    Date = 44448.000000000000000000
+    Time = 0.431173229168052800
+    DateFormat = dfLong
+    TabOrder = 0
+  end
+  object Edit1: TEdit
+    Left = 64
+    Top = 224
+    Width = 121
+    Height = 21
+    TabOrder = 1
+    Text = 'Edit1'
+  end
+  object ComboBox1: TComboBox
+    Left = 216
+    Top = 224
+    Width = 145
+    Height = 21
+    DropDownCount = 0
+    TabOrder = 2
+  end
+  object FDQuery1: TFDQuery
+    Left = 136
+    Top = 80
+  end
+  object FDQuery2: TFDQuery
+    MasterSource = DataSource1
+    Left = 288
+    Top = 80
+  end
+  object DataSource1: TDataSource
+    DataSet = FDQuery1
+    Left = 136
+    Top = 128
+  end
+  object DataSource2: TDataSource
+    DataSet = FDQuery2
+    Left = 288
+    Top = 128
+  end
+  object NNVStoryData1: TNNVStoryData
+    Left = 208
+    Top = 80
+  end
+  object NNVConfig1: TNNVConfig
+    Left = 48
+    Top = 136
+  end
+end
