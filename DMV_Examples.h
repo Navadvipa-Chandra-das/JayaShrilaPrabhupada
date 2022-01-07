@@ -24,6 +24,8 @@
 #include <System.ImageList.hpp>
 #include <Vcl.Controls.hpp>
 #include <Vcl.ImgList.hpp>
+#include <FireDAC.Moni.Base.hpp>
+#include <FireDAC.Moni.RemoteClient.hpp>
 //---------------------------------------------------------------------------
 class TdmvExamples : public TdmvRes
 {
@@ -32,6 +34,7 @@ __published:	// IDE-managed Components
   TFDTransaction *trDB;
   TFDPhysPgDriverLink *PgDrLinkDB;
   TNNVRightsManager *rmDB;
+  TFDMoniRemoteClientLink *FDMoniRemoteClientLink1;
   void __fastcall dmvResCreate( TObject *Sender );
   void __fastcall conDBAfterConnect( TObject *Sender );
 private:	// User declarations

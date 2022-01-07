@@ -17,6 +17,7 @@
 #pragma link "VCL_NNSplitter"
 #pragma link "VCL_NNDBGrid"
 #pragma link "VCL_NNPageControl"
+#pragma link "VCL_NNNumberToWords"
 #pragma resource "*.dfm"
 TfmvExamples *fmvExamples;
 //---------------------------------------------------------------------------
@@ -29,16 +30,60 @@ __fastcall TfmvExamples::TfmvExamples(TComponent* Owner)
 void __fastcall TfmvExamples::coResLoad(TObject *Sender)
 {
   inherited::coResLoad( Sender );
+  LoadNodeAdmins();
+  LoadTrees();
+  LoadGrids();
   tvExamples->Width = coRes->Filer->ReadInt();
+  edNumberToWords->Text = coRes->Filer->ReadString();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExamples::coResSave( TObject *Sender )
 {
   inherited::coResSave( Sender );
+  SaveNodeAdmins();
+  SaveTrees();
+  SaveGrids();
   coRes->Filer->WriteInt( tvExamples->Width );
+  coRes->Filer->WriteString( edNumberToWords->Text );
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TfmvExamples::LoadNodeAdmins()
+{
+  naConfig->LoadFromFiler( coRes->Filer );
+  naColor->LoadFromFiler( coRes->Filer );
+  naNumberToWords->LoadFromFiler( coRes->Filer );
+  naUsers->LoadFromFiler( coRes->Filer );
+}
+
+void __fastcall TfmvExamples::LoadTrees()
+{
+  tvExamples->LoadFromFiler( coRes->Filer );
+}
+
+void __fastcall TfmvExamples::LoadGrids()
+{
+  dgUsers->LoadFromFiler( coRes->Filer );
+}
+
+void __fastcall TfmvExamples::SaveNodeAdmins()
+{
+  naConfig->SaveToFiler( coRes->Filer );
+  naColor->SaveToFiler( coRes->Filer );
+  naNumberToWords->SaveToFiler( coRes->Filer );
+  naUsers->SaveToFiler( coRes->Filer );
+}
+
+void __fastcall TfmvExamples::SaveTrees()
+{
+  tvExamples->SaveToFiler( coRes->Filer );
+}
+
+void __fastcall TfmvExamples::SaveGrids()
+{
+  dgUsers->SaveToFiler( coRes->Filer );
+}
 
 void __fastcall TfmvExamples::coResEndLoad( TObject *Sender )
 {
@@ -152,6 +197,28 @@ void __fastcall TfmvExamples::naUsersLoadNodes(TObject *Sender )
   naUsers->CurrentNode->ImageIndex = (int)NNV::TImagesKind::imCash;
   naUsers->CurrentNode->SelectedIndex = (int)NNV::TImagesKind::imCash;
   naUsers->LocateNode = naUsers->CurrentNode;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExamples::edNumberToWordsKeyDown(TObject *Sender, WORD &Key, TShiftState Shift)
+
+{
+  if ( Key == VK_RETURN ) {
+    nwExamples->Value = edNumberToWords->Text;
+    Key = 0;
+  }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExamples::nwExamplesChange(TObject *Sender)
+{
+  meNumberToWords->Lines->Text = nwExamples->Text;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExamples::naNumberToWordsFirstEnter(TObject *Sender)
+{
+  nwExamples->Value = edNumberToWords->Text;
 }
 //---------------------------------------------------------------------------
 

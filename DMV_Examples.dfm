@@ -10,7 +10,9 @@ inherited dmvExamples: TdmvExamples
       'DriverID=PG_N'
       'Database=NizhnyayaNavadvipa'
       'User_Name=Navadvipa Chandra das'
-      'Server=127.0.0.1')
+      'Server=127.0.0.1'
+      'MonitorBy=Remote')
+    Transaction = trDB
     AfterConnect = conDBAfterConnect
     Left = 88
     Top = 116
@@ -30,5 +32,9 @@ inherited dmvExamples: TdmvExamples
     Connection = conDB
     Left = 152
     Top = 12
+  end
+  object FDMoniRemoteClientLink1: TFDMoniRemoteClientLink
+    Left = 228
+    Top = 116
   end
 end

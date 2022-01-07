@@ -23,6 +23,7 @@
 #include <Vcl.Grids.hpp>
 #include "VCL_NNPageControl.h"
 #include <Vcl.ToolWin.hpp>
+#include "VCL_NNNumberToWords.h"
 //---------------------------------------------------------------------------
 class TfmvExamples : public TfmvDB
 {
@@ -38,8 +39,11 @@ __published:	// IDE-managed Components
   TNNVPanel *paConfig;
   TNNVPanel *paColor;
   TNNVPanel *paNumberToWords;
-  TEdit *Edit1;
-  TMemo *Memo1;
+  TMemo *meNumberToWords;
+  TNNVPanel *NNVPanel1;
+  TLabel *laNumberToWords;
+  TEdit *edNumberToWords;
+  TNNVNumberToWords *nwExamples;
   void __fastcall coResLoad( TObject *Sender );
   void __fastcall coResSave( TObject *Sender );
   void __fastcall coResEndLoad( TObject *Sender );
@@ -57,8 +61,17 @@ __published:	// IDE-managed Components
   void __fastcall naUsersEnter(TObject *Sender );
   void __fastcall naUsersExit(TObject *Sender );
   void __fastcall naUsersLoadNodes(TObject *Sender );
+  void __fastcall edNumberToWordsKeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
+  void __fastcall nwExamplesChange(TObject *Sender);
+  void __fastcall naNumberToWordsFirstEnter(TObject *Sender);
 private:	// User declarations
   typedef TfmvDB inherited;
+  void __fastcall LoadNodeAdmins();
+  void __fastcall LoadTrees();
+  void __fastcall LoadGrids();
+  void __fastcall SaveNodeAdmins();
+  void __fastcall SaveTrees();
+  void __fastcall SaveGrids();
 public:		// User declarations
   __fastcall TfmvExamples( TComponent* Owner );
 };

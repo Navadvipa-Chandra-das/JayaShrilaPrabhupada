@@ -55,6 +55,12 @@ inherited fmvExamples: TfmvExamples
   end
   inherited paT: TNNVPanel
     TabOrder = 3
+    inherited pcDB: TNNVPageControl
+      inherited tsDBTree: TTabSheet
+        ExplicitTop = 25
+        ExplicitHeight = 28
+      end
+    end
     inherited paTL: TNNVPanel
       inherited dbngDB: TDBNavigator
         Hints.Strings = ()
@@ -78,29 +84,49 @@ inherited fmvExamples: TfmvExamples
     Align = alClient
     TabOrder = 5
     Visible = False
-    object Edit1: TEdit
-      Left = 20
-      Top = 20
-      Width = 489
-      Height = 21
+    object meNumberToWords: TMemo
+      Left = 0
+      Top = 53
+      Width = 993
+      Height = 664
+      Align = alClient
+      ReadOnly = True
       TabOrder = 0
-      Text = 'Edit1'
     end
-    object Memo1: TMemo
-      Left = 20
-      Top = 60
-      Width = 485
-      Height = 381
-      Lines.Strings = (
-        'Memo1')
+    object NNVPanel1: TNNVPanel
+      Left = 0
+      Top = 0
+      Width = 993
+      Height = 53
+      Align = alTop
       TabOrder = 1
+      DesignSize = (
+        993
+        53)
+      object laNumberToWords: TLabel
+        Left = 12
+        Top = 1
+        Width = 164
+        Height = 13
+        Caption = #1042#1074#1077#1076#1080#1090#1077' '#1095#1080#1089#1083#1086' '#1080' '#1085#1072#1078#1084#1080#1090#1077' Enter!'
+      end
+      object edNumberToWords: TEdit
+        Left = 6
+        Top = 20
+        Width = 979
+        Height = 21
+        Anchors = [akLeft, akTop, akRight]
+        TabOrder = 0
+        Text = '1234567890'
+        OnKeyDown = edNumberToWordsKeyDown
+      end
     end
   end
   inherited fbRes: TNNVFlagBox
     caFree = True
   end
   inherited coRes: TNNVConfig
-    Version = #1
+    Version = #3
     Connection = dmvExamples.conDB
   end
   object naConfig: TNNVNodeAdmin
@@ -126,6 +152,7 @@ inherited fmvExamples: TfmvExamples
   end
   object naNumberToWords: TNNVNodeAdmin
     OnLoadNodes = naNumberToWordsLoadNodes
+    OnFirstEnter = naNumberToWordsFirstEnter
     OnEnter = naNumberToWordsEnter
     OnExit = naNumberToWordsExit
     ReadOnly = True
@@ -145,5 +172,10 @@ inherited fmvExamples: TfmvExamples
     LoadOrder = 3
     Left = 172
     Top = 100
+  end
+  object nwExamples: TNNVNumberToWords
+    OnChange = nwExamplesChange
+    Left = 256
+    Top = 101
   end
 end
