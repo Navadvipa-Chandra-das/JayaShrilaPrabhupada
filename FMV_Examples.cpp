@@ -222,3 +222,15 @@ void __fastcall TfmvExamples::naNumberToWordsFirstEnter(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TfmvExamples::naUsersFirstEnter(TObject *param_02)
+{
+  dmvExamples->quUsers->Open();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExamples::naUsersLastExit(TObject *param_02)
+{
+  dmvExamples->quUsers->Close();
+}
+//---------------------------------------------------------------------------
+

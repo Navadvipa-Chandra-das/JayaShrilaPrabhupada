@@ -26,6 +26,11 @@
 #include <Vcl.ImgList.hpp>
 #include <FireDAC.Moni.Base.hpp>
 #include <FireDAC.Moni.RemoteClient.hpp>
+#include <FireDAC.Comp.DataSet.hpp>
+#include <FireDAC.DApt.hpp>
+#include <FireDAC.DApt.Intf.hpp>
+#include <FireDAC.DatS.hpp>
+#include <FireDAC.Stan.Param.hpp>
 //---------------------------------------------------------------------------
 class TdmvExamples : public TdmvRes
 {
@@ -34,7 +39,18 @@ __published:	// IDE-managed Components
   TFDTransaction *trDB;
   TFDPhysPgDriverLink *PgDrLinkDB;
   TNNVRightsManager *rmDB;
-  TFDMoniRemoteClientLink *FDMoniRemoteClientLink1;
+  TFDMoniRemoteClientLink *monDB;
+  TFDQuery *quCommodKind;
+  TFDQuery *quUsers;
+  TIntegerField *quUsersUserID;
+  TWideStringField *quUsersName;
+  TWideStringField *quUsersFIO;
+  TWideStringField *quUsersNote;
+  TWideStringField *quUsersINN;
+  TWideStringField *quUsersPassport;
+  TWideStringField *quUsersPassportKemVydan;
+  TDateField *quUsersPassportDate;
+  TDataSource *dsUsers;
   void __fastcall dmvResCreate( TObject *Sender );
   void __fastcall conDBAfterConnect( TObject *Sender );
 private:	// User declarations

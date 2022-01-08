@@ -22,29 +22,7 @@ inherited fmvExamples: TfmvExamples
     TabOrder = 0
     ActiveOrder = 0
   end
-  object paUsers: TNNVPanel [2]
-    Left = 192
-    Top = 57
-    Width = 993
-    Height = 717
-    Align = alClient
-    TabOrder = 1
-    Visible = False
-    object dgUsers: TNNVDBGrid
-      Left = 0
-      Top = 0
-      Width = 993
-      Height = 717
-      Align = alClient
-      TabOrder = 0
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clWindowText
-      TitleFont.Height = -11
-      TitleFont.Name = 'Tahoma'
-      TitleFont.Style = []
-    end
-  end
-  object paConfig: TNNVPanel [3]
+  object paConfig: TNNVPanel [2]
     Left = 192
     Top = 57
     Width = 993
@@ -55,19 +33,13 @@ inherited fmvExamples: TfmvExamples
   end
   inherited paT: TNNVPanel
     TabOrder = 3
-    inherited pcDB: TNNVPageControl
-      inherited tsDBTree: TTabSheet
-        ExplicitTop = 25
-        ExplicitHeight = 28
-      end
-    end
     inherited paTL: TNNVPanel
       inherited dbngDB: TDBNavigator
         Hints.Strings = ()
       end
     end
   end
-  object paColor: TNNVPanel [5]
+  object paColor: TNNVPanel [4]
     Left = 192
     Top = 57
     Width = 993
@@ -76,7 +48,7 @@ inherited fmvExamples: TfmvExamples
     TabOrder = 4
     Visible = False
   end
-  object paNumberToWords: TNNVPanel [6]
+  object paNumberToWords: TNNVPanel [5]
     Left = 192
     Top = 57
     Width = 993
@@ -122,6 +94,81 @@ inherited fmvExamples: TfmvExamples
       end
     end
   end
+  object paUsers: TNNVPanel [6]
+    Left = 192
+    Top = 57
+    Width = 993
+    Height = 717
+    Align = alClient
+    TabOrder = 1
+    Visible = False
+    object dgUsers: TNNVDBGrid
+      Left = 0
+      Top = 41
+      Width = 993
+      Height = 676
+      Align = alClient
+      DataSource = dmvExamples.dsUsers
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'UserID'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Name'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'FIO'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Note'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'INN'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Passport'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'PassportKemVydan'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'PassportDate'
+          Visible = True
+        end>
+    end
+    object paUsersT: TNNVPanel
+      Left = 0
+      Top = 0
+      Width = 993
+      Height = 41
+      Align = alTop
+      TabOrder = 1
+      ExplicitLeft = 52
+      ExplicitTop = 172
+      ExplicitWidth = 185
+    end
+  end
   inherited fbRes: TNNVFlagBox
     caFree = True
   end
@@ -164,8 +211,10 @@ inherited fmvExamples: TfmvExamples
   end
   object naUsers: TNNVNodeAdmin
     OnLoadNodes = naUsersLoadNodes
+    OnFirstEnter = naUsersFirstEnter
     OnEnter = naUsersEnter
     OnExit = naUsersExit
+    OnLastExit = naUsersLastExit
     ReadOnly = True
     DragDropKind = ddkSort
     TreeView = tvExamples

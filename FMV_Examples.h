@@ -44,6 +44,7 @@ __published:	// IDE-managed Components
   TLabel *laNumberToWords;
   TEdit *edNumberToWords;
   TNNVNumberToWords *nwExamples;
+  TNNVPanel *paUsersT;
   void __fastcall coResLoad( TObject *Sender );
   void __fastcall coResSave( TObject *Sender );
   void __fastcall coResEndLoad( TObject *Sender );
@@ -64,6 +65,8 @@ __published:	// IDE-managed Components
   void __fastcall edNumberToWordsKeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
   void __fastcall nwExamplesChange(TObject *Sender);
   void __fastcall naNumberToWordsFirstEnter(TObject *Sender);
+  void __fastcall naUsersFirstEnter(TObject *param_02);
+  void __fastcall naUsersLastExit(TObject *param_02);
 private:	// User declarations
   typedef TfmvDB inherited;
   void __fastcall LoadNodeAdmins();
