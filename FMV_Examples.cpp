@@ -18,6 +18,7 @@
 #pragma link "VCL_NNDBGrid"
 #pragma link "VCL_NNPageControl"
 #pragma link "VCL_NNNumberToWords"
+#pragma link "VCL_NNActionList"
 #pragma resource "*.dfm"
 TfmvExamples *fmvExamples;
 //---------------------------------------------------------------------------

@@ -24,6 +24,9 @@
 #include "VCL_NNPageControl.h"
 #include <Vcl.ToolWin.hpp>
 #include "VCL_NNNumberToWords.h"
+#include "VCL_NNActionList.h"
+#include <System.Actions.hpp>
+#include <Vcl.ActnList.hpp>
 //---------------------------------------------------------------------------
 class TfmvExamples : public TfmvDB
 {

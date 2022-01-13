@@ -129,31 +129,37 @@ inherited fmvExamples: TfmvExamples
         item
           Expanded = False
           FieldName = 'FIO'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'Note'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'INN'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'Passport'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'PassportKemVydan'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'PassportDate'
+          Width = 64
           Visible = True
         end>
     end
@@ -176,7 +182,7 @@ inherited fmvExamples: TfmvExamples
     Version = #3
     Connection = dmvExamples.conDB
   end
-  object naConfig: TNNVNodeAdmin
+  object naConfig: TNNVNodeAdmin [10]
     OnLoadNodes = naConfigLoadNodes
     OnEnter = naConfigEnter
     OnExit = naConfigExit
@@ -187,7 +193,7 @@ inherited fmvExamples: TfmvExamples
     Left = 88
     Top = 100
   end
-  object naColor: TNNVNodeAdmin
+  object naColor: TNNVNodeAdmin [11]
     OnLoadNodes = naColorLoadNodes
     OnEnter = naColorEnter
     OnExit = naColorExit
@@ -197,7 +203,7 @@ inherited fmvExamples: TfmvExamples
     Left = 116
     Top = 100
   end
-  object naNumberToWords: TNNVNodeAdmin
+  object naNumberToWords: TNNVNodeAdmin [12]
     OnLoadNodes = naNumberToWordsLoadNodes
     OnFirstEnter = naNumberToWordsFirstEnter
     OnEnter = naNumberToWordsEnter
@@ -209,7 +215,7 @@ inherited fmvExamples: TfmvExamples
     Left = 144
     Top = 100
   end
-  object naUsers: TNNVNodeAdmin
+  object naUsers: TNNVNodeAdmin [13]
     OnLoadNodes = naUsersLoadNodes
     OnFirstEnter = naUsersFirstEnter
     OnEnter = naUsersEnter
@@ -222,7 +228,7 @@ inherited fmvExamples: TfmvExamples
     Left = 172
     Top = 100
   end
-  object nwExamples: TNNVNumberToWords
+  object nwExamples: TNNVNumberToWords [14]
     OnChange = nwExamplesChange
     Left = 256
     Top = 101
