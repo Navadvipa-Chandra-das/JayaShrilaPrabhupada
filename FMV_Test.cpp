@@ -17,6 +17,7 @@
 #pragma link "VCL_NNFmRes"
 #pragma link "VCL_NNRightsManager"
 #pragma link "frxClass"
+#pragma link "VCL_NNActionList"
 #pragma resource "*.dfm"
 TfmTestVCL *fmTestVCL;
 //---------------------------------------------------------------------------

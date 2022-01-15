@@ -1,4 +1,5 @@
 inherited dmvExamples: TdmvExamples
+  OldCreateOrder = True
   Height = 290
   Width = 409
   inherited coData: TNNVConfig
@@ -37,12 +38,12 @@ inherited dmvExamples: TdmvExamples
     Left = 228
     Top = 116
   end
-  object quCommodKind: TFDQuery
+  object quCommodKind: TNNVQuery
     Connection = conDB
     Left = 88
     Top = 172
   end
-  object quUsers: TFDQuery
+  object quUsers: TNNVQuery
     Connection = conDB
     UpdateOptions.AssignedValues = [uvGeneratorName]
     UpdateOptions.GeneratorName = '"Users_UserID_seq"'
@@ -104,5 +105,10 @@ inherited dmvExamples: TdmvExamples
     DataSet = quUsers
     Left = 192
     Top = 220
+  end
+  object NNVQuery1: TNNVQuery
+    Connection = conDB
+    Left = 256
+    Top = 172
   end
 end

@@ -20,6 +20,7 @@ inherited fmvExamples: TfmvExamples
     Images = dmvNizhnyayaNavadvipa.ilDB
     Indent = 19
     TabOrder = 0
+    OnEnter = DBTreeEnter
     ActiveOrder = 0
   end
   object paConfig: TNNVPanel [2]
@@ -115,6 +116,7 @@ inherited fmvExamples: TfmvExamples
       TitleFont.Height = -11
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
+      OnEnter = DBGridEnter
       Columns = <
         item
           Expanded = False
@@ -170,9 +172,6 @@ inherited fmvExamples: TfmvExamples
       Height = 41
       Align = alTop
       TabOrder = 1
-      ExplicitLeft = 52
-      ExplicitTop = 172
-      ExplicitWidth = 185
     end
   end
   inherited fbRes: TNNVFlagBox

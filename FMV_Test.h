@@ -37,6 +37,7 @@
 #include <Vcl.ActnMan.hpp>
 #include <Vcl.PlatformDefaultStyleActnCtrls.hpp>
 #include <Vcl.Menus.hpp>
+#include "VCL_NNActionList.h"
 //---------------------------------------------------------------------------
 class TfmTestVCL : public TfmvRes
 {

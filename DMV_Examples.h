@@ -31,6 +31,7 @@
 #include <FireDAC.DApt.Intf.hpp>
 #include <FireDAC.DatS.hpp>
 #include <FireDAC.Stan.Param.hpp>
+#include "VCL_NNDBTreeView.h"
 //---------------------------------------------------------------------------
 class TdmvExamples : public TdmvRes
 {
@@ -40,8 +41,8 @@ __published:	// IDE-managed Components
   TFDPhysPgDriverLink *PgDrLinkDB;
   TNNVRightsManager *rmDB;
   TFDMoniRemoteClientLink *monDB;
-  TFDQuery *quCommodKind;
-  TFDQuery *quUsers;
+  TNNVQuery *quCommodKind;
+  TNNVQuery *quUsers;
   TIntegerField *quUsersUserID;
   TWideStringField *quUsersName;
   TWideStringField *quUsersFIO;
@@ -51,6 +52,7 @@ __published:	// IDE-managed Components
   TWideStringField *quUsersPassportKemVydan;
   TDateField *quUsersPassportDate;
   TDataSource *dsUsers;
+  TNNVQuery *NNVQuery1;
   void __fastcall dmvResCreate( TObject *Sender );
   void __fastcall conDBAfterConnect( TObject *Sender );
 private:	// User declarations
