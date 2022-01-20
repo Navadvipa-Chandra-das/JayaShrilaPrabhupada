@@ -52,13 +52,22 @@ __published:	// IDE-managed Components
   TWideStringField *quUsersPassportKemVydan;
   TDateField *quUsersPassportDate;
   TDataSource *dsUsers;
-  TNNVQuery *NNVQuery1;
+  TNNVQuery *quCommod;
+  TIntegerField *quCommodKindKindID;
+  TIntegerField *quCommodKindParentID;
+  TWideStringField *quCommodKindKind;
+  TIntegerField *quCommodKindSortNum;
+  TBooleanField *quCommodKindActual;
+  TBooleanField *quCommodKindInPrice;
+  TIntegerField *quCommodKindLevel;
+  TDataSource *dsCommodKind;
   void __fastcall dmvResCreate( TObject *Sender );
   void __fastcall conDBAfterConnect( TObject *Sender );
 private:	// User declarations
   typedef TdmvRes inherited;
 public:		// User declarations
   __fastcall TdmvExamples( TComponent* Owner );
+  void __fastcall SetNodeParamsCommodKind( TNNVNodeParams &NodeParams );
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TdmvExamples *dmvExamples;

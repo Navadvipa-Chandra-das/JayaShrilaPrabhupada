@@ -56,16 +56,7 @@ void __fastcall TfmvExamples::LoadNodeAdmins()
   naColor->LoadFromFiler( coRes->Filer );
   naNumberToWords->LoadFromFiler( coRes->Filer );
   naUsers->LoadFromFiler( coRes->Filer );
-}
-
-void __fastcall TfmvExamples::LoadTrees()
-{
-  tvExamples->LoadFromFiler( coRes->Filer );
-}
-
-void __fastcall TfmvExamples::LoadGrids()
-{
-  dgUsers->LoadFromFiler( coRes->Filer );
+  naCommodKind->LoadFromFiler( coRes->Filer );
 }
 
 void __fastcall TfmvExamples::SaveNodeAdmins()
@@ -74,6 +65,12 @@ void __fastcall TfmvExamples::SaveNodeAdmins()
   naColor->SaveToFiler( coRes->Filer );
   naNumberToWords->SaveToFiler( coRes->Filer );
   naUsers->SaveToFiler( coRes->Filer );
+  naCommodKind->SaveToFiler( coRes->Filer );
+}
+
+void __fastcall TfmvExamples::LoadTrees()
+{
+  tvExamples->LoadFromFiler( coRes->Filer );
 }
 
 void __fastcall TfmvExamples::SaveTrees()
@@ -81,9 +78,16 @@ void __fastcall TfmvExamples::SaveTrees()
   tvExamples->SaveToFiler( coRes->Filer );
 }
 
+void __fastcall TfmvExamples::LoadGrids()
+{
+  dgUsers->LoadFromFiler( coRes->Filer );
+  dgCommod->LoadFromFiler( coRes->Filer );
+}
+
 void __fastcall TfmvExamples::SaveGrids()
 {
   dgUsers->SaveToFiler( coRes->Filer );
+  dgCommod->SaveToFiler( coRes->Filer );
 }
 
 void __fastcall TfmvExamples::coResEndLoad( TObject *Sender )
@@ -107,7 +111,7 @@ void __fastcall TfmvExamples::naConfigExit( TObject *Sender )
 
 void __fastcall TfmvExamples::naConfigLoadNodes( TObject *Sender )
 {
-  naConfig->CurrentNode = ((TNNTreeNode*)( tvExamples->Items->Add( NULL, "Пример сохранения настроек" ) ));
+  naConfig->CurrentNode = ((TNNVTreeNode*)( tvExamples->Items->Add( NULL, "Пример сохранения настроек" ) ));
   naConfig->CurrentNode->NodeAdmin = naConfig;
   naConfig->CurrentNode->PK = NNV::EmptyPK;
   naConfig->CurrentNode->ImageIndex = (int)NNV::TImagesKind::imCurrency;
@@ -146,7 +150,7 @@ void __fastcall TfmvExamples::naColorExit(TObject *Sender )
 
 void __fastcall TfmvExamples::naColorLoadNodes(TObject *Sender )
 {
-  naColor->CurrentNode = ((TNNTreeNode*)( tvExamples->Items->Add( NULL, "Настройка цветов" ) ));
+  naColor->CurrentNode = ((TNNVTreeNode*)( tvExamples->Items->Add( NULL, "Настройка цветов" ) ));
   naColor->CurrentNode->NodeAdmin = naColor;
   naColor->CurrentNode->PK = NNV::EmptyPK;
   naColor->CurrentNode->ImageIndex = (int)NNV::TImagesKind::imCommod;
@@ -169,7 +173,7 @@ void __fastcall TfmvExamples::naNumberToWordsExit(TObject *Sender )
 
 void __fastcall TfmvExamples::naNumberToWordsLoadNodes(TObject *Sender )
 {
-  naNumberToWords->CurrentNode = ((TNNTreeNode*)( tvExamples->Items->Add( NULL, "Преобразование числа в словесную форму" ) ));
+  naNumberToWords->CurrentNode = ((TNNVTreeNode*)( tvExamples->Items->Add( NULL, "Преобразование числа в словесную форму" ) ));
   naNumberToWords->CurrentNode->NodeAdmin = naNumberToWords;
   naNumberToWords->CurrentNode->PK = NNV::EmptyPK;
   naNumberToWords->CurrentNode->ImageIndex = (int)NNV::TImagesKind::imPrimKind;
@@ -192,7 +196,7 @@ void __fastcall TfmvExamples::naUsersExit(TObject *Sender )
 
 void __fastcall TfmvExamples::naUsersLoadNodes(TObject *Sender )
 {
-  naUsers->CurrentNode = ((TNNTreeNode*)( tvExamples->Items->Add( NULL, "Пользователи" ) ));
+  naUsers->CurrentNode = ((TNNVTreeNode*)( tvExamples->Items->Add( NULL, "Пользователи" ) ));
   naUsers->CurrentNode->NodeAdmin = naUsers;
   naUsers->CurrentNode->PK = NNV::EmptyPK;
   naUsers->CurrentNode->ImageIndex = (int)NNV::TImagesKind::imCash;
@@ -211,29 +215,66 @@ void __fastcall TfmvExamples::edNumberToWordsKeyDown(TObject *Sender, WORD &Key,
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::nwExamplesChange(TObject *Sender)
+void __fastcall TfmvExamples::nwExamplesChange( TObject *Sender )
 {
   meNumberToWords->Lines->Text = nwExamples->Text;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::naNumberToWordsFirstEnter(TObject *Sender)
+void __fastcall TfmvExamples::naNumberToWordsFirstEnter( TObject *Sender )
 {
   nwExamples->Value = edNumberToWords->Text;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::naUsersFirstEnter(TObject *param_02)
+void __fastcall TfmvExamples::naUsersFirstEnter( TObject *Sender )
 {
-  dmvExamples->quUsers->Open();
+  dmvExamples->quUsers->CWOpen();
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::naUsersLastExit(TObject *param_02)
+void __fastcall TfmvExamples::naUsersLastExit( TObject *Sender )
 {
-  dmvExamples->quUsers->Close();
+  dmvExamples->quUsers->CWClose();
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TfmvExamples::naCommodKindLoadNodes(TObject *Sender)
+{
+  tvExamples->LoadNodeAdmin( NULL, naCommodKind );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExamples::naCommodKindEnter( TObject *Sender )
+{
+  DataSet = dmvExamples->quCommodKind;
+  paCommod->Visible = true;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExamples::naCommodKindExit( TObject *Sender )
+{
+  paCommod->Visible = false;
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TfmvExamples::naCommodKindFirstEnter( TObject *Sender )
+{
+  dmvExamples->quCommodKind->CWOpen();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExamples::naCommodKindLastExit(TObject *param_05)
+{
+  dmvExamples->quCommodKind->CWClose();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExamples::naCommodKindGetNodeParams( TObject *Sender, TNNVNodeParams &NodeParams )
+{
+  dmvExamples->SetNodeParamsCommodKind( NodeParams );
+}
+//---------------------------------------------------------------------------
 
 

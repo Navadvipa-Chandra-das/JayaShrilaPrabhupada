@@ -2,6 +2,7 @@ inherited fmvExamples: TfmvExamples
   ActiveControl = tvExamples
   Caption = #1055#1088#1080#1084#1077#1088#1099' '#1076#1083#1103' '#1073#1080#1073#1083#1080#1086#1090#1077#1082#1080' '#1053#1080#1078#1085#1103#1103' '#1053#1072#1074#1072#1076#1074#1080#1087#1072' VCL '#1074#1077#1088#1089#1080#1080
   Position = poDesigned
+  ExplicitTop = -198
   PixelsPerInch = 96
   TextHeight = 13
   object splExamples: TNNVSplitter [0]
@@ -66,7 +67,7 @@ inherited fmvExamples: TfmvExamples
       ReadOnly = True
       TabOrder = 0
     end
-    object NNVPanel1: TNNVPanel
+    object paNumberToWordsT: TNNVPanel
       Left = 0
       Top = 0
       Width = 993
@@ -110,6 +111,7 @@ inherited fmvExamples: TfmvExamples
       Height = 676
       Align = alClient
       DataSource = dmvExamples.dsUsers
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
@@ -131,37 +133,31 @@ inherited fmvExamples: TfmvExamples
         item
           Expanded = False
           FieldName = 'FIO'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'Note'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'INN'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'Passport'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'PassportKemVydan'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'PassportDate'
-          Width = 64
           Visible = True
         end>
     end
@@ -174,6 +170,104 @@ inherited fmvExamples: TfmvExamples
       TabOrder = 1
     end
   end
+  object paCommod: TNNVPanel [7]
+    Left = 192
+    Top = 57
+    Width = 993
+    Height = 717
+    Align = alClient
+    TabOrder = 6
+    Visible = False
+    ExplicitLeft = 243
+    ExplicitTop = 296
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+    object paCommodT: TNNVPanel
+      Left = 0
+      Top = 0
+      Width = 993
+      Height = 41
+      Align = alTop
+      TabOrder = 0
+      ExplicitLeft = 156
+      ExplicitTop = 264
+      ExplicitWidth = 185
+    end
+    object paCommodProp: TNNVPanel
+      Left = 0
+      Top = 352
+      Width = 993
+      Height = 365
+      Align = alBottom
+      TabOrder = 1
+      object NNVDBGrid1: TNNVDBGrid
+        Left = 0
+        Top = 0
+        Width = 993
+        Height = 365
+        Align = alClient
+        DataSource = dmvExamples.dsCommodKind
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        OnEnter = DBGridEnter
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'KindID'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'ParentID'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Kind'
+            Width = 130
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'SortNum'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Actual'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Level'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'InPrice'
+            Visible = True
+          end>
+      end
+    end
+    object dgCommod: TNNVDBGrid
+      Left = 0
+      Top = 41
+      Width = 993
+      Height = 311
+      Align = alClient
+      TabOrder = 2
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnEnter = DBGridEnter
+    end
+  end
   inherited fbRes: TNNVFlagBox
     caFree = True
   end
@@ -181,7 +275,7 @@ inherited fmvExamples: TfmvExamples
     Version = #3
     Connection = dmvExamples.conDB
   end
-  object naConfig: TNNVNodeAdmin [10]
+  object naConfig: TNNVNodeAdmin [11]
     OnLoadNodes = naConfigLoadNodes
     OnEnter = naConfigEnter
     OnExit = naConfigExit
@@ -192,7 +286,7 @@ inherited fmvExamples: TfmvExamples
     Left = 88
     Top = 100
   end
-  object naColor: TNNVNodeAdmin [11]
+  object naColor: TNNVNodeAdmin [12]
     OnLoadNodes = naColorLoadNodes
     OnEnter = naColorEnter
     OnExit = naColorExit
@@ -202,7 +296,7 @@ inherited fmvExamples: TfmvExamples
     Left = 116
     Top = 100
   end
-  object naNumberToWords: TNNVNodeAdmin [12]
+  object naNumberToWords: TNNVNodeAdmin [13]
     OnLoadNodes = naNumberToWordsLoadNodes
     OnFirstEnter = naNumberToWordsFirstEnter
     OnEnter = naNumberToWordsEnter
@@ -214,7 +308,7 @@ inherited fmvExamples: TfmvExamples
     Left = 144
     Top = 100
   end
-  object naUsers: TNNVNodeAdmin [13]
+  object naUsers: TNNVNodeAdmin [14]
     OnLoadNodes = naUsersLoadNodes
     OnFirstEnter = naUsersFirstEnter
     OnEnter = naUsersEnter
@@ -227,9 +321,23 @@ inherited fmvExamples: TfmvExamples
     Left = 172
     Top = 100
   end
-  object nwExamples: TNNVNumberToWords [14]
+  object nwExamples: TNNVNumberToWords [15]
     OnChange = nwExamplesChange
     Left = 256
+    Top = 101
+  end
+  object naCommodKind: TNNVNodeAdmin
+    OnLoadNodes = naCommodKindLoadNodes
+    OnGetNodeParams = naCommodKindGetNodeParams
+    OnFirstEnter = naCommodKindFirstEnter
+    OnEnter = naCommodKindEnter
+    OnExit = naCommodKindExit
+    OnLastExit = naCommodKindLastExit
+    DragDropKind = ddkSort
+    TreeView = tvExamples
+    LoadOrder = 4
+    DataSet = dmvExamples.quCommodKind
+    Left = 200
     Top = 101
   end
 end

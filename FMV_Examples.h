@@ -43,11 +43,17 @@ __published:	// IDE-managed Components
   TNNVPanel *paColor;
   TNNVPanel *paNumberToWords;
   TMemo *meNumberToWords;
-  TNNVPanel *NNVPanel1;
+  TNNVPanel *paNumberToWordsT;
   TLabel *laNumberToWords;
   TEdit *edNumberToWords;
   TNNVNumberToWords *nwExamples;
   TNNVPanel *paUsersT;
+  TNNVNodeAdmin *naCommodKind;
+  TNNVPanel *paCommod;
+  TNNVPanel *paCommodT;
+  TNNVPanel *paCommodProp;
+  TNNVDBGrid *dgCommod;
+  TNNVDBGrid *NNVDBGrid1;
   void __fastcall coResLoad( TObject *Sender );
   void __fastcall coResSave( TObject *Sender );
   void __fastcall coResEndLoad( TObject *Sender );
@@ -66,10 +72,17 @@ __published:	// IDE-managed Components
   void __fastcall naUsersExit(TObject *Sender );
   void __fastcall naUsersLoadNodes(TObject *Sender );
   void __fastcall edNumberToWordsKeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
-  void __fastcall nwExamplesChange(TObject *Sender);
-  void __fastcall naNumberToWordsFirstEnter(TObject *Sender);
-  void __fastcall naUsersFirstEnter(TObject *param_02);
-  void __fastcall naUsersLastExit(TObject *param_02);
+  void __fastcall nwExamplesChange( TObject *Sender );
+  void __fastcall naNumberToWordsFirstEnter( TObject *Sender);
+  void __fastcall naUsersFirstEnter( TObject *Sender );
+  void __fastcall naUsersLastExit( TObject *Sender );
+  void __fastcall naCommodKindLoadNodes( TObject *Sender );
+  void __fastcall naCommodKindEnter( TObject *Sender );
+  void __fastcall naCommodKindExit( TObject *Sender );
+  void __fastcall naCommodKindFirstEnter( TObject *Sender );
+  void __fastcall naCommodKindLastExit( TObject *Sender );
+  void __fastcall naCommodKindGetNodeParams( TObject *Sender, TNNVNodeParams &NodeParams );
+
 private:	// User declarations
   typedef TfmvDB inherited;
   void __fastcall LoadNodeAdmins();

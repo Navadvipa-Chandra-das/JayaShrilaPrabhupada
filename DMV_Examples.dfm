@@ -12,6 +12,8 @@ inherited dmvExamples: TdmvExamples
       'User_Name=Navadvipa Chandra das'
       'Server=127.0.0.1'
       'MonitorBy=Remote')
+    ConnectedStoredUsage = [auDesignTime]
+    Connected = True
     Transaction = trDB
     AfterConnect = conDBAfterConnect
     Left = 88
@@ -40,8 +42,75 @@ inherited dmvExamples: TdmvExamples
   end
   object quCommodKind: TNNVQuery
     Connection = conDB
+    UpdateOptions.AssignedValues = [uvGeneratorName]
+    UpdateOptions.GeneratorName = 'Kind_KindID_seq'
+    SQL.Strings = (
+      'with recursive r as ('
+      'select'
+      '  a."KindID"'
+      ', a."ParentID"'
+      ', a."Kind"'
+      ', a."SortNum"'
+      ', a."Actual"'
+      ', 1 as "Level"'
+      ', a."InPrice"'
+      'from'
+      '  "CommodKind" a'
+      'where'
+      '  a."KindID" = 1'
+      'union all'
+      'select'
+      '  a."KindID"'
+      ', a."ParentID"'
+      ', a."Kind"'
+      ', a."SortNum"'
+      ', a."Actual"'
+      ', r."Level" + 1 as "Level"'
+      ', a."InPrice"'
+      'from'
+      '  "CommodKind" a, r'
+      'where'
+      '  a."ParentID" = R."KindID" )'
+      'select * from R;')
     Left = 88
     Top = 172
+    object quCommodKindKindID: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'KindID'
+      Origin = '"KindID"'
+    end
+    object quCommodKindParentID: TIntegerField
+      FieldName = 'ParentID'
+      Origin = '"ParentID"'
+    end
+    object quCommodKindKind: TWideStringField
+      DisplayLabel = #1042#1080#1076
+      FieldName = 'Kind'
+      Origin = '"Kind"'
+      Size = 100
+    end
+    object quCommodKindSortNum: TIntegerField
+      DisplayLabel = #1055#1086#1083#1077' '#1089#1086#1088#1090#1080#1088#1086#1074#1082#1080
+      FieldName = 'SortNum'
+      Origin = '"SortNum"'
+    end
+    object quCommodKindActual: TBooleanField
+      DisplayLabel = #1040#1082#1090#1091#1072#1083#1100#1085#1086#1089#1090#1100
+      FieldName = 'Actual'
+      Origin = '"Actual"'
+    end
+    object quCommodKindLevel: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldKind = fkInternalCalc
+      FieldName = 'Level'
+      Origin = '"Level"'
+      ReadOnly = True
+    end
+    object quCommodKindInPrice: TBooleanField
+      DisplayLabel = #1042#1082#1083#1102#1095#1072#1090#1100' '#1074' '#1087#1088#1072#1081#1089
+      FieldName = 'InPrice'
+      Origin = '"InPrice"'
+    end
   end
   object quUsers: TNNVQuery
     Connection = conDB
@@ -67,36 +136,43 @@ inherited dmvExamples: TdmvExamples
       Origin = '"UserID"'
     end
     object quUsersName: TWideStringField
+      DisplayLabel = #1051#1086#1075#1080#1085' '#1080#1084#1103
       FieldName = 'Name'
       Origin = '"Name"'
       Size = 32
     end
     object quUsersFIO: TWideStringField
+      DisplayLabel = #1060#1072#1084#1080#1083#1080#1103' '#1048#1084#1103' '#1054#1090#1095#1077#1089#1090#1074#1086
       FieldName = 'FIO'
       Origin = '"FIO"'
       Size = 100
     end
     object quUsersNote: TWideStringField
+      DisplayLabel = #1050#1086#1084#1084#1077#1085#1090#1072#1088#1080#1081
       FieldName = 'Note'
       Origin = '"Note"'
       Size = 100
     end
     object quUsersINN: TWideStringField
+      DisplayLabel = #1048#1085#1076#1080#1074#1080#1076#1091#1072#1083#1100#1085#1099#1081' '#1085#1072#1083#1086#1075#1086#1074#1099#1081' '#1085#1086#1084#1077#1088
       FieldName = 'INN'
       Origin = '"INN"'
       Size = 12
     end
     object quUsersPassport: TWideStringField
+      DisplayLabel = #1055#1072#1089#1087#1086#1088#1090
       FieldName = 'Passport'
       Origin = '"Passport"'
       Size = 12
     end
     object quUsersPassportKemVydan: TWideStringField
+      DisplayLabel = #1050#1077#1084' '#1074#1099#1076#1072#1085' '#1087#1072#1089#1087#1086#1088#1090
       FieldName = 'PassportKemVydan'
       Origin = '"PassportKemVydan"'
       Size = 50
     end
     object quUsersPassportDate: TDateField
+      DisplayLabel = #1044#1072#1090#1072' '#1074#1099#1076#1072#1095#1080' '#1087#1072#1089#1087#1086#1088#1090#1072
       FieldName = 'PassportDate'
       Origin = '"PassportDate"'
     end
@@ -106,9 +182,14 @@ inherited dmvExamples: TdmvExamples
     Left = 192
     Top = 220
   end
-  object NNVQuery1: TNNVQuery
+  object quCommod: TNNVQuery
     Connection = conDB
     Left = 256
     Top = 172
+  end
+  object dsCommodKind: TDataSource
+    DataSet = quCommodKind
+    Left = 92
+    Top = 224
   end
 end
