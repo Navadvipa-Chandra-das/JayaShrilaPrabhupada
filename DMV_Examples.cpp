@@ -5,6 +5,7 @@
 #include "DMV_Examples.h"
 #include "FMV_LoginExamples.h"
 #include "VCL_NNDmvNizhnyayaNavadvipa.h"
+#include "FMV_ChangePasswordExamples.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma classgroup "Vcl.Controls.TControl"
@@ -48,4 +49,18 @@ void __fastcall TdmvExamples::SetNodeParamsCommodKind( TNNVNodeParams &NodeParam
     NodeParams.SelectedIndex = (int)NNV::TImagesKind::imCommodNA;
   }
 }
+
+void __fastcall TdmvExamples::conDBBeforeConnect( TObject *Sender )
+{
+  //conDB->Params->Password = NNV::CriptPassword( conDB->Params->Password );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TdmvExamples::ChangePassword()
+{
+  fmvChangePasswordExamples = new TfmvChangePasswordExamples( Application );
+  //fmvChangePassword->ShowFormLogin( conDB );
+  fmvChangePasswordExamples->ShowModal();
+}
+//---------------------------------------------------------------------------
 

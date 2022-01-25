@@ -2,7 +2,6 @@ inherited fmvExamples: TfmvExamples
   ActiveControl = tvExamples
   Caption = #1055#1088#1080#1084#1077#1088#1099' '#1076#1083#1103' '#1073#1080#1073#1083#1080#1086#1090#1077#1082#1080' '#1053#1080#1078#1085#1103#1103' '#1053#1072#1074#1072#1076#1074#1080#1087#1072' VCL '#1074#1077#1088#1089#1080#1080
   Position = poDesigned
-  ExplicitTop = -198
   PixelsPerInch = 96
   TextHeight = 13
   object splExamples: TNNVSplitter [0]
@@ -96,81 +95,7 @@ inherited fmvExamples: TfmvExamples
       end
     end
   end
-  object paUsers: TNNVPanel [6]
-    Left = 192
-    Top = 57
-    Width = 993
-    Height = 717
-    Align = alClient
-    TabOrder = 1
-    Visible = False
-    object dgUsers: TNNVDBGrid
-      Left = 0
-      Top = 41
-      Width = 993
-      Height = 676
-      Align = alClient
-      DataSource = dmvExamples.dsUsers
-      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
-      TabOrder = 0
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clWindowText
-      TitleFont.Height = -11
-      TitleFont.Name = 'Tahoma'
-      TitleFont.Style = []
-      OnEnter = DBGridEnter
-      Columns = <
-        item
-          Expanded = False
-          FieldName = 'UserID'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Name'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'FIO'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Note'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'INN'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Passport'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'PassportKemVydan'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'PassportDate'
-          Visible = True
-        end>
-    end
-    object paUsersT: TNNVPanel
-      Left = 0
-      Top = 0
-      Width = 993
-      Height = 41
-      Align = alTop
-      TabOrder = 1
-    end
-  end
-  object paCommod: TNNVPanel [7]
+  object paCommod: TNNVPanel [6]
     Left = 192
     Top = 57
     Width = 993
@@ -178,10 +103,6 @@ inherited fmvExamples: TfmvExamples
     Align = alClient
     TabOrder = 6
     Visible = False
-    ExplicitLeft = 243
-    ExplicitTop = 296
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object paCommodT: TNNVPanel
       Left = 0
       Top = 0
@@ -189,9 +110,6 @@ inherited fmvExamples: TfmvExamples
       Height = 41
       Align = alTop
       TabOrder = 0
-      ExplicitLeft = 156
-      ExplicitTop = 264
-      ExplicitWidth = 185
     end
     object paCommodProp: TNNVPanel
       Left = 0
@@ -268,6 +186,92 @@ inherited fmvExamples: TfmvExamples
       OnEnter = DBGridEnter
     end
   end
+  object paUsers: TNNVPanel [7]
+    Left = 192
+    Top = 57
+    Width = 993
+    Height = 717
+    Align = alClient
+    TabOrder = 1
+    Visible = False
+    object dgUsers: TNNVDBGrid
+      Left = 0
+      Top = 41
+      Width = 993
+      Height = 676
+      Align = alClient
+      DataSource = dmvExamples.dsUsers
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnEnter = DBGridEnter
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'UserID'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Name'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'FIO'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Note'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'INN'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Passport'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'PassportKemVydan'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'PassportDate'
+          Visible = True
+        end>
+    end
+    object paUsersT: TNNVPanel
+      Left = 0
+      Top = 0
+      Width = 993
+      Height = 41
+      Align = alTop
+      TabOrder = 1
+      object tbUsers: TToolBar
+        Left = 0
+        Top = 0
+        Width = 993
+        Height = 29
+        Caption = 'tbUsers'
+        Images = dmvNizhnyayaNavadvipa.ilDB
+        TabOrder = 0
+        ExplicitLeft = 104
+        ExplicitTop = 8
+        ExplicitWidth = 150
+      end
+    end
+  end
   inherited fbRes: TNNVFlagBox
     caFree = True
   end
@@ -325,6 +329,21 @@ inherited fmvExamples: TfmvExamples
     OnChange = nwExamplesChange
     Left = 256
     Top = 101
+  end
+  inherited alRes: TNNVActionList
+    object aNewUser: TAction
+      Category = 'Users'
+      Caption = 'aNewUser'
+      Hint = #1057#1086#1079#1076#1072#1090#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
+      ImageIndex = 100
+    end
+    object aSetUserPassord: TAction
+      Category = 'Users'
+      Caption = #1047#1072#1076#1072#1090#1100' '#1087#1072#1088#1086#1083#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1102
+      Hint = #1047#1072#1076#1072#1090#1100' '#1087#1072#1088#1086#1083#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1102
+      ImageIndex = 76
+      OnExecute = aSetUserPassordExecute
+    end
   end
   object naCommodKind: TNNVNodeAdmin
     OnLoadNodes = naCommodKindLoadNodes

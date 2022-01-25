@@ -34,3 +34,9 @@ void __fastcall TfmTestVCL::alExamplesExecute(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TfmTestVCL::aChangePassordExecute(TObject *Sender)
+{
+  dmvExamples->ChangePassword();
+}
+//---------------------------------------------------------------------------
+

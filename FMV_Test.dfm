@@ -11,7 +11,6 @@ inherited fmTestVCL: TfmTestVCL
   Menu = mmTest
   OldCreateOrder = True
   Position = poDesigned
-  ShowHint = True
   ExplicitWidth = 679
   ExplicitHeight = 120
   PixelsPerInch = 96
@@ -28,6 +27,11 @@ inherited fmTestVCL: TfmTestVCL
       Left = 0
       Top = 0
       Action = alExamples
+    end
+    object tbChangePassord: TToolButton
+      Left = 23
+      Top = 0
+      Action = aChangePassord
     end
   end
   inherited fbRes: TNNVFlagBox
@@ -92,6 +96,13 @@ inherited fmTestVCL: TfmTestVCL
       ImageIndex = 10
       ShortCut = 16497
       OnExecute = alExamplesExecute
+    end
+    object aChangePassord: TAction
+      Category = 'Forms'
+      Caption = #1057#1084#1077#1085#1080#1090#1100' '#1087#1072#1088#1086#1083#1100
+      Hint = #1057#1084#1077#1085#1080#1090#1100' '#1087#1072#1088#1086#1083#1100
+      ImageIndex = 76
+      OnExecute = aChangePassordExecute
     end
   end
   object mmTest: TMainMenu

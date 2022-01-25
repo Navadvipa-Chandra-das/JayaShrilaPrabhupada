@@ -54,6 +54,9 @@ __published:	// IDE-managed Components
   TNNVPanel *paCommodProp;
   TNNVDBGrid *dgCommod;
   TNNVDBGrid *NNVDBGrid1;
+  TToolBar *tbUsers;
+  TAction *aNewUser;
+  TAction *aSetUserPassord;
   void __fastcall coResLoad( TObject *Sender );
   void __fastcall coResSave( TObject *Sender );
   void __fastcall coResEndLoad( TObject *Sender );
@@ -82,6 +85,7 @@ __published:	// IDE-managed Components
   void __fastcall naCommodKindFirstEnter( TObject *Sender );
   void __fastcall naCommodKindLastExit( TObject *Sender );
   void __fastcall naCommodKindGetNodeParams( TObject *Sender, TNNVNodeParams &NodeParams );
+  void __fastcall aSetUserPassordExecute(TObject *Sender);
 
 private:	// User declarations
   typedef TfmvDB inherited;

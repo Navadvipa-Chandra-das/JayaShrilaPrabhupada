@@ -50,7 +50,10 @@ __published:	// IDE-managed Components
   TMainMenu *mmTest;
   TMenuItem *miTopExamples;
   TMenuItem *miExamples;
+  TAction *aChangePassord;
+  TToolButton *tbChangePassord;
   void __fastcall alExamplesExecute( TObject *Sender );
+  void __fastcall aChangePassordExecute(TObject *Sender);
 private:	// User declarations
   typedef TfmvRes inherited;
 public:		// User declarations

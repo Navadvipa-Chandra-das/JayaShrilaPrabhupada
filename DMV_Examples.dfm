@@ -1,6 +1,6 @@
 inherited dmvExamples: TdmvExamples
   OldCreateOrder = True
-  Height = 290
+  Height = 315
   Width = 409
   inherited coData: TNNVConfig
     Connection = conDB
@@ -16,6 +16,7 @@ inherited dmvExamples: TdmvExamples
     Connected = True
     Transaction = trDB
     AfterConnect = conDBAfterConnect
+    BeforeConnect = conDBBeforeConnect
     Left = 88
     Top = 116
   end
@@ -42,10 +43,11 @@ inherited dmvExamples: TdmvExamples
   end
   object quCommodKind: TNNVQuery
     Connection = conDB
-    UpdateOptions.AssignedValues = [uvGeneratorName]
+    UpdateOptions.AssignedValues = [uvEUpdate, uvUpdateChngFields, uvUpdateMode, uvGeneratorName, uvUpdateNonBaseFields]
     UpdateOptions.GeneratorName = 'Kind_KindID_seq'
+    UpdateOptions.UpdateTableName = 'public."CommodKind"'
+    UpdateObject = usCommodKind
     SQL.Strings = (
-      'with recursive r as ('
       'select'
       '  a."KindID"'
       ', a."ParentID"'
@@ -55,23 +57,7 @@ inherited dmvExamples: TdmvExamples
       ', 1 as "Level"'
       ', a."InPrice"'
       'from'
-      '  "CommodKind" a'
-      'where'
-      '  a."KindID" = 1'
-      'union all'
-      'select'
-      '  a."KindID"'
-      ', a."ParentID"'
-      ', a."Kind"'
-      ', a."SortNum"'
-      ', a."Actual"'
-      ', r."Level" + 1 as "Level"'
-      ', a."InPrice"'
-      'from'
-      '  "CommodKind" a, r'
-      'where'
-      '  a."ParentID" = R."KindID" )'
-      'select * from R;')
+      '  "CommodKind" a;')
     Left = 88
     Top = 172
     object quCommodKindKindID: TIntegerField
@@ -189,7 +175,21 @@ inherited dmvExamples: TdmvExamples
   end
   object dsCommodKind: TDataSource
     DataSet = quCommodKind
-    Left = 92
-    Top = 224
+    Left = 88
+    Top = 216
+  end
+  object usCommodKind: TFDUpdateSQL
+    Connection = conDB
+    ModifySQL.Strings = (
+      'update "CommodKind" set'
+      '  "ParentID" = :ParentID'
+      ', "Kind"     = :Kind'
+      ', "SortNum"  = :SortNum'
+      ', "Actual"   = :Actual'
+      ', "InPrice"  = :InPrice'
+      'where'
+      '  "KindID" = :KindID;')
+    Left = 88
+    Top = 256
   end
 end

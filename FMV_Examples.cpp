@@ -241,7 +241,7 @@ void __fastcall TfmvExamples::naUsersLastExit( TObject *Sender )
 
 void __fastcall TfmvExamples::naCommodKindLoadNodes(TObject *Sender)
 {
-  tvExamples->LoadNodeAdmin( NULL, naCommodKind );
+  tvExamples->LoadNodeAdmin( NULL, naCommodKind, 1 );
 }
 //---------------------------------------------------------------------------
 
@@ -277,4 +277,9 @@ void __fastcall TfmvExamples::naCommodKindGetNodeParams( TObject *Sender, TNNVNo
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TfmvExamples::aSetUserPassordExecute(TObject *Sender)
+{
+  ;
+}
+//---------------------------------------------------------------------------
 
