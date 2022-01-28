@@ -28,6 +28,8 @@ void __fastcall TdmvExamples::dmvResCreate( TObject *Sender )
 {
   fmvLoginExamples = new TfmvLoginExamples( Application );
   fmvLoginExamples->ShowFormLogin( conDB );
+  // чтение из базы данных возможно только после соединения с ней!
+  inherited::dmvResCreate( Sender );
 }
 //---------------------------------------------------------------------------
 
