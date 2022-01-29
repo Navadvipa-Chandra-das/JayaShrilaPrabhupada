@@ -157,6 +157,7 @@ inherited fmvExamples: TfmvExamples
           item
             Expanded = False
             FieldName = 'Actual'
+            Width = 64
             Visible = True
           end
           item
@@ -167,6 +168,7 @@ inherited fmvExamples: TfmvExamples
           item
             Expanded = False
             FieldName = 'InPrice'
+            Width = 64
             Visible = True
           end>
       end
@@ -223,31 +225,37 @@ inherited fmvExamples: TfmvExamples
         item
           Expanded = False
           FieldName = 'FIO'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'Note'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'INN'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'Passport'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'PassportKemVydan'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'PassportDate'
+          Width = 64
           Visible = True
         end>
     end
@@ -266,9 +274,6 @@ inherited fmvExamples: TfmvExamples
         Caption = 'tbUsers'
         Images = dmvNizhnyayaNavadvipa.ilDB
         TabOrder = 0
-        ExplicitLeft = 104
-        ExplicitTop = 8
-        ExplicitWidth = 150
       end
     end
   end
