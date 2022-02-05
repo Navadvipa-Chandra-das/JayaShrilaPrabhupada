@@ -7,8 +7,8 @@
 #include <Vcl.Controls.hpp>
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
-#include "VCL_NNFmvLogin.h"
-#include "VCL_NNFrmLogin.h"
+#include "VCL_NNFmLogin.h"
+#include "VCL_NNFrLogin.h"
 #include "VCL_NNConfig.h"
 #include "VCL_NNFlagBox.h"
 #include "VCL_NNRightsManager.h"

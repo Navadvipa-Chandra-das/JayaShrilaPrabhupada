@@ -6,6 +6,7 @@
 #include "FMV_Examples.h"
 #include "VCL_NNDmvNizhnyayaNavadvipa.h"
 #include "DMV_Examples.h"
+#include "VCL_NNFmChangePassword.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "VCL_NNConfig"
@@ -277,9 +278,25 @@ void __fastcall TfmvExamples::naCommodKindGetNodeParams( TObject *Sender, TNNVNo
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::aSetUserPassordExecute(TObject *Sender)
+void __fastcall TfmvExamples::aNewUserExecute( TObject *Sender )
 {
-  ;
+  dmvExamples->SetIsDeletedUser( false );
+  dmvNizhnyayaNavadvipa->CreateNewUser( dmvExamples->quUsersName->AsString
+                                      , dmvExamples->quUsersName->AsString );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExamples::aSetUserPassordExecute( TObject *Sender )
+{
+  fmvChangePassword = new TfmvChangePassword( Application );
+  fmvChangePassword->ShowChangePassword( dmvExamples->quUsersName->AsString );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExamples::aDeleteUserExecute(TObject *Sender)
+{
+  dmvExamples->SetIsDeletedUser( true );
+  dmvNizhnyayaNavadvipa->DeleteUser( dmvExamples->quUsersName->AsString );
 }
 //---------------------------------------------------------------------------
 

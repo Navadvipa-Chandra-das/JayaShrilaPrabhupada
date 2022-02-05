@@ -138,10 +138,28 @@
             <DependentOn>..\NizhnyayaNavadvipa\VCL_NNDmvNizhnyayaNavadvipa.h</DependentOn>
             <BuildOrder>9</BuildOrder>
         </CppCompile>
+        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFmChangePassword.cpp">
+            <Form>fmvChangePassword</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFmChangePassword.h</DependentOn>
+            <BuildOrder>12</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFmDateTime.cpp">
+            <Form>fmvDateTime</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFmDateTime.h</DependentOn>
+            <BuildOrder>13</BuildOrder>
+        </CppCompile>
         <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFmDB.cpp">
             <Form>fmvDB</Form>
             <FormType>dfm</FormType>
             <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFmDB.h</DependentOn>
+            <BuildOrder>10</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFmLogin.cpp">
+            <Form>fmvLogin</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFmLogin.h</DependentOn>
             <BuildOrder>10</BuildOrder>
         </CppCompile>
         <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFmRes.cpp">
@@ -150,23 +168,11 @@
             <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFmRes.h</DependentOn>
             <BuildOrder>1</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFmvChangePassord.cpp">
-            <Form>fmvChangePassword</Form>
-            <FormType>dfm</FormType>
-            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFmvChangePassord.h</DependentOn>
-            <BuildOrder>12</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFmvLogin.cpp">
-            <Form>fmvLogin</Form>
-            <FormType>dfm</FormType>
-            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFmvLogin.h</DependentOn>
-            <BuildOrder>10</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFrmLogin.cpp">
+        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFrLogin.cpp">
             <Form>frmLogin</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
-            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFrmLogin.h</DependentOn>
+            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFrLogin.h</DependentOn>
             <BuildOrder>0</BuildOrder>
         </CppCompile>
         <CppCompile Include="DMV_Examples.cpp">
@@ -175,12 +181,6 @@
             <DesignClass>TDataModule</DesignClass>
             <DependentOn>DMV_Examples.h</DependentOn>
             <BuildOrder>9</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="FMV_ChangePasswordExamples.cpp">
-            <Form>fmvChangePasswordExamples</Form>
-            <FormType>dfm</FormType>
-            <DependentOn>FMV_ChangePasswordExamples.h</DependentOn>
-            <BuildOrder>13</BuildOrder>
         </CppCompile>
         <CppCompile Include="FMV_Examples.cpp">
             <Form>fmvExamples</Form>
@@ -207,18 +207,18 @@
             <BuildOrder>1</BuildOrder>
             <PCH>true</PCH>
         </PCHCompile>
-        <FormResources Include="FMV_Examples.dfm"/>
-        <FormResources Include="FMV_ChangePasswordExamples.dfm"/>
-        <FormResources Include="DMV_Examples.dfm"/>
         <FormResources Include="FMV_LoginExamples.dfm"/>
+        <FormResources Include="FMV_Examples.dfm"/>
+        <FormResources Include="DMV_Examples.dfm"/>
         <FormResources Include="FMV_Test.dfm"/>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmDB.dfm"/>
+        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFrLogin.dfm"/>
+        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmChangePassword.dfm"/>
         <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNDmvNizhnyayaNavadvipa.dfm"/>
         <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNDmRes.dfm"/>
         <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmRes.dfm"/>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFrmLogin.dfm"/>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmvLogin.dfm"/>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmvChangePassord.dfm"/>
+        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmLogin.dfm"/>
+        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmDB.dfm"/>
+        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmDateTime.dfm"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -258,7 +258,7 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32c270.dll" Class="DependencyModule">
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32c270mt.dll" Class="DependencyModule">
                     <Platform Name="Win32">
                         <Overwrite>true</Overwrite>
                     </Platform>
@@ -273,13 +273,13 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile Condition="'$(UsingDelphiRTL)'=='true'" LocalName="$(BDS)\bin\borlndmm.dll" Class="DependencyModule">
-                    <Platform Name="Win32">
+                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx32\libcgcrtl.dylib" Class="DependencyModule">
+                    <Platform Name="OSX32">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx32\libcgcrtl.dylib" Class="DependencyModule">
-                    <Platform Name="OSX32">
+                <DeployFile Condition="'$(UsingDelphiRTL)'=='true'" LocalName="$(BDS)\bin\borlndmm.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -320,7 +320,7 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32c270mt.dll" Class="DependencyModule">
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32c270.dll" Class="DependencyModule">
                     <Platform Name="Win32">
                         <Overwrite>true</Overwrite>
                     </Platform>

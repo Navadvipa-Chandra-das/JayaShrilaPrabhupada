@@ -5,7 +5,7 @@
 #include "DMV_Examples.h"
 #include "FMV_LoginExamples.h"
 #include "VCL_NNDmvNizhnyayaNavadvipa.h"
-#include "FMV_ChangePasswordExamples.h"
+#include "VCL_NNFmChangePassword.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma classgroup "Vcl.Controls.TControl"
@@ -35,6 +35,7 @@ void __fastcall TdmvExamples::dmvResCreate( TObject *Sender )
 
 void __fastcall TdmvExamples::conDBAfterConnect( TObject *Sender )
 {
+  dmvNizhnyayaNavadvipa->Connection = conDB;
   //rmTest->Reload();
 }
 //---------------------------------------------------------------------------
@@ -54,15 +55,21 @@ void __fastcall TdmvExamples::SetNodeParamsCommodKind( TNNVNodeParams &NodeParam
 
 void __fastcall TdmvExamples::conDBBeforeConnect( TObject *Sender )
 {
-  //conDB->Params->Password = NNV::CriptPassword( conDB->Params->Password );
+  conDB->Params->Password = NNV::CriptPassword( conDB->Params->Password );
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TdmvExamples::ChangePassword()
 {
-  fmvChangePasswordExamples = new TfmvChangePasswordExamples( Application );
-  //fmvChangePassword->ShowFormLogin( conDB );
-  fmvChangePasswordExamples->ShowModal();
+  fmvChangePassword = new TfmvChangePassword( Application );
+  fmvChangePassword->ShowChangePassword( conDB->Params->UserName );
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TdmvExamples::SetIsDeletedUser( bool AIsDeleted )
+{
+  quUsers->Edit();
+  quUsersIsDeleted->AsBoolean = AIsDeleted;
+  quUsers->Post();
+}
 

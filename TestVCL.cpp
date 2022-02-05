@@ -8,14 +8,14 @@ USEFORM("FMV_LoginExamples.cpp", fmvLoginExamples);
 USEFORM("FMV_Examples.cpp", fmvExamples);
 USEFORM("DMV_Examples.cpp", dmvExamples); /* TDataModule: File Type */
 USEFORM("FMV_Test.cpp", fmTestVCL);
-USEFORM("..\NizhnyayaNavadvipa\VCL_NNFmDB.cpp", fmvDB);
+USEFORM("..\NizhnyayaNavadvipa\VCL_NNFrLogin.cpp", frmLogin); /* TFrame: File Type */
+USEFORM("..\NizhnyayaNavadvipa\VCL_NNFmChangePassword.cpp", fmvChangePassword);
 USEFORM("..\NizhnyayaNavadvipa\VCL_NNDmvNizhnyayaNavadvipa.cpp", dmvNizhnyayaNavadvipa); /* TDataModule: File Type */
 USEFORM("..\NizhnyayaNavadvipa\VCL_NNDmRes.cpp", dmvRes); /* TDataModule: File Type */
-USEFORM("..\NizhnyayaNavadvipa\VCL_NNFrmLogin.cpp", frmLogin); /* TFrame: File Type */
-USEFORM("..\NizhnyayaNavadvipa\VCL_NNFmvLogin.cpp", fmvLogin);
 USEFORM("..\NizhnyayaNavadvipa\VCL_NNFmRes.cpp", fmvRes);
-USEFORM("..\NizhnyayaNavadvipa\VCL_NNFmvChangePassord.cpp", fmvChangePassword);
-USEFORM("FMV_ChangePasswordExamples.cpp", fmvChangePasswordExamples);
+USEFORM("..\NizhnyayaNavadvipa\VCL_NNFmLogin.cpp", fmvLogin);
+USEFORM("..\NizhnyayaNavadvipa\VCL_NNFmDB.cpp", fmvDB);
+USEFORM("..\NizhnyayaNavadvipa\VCL_NNFmDateTime.cpp", fmvDateTime);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {

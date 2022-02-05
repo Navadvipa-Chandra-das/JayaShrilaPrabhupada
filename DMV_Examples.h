@@ -59,17 +59,19 @@ __published:	// IDE-managed Components
   TIntegerField *quCommodKindSortNum;
   TBooleanField *quCommodKindActual;
   TBooleanField *quCommodKindInPrice;
-  TIntegerField *quCommodKindLevel;
   TDataSource *dsCommodKind;
   TFDUpdateSQL *usCommodKind;
+  TBooleanField *quUsersIsDeleted;
   void __fastcall dmvResCreate( TObject *Sender );
   void __fastcall conDBAfterConnect( TObject *Sender );
   void __fastcall conDBBeforeConnect(TObject *Sender);
+
 private:	// User declarations
   typedef TdmvRes inherited;
 public:		// User declarations
   __fastcall TdmvExamples( TComponent* Owner );
   void __fastcall ChangePassword();
+  void __fastcall SetIsDeletedUser( bool AIsDeleted );
   void __fastcall SetNodeParamsCommodKind( TNNVNodeParams &NodeParams );
 };
 //---------------------------------------------------------------------------

@@ -157,7 +157,6 @@ inherited fmvExamples: TfmvExamples
           item
             Expanded = False
             FieldName = 'Actual'
-            Width = 64
             Visible = True
           end
           item
@@ -168,7 +167,6 @@ inherited fmvExamples: TfmvExamples
           item
             Expanded = False
             FieldName = 'InPrice'
-            Width = 64
             Visible = True
           end>
       end
@@ -218,6 +216,18 @@ inherited fmvExamples: TfmvExamples
           Visible = True
         end
         item
+          Alignment = taCenter
+          Expanded = False
+          FieldName = 'IsDeleted'
+          Font.Charset = SYMBOL_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Wingdings'
+          Font.Style = []
+          ReadOnly = True
+          Visible = True
+        end
+        item
           Expanded = False
           FieldName = 'Name'
           Visible = True
@@ -225,37 +235,31 @@ inherited fmvExamples: TfmvExamples
         item
           Expanded = False
           FieldName = 'FIO'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'Note'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'INN'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'Passport'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'PassportKemVydan'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'PassportDate'
-          Width = 64
           Visible = True
         end>
     end
@@ -274,15 +278,38 @@ inherited fmvExamples: TfmvExamples
         Caption = 'tbUsers'
         Images = dmvNizhnyayaNavadvipa.ilDB
         TabOrder = 0
+        object tbNewUser: TToolButton
+          Left = 0
+          Top = 0
+          Action = aNewUser
+        end
+        object tbSetUserPassord: TToolButton
+          Left = 23
+          Top = 0
+          Action = aSetUserPassord
+        end
+        object tbDeleteUser: TToolButton
+          Left = 46
+          Top = 0
+          Action = aDeleteUser
+        end
       end
     end
   end
   inherited fbRes: TNNVFlagBox
     caFree = True
+    Left = 88
+    Top = 152
   end
   inherited coRes: TNNVConfig
     Version = #3
     Connection = dmvExamples.conDB
+    Left = 116
+    Top = 152
+  end
+  inherited rrRes: TNNVRight
+    Left = 144
+    Top = 152
   end
   object naConfig: TNNVNodeAdmin [11]
     OnLoadNodes = naConfigLoadNodes
@@ -336,11 +363,14 @@ inherited fmvExamples: TfmvExamples
     Top = 101
   end
   inherited alRes: TNNVActionList
+    Left = 172
+    Top = 152
     object aNewUser: TAction
       Category = 'Users'
-      Caption = 'aNewUser'
+      Caption = #1057#1086#1079#1076#1072#1090#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
       Hint = #1057#1086#1079#1076#1072#1090#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
       ImageIndex = 100
+      OnExecute = aNewUserExecute
     end
     object aSetUserPassord: TAction
       Category = 'Users'
@@ -349,6 +379,17 @@ inherited fmvExamples: TfmvExamples
       ImageIndex = 76
       OnExecute = aSetUserPassordExecute
     end
+    object aDeleteUser: TAction
+      Category = 'Users'
+      Caption = #1059#1076#1072#1083#1080#1090#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
+      Hint = #1059#1076#1072#1083#1080#1090#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
+      ImageIndex = 177
+      OnExecute = aDeleteUserExecute
+    end
+  end
+  inherited dsData: TDataSource
+    Left = 200
+    Top = 152
   end
   object naCommodKind: TNNVNodeAdmin
     OnLoadNodes = naCommodKindLoadNodes

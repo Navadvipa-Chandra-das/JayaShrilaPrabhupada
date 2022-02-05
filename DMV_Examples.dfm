@@ -13,7 +13,6 @@ inherited dmvExamples: TdmvExamples
       'Server=127.0.0.1'
       'MonitorBy=Remote')
     ConnectedStoredUsage = [auDesignTime]
-    Connected = True
     Transaction = trDB
     AfterConnect = conDBAfterConnect
     BeforeConnect = conDBBeforeConnect
@@ -81,16 +80,10 @@ inherited dmvExamples: TdmvExamples
       Origin = '"SortNum"'
     end
     object quCommodKindActual: TBooleanField
+      DefaultExpression = 'True'
       DisplayLabel = #1040#1082#1090#1091#1072#1083#1100#1085#1086#1089#1090#1100
       FieldName = 'Actual'
       Origin = '"Actual"'
-    end
-    object quCommodKindLevel: TIntegerField
-      AutoGenerateValue = arDefault
-      FieldKind = fkInternalCalc
-      FieldName = 'Level'
-      Origin = '"Level"'
-      ReadOnly = True
     end
     object quCommodKindInPrice: TBooleanField
       DisplayLabel = #1042#1082#1083#1102#1095#1072#1090#1100' '#1074' '#1087#1088#1072#1081#1089
@@ -104,14 +97,15 @@ inherited dmvExamples: TdmvExamples
     UpdateOptions.GeneratorName = '"Users_UserID_seq"'
     SQL.Strings = (
       'SELECT'
-      '  a."UserID",'
-      '  a."Name",'
-      '  a."FIO",'
-      '  a."Note",'
-      '  a."INN",'
-      '  a."Passport",'
-      '  a."PassportKemVydan",'
-      '  a."PassportDate"'
+      '  a."UserID"'
+      ', a."IsDeleted"'
+      ', a."Name"'
+      ', a."FIO"'
+      ', a."Note"'
+      ', a."INN"'
+      ', a."Passport"'
+      ', a."PassportKemVydan"'
+      ', a."PassportDate"'
       'FROM'
       '  public."Users" a;')
     Left = 192
@@ -120,6 +114,14 @@ inherited dmvExamples: TdmvExamples
       AutoGenerateValue = arDefault
       FieldName = 'UserID'
       Origin = '"UserID"'
+    end
+    object quUsersIsDeleted: TBooleanField
+      DefaultExpression = 'True'
+      DisplayLabel = #1059#1076#1072#1083#1105#1085' '#1083#1080'?'
+      FieldName = 'IsDeleted'
+      Origin = '"IsDeleted"'
+      Required = True
+      OnGetText = BoolGalkaGetText
     end
     object quUsersName: TWideStringField
       DisplayLabel = #1051#1086#1075#1080#1085' '#1080#1084#1103

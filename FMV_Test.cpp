@@ -4,7 +4,7 @@
 #pragma hdrstop
 
 #include "FMV_Test.h"
-#include "VCL_NNFmvLogin.h"
+#include "VCL_NNFmLogin.h"
 #include "FMV_Examples.h"
 #include "VCL_NNDmvNizhnyayaNavadvipa.h"
 #include "DMV_Examples.h"
@@ -34,7 +34,7 @@ void __fastcall TfmTestVCL::alExamplesExecute(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmTestVCL::aChangePassordExecute(TObject *Sender)
+void __fastcall TfmTestVCL::aChangePassordExecute( TObject *Sender )
 {
   dmvExamples->ChangePassword();
 }
