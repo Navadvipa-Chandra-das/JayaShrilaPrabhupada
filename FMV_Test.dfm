@@ -26,12 +26,28 @@ inherited fmTestVCL: TfmTestVCL
     object tbExamples: TToolButton
       Left = 0
       Top = 0
-      Action = alExamples
+      Hint = #1055#1088#1080#1084#1077#1088#1099' '#1073#1080#1073#1083#1080#1086#1090#1077#1082#1080' '#1053#1080#1078#1085#1103#1103' '#1053#1072#1074#1072#1076#1074#1080#1087#1072
+      Caption = #1055#1088#1080#1084#1077#1088#1099
+      ImageIndex = 10
+      OnClick = alExamplesExecute
     end
     object tbChangePassord: TToolButton
       Left = 23
       Top = 0
-      Action = aChangePassord
+      Hint = #1057#1084#1077#1085#1080#1090#1100' '#1087#1072#1088#1086#1083#1100
+      Caption = #1057#1084#1077#1085#1080#1090#1100' '#1087#1072#1088#1086#1083#1100
+      ImageIndex = 76
+      OnClick = aChangePassordExecute
+    end
+    object tbFormListShow: TToolButton
+      Left = 46
+      Top = 0
+      Action = aFormListShow
+    end
+    object tbActionListSetup: TToolButton
+      Left = 69
+      Top = 0
+      Action = aActionListSetup
     end
   end
   inherited fbRes: TNNVFlagBox
@@ -47,6 +63,31 @@ inherited fmTestVCL: TfmTestVCL
   inherited rrRes: TNNVRight
     Left = 68
     Top = 8
+  end
+  inherited alRes: TNNVActionList
+    object alExamples: TAction [0]
+      Category = 'Forms'
+      Caption = #1055#1088#1080#1084#1077#1088#1099
+      Hint = #1055#1088#1080#1084#1077#1088#1099' '#1073#1080#1073#1083#1080#1086#1090#1077#1082#1080' '#1053#1080#1078#1085#1103#1103' '#1053#1072#1074#1072#1076#1074#1080#1087#1072
+      ImageIndex = 10
+      ShortCut = 16497
+      OnExecute = alExamplesExecute
+    end
+    object aChangePassord: TAction [1]
+      Category = 'Forms'
+      Caption = #1057#1084#1077#1085#1080#1090#1100' '#1087#1072#1088#1086#1083#1100
+      Hint = #1057#1084#1077#1085#1080#1090#1100' '#1087#1072#1088#1086#1083#1100
+      ImageIndex = 76
+      OnExecute = aChangePassordExecute
+    end
+    object aFormListShow: TAction [2]
+      Category = 'Forms'
+      Caption = #1054#1090#1082#1088#1099#1090#1099#1077' '#1086#1082#1085#1072
+      Hint = #1054#1090#1082#1088#1099#1090#1099#1077' '#1086#1082#1085#1072
+      ImageIndex = 19
+      ShortCut = 8315
+      OnExecute = aFormListShowExecute
+    end
   end
   object frxReport1: TfrxReport
     Version = '2022.1.3'
@@ -84,26 +125,6 @@ inherited fmTestVCL: TfmTestVCL
       MirrorMode = []
     end
   end
-  object alTest: TActionList
-    Images = dmvNizhnyayaNavadvipa.ilDB
-    Left = 176
-    Top = 8
-    object alExamples: TAction
-      Category = 'Forms'
-      Caption = #1055#1088#1080#1084#1077#1088#1099
-      Hint = #1055#1088#1080#1084#1077#1088#1099' '#1073#1080#1073#1083#1080#1086#1090#1077#1082#1080' '#1053#1080#1078#1085#1103#1103' '#1053#1072#1074#1072#1076#1074#1080#1087#1072
-      ImageIndex = 10
-      ShortCut = 16497
-      OnExecute = alExamplesExecute
-    end
-    object aChangePassord: TAction
-      Category = 'Forms'
-      Caption = #1057#1084#1077#1085#1080#1090#1100' '#1087#1072#1088#1086#1083#1100
-      Hint = #1057#1084#1077#1085#1080#1090#1100' '#1087#1072#1088#1086#1083#1100
-      ImageIndex = 76
-      OnExecute = aChangePassordExecute
-    end
-  end
   object mmTest: TMainMenu
     Images = dmvNizhnyayaNavadvipa.ilDB
     Left = 228
@@ -111,7 +132,11 @@ inherited fmTestVCL: TfmTestVCL
     object miTopExamples: TMenuItem
       Caption = '&'#1055#1088#1080#1084#1077#1088#1099
       object miExamples: TMenuItem
-        Action = alExamples
+        Caption = #1055#1088#1080#1084#1077#1088#1099
+        Hint = #1055#1088#1080#1084#1077#1088#1099' '#1073#1080#1073#1083#1080#1086#1090#1077#1082#1080' '#1053#1080#1078#1085#1103#1103' '#1053#1072#1074#1072#1076#1074#1080#1087#1072
+        ImageIndex = 10
+        ShortCut = 16497
+        OnClick = alExamplesExecute
       end
     end
   end

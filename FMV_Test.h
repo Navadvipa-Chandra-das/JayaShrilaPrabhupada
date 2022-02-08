@@ -45,15 +45,18 @@ __published:	// IDE-managed Components
   TfrxReport *frxReport1;
   TToolBar *tbrTest;
   TToolButton *tbExamples;
-  TActionList *alTest;
-  TAction *alExamples;
   TMainMenu *mmTest;
   TMenuItem *miTopExamples;
   TMenuItem *miExamples;
-  TAction *aChangePassord;
   TToolButton *tbChangePassord;
+  TAction *alExamples;
+  TAction *aChangePassord;
+  TAction *aFormListShow;
+  TToolButton *tbFormListShow;
+  TToolButton *tbActionListSetup;
   void __fastcall alExamplesExecute( TObject *Sender );
   void __fastcall aChangePassordExecute(TObject *Sender);
+  void __fastcall aFormListShowExecute(TObject *Sender);
 private:	// User declarations
   typedef TfmvRes inherited;
 public:		// User declarations

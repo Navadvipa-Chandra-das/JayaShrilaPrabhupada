@@ -40,3 +40,9 @@ void __fastcall TfmTestVCL::aChangePassordExecute( TObject *Sender )
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TfmTestVCL::aFormListShowExecute( TObject *Sender )
+{
+  NNV::FormListShow();
+}
+//---------------------------------------------------------------------------
+
