@@ -34,6 +34,18 @@ inherited fmvExamples: TfmvExamples
   end
   inherited paT: TNNVPanel
     TabOrder = 3
+    inherited pcDB: TNNVPageControl
+      inherited tsDB: TTabSheet
+        inherited tbrDBTree: TToolBar
+          ExplicitHeight = 29
+        end
+      end
+      inherited tsSetup: TTabSheet
+        inherited tbSetup: TToolBar
+          Height = 28
+        end
+      end
+    end
     inherited paTL: TNNVPanel
       inherited dbngDB: TDBNavigator
         Hints.Strings = ()
@@ -184,6 +196,7 @@ inherited fmvExamples: TfmvExamples
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
       OnEnter = DBGridEnter
+      OnExit = DBGridExit
     end
   end
   object paUsers: TNNVPanel [7]
@@ -209,6 +222,7 @@ inherited fmvExamples: TfmvExamples
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
       OnEnter = DBGridEnter
+      OnExit = DBGridExit
       Columns = <
         item
           Expanded = False
