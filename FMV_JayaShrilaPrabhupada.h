@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef FMV_TestH
-#define FMV_TestH
+#ifndef FMV_JayaShrilaPrabhupadaH
+#define FMV_JayaShrilaPrabhupadaH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <Vcl.Controls.hpp>
@@ -39,7 +39,7 @@
 #include <Vcl.Menus.hpp>
 #include "VCL_NNActionList.h"
 //---------------------------------------------------------------------------
-class TfmTestVCL : public TfmvRes
+class TfmvJayaShrilaPrabhupada : public TfmvRes
 {
 __published:	// IDE-managed Components
   TfrxReport *frxReport1;
@@ -60,9 +60,9 @@ __published:	// IDE-managed Components
 private:	// User declarations
   typedef TfmvRes inherited;
 public:		// User declarations
-  __fastcall TfmTestVCL( TComponent* Owner );
+  __fastcall TfmvJayaShrilaPrabhupada( TComponent* Owner );
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TfmTestVCL *fmTestVCL;
+extern PACKAGE TfmvJayaShrilaPrabhupada *fmvJayaShrilaPrabhupada;
 //---------------------------------------------------------------------------
 #endif

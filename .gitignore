@@ -41,3 +41,5 @@
 *.ils
 *.map
 *.tds
+__history\*.*
+__recovery\*.*

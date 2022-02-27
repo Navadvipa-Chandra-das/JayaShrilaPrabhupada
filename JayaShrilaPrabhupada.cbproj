@@ -4,7 +4,7 @@
         <ProjectVersion>19.2</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <AppType>Application</AppType>
-        <MainSource>TestVCL.cpp</MainSource>
+        <MainSource>JayaShrilaPrabhupada.cpp</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
@@ -62,7 +62,7 @@
         <Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
         <UWP_CppLogo44>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_44.png</UWP_CppLogo44>
         <UWP_CppLogo150>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_150.png</UWP_CppLogo150>
-        <SanitizedProjectName>TestVCL</SanitizedProjectName>
+        <SanitizedProjectName>JayaShrilaPrabhupada</SanitizedProjectName>
         <IncludePath>C:\PRG\FastReport VCL Trial\LIBD27\;..\NizhnyayaNavadvipa\;$(IncludePath)</IncludePath>
         <ILINK_LibraryPath>C:\PRG\FastReport VCL Trial\LIBD27\;..\NizhnyayaNavadvipa\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
     </PropertyGroup>
@@ -175,43 +175,43 @@
             <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFrLogin.h</DependentOn>
             <BuildOrder>0</BuildOrder>
         </CppCompile>
-        <CppCompile Include="DMV_Examples.cpp">
-            <Form>dmvExamples</Form>
+        <CppCompile Include="DMV_JayaShrilaPrabhupada.cpp">
+            <Form>dmvJayaShrilaPrabhupada</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
-            <DependentOn>DMV_Examples.h</DependentOn>
+            <DependentOn>DMV_JayaShrilaPrabhupada.h</DependentOn>
             <BuildOrder>9</BuildOrder>
         </CppCompile>
-        <CppCompile Include="FMV_Examples.cpp">
-            <Form>fmvExamples</Form>
+        <CppCompile Include="FMV_Explorer.cpp">
+            <Form>fmvExplorer</Form>
             <FormType>dfm</FormType>
-            <DependentOn>FMV_Examples.h</DependentOn>
+            <DependentOn>FMV_Explorer.h</DependentOn>
             <BuildOrder>10</BuildOrder>
         </CppCompile>
-        <CppCompile Include="FMV_LoginExamples.cpp">
-            <Form>fmvLoginExamples</Form>
+        <CppCompile Include="FMV_JayaShrilaPrabhupada.cpp">
+            <Form>fmvJayaShrilaPrabhupada</Form>
             <FormType>dfm</FormType>
-            <DependentOn>FMV_LoginExamples.h</DependentOn>
-            <BuildOrder>11</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="FMV_Test.cpp">
-            <Form>fmTestVCL</Form>
-            <FormType>dfm</FormType>
-            <DependentOn>FMV_Test.h</DependentOn>
+            <DependentOn>FMV_JayaShrilaPrabhupada.h</DependentOn>
             <BuildOrder>3</BuildOrder>
         </CppCompile>
-        <CppCompile Include="TestVCL.cpp">
+        <CppCompile Include="FMV_LoginJayaShrilaPrabhupada.cpp">
+            <Form>fmvLoginJayaShrilaPrabhupada</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>FMV_LoginJayaShrilaPrabhupada.h</DependentOn>
+            <BuildOrder>11</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="JayaShrilaPrabhupada.cpp">
             <BuildOrder>2</BuildOrder>
         </CppCompile>
-        <PCHCompile Include="TestVCLPCH1.h">
+        <PCHCompile Include="JayaShrilaPrabhupadaPCH1.h">
             <BuildOrder>1</BuildOrder>
             <PCH>true</PCH>
         </PCHCompile>
-        <FormResources Include="FMV_Examples.dfm"/>
-        <FormResources Include="DMV_Examples.dfm"/>
+        <FormResources Include="FMV_Explorer.dfm"/>
+        <FormResources Include="DMV_JayaShrilaPrabhupada.dfm"/>
         <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFrLogin.dfm"/>
-        <FormResources Include="FMV_LoginExamples.dfm"/>
-        <FormResources Include="FMV_Test.dfm"/>
+        <FormResources Include="FMV_JayaShrilaPrabhupada.dfm"/>
+        <FormResources Include="FMV_LoginJayaShrilaPrabhupada.dfm"/>
         <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmChangePassword.dfm"/>
         <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNDmvNizhnyayaNavadvipa.dfm"/>
         <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNDmRes.dfm"/>
@@ -243,7 +243,7 @@
                     <ProjectProperties Name="IndexFiles">False</ProjectProperties>
                 </ProjectProperties>
                 <Source>
-                    <Source Name="MainSource">TestVCL.cpp</Source>
+                    <Source Name="MainSource">JayaShrilaPrabhupada.cpp</Source>
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcboffice2k270.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
@@ -258,8 +258,13 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx64\libcgcrtl.dylib" Class="DependencyModule">
-                    <Platform Name="OSX64">
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32c270mt.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32270.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -270,11 +275,6 @@
                 </DeployFile>
                 <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx64\libcgstl.dylib" Class="DependencyModule">
                     <Platform Name="OSX64">
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32270.dll" Class="DependencyModule">
-                    <Platform Name="Win32">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -293,9 +293,15 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName=".\Win32\Debug\TestVCL.tds" Configuration="Debug" Class="DebugSymbols">
+                <DeployFile LocalName=".\Win32\Debug\JayaShrilaPrabhupada.tds" Configuration="Debug" Class="DebugSymbols">
                     <Platform Name="Win32">
-                        <RemoteName>TestVCL.tds</RemoteName>
+                        <RemoteName>JayaShrilaPrabhupada.tds</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName=".\Win32\Debug\JayaShrilaPrabhupada.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>JayaShrilaPrabhupada.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -309,14 +315,8 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName=".\Win32\Debug\TestVCL.exe" Configuration="Debug" Class="ProjectOutput">
-                    <Platform Name="Win32">
-                        <RemoteName>TestVCL.exe</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32c270mt.dll" Class="DependencyModule">
-                    <Platform Name="Win32">
+                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx64\libcgcrtl.dylib" Class="DependencyModule">
+                    <Platform Name="OSX64">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

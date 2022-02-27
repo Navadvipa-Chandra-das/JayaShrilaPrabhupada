@@ -3,7 +3,7 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "FMV_LoginExamples.h"
+#include "FMV_LoginJayaShrilaPrabhupada.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "VCL_NNFmLogin"
@@ -13,9 +13,9 @@
 #pragma link "VCL_NNRightsManager"
 #pragma link "VCL_NNActionList"
 #pragma resource "*.dfm"
-TfmvLoginExamples *fmvLoginExamples;
+TfmvLoginJayaShrilaPrabhupada *fmvLoginJayaShrilaPrabhupada;
 //---------------------------------------------------------------------------
-__fastcall TfmvLoginExamples::TfmvLoginExamples( TComponent* Owner )
+__fastcall TfmvLoginJayaShrilaPrabhupada::TfmvLoginJayaShrilaPrabhupada( TComponent* Owner )
   : inherited( Owner )
 {
 }

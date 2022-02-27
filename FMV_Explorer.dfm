@@ -1,4 +1,4 @@
-inherited fmvExamples: TfmvExamples
+inherited fmvExplorer: TfmvExplorer
   ActiveControl = tvExamples
   Caption = #1055#1088#1080#1084#1077#1088#1099' '#1076#1083#1103' '#1073#1080#1073#1083#1080#1086#1090#1077#1082#1080' '#1053#1080#1078#1085#1103#1103' '#1053#1072#1074#1072#1076#1074#1080#1087#1072' VCL '#1074#1077#1088#1089#1080#1080
   Position = poDesigned
@@ -35,14 +35,10 @@ inherited fmvExamples: TfmvExamples
   inherited paT: TNNVPanel
     TabOrder = 3
     inherited pcDB: TNNVPageControl
-      inherited tsDB: TTabSheet
-        inherited tbrDBTree: TToolBar
-          ExplicitHeight = 29
-        end
-      end
       inherited tsSetup: TTabSheet
         inherited tbSetup: TToolBar
           Height = 28
+          ExplicitHeight = 28
         end
       end
     end
@@ -136,7 +132,7 @@ inherited fmvExamples: TfmvExamples
         Width = 993
         Height = 365
         Align = alClient
-        DataSource = dmvExamples.dsCommodKind
+        DataSource = dmvJayaShrilaPrabhupada.dsCommodKind
         TabOrder = 0
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
@@ -169,6 +165,7 @@ inherited fmvExamples: TfmvExamples
           item
             Expanded = False
             FieldName = 'Actual'
+            Width = 64
             Visible = True
           end
           item
@@ -179,6 +176,7 @@ inherited fmvExamples: TfmvExamples
           item
             Expanded = False
             FieldName = 'InPrice'
+            Width = 64
             Visible = True
           end>
       end
@@ -213,7 +211,7 @@ inherited fmvExamples: TfmvExamples
       Width = 993
       Height = 676
       Align = alClient
-      DataSource = dmvExamples.dsUsers
+      DataSource = dmvJayaShrilaPrabhupada.dsUsers
       Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
@@ -244,36 +242,43 @@ inherited fmvExamples: TfmvExamples
         item
           Expanded = False
           FieldName = 'Name'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'FIO'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'Note'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'INN'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'Passport'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'PassportKemVydan'
+          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'PassportDate'
+          Width = 64
           Visible = True
         end>
     end
@@ -317,7 +322,7 @@ inherited fmvExamples: TfmvExamples
   end
   inherited coRes: TNNVConfig
     Version = #3
-    Connection = dmvExamples.conDB
+    Connection = dmvJayaShrilaPrabhupada.conDB
     Left = 116
     Top = 152
   end
@@ -415,7 +420,7 @@ inherited fmvExamples: TfmvExamples
     DragDropKind = ddkSort
     TreeView = tvExamples
     LoadOrder = 4
-    DataSet = dmvExamples.quCommodKind
+    DataSet = dmvJayaShrilaPrabhupada.quCommodKind
     Left = 200
     Top = 101
   end

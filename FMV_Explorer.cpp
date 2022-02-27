@@ -3,9 +3,9 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "FMV_Examples.h"
+#include "FMV_Explorer.h"
 #include "VCL_NNDmvNizhnyayaNavadvipa.h"
-#include "DMV_Examples.h"
+#include "DMV_JayaShrilaPrabhupada.h"
 #include "VCL_NNFmChangePassword.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
@@ -21,15 +21,15 @@
 #pragma link "VCL_NNNumberToWords"
 #pragma link "VCL_NNActionList"
 #pragma resource "*.dfm"
-TfmvExamples *fmvExamples;
+TfmvExplorer *fmvExplorer;
 //---------------------------------------------------------------------------
-__fastcall TfmvExamples::TfmvExamples(TComponent* Owner)
+__fastcall TfmvExplorer::TfmvExplorer(TComponent* Owner)
   : inherited( Owner )
 {
 }
 
 //---------------------------------------------------------------------------
-void __fastcall TfmvExamples::coResLoad(TObject *Sender)
+void __fastcall TfmvExplorer::coResLoad(TObject *Sender)
 {
   inherited::coResLoad( Sender );
   LoadNodeAdmins();
@@ -40,7 +40,7 @@ void __fastcall TfmvExamples::coResLoad(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::coResSave( TObject *Sender )
+void __fastcall TfmvExplorer::coResSave( TObject *Sender )
 {
   inherited::coResSave( Sender );
   SaveNodeAdmins();
@@ -51,7 +51,7 @@ void __fastcall TfmvExamples::coResSave( TObject *Sender )
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::LoadNodeAdmins()
+void __fastcall TfmvExplorer::LoadNodeAdmins()
 {
   naConfig->LoadFromFiler( coRes->Filer );
   naColor->LoadFromFiler( coRes->Filer );
@@ -60,7 +60,7 @@ void __fastcall TfmvExamples::LoadNodeAdmins()
   naCommodKind->LoadFromFiler( coRes->Filer );
 }
 
-void __fastcall TfmvExamples::SaveNodeAdmins()
+void __fastcall TfmvExplorer::SaveNodeAdmins()
 {
   naConfig->SaveToFiler( coRes->Filer );
   naColor->SaveToFiler( coRes->Filer );
@@ -69,48 +69,48 @@ void __fastcall TfmvExamples::SaveNodeAdmins()
   naCommodKind->SaveToFiler( coRes->Filer );
 }
 
-void __fastcall TfmvExamples::LoadTrees()
+void __fastcall TfmvExplorer::LoadTrees()
 {
   tvExamples->LoadFromFiler( coRes->Filer );
 }
 
-void __fastcall TfmvExamples::SaveTrees()
+void __fastcall TfmvExplorer::SaveTrees()
 {
   tvExamples->SaveToFiler( coRes->Filer );
 }
 
-void __fastcall TfmvExamples::LoadGrids()
+void __fastcall TfmvExplorer::LoadGrids()
 {
   dgUsers->LoadFromFiler( coRes->Filer );
   dgCommod->LoadFromFiler( coRes->Filer );
 }
 
-void __fastcall TfmvExamples::SaveGrids()
+void __fastcall TfmvExplorer::SaveGrids()
 {
   dgUsers->SaveToFiler( coRes->Filer );
   dgCommod->SaveToFiler( coRes->Filer );
 }
 
-void __fastcall TfmvExamples::coResEndLoad( TObject *Sender )
+void __fastcall TfmvExplorer::coResEndLoad( TObject *Sender )
 {
   splExamples->Left = tvExamples->Left + tvExamples->Width + 1;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::naConfigEnter( TObject *Sender )
+void __fastcall TfmvExplorer::naConfigEnter( TObject *Sender )
 {
   //DataSet = dmCurrency->odCurrency;
   paConfig->Visible = true;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::naConfigExit( TObject *Sender )
+void __fastcall TfmvExplorer::naConfigExit( TObject *Sender )
 {
   paConfig->Visible = false;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::naConfigLoadNodes( TObject *Sender )
+void __fastcall TfmvExplorer::naConfigLoadNodes( TObject *Sender )
 {
   naConfig->CurrentNode = ((TNNVTreeNode*)( tvExamples->Items->Add( NULL, "Пример сохранения настроек" ) ));
   naConfig->CurrentNode->NodeAdmin = naConfig;
@@ -121,7 +121,7 @@ void __fastcall TfmvExamples::naConfigLoadNodes( TObject *Sender )
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::FormCreate(TObject *Sender)
+void __fastcall TfmvExplorer::FormCreate(TObject *Sender)
 {
   inherited::FormCreate( Sender );
 
@@ -129,7 +129,7 @@ void __fastcall TfmvExamples::FormCreate(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::FormDestroy(TObject *Sender)
+void __fastcall TfmvExplorer::FormDestroy(TObject *Sender)
 {
   inherited::FormDestroy( Sender );
 
@@ -137,19 +137,19 @@ void __fastcall TfmvExamples::FormDestroy(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::naColorEnter(TObject *Sender )
+void __fastcall TfmvExplorer::naColorEnter(TObject *Sender )
 {
   paColor->Visible = true;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::naColorExit(TObject *Sender )
+void __fastcall TfmvExplorer::naColorExit(TObject *Sender )
 {
   paColor->Visible = false;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::naColorLoadNodes(TObject *Sender )
+void __fastcall TfmvExplorer::naColorLoadNodes(TObject *Sender )
 {
   naColor->CurrentNode = ((TNNVTreeNode*)( tvExamples->Items->Add( NULL, "Настройка цветов" ) ));
   naColor->CurrentNode->NodeAdmin = naColor;
@@ -160,19 +160,19 @@ void __fastcall TfmvExamples::naColorLoadNodes(TObject *Sender )
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::naNumberToWordsEnter(TObject *Sender )
+void __fastcall TfmvExplorer::naNumberToWordsEnter(TObject *Sender )
 {
   paNumberToWords->Visible = true;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::naNumberToWordsExit(TObject *Sender )
+void __fastcall TfmvExplorer::naNumberToWordsExit(TObject *Sender )
 {
   paNumberToWords->Visible = false;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::naNumberToWordsLoadNodes(TObject *Sender )
+void __fastcall TfmvExplorer::naNumberToWordsLoadNodes(TObject *Sender )
 {
   naNumberToWords->CurrentNode = ((TNNVTreeNode*)( tvExamples->Items->Add( NULL, "Преобразование числа в словесную форму" ) ));
   naNumberToWords->CurrentNode->NodeAdmin = naNumberToWords;
@@ -183,19 +183,19 @@ void __fastcall TfmvExamples::naNumberToWordsLoadNodes(TObject *Sender )
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::naUsersEnter(TObject *Sender )
+void __fastcall TfmvExplorer::naUsersEnter(TObject *Sender )
 {
   paUsers->Visible = true;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::naUsersExit(TObject *Sender )
+void __fastcall TfmvExplorer::naUsersExit(TObject *Sender )
 {
   paUsers->Visible = false;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::naUsersLoadNodes(TObject *Sender )
+void __fastcall TfmvExplorer::naUsersLoadNodes(TObject *Sender )
 {
   naUsers->CurrentNode = ((TNNVTreeNode*)( tvExamples->Items->Add( NULL, "Пользователи" ) ));
   naUsers->CurrentNode->NodeAdmin = naUsers;
@@ -206,7 +206,7 @@ void __fastcall TfmvExamples::naUsersLoadNodes(TObject *Sender )
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::edNumberToWordsKeyDown(TObject *Sender, WORD &Key, TShiftState Shift)
+void __fastcall TfmvExplorer::edNumberToWordsKeyDown(TObject *Sender, WORD &Key, TShiftState Shift)
 
 {
   if ( Key == VK_RETURN ) {
@@ -216,87 +216,87 @@ void __fastcall TfmvExamples::edNumberToWordsKeyDown(TObject *Sender, WORD &Key,
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::nwExamplesChange( TObject *Sender )
+void __fastcall TfmvExplorer::nwExamplesChange( TObject *Sender )
 {
   meNumberToWords->Lines->Text = nwExamples->Text;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::naNumberToWordsFirstEnter( TObject *Sender )
+void __fastcall TfmvExplorer::naNumberToWordsFirstEnter( TObject *Sender )
 {
   nwExamples->Value = edNumberToWords->Text;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::naUsersFirstEnter( TObject *Sender )
+void __fastcall TfmvExplorer::naUsersFirstEnter( TObject *Sender )
 {
-  dmvExamples->quUsers->CWOpen();
+  dmvJayaShrilaPrabhupada->quUsers->CWOpen();
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::naUsersLastExit( TObject *Sender )
+void __fastcall TfmvExplorer::naUsersLastExit( TObject *Sender )
 {
-  dmvExamples->quUsers->CWClose();
+  dmvJayaShrilaPrabhupada->quUsers->CWClose();
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::naCommodKindLoadNodes(TObject *Sender)
+void __fastcall TfmvExplorer::naCommodKindLoadNodes(TObject *Sender)
 {
   tvExamples->LoadNodeAdmin( NULL, naCommodKind, 1 );
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::naCommodKindEnter( TObject *Sender )
+void __fastcall TfmvExplorer::naCommodKindEnter( TObject *Sender )
 {
-  DataSet = dmvExamples->quCommodKind;
+  DataSet = dmvJayaShrilaPrabhupada->quCommodKind;
   paCommod->Visible = true;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::naCommodKindExit( TObject *Sender )
+void __fastcall TfmvExplorer::naCommodKindExit( TObject *Sender )
 {
   paCommod->Visible = false;
 }
 //---------------------------------------------------------------------------
 
 
-void __fastcall TfmvExamples::naCommodKindFirstEnter( TObject *Sender )
+void __fastcall TfmvExplorer::naCommodKindFirstEnter( TObject *Sender )
 {
-  dmvExamples->quCommodKind->CWOpen();
+  dmvJayaShrilaPrabhupada->quCommodKind->CWOpen();
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::naCommodKindLastExit(TObject *param_05)
+void __fastcall TfmvExplorer::naCommodKindLastExit(TObject *param_05)
 {
-  dmvExamples->quCommodKind->CWClose();
+  dmvJayaShrilaPrabhupada->quCommodKind->CWClose();
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::naCommodKindGetNodeParams( TObject *Sender, TNNVNodeParams &NodeParams )
+void __fastcall TfmvExplorer::naCommodKindGetNodeParams( TObject *Sender, TNNVNodeParams &NodeParams )
 {
-  dmvExamples->SetNodeParamsCommodKind( NodeParams );
+  dmvJayaShrilaPrabhupada->SetNodeParamsCommodKind( NodeParams );
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::aNewUserExecute( TObject *Sender )
+void __fastcall TfmvExplorer::aNewUserExecute( TObject *Sender )
 {
-  dmvExamples->SetIsDeletedUser( false );
-  dmvNizhnyayaNavadvipa->CreateNewUser( dmvExamples->quUsersName->AsString
-                                      , dmvExamples->quUsersName->AsString );
+  dmvJayaShrilaPrabhupada->SetIsDeletedUser( false );
+  dmvNizhnyayaNavadvipa->CreateNewUser( dmvJayaShrilaPrabhupada->quUsersName->AsString
+                                      , dmvJayaShrilaPrabhupada->quUsersName->AsString );
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::aSetUserPassordExecute( TObject *Sender )
+void __fastcall TfmvExplorer::aSetUserPassordExecute( TObject *Sender )
 {
   fmvChangePassword = new TfmvChangePassword( Application );
-  fmvChangePassword->ShowChangePassword( dmvExamples->quUsersName->AsString );
+  fmvChangePassword->ShowChangePassword( dmvJayaShrilaPrabhupada->quUsersName->AsString, this );
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExamples::aDeleteUserExecute(TObject *Sender)
+void __fastcall TfmvExplorer::aDeleteUserExecute(TObject *Sender)
 {
-  dmvExamples->SetIsDeletedUser( true );
-  dmvNizhnyayaNavadvipa->DeleteUser( dmvExamples->quUsersName->AsString );
+  dmvJayaShrilaPrabhupada->SetIsDeletedUser( true );
+  dmvNizhnyayaNavadvipa->DeleteUser( dmvJayaShrilaPrabhupada->quUsersName->AsString );
 }
 //---------------------------------------------------------------------------
 

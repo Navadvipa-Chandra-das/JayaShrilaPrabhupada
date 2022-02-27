@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef FMV_LoginExamplesH
-#define FMV_LoginExamplesH
+#ifndef FMV_LoginJayaShrilaPrabhupadaH
+#define FMV_LoginJayaShrilaPrabhupadaH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <Vcl.Controls.hpp>
@@ -16,15 +16,15 @@
 #include <System.Actions.hpp>
 #include <Vcl.ActnList.hpp>
 //---------------------------------------------------------------------------
-class TfmvLoginExamples : public TfmvLogin
+class TfmvLoginJayaShrilaPrabhupada : public TfmvLogin
 {
 __published:	// IDE-managed Components
 private:	// User declarations
   typedef TfmvLogin inherited;
 public:		// User declarations
-  __fastcall TfmvLoginExamples(TComponent* Owner);
+  __fastcall TfmvLoginJayaShrilaPrabhupada(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TfmvLoginExamples *fmvLoginExamples;
+extern PACKAGE TfmvLoginJayaShrilaPrabhupada *fmvLoginJayaShrilaPrabhupada;
 //---------------------------------------------------------------------------
 #endif

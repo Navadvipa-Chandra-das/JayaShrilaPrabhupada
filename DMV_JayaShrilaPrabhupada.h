@@ -33,7 +33,7 @@
 #include <FireDAC.Stan.Param.hpp>
 #include "VCL_NNDBTreeView.h"
 //---------------------------------------------------------------------------
-class TdmvExamples : public TdmvRes
+class TdmvJayaShrilaPrabhupada : public TdmvRes
 {
 __published:	// IDE-managed Components
   TFDConnection *conDB;
@@ -69,12 +69,12 @@ __published:	// IDE-managed Components
 private:	// User declarations
   typedef TdmvRes inherited;
 public:		// User declarations
-  __fastcall TdmvExamples( TComponent* Owner );
-  void __fastcall ChangePassword();
+  __fastcall TdmvJayaShrilaPrabhupada( TComponent* Owner );
+  void __fastcall ChangePassword( TComponent *ASenderForm );
   void __fastcall SetIsDeletedUser( bool AIsDeleted );
   void __fastcall SetNodeParamsCommodKind( TNNVNodeParams &NodeParams );
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TdmvExamples *dmvExamples;
+extern PACKAGE TdmvJayaShrilaPrabhupada *dmvJayaShrilaPrabhupada;
 //---------------------------------------------------------------------------
 #endif

@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef FMV_ExamplesH
-#define FMV_ExamplesH
+#ifndef FMV_ExplorerH
+#define FMV_ExplorerH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <Vcl.Controls.hpp>
@@ -28,7 +28,7 @@
 #include <System.Actions.hpp>
 #include <Vcl.ActnList.hpp>
 //---------------------------------------------------------------------------
-class TfmvExamples : public TfmvDB
+class TfmvExplorer : public TfmvDB
 {
 __published:	// IDE-managed Components
   TNNVDBTreeView *tvExamples;
@@ -102,9 +102,9 @@ private:	// User declarations
   void __fastcall SaveTrees();
   void __fastcall SaveGrids();
 public:		// User declarations
-  __fastcall TfmvExamples( TComponent* Owner );
+  __fastcall TfmvExplorer( TComponent* Owner );
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TfmvExamples *fmvExamples;
+extern PACKAGE TfmvExplorer *fmvExplorer;
 //---------------------------------------------------------------------------
 #endif

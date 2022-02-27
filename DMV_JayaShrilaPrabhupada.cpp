@@ -2,8 +2,8 @@
 
 #pragma hdrstop
 
-#include "DMV_Examples.h"
-#include "FMV_LoginExamples.h"
+#include "DMV_JayaShrilaPrabhupada.h"
+#include "FMV_LoginJayaShrilaPrabhupada.h"
 #include "VCL_NNDmvNizhnyayaNavadvipa.h"
 #include "VCL_NNFmChangePassword.h"
 //---------------------------------------------------------------------------
@@ -15,32 +15,32 @@
 #pragma link "VCL_NNDBTreeView"
 #pragma resource "*.dfm"
 
-TdmvExamples *dmvExamples;
+TdmvJayaShrilaPrabhupada *dmvJayaShrilaPrabhupada;
 
 //---------------------------------------------------------------------------
-__fastcall TdmvExamples::TdmvExamples( TComponent* Owner )
+__fastcall TdmvJayaShrilaPrabhupada::TdmvJayaShrilaPrabhupada( TComponent* Owner )
   : inherited( Owner )
 {
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TdmvExamples::dmvResCreate( TObject *Sender )
+void __fastcall TdmvJayaShrilaPrabhupada::dmvResCreate( TObject *Sender )
 {
-  fmvLoginExamples = new TfmvLoginExamples( Application );
-  fmvLoginExamples->ShowFormLogin( conDB );
+  fmvLoginJayaShrilaPrabhupada = new TfmvLoginJayaShrilaPrabhupada( Application );
+  fmvLoginJayaShrilaPrabhupada->ShowFormLogin( conDB );
   // чтение из базы данных возможно только после соединения с ней!
   inherited::dmvResCreate( Sender );
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TdmvExamples::conDBAfterConnect( TObject *Sender )
+void __fastcall TdmvJayaShrilaPrabhupada::conDBAfterConnect( TObject *Sender )
 {
   dmvNizhnyayaNavadvipa->Connection = conDB;
   //rmTest->Reload();
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TdmvExamples::SetNodeParamsCommodKind( TNNVNodeParams &NodeParams )
+void __fastcall TdmvJayaShrilaPrabhupada::SetNodeParamsCommodKind( TNNVNodeParams &NodeParams )
 {
   NodeParams.Text = quCommodKindKind->DisplayText;
 
@@ -53,20 +53,20 @@ void __fastcall TdmvExamples::SetNodeParamsCommodKind( TNNVNodeParams &NodeParam
   }
 }
 
-void __fastcall TdmvExamples::conDBBeforeConnect( TObject *Sender )
+void __fastcall TdmvJayaShrilaPrabhupada::conDBBeforeConnect( TObject *Sender )
 {
   conDB->Params->Password = NNV::CriptPassword( conDB->Params->Password );
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TdmvExamples::ChangePassword()
+void __fastcall TdmvJayaShrilaPrabhupada::ChangePassword( TComponent *ASenderForm )
 {
   fmvChangePassword = new TfmvChangePassword( Application );
-  fmvChangePassword->ShowChangePassword( conDB->Params->UserName );
+  fmvChangePassword->ShowChangePassword( conDB->Params->UserName, ASenderForm );
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TdmvExamples::SetIsDeletedUser( bool AIsDeleted )
+void __fastcall TdmvJayaShrilaPrabhupada::SetIsDeletedUser( bool AIsDeleted )
 {
   quUsers->Edit();
   quUsersIsDeleted->AsBoolean = AIsDeleted;

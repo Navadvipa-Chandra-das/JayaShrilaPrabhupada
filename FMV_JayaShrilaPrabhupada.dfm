@@ -1,7 +1,7 @@
-inherited fmTestVCL: TfmTestVCL
+inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
   Left = 13
   Top = 13
-  Caption = 'fmvTest'
+  Caption = #1044#1078#1072#1103' '#1064#1088#1080#1083#1072' '#1055#1088#1072#1073#1093#1091#1087#1072#1076#1072
   ClientHeight = 61
   ClientWidth = 663
   Constraints.MaxHeight = 120
