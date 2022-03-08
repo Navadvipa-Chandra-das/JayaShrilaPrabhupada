@@ -65,6 +65,7 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
     Top = 8
   end
   inherited alRes: TNNVActionList
+    Images = dmvNizhnyayaNavadvipa.ilDB
     object alExamples: TAction [0]
       Category = 'Forms'
       Caption = #1055#1088#1080#1084#1077#1088#1099
@@ -81,12 +82,54 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
       OnExecute = aChangePassordExecute
     end
     object aFormListShow: TAction [2]
-      Category = 'Forms'
+      Category = 'Windows'
       Caption = #1054#1090#1082#1088#1099#1090#1099#1077' '#1086#1082#1085#1072
       Hint = #1054#1090#1082#1088#1099#1090#1099#1077' '#1086#1082#1085#1072
       ImageIndex = 19
       ShortCut = 8315
       OnExecute = aFormListShowExecute
+    end
+    object aCurrentMain: TAction
+      Category = 'Windows'
+      Caption = #1043#1083#1072#1074#1085#1086#1077' - '#1090#1077#1082#1091#1097#1077#1077' '#1086#1082#1085#1086
+      Hint = #1043#1083#1072#1074#1085#1086#1077' - '#1090#1077#1082#1091#1097#1077#1077#13#10#1086#1082#1085#1086
+      ImageIndex = 23
+      ShortCut = 122
+      OnExecute = aCurrentMainExecute
+    end
+    object aFormPrev: TAction
+      Category = 'Windows'
+      Caption = #1055#1088#1077#1076#1099#1076#1091#1097#1077#1077' '#1086#1082#1085#1086
+      Hint = #1055#1088#1077#1076#1099#1076#1091#1097#1077#1077#13#10#1086#1082#1085#1086
+      ImageIndex = 97
+      ShortCut = 16506
+      OnExecute = aFormPrevExecute
+      OnUpdate = aFormPrevUpdate
+    end
+    object aFormNext: TAction
+      Category = 'Windows'
+      Caption = #1057#1083#1077#1076#1091#1102#1097#1077#1077' '#1086#1082#1085#1086
+      Hint = #1057#1083#1077#1076#1091#1102#1097#1077#1077' '#1086#1082#1085#1086
+      ImageIndex = 98
+      ShortCut = 16507
+      OnExecute = aFormNextExecute
+      OnUpdate = aFormNextUpdate
+    end
+    object aFormCyclePrev: TAction
+      Category = 'Windows'
+      Caption = #1055#1088#1077#1076#1099#1076#1091#1097#1077#1077' '#1086#1082#1085#1086' '#1087#1086' '#1094#1080#1082#1083#1091
+      Hint = #1055#1088#1077#1076#1099#1076#1091#1097#1077#1077' '#1086#1082#1085#1086#13#10#1087#1086' '#1094#1080#1082#1083#1091
+      ImageIndex = 146
+      ShortCut = 24696
+      OnExecute = aFormCyclePrevExecute
+    end
+    object aFormCycleNext: TAction
+      Category = 'Windows'
+      Caption = #1057#1083#1077#1076#1091#1102#1097#1077#1077' '#1086#1082#1085#1086' '#1087#1086' '#1094#1080#1082#1083#1091
+      Hint = #1057#1083#1077#1076#1091#1102#1097#1077#1077' '#1086#1082#1085#1086#13#10#1087#1086' '#1094#1080#1082#1083#1091
+      ImageIndex = 145
+      ShortCut = 16504
+      OnExecute = aFormCycleNextExecute
     end
   end
   object frxReport1: TfrxReport
@@ -129,14 +172,41 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
     Images = dmvNizhnyayaNavadvipa.ilDB
     Left = 228
     Top = 8
-    object miTopExamples: TMenuItem
-      Caption = '&'#1055#1088#1080#1084#1077#1088#1099
+    object miAction: TMenuItem
+      Caption = '&'#1044#1077#1081#1089#1090#1074#1080#1103
       object miExamples: TMenuItem
         Caption = #1055#1088#1080#1084#1077#1088#1099
         Hint = #1055#1088#1080#1084#1077#1088#1099' '#1073#1080#1073#1083#1080#1086#1090#1077#1082#1080' '#1053#1080#1078#1085#1103#1103' '#1053#1072#1074#1072#1076#1074#1080#1087#1072
         ImageIndex = 10
         ShortCut = 16497
         OnClick = alExamplesExecute
+      end
+      object miChangePassord: TMenuItem
+        Action = aChangePassord
+      end
+    end
+    object miWindows: TMenuItem
+      Caption = '&'#1054#1082#1085#1072
+      object miCurrentMain: TMenuItem
+        Action = aCurrentMain
+      end
+      object miFormPrev: TMenuItem
+        Action = aFormPrev
+      end
+      object miFormNext: TMenuItem
+        Action = aFormNext
+      end
+      object miFormCyclePrev: TMenuItem
+        Action = aFormCyclePrev
+      end
+      object miFormCycleNext: TMenuItem
+        Action = aFormCycleNext
+      end
+    end
+    object miSetup: TMenuItem
+      Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1072
+      object miActionListSetup: TMenuItem
+        Action = aActionListSetup
       end
     end
   end

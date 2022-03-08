@@ -46,7 +46,7 @@ __published:	// IDE-managed Components
   TToolBar *tbrTest;
   TToolButton *tbExamples;
   TMainMenu *mmTest;
-  TMenuItem *miTopExamples;
+  TMenuItem *miAction;
   TMenuItem *miExamples;
   TToolButton *tbChangePassord;
   TAction *alExamples;
@@ -54,11 +54,34 @@ __published:	// IDE-managed Components
   TAction *aFormListShow;
   TToolButton *tbFormListShow;
   TToolButton *tbActionListSetup;
+  TAction *aCurrentMain;
+  TAction *aFormPrev;
+  TAction *aFormNext;
+  TAction *aFormCyclePrev;
+  TAction *aFormCycleNext;
+  TMenuItem *miWindows;
+  TMenuItem *miCurrentMain;
+  TMenuItem *miFormPrev;
+  TMenuItem *miFormCyclePrev;
+  TMenuItem *miFormCycleNext;
+  TMenuItem *miSetup;
+  TMenuItem *miActionListSetup;
+  TMenuItem *miChangePassord;
+  TMenuItem *miFormNext;
   void __fastcall alExamplesExecute( TObject *Sender );
   void __fastcall aChangePassordExecute(TObject *Sender);
   void __fastcall aFormListShowExecute(TObject *Sender);
+  void __fastcall aCurrentMainExecute(TObject *Sender);
+  void __fastcall aFormPrevExecute(TObject *Sender);
+  void __fastcall aFormNextExecute(TObject *Sender);
+  void __fastcall aFormCyclePrevExecute(TObject *Sender);
+  void __fastcall aFormCycleNextExecute(TObject *Sender);
+  void __fastcall aFormPrevUpdate(TObject *Sender);
+  void __fastcall aFormNextUpdate(TObject *Sender);
 private:	// User declarations
   typedef TfmvRes inherited;
+protected:
+  virtual void __fastcall RegisterForHistory() {};
 public:		// User declarations
   __fastcall TfmvJayaShrilaPrabhupada( TComponent* Owner );
 };
