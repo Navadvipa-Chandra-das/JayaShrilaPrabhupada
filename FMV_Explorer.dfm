@@ -165,7 +165,6 @@ inherited fmvExplorer: TfmvExplorer
           item
             Expanded = False
             FieldName = 'Actual'
-            Width = 64
             Visible = True
           end
           item
@@ -176,7 +175,6 @@ inherited fmvExplorer: TfmvExplorer
           item
             Expanded = False
             FieldName = 'InPrice'
-            Width = 64
             Visible = True
           end>
       end
@@ -207,9 +205,9 @@ inherited fmvExplorer: TfmvExplorer
     Visible = False
     object dgUsers: TNNVDBGrid
       Left = 0
-      Top = 41
+      Top = 59
       Width = 993
-      Height = 676
+      Height = 658
       Align = alClient
       DataSource = dmvJayaShrilaPrabhupada.dsUsers
       Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
@@ -219,6 +217,7 @@ inherited fmvExplorer: TfmvExplorer
       TitleFont.Height = -11
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
+      OnEditButtonClick = dgUsersEditButtonClick
       OnEnter = DBGridEnter
       OnExit = DBGridExit
       Columns = <
@@ -242,43 +241,37 @@ inherited fmvExplorer: TfmvExplorer
         item
           Expanded = False
           FieldName = 'Name'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'FIO'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'Note'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'INN'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'Passport'
-          Width = 64
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'PassportKemVydan'
-          Width = 64
           Visible = True
         end
         item
+          ButtonStyle = cbsEllipsis
           Expanded = False
           FieldName = 'PassportDate'
-          Width = 64
           Visible = True
         end>
     end
@@ -286,7 +279,7 @@ inherited fmvExplorer: TfmvExplorer
       Left = 0
       Top = 0
       Width = 993
-      Height = 41
+      Height = 59
       Align = alTop
       TabOrder = 1
       object tbUsers: TToolBar
@@ -312,6 +305,34 @@ inherited fmvExplorer: TfmvExplorer
           Top = 0
           Action = aDeleteUser
         end
+      end
+      object NNVComboBoxDateTime1: TNNVComboBoxDateTime
+        Left = 332
+        Top = 32
+        Height = 21
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        MaxLength = 19
+        ParentFont = False
+        TabOrder = 1
+      end
+      object NNVDBComboBoxDateTime1: TNNVDBComboBoxDateTime
+        Left = 107
+        Top = 35
+        Height = 21
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        MaxLength = 19
+        ParentFont = False
+        TabOrder = 2
+        DataField = 'PassportDate'
+        DataSource = dmvJayaShrilaPrabhupada.dsUsers
       end
     end
   end
@@ -423,5 +444,12 @@ inherited fmvExplorer: TfmvExplorer
     DataSet = dmvJayaShrilaPrabhupada.quCommodKind
     Left = 200
     Top = 101
+  end
+  object ddUsers: TNNVDateTimeDialog
+    NeedTime = True
+    OnPrepare = ddUsersPrepare
+    OnExecute = ddUsersExecute
+    Left = 229
+    Top = 152
   end
 end

@@ -65,7 +65,8 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
     Top = 8
   end
   inherited alRes: TNNVActionList
-    Images = dmvNizhnyayaNavadvipa.ilDB
+    Left = 155
+    Top = 7
     object alExamples: TAction [0]
       Category = 'Forms'
       Caption = #1055#1088#1080#1084#1077#1088#1099
@@ -170,7 +171,7 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
   end
   object mmTest: TMainMenu
     Images = dmvNizhnyayaNavadvipa.ilDB
-    Left = 228
+    Left = 184
     Top = 8
     object miAction: TMenuItem
       Caption = '&'#1044#1077#1081#1089#1090#1074#1080#1103

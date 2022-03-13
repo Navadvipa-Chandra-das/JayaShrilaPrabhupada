@@ -65,6 +65,8 @@ __published:	// IDE-managed Components
   void __fastcall dmvResCreate( TObject *Sender );
   void __fastcall conDBAfterConnect( TObject *Sender );
   void __fastcall conDBBeforeConnect(TObject *Sender);
+  void __fastcall quUsersPassportDateSetText(TField *Sender, const UnicodeString Text);
+
 
 private:	// User declarations
   typedef TdmvRes inherited;

@@ -27,6 +27,12 @@
 #include "VCL_NNActionList.h"
 #include <System.Actions.hpp>
 #include <Vcl.ActnList.hpp>
+#include "VCL_NNDateTimeDialog.h"
+#include "VCL_NNDialogExec.h"
+#include "VCL_NNComboBox.h"
+#include "VCL_NNComboBoxDateTime.h"
+#include "VCL_NNDBComboBoxDateTime.h"
+#include <Vcl.Mask.hpp>
 //---------------------------------------------------------------------------
 class TfmvExplorer : public TfmvDB
 {
@@ -61,6 +67,9 @@ __published:	// IDE-managed Components
   TToolButton *tbSetUserPassord;
   TAction *aDeleteUser;
   TToolButton *tbDeleteUser;
+  TNNVDateTimeDialog *ddUsers;
+  TNNVComboBoxDateTime *NNVComboBoxDateTime1;
+  TNNVDBComboBoxDateTime *NNVDBComboBoxDateTime1;
   void __fastcall coResLoad( TObject *Sender );
   void __fastcall coResSave( TObject *Sender );
   void __fastcall coResEndLoad( TObject *Sender );
@@ -92,6 +101,9 @@ __published:	// IDE-managed Components
   void __fastcall aNewUserExecute( TObject *Sender );
   void __fastcall aSetUserPassordExecute( TObject *Sender );
   void __fastcall aDeleteUserExecute(TObject *Sender);
+  void __fastcall dgUsersEditButtonClick(TObject *Sender);
+  void __fastcall ddUsersPrepare(TObject *Sender);
+  void __fastcall ddUsersExecute(TObject *Sender);
 
 private:	// User declarations
   typedef TfmvDB inherited;

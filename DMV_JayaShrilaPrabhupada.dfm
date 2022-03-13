@@ -163,6 +163,7 @@ inherited dmvJayaShrilaPrabhupada: TdmvJayaShrilaPrabhupada
       DisplayLabel = #1044#1072#1090#1072' '#1074#1099#1076#1072#1095#1080' '#1087#1072#1089#1087#1086#1088#1090#1072
       FieldName = 'PassportDate'
       Origin = '"PassportDate"'
+      OnSetText = quUsersPassportDateSetText
     end
   end
   object dsUsers: TDataSource

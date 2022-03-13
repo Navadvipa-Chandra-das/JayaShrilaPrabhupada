@@ -20,6 +20,11 @@
 #pragma link "VCL_NNPageControl"
 #pragma link "VCL_NNNumberToWords"
 #pragma link "VCL_NNActionList"
+#pragma link "VCL_NNDialogExec"
+#pragma link "VCL_NNDateTimeDialog"
+#pragma link "VCL_NNComboBox"
+#pragma link "VCL_NNComboBoxDateTime"
+#pragma link "VCL_NNDBComboBoxDateTime"
 #pragma resource "*.dfm"
 TfmvExplorer *fmvExplorer;
 //---------------------------------------------------------------------------
@@ -300,5 +305,32 @@ void __fastcall TfmvExplorer::aDeleteUserExecute(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TfmvExplorer::dgUsersEditButtonClick(TObject *Sender)
+{
+  TField *f = dgUsers->SelectedField;
+  TRect R = dgUsers->CWRect;
 
+  if ( f->DataType == ftDate )
+    ddUsers->Execute( R, this );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::ddUsersPrepare( TObject *Sender )
+{
+  TField *f = dgUsers->SelectedField;
+  if ( f->IsNull )
+    ddUsers->DateTime = Now();
+  else
+    ddUsers->DateTime = f->AsDateTime;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::ddUsersExecute(TObject *Sender)
+{
+  dmvJayaShrilaPrabhupada->quUsers->CWCheckEditMode();
+  TField *f = dgUsers->SelectedField;
+  if ( !f->ReadOnly )
+    f->AsDateTime = ddUsers->DateTime;
+}
+//---------------------------------------------------------------------------
 

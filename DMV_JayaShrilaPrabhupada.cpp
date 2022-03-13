@@ -73,3 +73,11 @@ void __fastcall TdmvJayaShrilaPrabhupada::SetIsDeletedUser( bool AIsDeleted )
   quUsers->Post();
 }
 
+void __fastcall TdmvJayaShrilaPrabhupada::quUsersPassportDateSetText( TField *Sender,
+          const UnicodeString Text )
+{
+  ;
+}
+//---------------------------------------------------------------------------
+
+
