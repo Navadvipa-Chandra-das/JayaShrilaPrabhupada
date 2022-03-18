@@ -25,6 +25,7 @@
 #pragma link "VCL_NNComboBox"
 #pragma link "VCL_NNComboBoxDateTime"
 #pragma link "VCL_NNDBComboBoxDateTime"
+#pragma link "VCL_NNDBComboBox"
 #pragma resource "*.dfm"
 TfmvExplorer *fmvExplorer;
 //---------------------------------------------------------------------------
@@ -310,7 +311,9 @@ void __fastcall TfmvExplorer::dgUsersEditButtonClick(TObject *Sender)
   TField *f = dgUsers->SelectedField;
   TRect R = dgUsers->CWRect;
 
-  if ( f->DataType == ftDate )
+  ddUsers->NeedTime = f->DataType == ftTimeStamp;
+
+  if ( f->DataType == ftDate || f->DataType == ftTimeStamp )
     ddUsers->Execute( R, this );
 }
 //---------------------------------------------------------------------------

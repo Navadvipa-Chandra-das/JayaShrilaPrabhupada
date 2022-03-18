@@ -13,6 +13,7 @@ inherited dmvJayaShrilaPrabhupada: TdmvJayaShrilaPrabhupada
       'Server=127.0.0.1'
       'MonitorBy=Remote')
     ConnectedStoredUsage = [auDesignTime]
+    Connected = True
     Transaction = trDB
     AfterConnect = conDBAfterConnect
     BeforeConnect = conDBBeforeConnect
@@ -106,10 +107,12 @@ inherited dmvJayaShrilaPrabhupada: TdmvJayaShrilaPrabhupada
       ', a."Passport"'
       ', a."PassportKemVydan"'
       ', a."PassportDate"'
+      ', a."BirthDate"'
+      ', a."CreateDate"'
       'FROM'
       '  public."Users" a;')
-    Left = 192
-    Top = 172
+    Left = 191
+    Top = 171
     object quUsersUserID: TIntegerField
       AutoGenerateValue = arDefault
       FieldName = 'UserID'
@@ -163,7 +166,17 @@ inherited dmvJayaShrilaPrabhupada: TdmvJayaShrilaPrabhupada
       DisplayLabel = #1044#1072#1090#1072' '#1074#1099#1076#1072#1095#1080' '#1087#1072#1089#1087#1086#1088#1090#1072
       FieldName = 'PassportDate'
       Origin = '"PassportDate"'
-      OnSetText = quUsersPassportDateSetText
+      OnSetText = ClearDateSetText
+    end
+    object quUsersBirthDate: TSQLTimeStampField
+      FieldName = 'BirthDate'
+      Origin = '"BirthDate"'
+      OnSetText = ClearDateSetText
+    end
+    object quUsersCreateDate: TSQLTimeStampField
+      FieldName = 'CreateDate'
+      Origin = '"CreateDate"'
+      OnSetText = ClearDateSetText
     end
   end
   object dsUsers: TDataSource

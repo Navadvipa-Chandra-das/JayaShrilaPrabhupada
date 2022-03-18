@@ -20,7 +20,8 @@ inherited fmvExplorer: TfmvExplorer
     Images = dmvNizhnyayaNavadvipa.ilDB
     Indent = 19
     TabOrder = 0
-    OnEnter = DBTreeEnter
+    OnEnter = DBTreeViewEnter
+    OnExit = DBTreeViewExit
     ActiveOrder = 0
   end
   object paConfig: TNNVPanel [2]
@@ -34,14 +35,6 @@ inherited fmvExplorer: TfmvExplorer
   end
   inherited paT: TNNVPanel
     TabOrder = 3
-    inherited pcDB: TNNVPageControl
-      inherited tsSetup: TTabSheet
-        inherited tbSetup: TToolBar
-          Height = 28
-          ExplicitHeight = 28
-        end
-      end
-    end
     inherited paTL: TNNVPanel
       inherited dbngDB: TDBNavigator
         Hints.Strings = ()
@@ -273,6 +266,18 @@ inherited fmvExplorer: TfmvExplorer
           Expanded = False
           FieldName = 'PassportDate'
           Visible = True
+        end
+        item
+          ButtonStyle = cbsEllipsis
+          Expanded = False
+          FieldName = 'BirthDate'
+          Visible = True
+        end
+        item
+          ButtonStyle = cbsEllipsis
+          Expanded = False
+          FieldName = 'CreateDate'
+          Visible = True
         end>
     end
     object paUsersT: TNNVPanel
@@ -306,8 +311,8 @@ inherited fmvExplorer: TfmvExplorer
           Action = aDeleteUser
         end
       end
-      object NNVComboBoxDateTime1: TNNVComboBoxDateTime
-        Left = 332
+      object ddtUsersPassportDate: TNNVDBComboBoxDateTime
+        Left = 6
         Top = 32
         Height = 21
         Font.Charset = DEFAULT_CHARSET
@@ -318,10 +323,21 @@ inherited fmvExplorer: TfmvExplorer
         MaxLength = 19
         ParentFont = False
         TabOrder = 1
+        DataField = 'PassportDate'
+        DataSource = dmvJayaShrilaPrabhupada.dsUsers
       end
-      object NNVDBComboBoxDateTime1: TNNVDBComboBoxDateTime
-        Left = 107
-        Top = 35
+      object dcbUsersNote: TNNVDBComboBox
+        Left = 134
+        Top = 32
+        Width = 114
+        Height = 21
+        DataField = 'Note'
+        DataSource = dmvJayaShrilaPrabhupada.dsUsers
+        TabOrder = 2
+      end
+      object ddtUsersBirthDate: TNNVDBComboBoxDateTime
+        Left = 248
+        Top = 32
         Height = 21
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -330,8 +346,23 @@ inherited fmvExplorer: TfmvExplorer
         Font.Style = []
         MaxLength = 19
         ParentFont = False
-        TabOrder = 2
-        DataField = 'PassportDate'
+        TabOrder = 3
+        DataField = 'BirthDate'
+        DataSource = dmvJayaShrilaPrabhupada.dsUsers
+      end
+      object ddtUsersCreateDate: TNNVDBComboBoxDateTime
+        Left = 377
+        Top = 32
+        Height = 21
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        MaxLength = 19
+        ParentFont = False
+        TabOrder = 4
+        DataField = 'CreateDate'
         DataSource = dmvJayaShrilaPrabhupada.dsUsers
       end
     end
@@ -405,21 +436,21 @@ inherited fmvExplorer: TfmvExplorer
   inherited alRes: TNNVActionList
     Left = 172
     Top = 152
-    object aNewUser: TAction
+    object aNewUser: TAction [11]
       Category = 'Users'
       Caption = #1057#1086#1079#1076#1072#1090#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
       Hint = #1057#1086#1079#1076#1072#1090#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
       ImageIndex = 100
       OnExecute = aNewUserExecute
     end
-    object aSetUserPassord: TAction
+    object aSetUserPassord: TAction [12]
       Category = 'Users'
       Caption = #1047#1072#1076#1072#1090#1100' '#1087#1072#1088#1086#1083#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1102
       Hint = #1047#1072#1076#1072#1090#1100' '#1087#1072#1088#1086#1083#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1102
       ImageIndex = 76
       OnExecute = aSetUserPassordExecute
     end
-    object aDeleteUser: TAction
+    object aDeleteUser: TAction [13]
       Category = 'Users'
       Caption = #1059#1076#1072#1083#1080#1090#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
       Hint = #1059#1076#1072#1083#1080#1090#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103

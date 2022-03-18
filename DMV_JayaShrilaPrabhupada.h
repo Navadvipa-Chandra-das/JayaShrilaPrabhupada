@@ -62,6 +62,8 @@ __published:	// IDE-managed Components
   TDataSource *dsCommodKind;
   TFDUpdateSQL *usCommodKind;
   TBooleanField *quUsersIsDeleted;
+  TSQLTimeStampField *quUsersBirthDate;
+  TSQLTimeStampField *quUsersCreateDate;
   void __fastcall dmvResCreate( TObject *Sender );
   void __fastcall conDBAfterConnect( TObject *Sender );
   void __fastcall conDBBeforeConnect(TObject *Sender);

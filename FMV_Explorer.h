@@ -33,6 +33,7 @@
 #include "VCL_NNComboBoxDateTime.h"
 #include "VCL_NNDBComboBoxDateTime.h"
 #include <Vcl.Mask.hpp>
+#include "VCL_NNDBComboBox.h"
 //---------------------------------------------------------------------------
 class TfmvExplorer : public TfmvDB
 {
@@ -68,8 +69,10 @@ __published:	// IDE-managed Components
   TAction *aDeleteUser;
   TToolButton *tbDeleteUser;
   TNNVDateTimeDialog *ddUsers;
-  TNNVComboBoxDateTime *NNVComboBoxDateTime1;
-  TNNVDBComboBoxDateTime *NNVDBComboBoxDateTime1;
+  TNNVDBComboBoxDateTime *ddtUsersPassportDate;
+  TNNVDBComboBox *dcbUsersNote;
+  TNNVDBComboBoxDateTime *ddtUsersBirthDate;
+  TNNVDBComboBoxDateTime *ddtUsersCreateDate;
   void __fastcall coResLoad( TObject *Sender );
   void __fastcall coResSave( TObject *Sender );
   void __fastcall coResEndLoad( TObject *Sender );
