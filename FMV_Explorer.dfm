@@ -2,6 +2,7 @@ inherited fmvExplorer: TfmvExplorer
   ActiveControl = tvExamples
   Caption = #1055#1088#1080#1084#1077#1088#1099' '#1076#1083#1103' '#1073#1080#1073#1083#1080#1086#1090#1077#1082#1080' '#1053#1080#1078#1085#1103#1103' '#1053#1072#1074#1072#1076#1074#1080#1087#1072' VCL '#1074#1077#1088#1089#1080#1080
   Position = poDesigned
+  ExplicitLeft = -491
   PixelsPerInch = 96
   TextHeight = 13
   object splExamples: TNNVSplitter [0]
@@ -314,15 +315,17 @@ inherited fmvExplorer: TfmvExplorer
       object ddtUsersPassportDate: TNNVDBComboBoxDateTime
         Left = 6
         Top = 32
+        Width = 121
         Height = 21
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
-        MaxLength = 19
+        MaxLength = 10
         ParentFont = False
         TabOrder = 1
+        NeedTime = False
         DataField = 'PassportDate'
         DataSource = dmvJayaShrilaPrabhupada.dsUsers
       end
@@ -338,6 +341,7 @@ inherited fmvExplorer: TfmvExplorer
       object ddtUsersBirthDate: TNNVDBComboBoxDateTime
         Left = 248
         Top = 32
+        Width = 121
         Height = 21
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -353,6 +357,7 @@ inherited fmvExplorer: TfmvExplorer
       object ddtUsersCreateDate: TNNVDBComboBoxDateTime
         Left = 377
         Top = 32
+        Width = 121
         Height = 21
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -365,10 +370,26 @@ inherited fmvExplorer: TfmvExplorer
         DataField = 'CreateDate'
         DataSource = dmvJayaShrilaPrabhupada.dsUsers
       end
+      object NNVComboBoxDateTime1: TNNVComboBoxDateTime
+        Left = 503
+        Top = 32
+        Width = 183
+        Height = 21
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        MaxLength = 19
+        ParentFont = False
+        TabOrder = 5
+        IsUserCanChangeCheckStyle = True
+      end
     end
   end
   inherited fbRes: TNNVFlagBox
     caFree = True
+    ShowInWindowList = True
     Left = 88
     Top = 152
   end

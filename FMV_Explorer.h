@@ -73,6 +73,7 @@ __published:	// IDE-managed Components
   TNNVDBComboBox *dcbUsersNote;
   TNNVDBComboBoxDateTime *ddtUsersBirthDate;
   TNNVDBComboBoxDateTime *ddtUsersCreateDate;
+  TNNVComboBoxDateTime *NNVComboBoxDateTime1;
   void __fastcall coResLoad( TObject *Sender );
   void __fastcall coResSave( TObject *Sender );
   void __fastcall coResEndLoad( TObject *Sender );

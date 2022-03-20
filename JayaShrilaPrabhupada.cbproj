@@ -207,18 +207,18 @@
             <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFrLogin.h</DependentOn>
             <BuildOrder>0</BuildOrder>
         </CppCompile>
-        <FormResources Include="FMV_Explorer.dfm"/>
-        <FormResources Include="DMV_JayaShrilaPrabhupada.dfm"/>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFrLogin.dfm"/>
-        <FormResources Include="FMV_JayaShrilaPrabhupada.dfm"/>
-        <FormResources Include="FMV_LoginJayaShrilaPrabhupada.dfm"/>
+        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmDateTime.dfm"/>
         <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmChangePassword.dfm"/>
         <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNDmvNizhnyayaNavadvipa.dfm"/>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNDmRes.dfm"/>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmDateTime.dfm"/>
+        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmDB.dfm"/>
+        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFrLogin.dfm"/>
         <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmRes.dfm"/>
         <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmLogin.dfm"/>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmDB.dfm"/>
+        <FormResources Include="FMV_JayaShrilaPrabhupada.dfm"/>
+        <FormResources Include="FMV_Explorer.dfm"/>
+        <FormResources Include="DMV_JayaShrilaPrabhupada.dfm"/>
+        <FormResources Include="FMV_LoginJayaShrilaPrabhupada.dfm"/>
+        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNDmRes.dfm"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -258,8 +258,13 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32c270.dll" Class="DependencyModule">
-                    <Platform Name="Win32">
+                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx64\libcgcrtl.dylib" Class="DependencyModule">
+                    <Platform Name="OSX64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx64\libcgstl.dylib" Class="DependencyModule">
+                    <Platform Name="OSX64">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -275,11 +280,6 @@
                 </DeployFile>
                 <DeployFile Condition="'$(UsingDelphiRTL)'=='true'" LocalName="$(BDS)\bin\borlndmm.dll" Class="DependencyModule">
                     <Platform Name="Win32">
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx64\libcgstl.dylib" Class="DependencyModule">
-                    <Platform Name="OSX64">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -320,8 +320,8 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx64\libcgcrtl.dylib" Class="DependencyModule">
-                    <Platform Name="OSX64">
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32c270.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
