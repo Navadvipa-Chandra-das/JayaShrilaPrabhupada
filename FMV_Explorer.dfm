@@ -2,7 +2,6 @@ inherited fmvExplorer: TfmvExplorer
   ActiveControl = tvExamples
   Caption = #1055#1088#1080#1084#1077#1088#1099' '#1076#1083#1103' '#1073#1080#1073#1083#1080#1086#1090#1077#1082#1080' '#1053#1080#1078#1085#1103#1103' '#1053#1072#1074#1072#1076#1074#1080#1087#1072' VCL '#1074#1077#1088#1089#1080#1080
   Position = poDesigned
-  ExplicitLeft = -491
   PixelsPerInch = 96
   TextHeight = 13
   object splExamples: TNNVSplitter [0]
@@ -126,7 +125,7 @@ inherited fmvExplorer: TfmvExplorer
         Width = 993
         Height = 365
         Align = alClient
-        DataSource = dmvJayaShrilaPrabhupada.dsCommodKind
+        DataSource = dmvNizhnyayaNavadvipa.dsCommodKind
         TabOrder = 0
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
@@ -203,7 +202,7 @@ inherited fmvExplorer: TfmvExplorer
       Width = 993
       Height = 658
       Align = alClient
-      DataSource = dmvJayaShrilaPrabhupada.dsUsers
+      DataSource = dmvNizhnyayaNavadvipa.dsUsers
       Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
@@ -327,7 +326,7 @@ inherited fmvExplorer: TfmvExplorer
         TabOrder = 1
         NeedTime = False
         DataField = 'PassportDate'
-        DataSource = dmvJayaShrilaPrabhupada.dsUsers
+        DataSource = dmvNizhnyayaNavadvipa.dsUsers
       end
       object dcbUsersNote: TNNVDBComboBox
         Left = 134
@@ -335,7 +334,7 @@ inherited fmvExplorer: TfmvExplorer
         Width = 114
         Height = 21
         DataField = 'Note'
-        DataSource = dmvJayaShrilaPrabhupada.dsUsers
+        DataSource = dmvNizhnyayaNavadvipa.dsUsers
         TabOrder = 2
       end
       object ddtUsersBirthDate: TNNVDBComboBoxDateTime
@@ -352,7 +351,7 @@ inherited fmvExplorer: TfmvExplorer
         ParentFont = False
         TabOrder = 3
         DataField = 'BirthDate'
-        DataSource = dmvJayaShrilaPrabhupada.dsUsers
+        DataSource = dmvNizhnyayaNavadvipa.dsUsers
       end
       object ddtUsersCreateDate: TNNVDBComboBoxDateTime
         Left = 377
@@ -368,7 +367,7 @@ inherited fmvExplorer: TfmvExplorer
         ParentFont = False
         TabOrder = 4
         DataField = 'CreateDate'
-        DataSource = dmvJayaShrilaPrabhupada.dsUsers
+        DataSource = dmvNizhnyayaNavadvipa.dsUsers
       end
       object NNVComboBoxDateTime1: TNNVComboBoxDateTime
         Left = 503
@@ -395,7 +394,7 @@ inherited fmvExplorer: TfmvExplorer
   end
   inherited coRes: TNNVConfig
     Version = #3
-    Connection = dmvJayaShrilaPrabhupada.conDB
+    Connection = dmvNizhnyayaNavadvipa.conDB
     Left = 116
     Top = 152
   end
@@ -493,7 +492,7 @@ inherited fmvExplorer: TfmvExplorer
     DragDropKind = ddkSort
     TreeView = tvExamples
     LoadOrder = 4
-    DataSet = dmvJayaShrilaPrabhupada.quCommodKind
+    DataSet = dmvNizhnyayaNavadvipa.quCommodKind
     Left = 200
     Top = 101
   end

@@ -36,47 +36,11 @@
 class TdmvJayaShrilaPrabhupada : public TdmvRes
 {
 __published:	// IDE-managed Components
-  TFDConnection *conDB;
-  TFDTransaction *trDB;
-  TFDPhysPgDriverLink *PgDrLinkDB;
-  TNNVRightsManager *rmDB;
-  TFDMoniRemoteClientLink *monDB;
-  TNNVQuery *quCommodKind;
-  TNNVQuery *quUsers;
-  TIntegerField *quUsersUserID;
-  TWideStringField *quUsersName;
-  TWideStringField *quUsersFIO;
-  TWideStringField *quUsersNote;
-  TWideStringField *quUsersINN;
-  TWideStringField *quUsersPassport;
-  TWideStringField *quUsersPassportKemVydan;
-  TDateField *quUsersPassportDate;
-  TDataSource *dsUsers;
-  TNNVQuery *quCommod;
-  TIntegerField *quCommodKindKindID;
-  TIntegerField *quCommodKindParentID;
-  TWideStringField *quCommodKindKind;
-  TIntegerField *quCommodKindSortNum;
-  TBooleanField *quCommodKindActual;
-  TBooleanField *quCommodKindInPrice;
-  TDataSource *dsCommodKind;
-  TFDUpdateSQL *usCommodKind;
-  TBooleanField *quUsersIsDeleted;
-  TSQLTimeStampField *quUsersBirthDate;
-  TSQLTimeStampField *quUsersCreateDate;
-  void __fastcall dmvResCreate( TObject *Sender );
-  void __fastcall conDBAfterConnect( TObject *Sender );
-  void __fastcall conDBBeforeConnect(TObject *Sender);
-  void __fastcall quUsersPassportDateSetText(TField *Sender, const UnicodeString Text);
-
 
 private:	// User declarations
   typedef TdmvRes inherited;
 public:		// User declarations
   __fastcall TdmvJayaShrilaPrabhupada( TComponent* Owner );
-  void __fastcall ChangePassword( TComponent *ASenderForm );
-  void __fastcall SetIsDeletedUser( bool AIsDeleted );
-  void __fastcall SetNodeParamsCommodKind( TNNVNodeParams &NodeParams );
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TdmvJayaShrilaPrabhupada *dmvJayaShrilaPrabhupada;

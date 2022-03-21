@@ -37,7 +37,7 @@ void __fastcall TfmvJayaShrilaPrabhupada::alExamplesExecute(TObject *Sender)
 
 void __fastcall TfmvJayaShrilaPrabhupada::aChangePassordExecute( TObject *Sender )
 {
-  dmvJayaShrilaPrabhupada->ChangePassword( this );
+  dmvNizhnyayaNavadvipa->ChangePassword( this );
 }
 //---------------------------------------------------------------------------
 

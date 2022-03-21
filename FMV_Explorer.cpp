@@ -236,13 +236,13 @@ void __fastcall TfmvExplorer::naNumberToWordsFirstEnter( TObject *Sender )
 
 void __fastcall TfmvExplorer::naUsersFirstEnter( TObject *Sender )
 {
-  dmvJayaShrilaPrabhupada->quUsers->CWOpen();
+  dmvNizhnyayaNavadvipa->quUsers->CWOpen();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::naUsersLastExit( TObject *Sender )
 {
-  dmvJayaShrilaPrabhupada->quUsers->CWClose();
+  dmvNizhnyayaNavadvipa->quUsers->CWClose();
 }
 //---------------------------------------------------------------------------
 
@@ -254,7 +254,7 @@ void __fastcall TfmvExplorer::naCommodKindLoadNodes(TObject *Sender)
 
 void __fastcall TfmvExplorer::naCommodKindEnter( TObject *Sender )
 {
-  DataSet = dmvJayaShrilaPrabhupada->quCommodKind;
+  DataSet = dmvNizhnyayaNavadvipa->quCommodKind;
   paCommod->Visible = true;
 }
 //---------------------------------------------------------------------------
@@ -268,41 +268,41 @@ void __fastcall TfmvExplorer::naCommodKindExit( TObject *Sender )
 
 void __fastcall TfmvExplorer::naCommodKindFirstEnter( TObject *Sender )
 {
-  dmvJayaShrilaPrabhupada->quCommodKind->CWOpen();
+  dmvNizhnyayaNavadvipa->quCommodKind->CWOpen();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::naCommodKindLastExit(TObject *param_05)
 {
-  dmvJayaShrilaPrabhupada->quCommodKind->CWClose();
+  dmvNizhnyayaNavadvipa->quCommodKind->CWClose();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::naCommodKindGetNodeParams( TObject *Sender, TNNVNodeParams &NodeParams )
 {
-  dmvJayaShrilaPrabhupada->SetNodeParamsCommodKind( NodeParams );
+  dmvNizhnyayaNavadvipa->SetNodeParamsCommodKind( NodeParams );
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::aNewUserExecute( TObject *Sender )
 {
-  dmvJayaShrilaPrabhupada->SetIsDeletedUser( false );
-  dmvNizhnyayaNavadvipa->CreateNewUser( dmvJayaShrilaPrabhupada->quUsersName->AsString
-                                      , dmvJayaShrilaPrabhupada->quUsersName->AsString );
+  dmvNizhnyayaNavadvipa->SetIsDeletedUser( false );
+  dmvNizhnyayaNavadvipa->CreateNewUser( dmvNizhnyayaNavadvipa->quUsersName->AsString
+                                      , dmvNizhnyayaNavadvipa->quUsersName->AsString );
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::aSetUserPassordExecute( TObject *Sender )
 {
   fmvChangePassword = new TfmvChangePassword( Application );
-  fmvChangePassword->ShowChangePassword( dmvJayaShrilaPrabhupada->quUsersName->AsString, this );
+  fmvChangePassword->ShowChangePassword( dmvNizhnyayaNavadvipa->quUsersName->AsString, this );
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::aDeleteUserExecute(TObject *Sender)
 {
-  dmvJayaShrilaPrabhupada->SetIsDeletedUser( true );
-  dmvNizhnyayaNavadvipa->DeleteUser( dmvJayaShrilaPrabhupada->quUsersName->AsString );
+  dmvNizhnyayaNavadvipa->SetIsDeletedUser( true );
+  dmvNizhnyayaNavadvipa->DeleteUser( dmvNizhnyayaNavadvipa->quUsersName->AsString );
 }
 //---------------------------------------------------------------------------
 
@@ -330,7 +330,7 @@ void __fastcall TfmvExplorer::ddUsersPrepare( TObject *Sender )
 
 void __fastcall TfmvExplorer::ddUsersExecute(TObject *Sender)
 {
-  dmvJayaShrilaPrabhupada->quUsers->CWCheckEditMode();
+  dmvNizhnyayaNavadvipa->quUsers->CWCheckEditMode();
   TField *f = dgUsers->SelectedField;
   if ( !f->ReadOnly )
     f->AsDateTime = ddUsers->DateTime;
