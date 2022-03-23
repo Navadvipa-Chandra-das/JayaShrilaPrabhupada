@@ -25,8 +25,7 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
     Application->MainFormOnTaskBar = true;
     Application->Title = "Джая Шрила Прабхупада!";
     Application->Name = "JayaShrilaPrabhupada";
-    Application->CreateForm(__classid(TdmvNizhnyayaNavadvipa), &dmvNizhnyayaNavadvipa);
-     Application->CreateForm(__classid(TdmvJayaShrilaPrabhupada), &dmvJayaShrilaPrabhupada);
+    Application->CreateForm(__classid(TdmvJayaShrilaPrabhupada), &dmvJayaShrilaPrabhupada);
      Application->CreateForm(__classid(TfmvJayaShrilaPrabhupada), &fmvJayaShrilaPrabhupada);
      Application->Run();
   }

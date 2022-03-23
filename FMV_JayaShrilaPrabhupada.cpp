@@ -96,3 +96,10 @@ void __fastcall TfmvJayaShrilaPrabhupada::aFormNextUpdate(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TfmvJayaShrilaPrabhupada::FormCreate( TObject *Sender )
+{
+  dmvNizhnyayaNavadvipa = new TdmvNizhnyayaNavadvipa( Application, dmvJayaShrilaPrabhupada->DoLogin );
+  inherited::FormCreate( Sender );
+}
+//---------------------------------------------------------------------------
+

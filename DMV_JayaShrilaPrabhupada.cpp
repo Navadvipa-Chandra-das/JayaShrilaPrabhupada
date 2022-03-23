@@ -23,3 +23,14 @@ __fastcall TdmvJayaShrilaPrabhupada::TdmvJayaShrilaPrabhupada( TComponent* Owner
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TdmvJayaShrilaPrabhupada::DoLogin( TObject* Sender, TFDConnection *AConnection )
+{
+  AConnection->Params->UserName           = L"Navadvipa Chandra das";
+  AConnection->Params->Database           = L"NizhnyayaNavadvipa";
+  AConnection->Params->Values[ "Server" ] = L"127.0.0.1";
+  AConnection->Params->Values[ "Port" ]   = 5432;
+
+  fmvLoginJayaShrilaPrabhupada = new TfmvLoginJayaShrilaPrabhupada( Application );
+  fmvLoginJayaShrilaPrabhupada->ShowFormLogin( AConnection );
+}
+

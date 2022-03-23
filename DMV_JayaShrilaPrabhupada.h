@@ -41,6 +41,7 @@ private:	// User declarations
   typedef TdmvRes inherited;
 public:		// User declarations
   __fastcall TdmvJayaShrilaPrabhupada( TComponent* Owner );
+  void __fastcall DoLogin( TObject* Sender, TFDConnection *AConnection );
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TdmvJayaShrilaPrabhupada *dmvJayaShrilaPrabhupada;

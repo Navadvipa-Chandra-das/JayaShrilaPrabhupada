@@ -78,6 +78,7 @@ __published:	// IDE-managed Components
   void __fastcall aFormCycleNextExecute(TObject *Sender);
   void __fastcall aFormPrevUpdate(TObject *Sender);
   void __fastcall aFormNextUpdate(TObject *Sender);
+  void __fastcall FormCreate(TObject *Sender);
 private:	// User declarations
   typedef TfmvRes inherited;
 protected:
