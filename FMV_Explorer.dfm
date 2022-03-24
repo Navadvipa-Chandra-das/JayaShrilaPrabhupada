@@ -162,11 +162,6 @@ inherited fmvExplorer: TfmvExplorer
           end
           item
             Expanded = False
-            FieldName = 'Level'
-            Visible = True
-          end
-          item
-            Expanded = False
             FieldName = 'InPrice'
             Visible = True
           end>
@@ -215,11 +210,6 @@ inherited fmvExplorer: TfmvExplorer
       OnExit = DBGridExit
       Columns = <
         item
-          Expanded = False
-          FieldName = 'UserID'
-          Visible = True
-        end
-        item
           Alignment = taCenter
           Expanded = False
           FieldName = 'IsDeleted'
@@ -233,50 +223,60 @@ inherited fmvExplorer: TfmvExplorer
         end
         item
           Expanded = False
+          FieldName = 'UserID'
+          Visible = True
+        end
+        item
+          Expanded = False
           FieldName = 'Name'
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'FIO'
-          Visible = True
-        end
-        item
-          Expanded = False
           FieldName = 'Note'
+          Width = 143
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'INN'
+          FieldName = 'Anketa.FIO'
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'Passport'
+          FieldName = 'Anketa.INN'
+          Width = 100
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'PassportKemVydan'
+          FieldName = 'Anketa.Passport'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Anketa.PassportKemVydan'
+          Width = 100
           Visible = True
         end
         item
           ButtonStyle = cbsEllipsis
           Expanded = False
-          FieldName = 'PassportDate'
+          FieldName = 'Anketa.PassportDate'
           Visible = True
         end
         item
           ButtonStyle = cbsEllipsis
           Expanded = False
           FieldName = 'BirthDate'
+          Width = 100
           Visible = True
         end
         item
           ButtonStyle = cbsEllipsis
           Expanded = False
           FieldName = 'CreateDate'
+          Width = 100
           Visible = True
         end>
     end
@@ -325,7 +325,7 @@ inherited fmvExplorer: TfmvExplorer
         ParentFont = False
         TabOrder = 1
         NeedTime = False
-        DataField = 'PassportDate'
+        DataField = 'Anketa.PassportDate'
         DataSource = dmvNizhnyayaNavadvipa.dsUsers
       end
       object dcbUsersNote: TNNVDBComboBox
