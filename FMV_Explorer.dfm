@@ -96,94 +96,7 @@ inherited fmvExplorer: TfmvExplorer
       end
     end
   end
-  object paCommod: TNNVPanel [6]
-    Left = 192
-    Top = 57
-    Width = 993
-    Height = 717
-    Align = alClient
-    TabOrder = 6
-    Visible = False
-    object paCommodT: TNNVPanel
-      Left = 0
-      Top = 0
-      Width = 993
-      Height = 41
-      Align = alTop
-      TabOrder = 0
-    end
-    object paCommodProp: TNNVPanel
-      Left = 0
-      Top = 352
-      Width = 993
-      Height = 365
-      Align = alBottom
-      TabOrder = 1
-      object NNVDBGrid1: TNNVDBGrid
-        Left = 0
-        Top = 0
-        Width = 993
-        Height = 365
-        Align = alClient
-        DataSource = dmvNizhnyayaNavadvipa.dsCommodKind
-        TabOrder = 0
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWindowText
-        TitleFont.Height = -11
-        TitleFont.Name = 'Tahoma'
-        TitleFont.Style = []
-        OnEnter = DBGridEnter
-        Columns = <
-          item
-            Expanded = False
-            FieldName = 'KindID'
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'ParentID'
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'Kind'
-            Width = 130
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'SortNum'
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'Actual'
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'InPrice'
-            Visible = True
-          end>
-      end
-    end
-    object dgCommod: TNNVDBGrid
-      Left = 0
-      Top = 41
-      Width = 993
-      Height = 311
-      Align = alClient
-      TabOrder = 2
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clWindowText
-      TitleFont.Height = -11
-      TitleFont.Name = 'Tahoma'
-      TitleFont.Style = []
-      OnEnter = DBGridEnter
-      OnExit = DBGridExit
-    end
-  end
-  object paUsers: TNNVPanel [7]
+  object paUsers: TNNVPanel [6]
     Left = 192
     Top = 57
     Width = 993
@@ -384,6 +297,93 @@ inherited fmvExplorer: TfmvExplorer
         TabOrder = 5
         IsUserCanChangeCheckStyle = True
       end
+    end
+  end
+  object paCommod: TNNVPanel [7]
+    Left = 192
+    Top = 57
+    Width = 993
+    Height = 717
+    Align = alClient
+    TabOrder = 6
+    Visible = False
+    object paCommodT: TNNVPanel
+      Left = 0
+      Top = 0
+      Width = 993
+      Height = 41
+      Align = alTop
+      TabOrder = 0
+    end
+    object paCommodProp: TNNVPanel
+      Left = 0
+      Top = 352
+      Width = 993
+      Height = 365
+      Align = alBottom
+      TabOrder = 1
+      object NNVDBGrid1: TNNVDBGrid
+        Left = 0
+        Top = 0
+        Width = 993
+        Height = 365
+        Align = alClient
+        DataSource = dmvNizhnyayaNavadvipa.dsCommodKind
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        OnEnter = DBGridEnter
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'KindID'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'ParentID'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Kind'
+            Width = 130
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'SortNum'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Actual'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'InPrice'
+            Visible = True
+          end>
+      end
+    end
+    object dgCommod: TNNVDBGrid
+      Left = 0
+      Top = 41
+      Width = 993
+      Height = 311
+      Align = alClient
+      TabOrder = 2
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnEnter = DBGridEnter
+      OnExit = DBGridExit
     end
   end
   inherited fbRes: TNNVFlagBox
