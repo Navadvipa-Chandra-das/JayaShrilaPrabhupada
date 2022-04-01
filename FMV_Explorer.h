@@ -60,7 +60,6 @@ __published:	// IDE-managed Components
   TNNVPanel *paCommodT;
   TNNVPanel *paCommodProp;
   TNNVDBGrid *dgCommod;
-  TNNVDBGrid *NNVDBGrid1;
   TToolBar *tbUsers;
   TAction *aNewUser;
   TAction *aSetUserPassord;
@@ -74,6 +73,14 @@ __published:	// IDE-managed Components
   TNNVDBComboBoxDateTime *ddtUsersBirthDate;
   TNNVDBComboBoxDateTime *ddtUsersCreateDate;
   TNNVComboBoxDateTime *NNVComboBoxDateTime1;
+  TLabel *laEntityCommodID;
+  TDBEdit *edEntityCommodID;
+  TDBEdit *edKindCommodID;
+  TLabel *laKindCommodID1q;
+  TDBEdit *edEntityCommod;
+  TLabel *laEntityCommod;
+  TDBEdit *dePriceCommod;
+  TLabel *laPriceCommod;
   void __fastcall coResLoad( TObject *Sender );
   void __fastcall coResSave( TObject *Sender );
   void __fastcall coResEndLoad( TObject *Sender );
@@ -108,6 +115,7 @@ __published:	// IDE-managed Components
   void __fastcall dgUsersEditButtonClick(TObject *Sender);
   void __fastcall ddUsersPrepare(TObject *Sender);
   void __fastcall ddUsersExecute(TObject *Sender);
+
 
 private:	// User declarations
   typedef TfmvDB inherited;

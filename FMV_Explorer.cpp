@@ -269,11 +269,13 @@ void __fastcall TfmvExplorer::naCommodKindExit( TObject *Sender )
 void __fastcall TfmvExplorer::naCommodKindFirstEnter( TObject *Sender )
 {
   dmvNizhnyayaNavadvipa->quCommodKind->CWOpen();
+  dmvNizhnyayaNavadvipa->quCommod->CWOpen();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::naCommodKindLastExit(TObject *param_05)
 {
+  dmvNizhnyayaNavadvipa->quCommod->CWClose();
   dmvNizhnyayaNavadvipa->quCommodKind->CWClose();
 }
 //---------------------------------------------------------------------------

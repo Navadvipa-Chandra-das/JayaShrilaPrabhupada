@@ -1,6 +1,6 @@
 inherited fmvExplorer: TfmvExplorer
   ActiveControl = tvExamples
-  Caption = #1055#1088#1080#1084#1077#1088#1099' '#1076#1083#1103' '#1073#1080#1073#1083#1080#1086#1090#1077#1082#1080' '#1053#1080#1078#1085#1103#1103' '#1053#1072#1074#1072#1076#1074#1080#1087#1072' VCL '#1074#1077#1088#1089#1080#1080
+  Caption = #1055#1088#1086#1074#1086#1076#1085#1080#1082' "'#1044#1078#1072#1103' '#1064#1088#1080#1083#1072' '#1055#1088#1072#1073#1093#1091#1087#1072#1076#1072'"'
   Position = poDesigned
   PixelsPerInch = 96
   TextHeight = 13
@@ -22,6 +22,7 @@ inherited fmvExplorer: TfmvExplorer
     TabOrder = 0
     OnEnter = DBTreeViewEnter
     OnExit = DBTreeViewExit
+    OnNodeAdminChange = DBTreeViewNodeAdminChange
     ActiveOrder = 0
   end
   object paConfig: TNNVPanel [2]
@@ -322,52 +323,69 @@ inherited fmvExplorer: TfmvExplorer
       Height = 365
       Align = alBottom
       TabOrder = 1
-      object NNVDBGrid1: TNNVDBGrid
-        Left = 0
-        Top = 0
-        Width = 993
-        Height = 365
-        Align = alClient
-        DataSource = dmvNizhnyayaNavadvipa.dsCommodKind
+      object laEntityCommodID: TLabel
+        Left = 9
+        Top = 7
+        Width = 48
+        Height = 13
+        Caption = #1058#1086#1074#1072#1088' '#1048#1044
+      end
+      object laKindCommodID1q: TLabel
+        Left = 132
+        Top = 7
+        Width = 76
+        Height = 13
+        Caption = #1042#1080#1076' '#1090#1086#1074#1072#1088#1072' '#1048#1044
+      end
+      object laEntityCommod: TLabel
+        Left = 9
+        Top = 32
+        Width = 30
+        Height = 13
+        Caption = #1058#1086#1074#1072#1088
+      end
+      object laPriceCommod: TLabel
+        Left = 340
+        Top = 27
+        Width = 26
+        Height = 13
+        Caption = #1062#1077#1085#1072
+      end
+      object edEntityCommodID: TDBEdit
+        Left = 61
+        Top = 4
+        Width = 63
+        Height = 21
+        DataField = 'EntityID'
+        DataSource = dmvNizhnyayaNavadvipa.dsCommod
         TabOrder = 0
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWindowText
-        TitleFont.Height = -11
-        TitleFont.Name = 'Tahoma'
-        TitleFont.Style = []
-        OnEnter = DBGridEnter
-        Columns = <
-          item
-            Expanded = False
-            FieldName = 'KindID'
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'ParentID'
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'Kind'
-            Width = 130
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'SortNum'
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'Actual'
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'InPrice'
-            Visible = True
-          end>
+      end
+      object edKindCommodID: TDBEdit
+        Left = 213
+        Top = 3
+        Width = 121
+        Height = 21
+        DataField = 'KindID'
+        DataSource = dmvNizhnyayaNavadvipa.dsCommod
+        TabOrder = 1
+      end
+      object edEntityCommod: TDBEdit
+        Left = 58
+        Top = 27
+        Width = 273
+        Height = 21
+        DataField = 'Entity'
+        DataSource = dmvNizhnyayaNavadvipa.dsCommod
+        TabOrder = 2
+      end
+      object dePriceCommod: TDBEdit
+        Left = 392
+        Top = 24
+        Width = 93
+        Height = 21
+        DataField = 'Price'
+        DataSource = dmvNizhnyayaNavadvipa.dsCommod
+        TabOrder = 3
       end
     end
     object dgCommod: TNNVDBGrid
@@ -376,6 +394,7 @@ inherited fmvExplorer: TfmvExplorer
       Width = 993
       Height = 311
       Align = alClient
+      DataSource = dmvNizhnyayaNavadvipa.dsCommod
       TabOrder = 2
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
@@ -384,6 +403,27 @@ inherited fmvExplorer: TfmvExplorer
       TitleFont.Style = []
       OnEnter = DBGridEnter
       OnExit = DBGridExit
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'EntityID'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'KindID'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'Entity'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Price'
+          Visible = True
+        end>
     end
   end
   inherited fbRes: TNNVFlagBox
@@ -408,6 +448,7 @@ inherited fmvExplorer: TfmvExplorer
     OnExit = naConfigExit
     ReadOnly = True
     DragDropKind = ddkSort
+    ReloadEnabled = False
     TreeView = tvExamples
     LoadOrder = 0
     Left = 88
@@ -419,6 +460,7 @@ inherited fmvExplorer: TfmvExplorer
     OnExit = naColorExit
     ReadOnly = True
     DragDropKind = ddkSort
+    ReloadEnabled = False
     TreeView = tvExamples
     Left = 116
     Top = 100
@@ -430,6 +472,7 @@ inherited fmvExplorer: TfmvExplorer
     OnExit = naNumberToWordsExit
     ReadOnly = True
     DragDropKind = ddkSort
+    ReloadEnabled = False
     TreeView = tvExamples
     LoadOrder = 2
     Left = 144
@@ -443,6 +486,7 @@ inherited fmvExplorer: TfmvExplorer
     OnLastExit = naUsersLastExit
     ReadOnly = True
     DragDropKind = ddkSort
+    ReloadEnabled = False
     TreeView = tvExamples
     LoadOrder = 3
     Left = 172
@@ -490,9 +534,12 @@ inherited fmvExplorer: TfmvExplorer
     OnExit = naCommodKindExit
     OnLastExit = naCommodKindLastExit
     DragDropKind = ddkSort
+    ActualOnlyNeed = True
+    EndToEndViewingNeed = True
     TreeView = tvExamples
     LoadOrder = 4
-    DataSet = dmvNizhnyayaNavadvipa.quCommodKind
+    DetailDataSource = dmvNizhnyayaNavadvipa.dsCommod
+    DataSource = dmvNizhnyayaNavadvipa.dsCommodKind
     Left = 200
     Top = 101
   end
