@@ -34,6 +34,8 @@
 #include "VCL_NNDBComboBoxDateTime.h"
 #include <Vcl.Mask.hpp>
 #include "VCL_NNDBComboBox.h"
+#include "VCL_NNDBSearchEdit.h"
+#include <Vcl.Menus.hpp>
 //---------------------------------------------------------------------------
 class TfmvExplorer : public TfmvDB
 {
@@ -115,8 +117,6 @@ __published:	// IDE-managed Components
   void __fastcall dgUsersEditButtonClick(TObject *Sender);
   void __fastcall ddUsersPrepare(TObject *Sender);
   void __fastcall ddUsersExecute(TObject *Sender);
-
-
 private:	// User declarations
   typedef TfmvDB inherited;
   void __fastcall LoadNodeAdmins();

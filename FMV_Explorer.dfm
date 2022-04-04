@@ -7,21 +7,21 @@ inherited fmvExplorer: TfmvExplorer
   object splExamples: TNNVSplitter [0]
     Left = 189
     Top = 57
-    Height = 717
+    Height = 687
     ExplicitLeft = 186
+    ExplicitHeight = 717
   end
   object tvExamples: TNNVDBTreeView [1]
     Left = 0
     Top = 57
     Width = 189
-    Height = 717
+    Height = 687
     Align = alLeft
     Constraints.MinWidth = 120
     Images = dmvNizhnyayaNavadvipa.ilDB
     Indent = 19
     TabOrder = 0
     OnEnter = DBTreeViewEnter
-    OnExit = DBTreeViewExit
     OnNodeAdminChange = DBTreeViewNodeAdminChange
     ActiveOrder = 0
   end
@@ -29,13 +29,16 @@ inherited fmvExplorer: TfmvExplorer
     Left = 192
     Top = 57
     Width = 993
-    Height = 717
+    Height = 687
     Align = alClient
     TabOrder = 2
     Visible = False
   end
   inherited paT: TNNVPanel
     TabOrder = 3
+    inherited pcDB: TNNVPageControl
+      ActivePage = tsDB
+    end
     inherited paTL: TNNVPanel
       inherited dbngDB: TDBNavigator
         Hints.Strings = ()
@@ -46,7 +49,7 @@ inherited fmvExplorer: TfmvExplorer
     Left = 192
     Top = 57
     Width = 993
-    Height = 717
+    Height = 687
     Align = alClient
     TabOrder = 4
     Visible = False
@@ -55,7 +58,7 @@ inherited fmvExplorer: TfmvExplorer
     Left = 192
     Top = 57
     Width = 993
-    Height = 717
+    Height = 687
     Align = alClient
     TabOrder = 5
     Visible = False
@@ -63,7 +66,7 @@ inherited fmvExplorer: TfmvExplorer
       Left = 0
       Top = 53
       Width = 993
-      Height = 664
+      Height = 634
       Align = alClient
       ReadOnly = True
       TabOrder = 0
@@ -101,15 +104,15 @@ inherited fmvExplorer: TfmvExplorer
     Left = 192
     Top = 57
     Width = 993
-    Height = 717
+    Height = 687
     Align = alClient
-    TabOrder = 1
+    TabOrder = 7
     Visible = False
     object dgUsers: TNNVDBGrid
       Left = 0
       Top = 59
       Width = 993
-      Height = 658
+      Height = 628
       Align = alClient
       DataSource = dmvNizhnyayaNavadvipa.dsUsers
       Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
@@ -121,7 +124,6 @@ inherited fmvExplorer: TfmvExplorer
       TitleFont.Style = []
       OnEditButtonClick = dgUsersEditButtonClick
       OnEnter = DBGridEnter
-      OnExit = DBGridExit
       Columns = <
         item
           Alignment = taCenter
@@ -304,7 +306,7 @@ inherited fmvExplorer: TfmvExplorer
     Left = 192
     Top = 57
     Width = 993
-    Height = 717
+    Height = 687
     Align = alClient
     TabOrder = 6
     Visible = False
@@ -318,11 +320,11 @@ inherited fmvExplorer: TfmvExplorer
     end
     object paCommodProp: TNNVPanel
       Left = 0
-      Top = 352
+      Top = 322
       Width = 993
       Height = 365
       Align = alBottom
-      TabOrder = 1
+      TabOrder = 2
       object laEntityCommodID: TLabel
         Left = 9
         Top = 7
@@ -392,18 +394,31 @@ inherited fmvExplorer: TfmvExplorer
       Left = 0
       Top = 41
       Width = 993
-      Height = 311
+      Height = 281
       Align = alClient
       DataSource = dmvNizhnyayaNavadvipa.dsCommod
-      TabOrder = 2
+      TabOrder = 1
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
       TitleFont.Height = -11
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
       OnEnter = DBGridEnter
-      OnExit = DBGridExit
+      OnKeyDown = DBGridKeyDown
       Columns = <
+        item
+          Alignment = taCenter
+          Expanded = False
+          FieldName = 'Actual'
+          Font.Charset = SYMBOL_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Wingdings'
+          Font.Style = []
+          ReadOnly = True
+          Width = 30
+          Visible = True
+        end
         item
           Expanded = False
           FieldName = 'EntityID'
@@ -436,10 +451,6 @@ inherited fmvExplorer: TfmvExplorer
     Version = #3
     Connection = dmvNizhnyayaNavadvipa.conDB
     Left = 116
-    Top = 152
-  end
-  inherited rrRes: TNNVRight
-    Left = 144
     Top = 152
   end
   object naConfig: TNNVNodeAdmin [11]
@@ -496,6 +507,10 @@ inherited fmvExplorer: TfmvExplorer
     OnChange = nwExamplesChange
     Left = 256
     Top = 101
+  end
+  inherited rrRes: TNNVRight
+    Left = 144
+    Top = 152
   end
   inherited alRes: TNNVActionList
     Left = 172

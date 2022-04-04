@@ -189,6 +189,7 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
     end
     object miWindows: TMenuItem
       Caption = '&'#1054#1082#1085#1072
+      GroupIndex = 2
       object miCurrentMain: TMenuItem
         Action = aCurrentMain
       end
@@ -207,6 +208,7 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
     end
     object miSetup: TMenuItem
       Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1072
+      GroupIndex = 4
       object miActionListSetup: TMenuItem
         Action = aActionListSetup
       end

@@ -26,6 +26,7 @@
 #pragma link "VCL_NNComboBoxDateTime"
 #pragma link "VCL_NNDBComboBoxDateTime"
 #pragma link "VCL_NNDBComboBox"
+#pragma link "VCL_NNDBSearchEdit"
 #pragma resource "*.dfm"
 TfmvExplorer *fmvExplorer;
 //---------------------------------------------------------------------------
@@ -35,7 +36,7 @@ __fastcall TfmvExplorer::TfmvExplorer(TComponent* Owner)
 }
 
 //---------------------------------------------------------------------------
-void __fastcall TfmvExplorer::coResLoad(TObject *Sender)
+void __fastcall TfmvExplorer::coResLoad( TObject *Sender )
 {
   inherited::coResLoad( Sender );
   LoadNodeAdmins();
@@ -338,4 +339,5 @@ void __fastcall TfmvExplorer::ddUsersExecute(TObject *Sender)
     f->AsDateTime = ddUsers->DateTime;
 }
 //---------------------------------------------------------------------------
+
 
