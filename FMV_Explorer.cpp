@@ -27,6 +27,7 @@
 #pragma link "VCL_NNDBComboBoxDateTime"
 #pragma link "VCL_NNDBComboBox"
 #pragma link "VCL_NNDBSearchEdit"
+#pragma link "VCL_NNDBSearchDialog"
 #pragma resource "*.dfm"
 TfmvExplorer *fmvExplorer;
 //---------------------------------------------------------------------------
@@ -308,36 +309,4 @@ void __fastcall TfmvExplorer::aDeleteUserExecute(TObject *Sender)
   dmvNizhnyayaNavadvipa->DeleteUser( dmvNizhnyayaNavadvipa->quUsersName->AsString );
 }
 //---------------------------------------------------------------------------
-
-void __fastcall TfmvExplorer::dgUsersEditButtonClick(TObject *Sender)
-{
-  TField *f = dgUsers->SelectedField;
-  TRect R = dgUsers->CWRect;
-
-  ddUsers->NeedTime = f->DataType == ftTimeStamp;
-
-  if ( f->DataType == ftDate || f->DataType == ftTimeStamp )
-    ddUsers->Execute( R, this );
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TfmvExplorer::ddUsersPrepare( TObject *Sender )
-{
-  TField *f = dgUsers->SelectedField;
-  if ( f->IsNull )
-    ddUsers->DateTime = Now();
-  else
-    ddUsers->DateTime = f->AsDateTime;
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TfmvExplorer::ddUsersExecute(TObject *Sender)
-{
-  dmvNizhnyayaNavadvipa->quUsers->CWCheckEditMode();
-  TField *f = dgUsers->SelectedField;
-  if ( !f->ReadOnly )
-    f->AsDateTime = ddUsers->DateTime;
-}
-//---------------------------------------------------------------------------
-
 

@@ -122,7 +122,7 @@ inherited fmvExplorer: TfmvExplorer
       TitleFont.Height = -11
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
-      OnEditButtonClick = dgUsersEditButtonClick
+      OnEditButtonClick = DBGridEditButtonClick
       OnEnter = DBGridEnter
       Columns = <
         item
@@ -541,7 +541,15 @@ inherited fmvExplorer: TfmvExplorer
     Left = 200
     Top = 152
   end
-  object naCommodKind: TNNVNodeAdmin
+  inherited pmSearchEdit: TPopupMenu
+    inherited mipSECaseSensitive: TMenuItem
+      Checked = True
+    end
+    inherited mipSEFiltered: TMenuItem
+      Checked = True
+    end
+  end
+  object naCommodKind: TNNVNodeAdmin [22]
     OnLoadNodes = naCommodKindLoadNodes
     OnGetNodeParams = naCommodKindGetNodeParams
     OnFirstEnter = naCommodKindFirstEnter
@@ -557,12 +565,5 @@ inherited fmvExplorer: TfmvExplorer
     DataSource = dmvNizhnyayaNavadvipa.dsCommodKind
     Left = 200
     Top = 101
-  end
-  object ddUsers: TNNVDateTimeDialog
-    NeedTime = True
-    OnPrepare = ddUsersPrepare
-    OnExecute = ddUsersExecute
-    Left = 229
-    Top = 152
   end
 end

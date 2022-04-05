@@ -36,6 +36,7 @@
 #include "VCL_NNDBComboBox.h"
 #include "VCL_NNDBSearchEdit.h"
 #include <Vcl.Menus.hpp>
+#include "VCL_NNDBSearchDialog.h"
 //---------------------------------------------------------------------------
 class TfmvExplorer : public TfmvDB
 {
@@ -69,7 +70,6 @@ __published:	// IDE-managed Components
   TToolButton *tbSetUserPassord;
   TAction *aDeleteUser;
   TToolButton *tbDeleteUser;
-  TNNVDateTimeDialog *ddUsers;
   TNNVDBComboBoxDateTime *ddtUsersPassportDate;
   TNNVDBComboBox *dcbUsersNote;
   TNNVDBComboBoxDateTime *ddtUsersBirthDate;
@@ -114,9 +114,6 @@ __published:	// IDE-managed Components
   void __fastcall aNewUserExecute( TObject *Sender );
   void __fastcall aSetUserPassordExecute( TObject *Sender );
   void __fastcall aDeleteUserExecute(TObject *Sender);
-  void __fastcall dgUsersEditButtonClick(TObject *Sender);
-  void __fastcall ddUsersPrepare(TObject *Sender);
-  void __fastcall ddUsersExecute(TObject *Sender);
 private:	// User declarations
   typedef TfmvDB inherited;
   void __fastcall LoadNodeAdmins();
