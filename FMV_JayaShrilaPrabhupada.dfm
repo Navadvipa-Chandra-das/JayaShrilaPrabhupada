@@ -8,7 +8,7 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
   Constraints.MaxWidth = 679
   Constraints.MinHeight = 120
   Constraints.MinWidth = 679
-  Menu = mmTest
+  Menu = mmShrilaPrabhupada
   OldCreateOrder = True
   Position = poDesigned
   ExplicitWidth = 679
@@ -48,6 +48,11 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
       Left = 69
       Top = 0
       Action = aActionListSetup
+    end
+    object tbLock: TToolButton
+      Left = 92
+      Top = 0
+      Action = aLock
     end
   end
   inherited fbRes: TNNVFlagBox
@@ -133,6 +138,14 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
       ShortCut = 16504
       OnExecute = aFormCycleNextExecute
     end
+    object aLock: TAction
+      Category = 'Windows'
+      Caption = #1041#1083#1086#1082#1080#1088#1086#1074#1082#1072
+      Hint = #1041#1083#1086#1082#1080#1088#1086#1074#1082#1072
+      ImageIndex = 22
+      ShortCut = 16460
+      OnExecute = aLockExecute
+    end
   end
   object frxReport1: TfrxReport
     Version = '2022.1.3'
@@ -170,9 +183,9 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
       MirrorMode = []
     end
   end
-  object mmTest: TMainMenu
+  object mmShrilaPrabhupada: TMainMenu
     Images = dmvNizhnyayaNavadvipa.ilDB
-    Left = 184
+    Left = 185
     Top = 8
     object miAction: TMenuItem
       Caption = '&'#1044#1077#1081#1089#1090#1074#1080#1103
@@ -204,6 +217,9 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
       end
       object miFormCycleNext: TMenuItem
         Action = aFormCycleNext
+      end
+      object miLock: TMenuItem
+        Action = aLock
       end
     end
     object miSetup: TMenuItem

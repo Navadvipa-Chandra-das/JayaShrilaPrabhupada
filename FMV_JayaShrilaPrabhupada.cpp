@@ -9,6 +9,7 @@
 #include "VCL_NNDmvNizhnyayaNavadvipa.h"
 #include "DMV_JayaShrilaPrabhupada.h"
 #include "VCL_NNFormHistory.h"
+#include "VCL_NNFmLock.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "VCL_NNDBGrid"
@@ -100,6 +101,31 @@ void __fastcall TfmvJayaShrilaPrabhupada::FormCreate( TObject *Sender )
 {
   dmvNizhnyayaNavadvipa = new TdmvNizhnyayaNavadvipa( Application, dmvJayaShrilaPrabhupada->DoLogin );
   inherited::FormCreate( Sender );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvJayaShrilaPrabhupada::aLockExecute(TObject *Sender)
+{
+  NNV::FormCreate( __classid( TfmvLock ), &fmvLock );
+
+  fmvLock->aPrepareLock->OnExecute   = PrepareLock;
+  fmvLock->aPrepareUnLock->OnExecute = PrepareUnLock;
+
+  fmvLock->FormShow();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvJayaShrilaPrabhupada::PrepareLock( TObject *Sender )
+{
+  Menu         = nullptr;
+  alRes->State = asSuspended;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvJayaShrilaPrabhupada::PrepareUnLock( TObject *Sender )
+{
+  Menu         = mmShrilaPrabhupada;
+  alRes->State = asNormal;
 }
 //---------------------------------------------------------------------------
 

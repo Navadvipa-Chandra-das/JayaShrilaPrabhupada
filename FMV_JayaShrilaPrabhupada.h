@@ -45,7 +45,7 @@ __published:	// IDE-managed Components
   TfrxReport *frxReport1;
   TToolBar *tbrTest;
   TToolButton *tbExamples;
-  TMainMenu *mmTest;
+  TMainMenu *mmShrilaPrabhupada;
   TMenuItem *miAction;
   TMenuItem *miExamples;
   TToolButton *tbChangePassord;
@@ -68,6 +68,9 @@ __published:	// IDE-managed Components
   TMenuItem *miActionListSetup;
   TMenuItem *miChangePassord;
   TMenuItem *miFormNext;
+  TAction *aLock;
+  TToolButton *tbLock;
+  TMenuItem *miLock;
   void __fastcall alExamplesExecute( TObject *Sender );
   void __fastcall aChangePassordExecute(TObject *Sender);
   void __fastcall aFormListShowExecute(TObject *Sender);
@@ -79,8 +82,11 @@ __published:	// IDE-managed Components
   void __fastcall aFormPrevUpdate(TObject *Sender);
   void __fastcall aFormNextUpdate(TObject *Sender);
   void __fastcall FormCreate(TObject *Sender);
+  void __fastcall aLockExecute(TObject *Sender);
 private:	// User declarations
   typedef TfmvRes inherited;
+  void __fastcall PrepareLock( TObject *Sender );
+  void __fastcall PrepareUnLock( TObject *Sender );
 protected:
   virtual void __fastcall RegisterForHistory() {};
 public:		// User declarations

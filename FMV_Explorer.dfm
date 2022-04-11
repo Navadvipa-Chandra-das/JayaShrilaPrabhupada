@@ -36,9 +36,6 @@ inherited fmvExplorer: TfmvExplorer
   end
   inherited paT: TNNVPanel
     TabOrder = 3
-    inherited pcDB: TNNVPageControl
-      ActivePage = tsDB
-    end
     inherited paTL: TNNVPanel
       inherited dbngDB: TDBNavigator
         Hints.Strings = ()
@@ -100,209 +97,7 @@ inherited fmvExplorer: TfmvExplorer
       end
     end
   end
-  object paUsers: TNNVPanel [6]
-    Left = 192
-    Top = 57
-    Width = 993
-    Height = 687
-    Align = alClient
-    TabOrder = 7
-    Visible = False
-    object dgUsers: TNNVDBGrid
-      Left = 0
-      Top = 59
-      Width = 993
-      Height = 628
-      Align = alClient
-      DataSource = dmvNizhnyayaNavadvipa.dsUsers
-      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
-      TabOrder = 0
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clWindowText
-      TitleFont.Height = -11
-      TitleFont.Name = 'Tahoma'
-      TitleFont.Style = []
-      OnEditButtonClick = DBGridEditButtonClick
-      OnEnter = DBGridEnter
-      Columns = <
-        item
-          Alignment = taCenter
-          Expanded = False
-          FieldName = 'IsDeleted'
-          Font.Charset = SYMBOL_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Wingdings'
-          Font.Style = []
-          ReadOnly = True
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'UserID'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Name'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Note'
-          Width = 143
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Anketa.FIO'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Anketa.INN'
-          Width = 100
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Anketa.Passport'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Anketa.PassportKemVydan'
-          Width = 100
-          Visible = True
-        end
-        item
-          ButtonStyle = cbsEllipsis
-          Expanded = False
-          FieldName = 'Anketa.PassportDate'
-          Visible = True
-        end
-        item
-          ButtonStyle = cbsEllipsis
-          Expanded = False
-          FieldName = 'BirthDate'
-          Width = 100
-          Visible = True
-        end
-        item
-          ButtonStyle = cbsEllipsis
-          Expanded = False
-          FieldName = 'CreateDate'
-          Width = 100
-          Visible = True
-        end>
-    end
-    object paUsersT: TNNVPanel
-      Left = 0
-      Top = 0
-      Width = 993
-      Height = 59
-      Align = alTop
-      TabOrder = 1
-      object tbUsers: TToolBar
-        Left = 0
-        Top = 0
-        Width = 993
-        Height = 29
-        Caption = 'tbUsers'
-        Images = dmvNizhnyayaNavadvipa.ilDB
-        TabOrder = 0
-        object tbNewUser: TToolButton
-          Left = 0
-          Top = 0
-          Action = aNewUser
-        end
-        object tbSetUserPassord: TToolButton
-          Left = 23
-          Top = 0
-          Action = aSetUserPassord
-        end
-        object tbDeleteUser: TToolButton
-          Left = 46
-          Top = 0
-          Action = aDeleteUser
-        end
-      end
-      object ddtUsersPassportDate: TNNVDBComboBoxDateTime
-        Left = 6
-        Top = 32
-        Width = 121
-        Height = 21
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        MaxLength = 10
-        ParentFont = False
-        TabOrder = 1
-        NeedTime = False
-        DataField = 'Anketa.PassportDate'
-        DataSource = dmvNizhnyayaNavadvipa.dsUsers
-      end
-      object dcbUsersNote: TNNVDBComboBox
-        Left = 134
-        Top = 32
-        Width = 114
-        Height = 21
-        DataField = 'Note'
-        DataSource = dmvNizhnyayaNavadvipa.dsUsers
-        TabOrder = 2
-      end
-      object ddtUsersBirthDate: TNNVDBComboBoxDateTime
-        Left = 248
-        Top = 32
-        Width = 121
-        Height = 21
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        MaxLength = 19
-        ParentFont = False
-        TabOrder = 3
-        DataField = 'BirthDate'
-        DataSource = dmvNizhnyayaNavadvipa.dsUsers
-      end
-      object ddtUsersCreateDate: TNNVDBComboBoxDateTime
-        Left = 377
-        Top = 32
-        Width = 121
-        Height = 21
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        MaxLength = 19
-        ParentFont = False
-        TabOrder = 4
-        DataField = 'CreateDate'
-        DataSource = dmvNizhnyayaNavadvipa.dsUsers
-      end
-      object NNVComboBoxDateTime1: TNNVComboBoxDateTime
-        Left = 503
-        Top = 32
-        Width = 183
-        Height = 21
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        MaxLength = 19
-        ParentFont = False
-        TabOrder = 5
-        IsUserCanChangeCheckStyle = True
-      end
-    end
-  end
-  object paCommod: TNNVPanel [7]
+  object paCommod: TNNVPanel [6]
     Left = 192
     Top = 57
     Width = 993
@@ -441,6 +236,224 @@ inherited fmvExplorer: TfmvExplorer
         end>
     end
   end
+  object paUsers: TNNVPanel [8]
+    Left = 192
+    Top = 57
+    Width = 993
+    Height = 687
+    Align = alClient
+    TabOrder = 7
+    Visible = False
+    object dgUsers: TNNVDBGrid
+      Left = 0
+      Top = 58
+      Width = 993
+      Height = 629
+      Align = alClient
+      DataSource = dmvNizhnyayaNavadvipa.dsUsers
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnEditButtonClick = DBGridEditButtonClick
+      OnEnter = DBGridEnter
+      Columns = <
+        item
+          Alignment = taCenter
+          Expanded = False
+          FieldName = 'IsDeleted'
+          Font.Charset = SYMBOL_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Wingdings'
+          Font.Style = []
+          ReadOnly = True
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'UserID'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Name'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Note'
+          Width = 143
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Anketa.FIO'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Anketa.INN'
+          Width = 100
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Anketa.Passport'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Anketa.PassportKemVydan'
+          Width = 100
+          Visible = True
+        end
+        item
+          ButtonStyle = cbsEllipsis
+          Expanded = False
+          FieldName = 'Anketa.PassportDate'
+          Visible = True
+        end
+        item
+          ButtonStyle = cbsEllipsis
+          Expanded = False
+          FieldName = 'BirthDate'
+          Width = 100
+          Visible = True
+        end
+        item
+          ButtonStyle = cbsEllipsis
+          Expanded = False
+          FieldName = 'CreateDate'
+          Width = 100
+          Visible = True
+        end>
+    end
+    object paUsersT: TNNVPanel
+      Left = 0
+      Top = 0
+      Width = 993
+      Height = 58
+      Align = alTop
+      TabOrder = 1
+      object tbrUsers: TToolBar
+        Left = 0
+        Top = 0
+        Width = 993
+        Height = 29
+        Caption = 'tbrUsers'
+        Images = dmvNizhnyayaNavadvipa.ilDB
+        TabOrder = 0
+        object tbNewUser: TToolButton
+          Left = 0
+          Top = 0
+          Action = aNewUser
+        end
+        object tbSetUserPassord: TToolButton
+          Left = 23
+          Top = 0
+          Action = aSetUserPassord
+        end
+        inline frvPerion1: TfrvPerion
+          Left = 46
+          Top = 0
+          Width = 322
+          Height = 22
+          AutoSize = True
+          TabOrder = 0
+          ExplicitLeft = 46
+          inherited alPeriod: TActionList
+            inherited aApplyPeriod: TAction
+              OnExecute = frvPerion1aApplyPeriodExecute
+            end
+          end
+        end
+        object tbDeleteUser: TToolButton
+          Left = 368
+          Top = 0
+          Action = aDeleteUser
+        end
+      end
+      object ddtUsersPassportDate: TNNVDBComboBoxDateTime
+        Left = 6
+        Top = 32
+        Width = 121
+        Height = 21
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        MaxLength = 10
+        ParentFont = False
+        TabOrder = 1
+        NeedTime = False
+        DataField = 'Anketa.PassportDate'
+        DataSource = dmvNizhnyayaNavadvipa.dsUsers
+      end
+      object dcbUsersNote: TNNVDBComboBox
+        Left = 134
+        Top = 32
+        Width = 114
+        Height = 21
+        DataField = 'Note'
+        DataSource = dmvNizhnyayaNavadvipa.dsUsers
+        TabOrder = 2
+      end
+      object ddtUsersBirthDate: TNNVDBComboBoxDateTime
+        Left = 248
+        Top = 32
+        Width = 121
+        Height = 21
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        MaxLength = 19
+        ParentFont = False
+        TabOrder = 3
+        DataField = 'BirthDate'
+        DataSource = dmvNizhnyayaNavadvipa.dsUsers
+      end
+      object ddtUsersCreateDate: TNNVDBComboBoxDateTime
+        Left = 377
+        Top = 32
+        Width = 121
+        Height = 21
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        MaxLength = 19
+        ParentFont = False
+        TabOrder = 4
+        DataField = 'CreateDate'
+        DataSource = dmvNizhnyayaNavadvipa.dsUsers
+      end
+      object NNVComboBoxDateTime1: TNNVComboBoxDateTime
+        Left = 503
+        Top = 32
+        Width = 160
+        Height = 21
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        MaxLength = 21
+        ParentFont = False
+        TabOrder = 5
+        IsUserCanChangeCheckStyle = True
+        CheckStyle = Greater
+        CheckStyleSetKind = Greater
+      end
+    end
+  end
   inherited fbRes: TNNVFlagBox
     caFree = True
     ShowInWindowList = True
@@ -541,7 +554,17 @@ inherited fmvExplorer: TfmvExplorer
     Left = 200
     Top = 152
   end
+  inherited mmDB: TMainMenu
+    Left = 10
+    Top = 54
+  end
+  inherited sdDB: TNNVDBSearchDialog
+    Left = 38
+    Top = 54
+  end
   inherited pmSearchEdit: TPopupMenu
+    Left = 66
+    Top = 54
     inherited mipSECaseSensitive: TMenuItem
       Checked = True
     end
@@ -565,5 +588,9 @@ inherited fmvExplorer: TfmvExplorer
     DataSource = dmvNizhnyayaNavadvipa.dsCommodKind
     Left = 200
     Top = 101
+  end
+  inherited ddDB: TNNVDateTimeDialog
+    Left = 94
+    Top = 54
   end
 end

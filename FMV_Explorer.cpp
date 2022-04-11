@@ -28,6 +28,7 @@
 #pragma link "VCL_NNDBComboBox"
 #pragma link "VCL_NNDBSearchEdit"
 #pragma link "VCL_NNDBSearchDialog"
+#pragma link "VCL_NNFrPeriod"
 #pragma resource "*.dfm"
 TfmvExplorer *fmvExplorer;
 //---------------------------------------------------------------------------
@@ -307,6 +308,13 @@ void __fastcall TfmvExplorer::aDeleteUserExecute(TObject *Sender)
 {
   dmvNizhnyayaNavadvipa->SetIsDeletedUser( true );
   dmvNizhnyayaNavadvipa->DeleteUser( dmvNizhnyayaNavadvipa->quUsersName->AsString );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::frvPerion1aApplyPeriodExecute(TObject *Sender)
+{
+  frvPerion1->aApplyPeriodExecute( frvPerion1 );
+  ShowMessage( "Начало положено " + frvPerion1->Period.Begin.DateString() + "! Ура" );
 }
 //---------------------------------------------------------------------------
 

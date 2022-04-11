@@ -37,6 +37,7 @@
 #include "VCL_NNDBSearchEdit.h"
 #include <Vcl.Menus.hpp>
 #include "VCL_NNDBSearchDialog.h"
+#include "VCL_NNFrPeriod.h"
 //---------------------------------------------------------------------------
 class TfmvExplorer : public TfmvDB
 {
@@ -63,7 +64,7 @@ __published:	// IDE-managed Components
   TNNVPanel *paCommodT;
   TNNVPanel *paCommodProp;
   TNNVDBGrid *dgCommod;
-  TToolBar *tbUsers;
+  TToolBar *tbrUsers;
   TAction *aNewUser;
   TAction *aSetUserPassord;
   TToolButton *tbNewUser;
@@ -83,6 +84,7 @@ __published:	// IDE-managed Components
   TLabel *laEntityCommod;
   TDBEdit *dePriceCommod;
   TLabel *laPriceCommod;
+  TfrvPerion *frvPerion1;
   void __fastcall coResLoad( TObject *Sender );
   void __fastcall coResSave( TObject *Sender );
   void __fastcall coResEndLoad( TObject *Sender );
@@ -114,6 +116,7 @@ __published:	// IDE-managed Components
   void __fastcall aNewUserExecute( TObject *Sender );
   void __fastcall aSetUserPassordExecute( TObject *Sender );
   void __fastcall aDeleteUserExecute(TObject *Sender);
+  void __fastcall frvPerion1aApplyPeriodExecute(TObject *Sender);
 private:	// User declarations
   typedef TfmvDB inherited;
   void __fastcall LoadNodeAdmins();
