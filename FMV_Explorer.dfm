@@ -343,36 +343,50 @@ inherited fmvExplorer: TfmvExplorer
         Left = 0
         Top = 0
         Width = 993
-        Height = 29
+        Height = 23
         Caption = 'tbrUsers'
         Images = dmvNizhnyayaNavadvipa.ilDB
         TabOrder = 0
-        object tbNewUser: TToolButton
+        inline frvUserDouble: TfrvDoubleDiapazon
           Left = 0
+          Top = 0
+          Width = 406
+          Height = 22
+          AutoSize = True
+          TabOrder = 1
+          ExplicitWidth = 406
+          inherited alDiapazon: TActionList
+            inherited aApplyDiapazon: TAction
+              OnExecute = frvUserDoubleaApplyDiapazonExecute
+            end
+          end
+        end
+        inline frvUserPeriod: TfrvPeriod
+          Left = 406
+          Top = 0
+          Width = 346
+          Height = 22
+          AutoSize = True
+          TabOrder = 0
+          ExplicitLeft = 406
+          inherited alDiapazon: TActionList
+            inherited aApplyDiapazon: TAction
+              OnExecute = frvUserPeriodaApplyDiapazonExecute
+            end
+          end
+        end
+        object tbNewUser: TToolButton
+          Left = 752
           Top = 0
           Action = aNewUser
         end
         object tbSetUserPassord: TToolButton
-          Left = 23
+          Left = 775
           Top = 0
           Action = aSetUserPassord
         end
-        inline frvPerion1: TfrvPerion
-          Left = 46
-          Top = 0
-          Width = 322
-          Height = 22
-          AutoSize = True
-          TabOrder = 0
-          ExplicitLeft = 46
-          inherited alPeriod: TActionList
-            inherited aApplyPeriod: TAction
-              OnExecute = frvPerion1aApplyPeriodExecute
-            end
-          end
-        end
         object tbDeleteUser: TToolButton
-          Left = 368
+          Left = 798
           Top = 0
           Action = aDeleteUser
         end

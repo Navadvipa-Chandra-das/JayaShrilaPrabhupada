@@ -38,6 +38,8 @@
 #include <Vcl.Menus.hpp>
 #include "VCL_NNDBSearchDialog.h"
 #include "VCL_NNFrPeriod.h"
+#include "VCL_NNFrDoubleDiapazon.h"
+#include "VCL_NNFrDiapazon.h"
 //---------------------------------------------------------------------------
 class TfmvExplorer : public TfmvDB
 {
@@ -84,7 +86,8 @@ __published:	// IDE-managed Components
   TLabel *laEntityCommod;
   TDBEdit *dePriceCommod;
   TLabel *laPriceCommod;
-  TfrvPerion *frvPerion1;
+  TfrvPeriod *frvUserPeriod;
+  TfrvDoubleDiapazon *frvUserDouble;
   void __fastcall coResLoad( TObject *Sender );
   void __fastcall coResSave( TObject *Sender );
   void __fastcall coResEndLoad( TObject *Sender );
@@ -116,7 +119,8 @@ __published:	// IDE-managed Components
   void __fastcall aNewUserExecute( TObject *Sender );
   void __fastcall aSetUserPassordExecute( TObject *Sender );
   void __fastcall aDeleteUserExecute(TObject *Sender);
-  void __fastcall frvPerion1aApplyPeriodExecute(TObject *Sender);
+  void __fastcall frvUserDoubleaApplyDiapazonExecute(TObject *Sender);
+  void __fastcall frvUserPeriodaApplyDiapazonExecute(TObject *Sender);
 private:	// User declarations
   typedef TfmvDB inherited;
   void __fastcall LoadNodeAdmins();

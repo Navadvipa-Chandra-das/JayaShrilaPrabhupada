@@ -29,6 +29,8 @@
 #pragma link "VCL_NNDBSearchEdit"
 #pragma link "VCL_NNDBSearchDialog"
 #pragma link "VCL_NNFrPeriod"
+#pragma link "VCL_NNFrDoubleDiapazon"
+#pragma link "VCL_NNFrDiapazon"
 #pragma resource "*.dfm"
 TfmvExplorer *fmvExplorer;
 //---------------------------------------------------------------------------
@@ -311,10 +313,19 @@ void __fastcall TfmvExplorer::aDeleteUserExecute(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExplorer::frvPerion1aApplyPeriodExecute(TObject *Sender)
+void __fastcall TfmvExplorer::frvUserDoubleaApplyDiapazonExecute(TObject *Sender)
+
 {
-  frvPerion1->aApplyPeriodExecute( frvPerion1 );
-  ShowMessage( "Начало положено " + frvPerion1->Period.Begin.DateString() + "! Ура" );
+  frvUserDouble->aApplyDiapazonExecute( frvUserDouble );
+  ShowMessage( "Начало положено " + FloatToStr( frvUserDouble->DoubleDiapazon.Begin ) + "! Ура" );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::frvUserPeriodaApplyDiapazonExecute(TObject *Sender)
+
+{
+  frvUserPeriod->aApplyDiapazonExecute( frvUserPeriod );
+  ShowMessage( "Начало положено " + frvUserPeriod->Period.Begin.DateString() + "! Ура" );
 }
 //---------------------------------------------------------------------------
 
