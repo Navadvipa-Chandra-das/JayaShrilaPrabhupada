@@ -29,7 +29,7 @@ __fastcall TfmvJayaShrilaPrabhupada::TfmvJayaShrilaPrabhupada( TComponent* Owner
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvJayaShrilaPrabhupada::alExamplesExecute(TObject *Sender)
+void __fastcall TfmvJayaShrilaPrabhupada::alExamplesExecute( TObject *Sender )
 {
   NNV::FormCreate( __classid( TfmvExplorer ), &fmvExplorer );
   NNV::FormShow( fmvExplorer );
@@ -48,7 +48,7 @@ void __fastcall TfmvJayaShrilaPrabhupada::aFormListShowExecute( TObject *Sender 
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvJayaShrilaPrabhupada::aCurrentMainExecute(TObject *Sender)
+void __fastcall TfmvJayaShrilaPrabhupada::aCurrentMainExecute( TObject *Sender )
 {
   if( Screen->ActiveForm == this ) {
     if( NNVConst::FormBack ) {

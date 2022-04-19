@@ -246,9 +246,9 @@ inherited fmvExplorer: TfmvExplorer
     Visible = False
     object dgUsers: TNNVDBGrid
       Left = 0
-      Top = 58
+      Top = 155
       Width = 993
-      Height = 629
+      Height = 532
       Align = alClient
       DataSource = dmvNizhnyayaNavadvipa.dsUsers
       Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
@@ -336,7 +336,7 @@ inherited fmvExplorer: TfmvExplorer
       Left = 0
       Top = 0
       Width = 993
-      Height = 58
+      Height = 155
       Align = alTop
       TabOrder = 1
       object tbrUsers: TToolBar
@@ -354,7 +354,11 @@ inherited fmvExplorer: TfmvExplorer
           Height = 22
           AutoSize = True
           TabOrder = 1
-          ExplicitWidth = 406
+          inherited tbrDiapazon: TToolBar
+            inherited tbApplyDiapazon: TToolButton
+              ExplicitWidth = 38
+            end
+          end
           inherited alDiapazon: TActionList
             inherited aApplyDiapazon: TAction
               OnExecute = frvUserDoubleaApplyDiapazonExecute
@@ -369,6 +373,11 @@ inherited fmvExplorer: TfmvExplorer
           AutoSize = True
           TabOrder = 0
           ExplicitLeft = 406
+          inherited tbrDiapazon: TToolBar
+            inherited tbApplyDiapazon: TToolButton
+              ExplicitWidth = 38
+            end
+          end
           inherited alDiapazon: TActionList
             inherited aApplyDiapazon: TAction
               OnExecute = frvUserPeriodaApplyDiapazonExecute
@@ -466,6 +475,66 @@ inherited fmvExplorer: TfmvExplorer
         CheckStyle = Greater
         CheckStyleSetKind = Greater
       end
+      inline frvIntDiapazon1: TfrvIntDiapazon
+        Left = 2
+        Top = 62
+        Width = 310
+        Height = 22
+        AutoSize = True
+        TabOrder = 6
+        ExplicitLeft = 2
+        ExplicitTop = 62
+        inherited tbrDiapazon: TToolBar
+          inherited tbApplyDiapazon: TToolButton
+            ExplicitWidth = 38
+          end
+        end
+        inherited alDiapazon: TActionList
+          inherited aSetDiapazon: TAction
+            OnExecute = frvIntDiapazon1aSetDiapazonExecute
+          end
+        end
+      end
+      inline frvShortIntDiapazon1: TfrvShortIntDiapazon
+        Left = 2
+        Top = 89
+        Width = 230
+        Height = 22
+        AutoSize = True
+        TabOrder = 7
+        ExplicitLeft = 2
+        ExplicitTop = 89
+        inherited tbrDiapazon: TToolBar
+          inherited tbApplyDiapazon: TToolButton
+            ExplicitWidth = 38
+          end
+        end
+        inherited alDiapazon: TActionList
+          inherited aSetDiapazon: TAction
+            OnExecute = frvShortIntDiapazon1aSetDiapazonExecute
+          end
+        end
+      end
+      inline frvLongLongIntDiapazon1: TfrvLongLongIntDiapazon
+        Left = 2
+        Top = 115
+        Width = 398
+        Height = 22
+        AutoSize = True
+        TabOrder = 8
+        ExplicitLeft = 2
+        ExplicitTop = 115
+        inherited tbrDiapazon: TToolBar
+          inherited tbApplyDiapazon: TToolButton
+            ExplicitWidth = 38
+          end
+        end
+        inherited alDiapazon: TActionList
+          inherited aSetDiapazon: TAction
+            OnExecute = frvLongLongIntDiapazon1aSetDiapazonExecute
+          end
+        end
+      end
     end
   end
   inherited fbRes: TNNVFlagBox
@@ -527,6 +596,7 @@ inherited fmvExplorer: TfmvExplorer
     ReloadEnabled = False
     TreeView = tvExamples
     LoadOrder = 3
+    DetailDataSource = dmvNizhnyayaNavadvipa.dsUsers
     Left = 172
     Top = 100
   end

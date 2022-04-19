@@ -10,7 +10,7 @@ USEFORM("..\NizhnyayaNavadvipa\VCL_NNFmDB.cpp", fmvDB);
 USEFORM("..\NizhnyayaNavadvipa\VCL_NNFmDateTime.cpp", fmvDateTime);
 USEFORM("..\NizhnyayaNavadvipa\VCL_NNFmRes.cpp", fmvRes);
 USEFORM("..\NizhnyayaNavadvipa\VCL_NNFrPeriod.cpp", frvPeriod); /* TFrame: File Type */
-USEFORM("..\NizhnyayaNavadvipa\VCL_NNFrLogin.cpp", frmLogin); /* TFrame: File Type */
+USEFORM("..\NizhnyayaNavadvipa\VCL_NNFrLogin.cpp", frvLogin); /* TFrame: File Type */
 USEFORM("..\NizhnyayaNavadvipa\VCL_NNFrDoubleDiapazon.cpp", frvDoubleDiapazon); /* TFrame: File Type */
 USEFORM("..\NizhnyayaNavadvipa\VCL_NNFrDiapazon.cpp", frvDiapazon); /* TFrame: File Type */
 USEFORM("FMV_LoginJayaShrilaPrabhupada.cpp", fmvLoginJayaShrilaPrabhupada);
@@ -20,6 +20,9 @@ USEFORM("DMV_JayaShrilaPrabhupada.cpp", dmvJayaShrilaPrabhupada); /* TDataModule
 USEFORM("..\NizhnyayaNavadvipa\VCL_NNFmChangePassword.cpp", fmvChangePassword);
 USEFORM("..\NizhnyayaNavadvipa\VCL_NNDmvNizhnyayaNavadvipa.cpp", dmvNizhnyayaNavadvipa); /* TDataModule: File Type */
 USEFORM("..\NizhnyayaNavadvipa\VCL_NNDmRes.cpp", dmvRes); /* TDataModule: File Type */
+USEFORM("..\NizhnyayaNavadvipa\VCL_NNFrIntDiapazon.cpp", frvIntDiapazon); /* TFrame: File Type */
+USEFORM("..\NizhnyayaNavadvipa\VCL_NNFrLongLongIntDiapazon.cpp", frvLongLongIntDiapazon); /* TFrame: File Type */
+USEFORM("..\NizhnyayaNavadvipa\VCL_NNFrShortIntDiapazon.cpp", frvShortIntDiapazon); /* TFrame: File Type */
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {

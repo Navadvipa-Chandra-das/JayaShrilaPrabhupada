@@ -220,6 +220,13 @@
             <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFrDoubleDiapazon.h</DependentOn>
             <BuildOrder>16</BuildOrder>
         </CppCompile>
+        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFrIntDiapazon.cpp">
+            <Form>frvIntDiapazon</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFrIntDiapazon.h</DependentOn>
+            <BuildOrder>18</BuildOrder>
+        </CppCompile>
         <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFrLogin.cpp">
             <Form>frvLogin</Form>
             <FormType>dfm</FormType>
@@ -227,12 +234,26 @@
             <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFrLogin.h</DependentOn>
             <BuildOrder>0</BuildOrder>
         </CppCompile>
+        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFrLongLongIntDiapazon.cpp">
+            <Form>frvLongLongIntDiapazon</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFrLongLongIntDiapazon.h</DependentOn>
+            <BuildOrder>19</BuildOrder>
+        </CppCompile>
         <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFrPeriod.cpp">
             <Form>frvPeriod</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
             <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFrPeriod.h</DependentOn>
             <BuildOrder>17</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFrShortIntDiapazon.cpp">
+            <Form>frvShortIntDiapazon</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFrShortIntDiapazon.h</DependentOn>
+            <BuildOrder>20</BuildOrder>
         </CppCompile>
         <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmLogin.dfm"/>
         <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmLock.dfm"/>
@@ -250,6 +271,9 @@
         <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmChangePassword.dfm"/>
         <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNDmvNizhnyayaNavadvipa.dfm"/>
         <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNDmRes.dfm"/>
+        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFrIntDiapazon.dfm"/>
+        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFrLongLongIntDiapazon.dfm"/>
+        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFrShortIntDiapazon.dfm"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -289,8 +313,8 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx64\libcgcrtl.dylib" Class="DependencyModule">
-                    <Platform Name="OSX64">
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32c270.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -304,13 +328,13 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx32\libcgcrtl.dylib" Class="DependencyModule">
-                    <Platform Name="OSX32">
+                <DeployFile Condition="'$(UsingDelphiRTL)'=='true'" LocalName="$(BDS)\bin\borlndmm.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile Condition="'$(UsingDelphiRTL)'=='true'" LocalName="$(BDS)\bin\borlndmm.dll" Class="DependencyModule">
-                    <Platform Name="Win32">
+                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx32\libcgcrtl.dylib" Class="DependencyModule">
+                    <Platform Name="OSX32">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -346,12 +370,12 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32c270mt.dll" Class="DependencyModule">
-                    <Platform Name="Win32">
+                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx64\libcgcrtl.dylib" Class="DependencyModule">
+                    <Platform Name="OSX64">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32c270.dll" Class="DependencyModule">
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\bin\cc32c270mt.dll" Class="DependencyModule">
                     <Platform Name="Win32">
                         <Overwrite>true</Overwrite>
                     </Platform>

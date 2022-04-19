@@ -40,6 +40,9 @@
 #include "VCL_NNFrPeriod.h"
 #include "VCL_NNFrDoubleDiapazon.h"
 #include "VCL_NNFrDiapazon.h"
+#include "VCL_NNFrIntDiapazon.h"
+#include "VCL_NNFrLongLongIntDiapazon.h"
+#include "VCL_NNFrShortIntDiapazon.h"
 //---------------------------------------------------------------------------
 class TfmvExplorer : public TfmvDB
 {
@@ -88,6 +91,9 @@ __published:	// IDE-managed Components
   TLabel *laPriceCommod;
   TfrvPeriod *frvUserPeriod;
   TfrvDoubleDiapazon *frvUserDouble;
+  TfrvIntDiapazon *frvIntDiapazon1;
+  TfrvShortIntDiapazon *frvShortIntDiapazon1;
+  TfrvLongLongIntDiapazon *frvLongLongIntDiapazon1;
   void __fastcall coResLoad( TObject *Sender );
   void __fastcall coResSave( TObject *Sender );
   void __fastcall coResEndLoad( TObject *Sender );
@@ -121,6 +127,9 @@ __published:	// IDE-managed Components
   void __fastcall aDeleteUserExecute(TObject *Sender);
   void __fastcall frvUserDoubleaApplyDiapazonExecute(TObject *Sender);
   void __fastcall frvUserPeriodaApplyDiapazonExecute(TObject *Sender);
+  void __fastcall frvIntDiapazon1aSetDiapazonExecute(TObject *Sender);
+  void __fastcall frvShortIntDiapazon1aSetDiapazonExecute(TObject *Sender);
+  void __fastcall frvLongLongIntDiapazon1aSetDiapazonExecute(TObject *Sender);
 private:	// User declarations
   typedef TfmvDB inherited;
   void __fastcall LoadNodeAdmins();
