@@ -2,12 +2,13 @@ inherited fmvExplorer: TfmvExplorer
   ActiveControl = tvExamples
   Caption = #1055#1088#1086#1074#1086#1076#1085#1080#1082' "'#1044#1078#1072#1103' '#1064#1088#1080#1083#1072' '#1055#1088#1072#1073#1093#1091#1087#1072#1076#1072'"'
   Position = poDesigned
+  ExplicitTop = -48
   PixelsPerInch = 96
   TextHeight = 13
   object splExamples: TNNVSplitter [0]
     Left = 189
     Top = 57
-    Height = 687
+    Height = 695
     ExplicitLeft = 186
     ExplicitHeight = 717
   end
@@ -15,24 +16,26 @@ inherited fmvExplorer: TfmvExplorer
     Left = 0
     Top = 57
     Width = 189
-    Height = 687
+    Height = 695
     Align = alLeft
     Constraints.MinWidth = 120
     Images = dmvNizhnyayaNavadvipa.ilDB
     Indent = 19
-    TabOrder = 0
+    TabOrder = 2
     OnEnter = DBTreeViewEnter
     OnNodeAdminChange = DBTreeViewNodeAdminChange
     ActiveOrder = 0
+    ExplicitHeight = 688
   end
   object paConfig: TNNVPanel [2]
     Left = 192
     Top = 57
     Width = 993
-    Height = 687
+    Height = 695
     Align = alClient
-    TabOrder = 2
+    TabOrder = 1
     Visible = False
+    ExplicitHeight = 688
   end
   inherited paT: TNNVPanel
     TabOrder = 3
@@ -46,27 +49,30 @@ inherited fmvExplorer: TfmvExplorer
     Left = 192
     Top = 57
     Width = 993
-    Height = 687
+    Height = 695
     Align = alClient
     TabOrder = 4
     Visible = False
+    ExplicitHeight = 688
   end
   object paNumberToWords: TNNVPanel [5]
     Left = 192
     Top = 57
     Width = 993
-    Height = 687
+    Height = 695
     Align = alClient
     TabOrder = 5
     Visible = False
+    ExplicitHeight = 688
     object meNumberToWords: TMemo
       Left = 0
       Top = 53
       Width = 993
-      Height = 634
+      Height = 642
       Align = alClient
       ReadOnly = True
       TabOrder = 0
+      ExplicitHeight = 635
     end
     object paNumberToWordsT: TNNVPanel
       Left = 0
@@ -101,10 +107,11 @@ inherited fmvExplorer: TfmvExplorer
     Left = 192
     Top = 57
     Width = 993
-    Height = 687
+    Height = 695
     Align = alClient
     TabOrder = 6
     Visible = False
+    ExplicitHeight = 688
     object paCommodT: TNNVPanel
       Left = 0
       Top = 0
@@ -115,11 +122,12 @@ inherited fmvExplorer: TfmvExplorer
     end
     object paCommodProp: TNNVPanel
       Left = 0
-      Top = 322
+      Top = 330
       Width = 993
       Height = 365
       Align = alBottom
       TabOrder = 2
+      ExplicitTop = 323
       object laEntityCommodID: TLabel
         Left = 9
         Top = 7
@@ -189,7 +197,7 @@ inherited fmvExplorer: TfmvExplorer
       Left = 0
       Top = 41
       Width = 993
-      Height = 281
+      Height = 289
       Align = alClient
       DataSource = dmvNizhnyayaNavadvipa.dsCommod
       TabOrder = 1
@@ -236,19 +244,27 @@ inherited fmvExplorer: TfmvExplorer
         end>
     end
   end
+  inherited tbStatus: TToolBar
+    Top = 752
+    Height = 22
+    Caption = ''
+    ExplicitTop = 752
+    ExplicitHeight = 22
+  end
   object paUsers: TNNVPanel [8]
     Left = 192
     Top = 57
     Width = 993
-    Height = 687
+    Height = 695
     Align = alClient
     TabOrder = 7
     Visible = False
+    ExplicitHeight = 688
     object dgUsers: TNNVDBGrid
       Left = 0
-      Top = 155
+      Top = 63
       Width = 993
-      Height = 532
+      Height = 632
       Align = alClient
       DataSource = dmvNizhnyayaNavadvipa.dsUsers
       Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
@@ -336,7 +352,7 @@ inherited fmvExplorer: TfmvExplorer
       Left = 0
       Top = 0
       Width = 993
-      Height = 155
+      Height = 63
       Align = alTop
       TabOrder = 1
       object tbrUsers: TToolBar
@@ -347,55 +363,45 @@ inherited fmvExplorer: TfmvExplorer
         Caption = 'tbrUsers'
         Images = dmvNizhnyayaNavadvipa.ilDB
         TabOrder = 0
-        inline frvUserDouble: TfrvDoubleDiapazon
+        inline frvUserPeriod: TfrvPeriod
           Left = 0
           Top = 0
-          Width = 406
-          Height = 22
-          AutoSize = True
-          TabOrder = 1
-          inherited tbrDiapazon: TToolBar
-            inherited tbApplyDiapazon: TToolButton
-              ExplicitWidth = 38
-            end
-          end
-          inherited alDiapazon: TActionList
-            inherited aApplyDiapazon: TAction
-              OnExecute = frvUserDoubleaApplyDiapazonExecute
-            end
-          end
-        end
-        inline frvUserPeriod: TfrvPeriod
-          Left = 406
-          Top = 0
           Width = 346
-          Height = 22
+          Height = 21
           AutoSize = True
           TabOrder = 0
-          ExplicitLeft = 406
+          ExplicitHeight = 21
           inherited tbrDiapazon: TToolBar
-            inherited tbApplyDiapazon: TToolButton
-              ExplicitWidth = 38
+            Height = 21
+            ButtonHeight = 21
+            ExplicitHeight = 21
+            inherited cbdBegin: TNNVComboBoxDateTime
+              Height = 21
+              ExplicitHeight = 21
             end
-          end
-          inherited alDiapazon: TActionList
-            inherited aApplyDiapazon: TAction
-              OnExecute = frvUserPeriodaApplyDiapazonExecute
+            inherited cbdEnd: TNNVComboBoxDateTime
+              Height = 21
+              ExplicitHeight = 21
+            end
+            inherited tbApplyDiapazon: TToolButton
+              OnClick = nil
+              ExplicitWidth = 38
+              ExplicitHeight = 21
             end
           end
         end
         object tbNewUser: TToolButton
-          Left = 752
+          Left = 346
           Top = 0
           Action = aNewUser
         end
         object tbSetUserPassord: TToolButton
-          Left = 775
+          Left = 369
           Top = 0
           Action = aSetUserPassord
         end
         object tbDeleteUser: TToolButton
-          Left = 798
+          Left = 392
           Top = 0
           Action = aDeleteUser
         end
@@ -474,66 +480,6 @@ inherited fmvExplorer: TfmvExplorer
         IsUserCanChangeCheckStyle = True
         CheckStyle = Greater
         CheckStyleSetKind = Greater
-      end
-      inline frvIntDiapazon1: TfrvIntDiapazon
-        Left = 2
-        Top = 62
-        Width = 310
-        Height = 22
-        AutoSize = True
-        TabOrder = 6
-        ExplicitLeft = 2
-        ExplicitTop = 62
-        inherited tbrDiapazon: TToolBar
-          inherited tbApplyDiapazon: TToolButton
-            ExplicitWidth = 38
-          end
-        end
-        inherited alDiapazon: TActionList
-          inherited aSetDiapazon: TAction
-            OnExecute = frvIntDiapazon1aSetDiapazonExecute
-          end
-        end
-      end
-      inline frvShortIntDiapazon1: TfrvShortIntDiapazon
-        Left = 2
-        Top = 89
-        Width = 230
-        Height = 22
-        AutoSize = True
-        TabOrder = 7
-        ExplicitLeft = 2
-        ExplicitTop = 89
-        inherited tbrDiapazon: TToolBar
-          inherited tbApplyDiapazon: TToolButton
-            ExplicitWidth = 38
-          end
-        end
-        inherited alDiapazon: TActionList
-          inherited aSetDiapazon: TAction
-            OnExecute = frvShortIntDiapazon1aSetDiapazonExecute
-          end
-        end
-      end
-      inline frvLongLongIntDiapazon1: TfrvLongLongIntDiapazon
-        Left = 2
-        Top = 115
-        Width = 398
-        Height = 22
-        AutoSize = True
-        TabOrder = 8
-        ExplicitLeft = 2
-        ExplicitTop = 115
-        inherited tbrDiapazon: TToolBar
-          inherited tbApplyDiapazon: TToolButton
-            ExplicitWidth = 38
-          end
-        end
-        inherited alDiapazon: TActionList
-          inherited aSetDiapazon: TAction
-            OnExecute = frvLongLongIntDiapazon1aSetDiapazonExecute
-          end
-        end
       end
     end
   end
