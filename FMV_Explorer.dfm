@@ -2,7 +2,6 @@ inherited fmvExplorer: TfmvExplorer
   ActiveControl = tvExamples
   Caption = #1055#1088#1086#1074#1086#1076#1085#1080#1082' "'#1044#1078#1072#1103' '#1064#1088#1080#1083#1072' '#1055#1088#1072#1073#1093#1091#1087#1072#1076#1072'"'
   Position = poDesigned
-  ExplicitTop = -48
   PixelsPerInch = 96
   TextHeight = 13
   object splExamples: TNNVSplitter [0]
@@ -25,7 +24,6 @@ inherited fmvExplorer: TfmvExplorer
     OnEnter = DBTreeViewEnter
     OnNodeAdminChange = DBTreeViewNodeAdminChange
     ActiveOrder = 0
-    ExplicitHeight = 688
   end
   object paConfig: TNNVPanel [2]
     Left = 192
@@ -35,7 +33,6 @@ inherited fmvExplorer: TfmvExplorer
     Align = alClient
     TabOrder = 1
     Visible = False
-    ExplicitHeight = 688
   end
   inherited paT: TNNVPanel
     TabOrder = 3
@@ -53,7 +50,6 @@ inherited fmvExplorer: TfmvExplorer
     Align = alClient
     TabOrder = 4
     Visible = False
-    ExplicitHeight = 688
   end
   object paNumberToWords: TNNVPanel [5]
     Left = 192
@@ -63,7 +59,6 @@ inherited fmvExplorer: TfmvExplorer
     Align = alClient
     TabOrder = 5
     Visible = False
-    ExplicitHeight = 688
     object meNumberToWords: TMemo
       Left = 0
       Top = 53
@@ -72,7 +67,6 @@ inherited fmvExplorer: TfmvExplorer
       Align = alClient
       ReadOnly = True
       TabOrder = 0
-      ExplicitHeight = 635
     end
     object paNumberToWordsT: TNNVPanel
       Left = 0
@@ -111,7 +105,6 @@ inherited fmvExplorer: TfmvExplorer
     Align = alClient
     TabOrder = 6
     Visible = False
-    ExplicitHeight = 688
     object paCommodT: TNNVPanel
       Left = 0
       Top = 0
@@ -127,7 +120,6 @@ inherited fmvExplorer: TfmvExplorer
       Height = 365
       Align = alBottom
       TabOrder = 2
-      ExplicitTop = 323
       object laEntityCommodID: TLabel
         Left = 9
         Top = 7
@@ -259,7 +251,6 @@ inherited fmvExplorer: TfmvExplorer
     Align = alClient
     TabOrder = 7
     Visible = False
-    ExplicitHeight = 688
     object dgUsers: TNNVDBGrid
       Left = 0
       Top = 63
@@ -370,23 +361,9 @@ inherited fmvExplorer: TfmvExplorer
           Height = 21
           AutoSize = True
           TabOrder = 0
-          ExplicitHeight = 21
           inherited tbrDiapazon: TToolBar
-            Height = 21
-            ButtonHeight = 21
-            ExplicitHeight = 21
-            inherited cbdBegin: TNNVComboBoxDateTime
-              Height = 21
-              ExplicitHeight = 21
-            end
-            inherited cbdEnd: TNNVComboBoxDateTime
-              Height = 21
-              ExplicitHeight = 21
-            end
             inherited tbApplyDiapazon: TToolButton
-              OnClick = nil
               ExplicitWidth = 38
-              ExplicitHeight = 21
             end
           end
         end
