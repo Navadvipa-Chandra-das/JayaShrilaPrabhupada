@@ -316,3 +316,12 @@ void __fastcall TfmvExplorer::aDeleteUserExecute(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TfmvExplorer::Button1Click(TObject *Sender)
+{
+  NNV::TLongLongIntDiapazon LD;
+  LD.Begin = 1234;
+  LD.End   = 43211234;
+  frvLongLongIntDiapazon1->LongLongIntDiapazon = LD;
+}
+//---------------------------------------------------------------------------
+

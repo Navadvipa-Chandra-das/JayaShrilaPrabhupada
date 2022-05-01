@@ -253,9 +253,9 @@ inherited fmvExplorer: TfmvExplorer
     Visible = False
     object dgUsers: TNNVDBGrid
       Left = 0
-      Top = 63
+      Top = 187
       Width = 993
-      Height = 632
+      Height = 508
       Align = alClient
       DataSource = dmvNizhnyayaNavadvipa.dsUsers
       Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
@@ -343,7 +343,7 @@ inherited fmvExplorer: TfmvExplorer
       Left = 0
       Top = 0
       Width = 993
-      Height = 63
+      Height = 187
       Align = alTop
       TabOrder = 1
       object tbrUsers: TToolBar
@@ -357,28 +357,28 @@ inherited fmvExplorer: TfmvExplorer
         inline frvUserPeriod: TfrvPeriod
           Left = 0
           Top = 0
-          Width = 346
+          Width = 331
           Height = 21
           AutoSize = True
           TabOrder = 0
           inherited tbrDiapazon: TToolBar
             inherited tbApplyDiapazon: TToolButton
-              ExplicitWidth = 38
+              ExplicitWidth = 23
             end
           end
         end
         object tbNewUser: TToolButton
-          Left = 346
+          Left = 331
           Top = 0
           Action = aNewUser
         end
         object tbSetUserPassord: TToolButton
-          Left = 369
+          Left = 354
           Top = 0
           Action = aSetUserPassord
         end
         object tbDeleteUser: TToolButton
-          Left = 392
+          Left = 377
           Top = 0
           Action = aDeleteUser
         end
@@ -451,12 +451,40 @@ inherited fmvExplorer: TfmvExplorer
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
-        MaxLength = 21
+        MaxLength = 22
         ParentFont = False
         TabOrder = 5
         IsUserCanChangeCheckStyle = True
-        CheckStyle = Greater
+        CheckStyle = GreaterOrEqual
         CheckStyleSetKind = Greater
+      end
+      inline frvLongLongIntDiapazon1: TfrvLongLongIntDiapazon
+        Left = 56
+        Top = 87
+        Width = 391
+        Height = 21
+        AutoSize = True
+        TabOrder = 6
+        ExplicitLeft = 56
+        ExplicitTop = 87
+        ExplicitWidth = 391
+        inherited tbrDiapazon: TToolBar
+          Width = 391
+          ButtonWidth = 16
+          ExplicitWidth = 391
+          inherited tbApplyDiapazon: TToolButton
+            ExplicitWidth = 31
+          end
+        end
+      end
+      object Button1: TButton
+        Left = 450
+        Top = 85
+        Width = 75
+        Height = 25
+        Caption = 'Button1'
+        TabOrder = 7
+        OnClick = Button1Click
       end
     end
   end
