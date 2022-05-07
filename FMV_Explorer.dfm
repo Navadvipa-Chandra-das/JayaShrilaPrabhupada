@@ -42,16 +42,7 @@ inherited fmvExplorer: TfmvExplorer
       end
     end
   end
-  object paColor: TNNVPanel [4]
-    Left = 192
-    Top = 57
-    Width = 993
-    Height = 695
-    Align = alClient
-    TabOrder = 4
-    Visible = False
-  end
-  object paNumberToWords: TNNVPanel [5]
+  object paNumberToWords: TNNVPanel [4]
     Left = 192
     Top = 57
     Width = 993
@@ -97,7 +88,257 @@ inherited fmvExplorer: TfmvExplorer
       end
     end
   end
-  object paCommod: TNNVPanel [6]
+  inherited tbStatus: TToolBar
+    Top = 752
+    Height = 22
+    Caption = ''
+    ExplicitTop = 752
+    ExplicitHeight = 22
+  end
+  object paUsers: TNNVPanel [6]
+    Left = 192
+    Top = 57
+    Width = 993
+    Height = 695
+    Align = alClient
+    TabOrder = 7
+    Visible = False
+    object dgUsers: TNNVDBGrid
+      Left = 0
+      Top = 62
+      Width = 993
+      Height = 633
+      Align = alClient
+      DataSource = dmvNizhnyayaNavadvipa.dsUsers
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnEditButtonClick = DBGridEditButtonClick
+      OnEnter = DBGridEnter
+      Columns = <
+        item
+          Alignment = taCenter
+          Expanded = False
+          FieldName = 'IsDeleted'
+          Font.Charset = SYMBOL_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Wingdings'
+          Font.Style = []
+          ReadOnly = True
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'UserID'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Name'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Note'
+          Width = 143
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Anketa.FIO'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Anketa.INN'
+          Width = 100
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Anketa.Passport'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Anketa.PassportKemVydan'
+          Width = 100
+          Visible = True
+        end
+        item
+          ButtonStyle = cbsEllipsis
+          Expanded = False
+          FieldName = 'Anketa.PassportDate'
+          Visible = True
+        end
+        item
+          ButtonStyle = cbsEllipsis
+          Expanded = False
+          FieldName = 'BirthDate'
+          Width = 100
+          Visible = True
+        end
+        item
+          ButtonStyle = cbsEllipsis
+          Expanded = False
+          FieldName = 'CreateDate'
+          Width = 100
+          Visible = True
+        end>
+    end
+    object paUsersT: TNNVPanel
+      Left = 0
+      Top = 0
+      Width = 993
+      Height = 62
+      Align = alTop
+      TabOrder = 1
+      object tbrUsers: TToolBar
+        Left = 0
+        Top = 0
+        Width = 993
+        Height = 23
+        Caption = 'tbrUsers'
+        Images = dmvNizhnyayaNavadvipa.ilDB
+        TabOrder = 0
+        inline frvUserPeriod: TfrvPeriod
+          Left = 0
+          Top = 0
+          Width = 346
+          Height = 22
+          AutoSize = True
+          TabOrder = 0
+          inherited tbrDiapazon: TToolBar
+            inherited tbApplyDiapazon: TToolButton
+              ExplicitWidth = 38
+            end
+          end
+        end
+        object tbNewUser: TToolButton
+          Left = 346
+          Top = 0
+          Action = aNewUser
+        end
+        object tbSetUserPassord: TToolButton
+          Left = 369
+          Top = 0
+          Action = aSetUserPassord
+        end
+        object tbDeleteUser: TToolButton
+          Left = 392
+          Top = 0
+          Action = aDeleteUser
+        end
+      end
+      object ddtUsersPassportDate: TNNVDBComboBoxDateTime
+        Left = 6
+        Top = 32
+        Width = 121
+        Height = 21
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        MaxLength = 10
+        ParentFont = False
+        TabOrder = 1
+        NeedTime = False
+        DataField = 'Anketa.PassportDate'
+        DataSource = dmvNizhnyayaNavadvipa.dsUsers
+      end
+      object dcbUsersNote: TNNVDBComboBox
+        Left = 134
+        Top = 32
+        Width = 114
+        Height = 21
+        DataField = 'Note'
+        DataSource = dmvNizhnyayaNavadvipa.dsUsers
+        TabOrder = 2
+      end
+      object ddtUsersBirthDate: TNNVDBComboBoxDateTime
+        Left = 248
+        Top = 32
+        Width = 121
+        Height = 21
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        MaxLength = 19
+        ParentFont = False
+        TabOrder = 3
+        DataField = 'BirthDate'
+        DataSource = dmvNizhnyayaNavadvipa.dsUsers
+      end
+      object ddtUsersCreateDate: TNNVDBComboBoxDateTime
+        Left = 377
+        Top = 32
+        Width = 121
+        Height = 21
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        MaxLength = 19
+        ParentFont = False
+        TabOrder = 4
+        DataField = 'CreateDate'
+        DataSource = dmvNizhnyayaNavadvipa.dsUsers
+      end
+      object NNVComboBoxDateTime1: TNNVComboBoxDateTime
+        Left = 503
+        Top = 32
+        Width = 160
+        Height = 21
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        MaxLength = 22
+        ParentFont = False
+        TabOrder = 5
+        IsUserCanChangeCheckStyle = True
+        CheckStyle = GreaterOrEqual
+        CheckStyleSetKind = Greater
+      end
+    end
+  end
+  object paColor: TNNVPanel [7]
+    Left = 192
+    Top = 57
+    Width = 993
+    Height = 695
+    Align = alClient
+    TabOrder = 4
+    Visible = False
+    object dgColor: TNNVDrawGrid
+      Left = 0
+      Top = 0
+      Width = 993
+      Height = 695
+      Align = alClient
+      ColCount = 3
+      Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goThumbTracking]
+      TabOrder = 0
+      OnDblClick = dgColorDblClick
+      OnDrawCell = dgColorDrawCell
+      OnKeyDown = dgColorKeyDown
+      ColWidths = (
+        434
+        83
+        78)
+    end
+  end
+  object paCommod: TNNVPanel [8]
     Left = 192
     Top = 57
     Width = 993
@@ -192,6 +433,7 @@ inherited fmvExplorer: TfmvExplorer
       Height = 289
       Align = alClient
       DataSource = dmvNizhnyayaNavadvipa.dsCommod
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
       TabOrder = 1
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
@@ -200,6 +442,10 @@ inherited fmvExplorer: TfmvExplorer
       TitleFont.Style = []
       OnEnter = DBGridEnter
       OnKeyDown = DBGridKeyDown
+      OnDBCut = dgCommodDBCut
+      OnDBCopy = dgCommodDBCopy
+      OnDBPaste = dgCommodDBPaste
+      OnDBMerge = dgCommodDBMerge
       Columns = <
         item
           Alignment = taCenter
@@ -234,258 +480,6 @@ inherited fmvExplorer: TfmvExplorer
           FieldName = 'Price'
           Visible = True
         end>
-    end
-  end
-  inherited tbStatus: TToolBar
-    Top = 752
-    Height = 22
-    Caption = ''
-    ExplicitTop = 752
-    ExplicitHeight = 22
-  end
-  object paUsers: TNNVPanel [8]
-    Left = 192
-    Top = 57
-    Width = 993
-    Height = 695
-    Align = alClient
-    TabOrder = 7
-    Visible = False
-    object dgUsers: TNNVDBGrid
-      Left = 0
-      Top = 187
-      Width = 993
-      Height = 508
-      Align = alClient
-      DataSource = dmvNizhnyayaNavadvipa.dsUsers
-      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
-      TabOrder = 0
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clWindowText
-      TitleFont.Height = -11
-      TitleFont.Name = 'Tahoma'
-      TitleFont.Style = []
-      OnEditButtonClick = DBGridEditButtonClick
-      OnEnter = DBGridEnter
-      Columns = <
-        item
-          Alignment = taCenter
-          Expanded = False
-          FieldName = 'IsDeleted'
-          Font.Charset = SYMBOL_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Wingdings'
-          Font.Style = []
-          ReadOnly = True
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'UserID'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Name'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Note'
-          Width = 143
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Anketa.FIO'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Anketa.INN'
-          Width = 100
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Anketa.Passport'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Anketa.PassportKemVydan'
-          Width = 100
-          Visible = True
-        end
-        item
-          ButtonStyle = cbsEllipsis
-          Expanded = False
-          FieldName = 'Anketa.PassportDate'
-          Visible = True
-        end
-        item
-          ButtonStyle = cbsEllipsis
-          Expanded = False
-          FieldName = 'BirthDate'
-          Width = 100
-          Visible = True
-        end
-        item
-          ButtonStyle = cbsEllipsis
-          Expanded = False
-          FieldName = 'CreateDate'
-          Width = 100
-          Visible = True
-        end>
-    end
-    object paUsersT: TNNVPanel
-      Left = 0
-      Top = 0
-      Width = 993
-      Height = 187
-      Align = alTop
-      TabOrder = 1
-      object tbrUsers: TToolBar
-        Left = 0
-        Top = 0
-        Width = 993
-        Height = 23
-        Caption = 'tbrUsers'
-        Images = dmvNizhnyayaNavadvipa.ilDB
-        TabOrder = 0
-        inline frvUserPeriod: TfrvPeriod
-          Left = 0
-          Top = 0
-          Width = 331
-          Height = 21
-          AutoSize = True
-          TabOrder = 0
-          inherited tbrDiapazon: TToolBar
-            inherited tbApplyDiapazon: TToolButton
-              ExplicitWidth = 23
-            end
-          end
-        end
-        object tbNewUser: TToolButton
-          Left = 331
-          Top = 0
-          Action = aNewUser
-        end
-        object tbSetUserPassord: TToolButton
-          Left = 354
-          Top = 0
-          Action = aSetUserPassord
-        end
-        object tbDeleteUser: TToolButton
-          Left = 377
-          Top = 0
-          Action = aDeleteUser
-        end
-      end
-      object ddtUsersPassportDate: TNNVDBComboBoxDateTime
-        Left = 6
-        Top = 32
-        Width = 121
-        Height = 21
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        MaxLength = 10
-        ParentFont = False
-        TabOrder = 1
-        NeedTime = False
-        DataField = 'Anketa.PassportDate'
-        DataSource = dmvNizhnyayaNavadvipa.dsUsers
-      end
-      object dcbUsersNote: TNNVDBComboBox
-        Left = 134
-        Top = 32
-        Width = 114
-        Height = 21
-        DataField = 'Note'
-        DataSource = dmvNizhnyayaNavadvipa.dsUsers
-        TabOrder = 2
-      end
-      object ddtUsersBirthDate: TNNVDBComboBoxDateTime
-        Left = 248
-        Top = 32
-        Width = 121
-        Height = 21
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        MaxLength = 19
-        ParentFont = False
-        TabOrder = 3
-        DataField = 'BirthDate'
-        DataSource = dmvNizhnyayaNavadvipa.dsUsers
-      end
-      object ddtUsersCreateDate: TNNVDBComboBoxDateTime
-        Left = 377
-        Top = 32
-        Width = 121
-        Height = 21
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        MaxLength = 19
-        ParentFont = False
-        TabOrder = 4
-        DataField = 'CreateDate'
-        DataSource = dmvNizhnyayaNavadvipa.dsUsers
-      end
-      object NNVComboBoxDateTime1: TNNVComboBoxDateTime
-        Left = 503
-        Top = 32
-        Width = 160
-        Height = 21
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        MaxLength = 22
-        ParentFont = False
-        TabOrder = 5
-        IsUserCanChangeCheckStyle = True
-        CheckStyle = GreaterOrEqual
-        CheckStyleSetKind = Greater
-      end
-      inline frvLongLongIntDiapazon1: TfrvLongLongIntDiapazon
-        Left = 56
-        Top = 87
-        Width = 391
-        Height = 21
-        AutoSize = True
-        TabOrder = 6
-        ExplicitLeft = 56
-        ExplicitTop = 87
-        ExplicitWidth = 391
-        inherited tbrDiapazon: TToolBar
-          Width = 391
-          ButtonWidth = 16
-          ExplicitWidth = 391
-          inherited tbApplyDiapazon: TToolButton
-            ExplicitWidth = 31
-          end
-        end
-      end
-      object Button1: TButton
-        Left = 450
-        Top = 85
-        Width = 75
-        Height = 25
-        Caption = 'Button1'
-        TabOrder = 7
-        OnClick = Button1Click
-      end
     end
   end
   inherited fbRes: TNNVFlagBox

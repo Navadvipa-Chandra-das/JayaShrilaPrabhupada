@@ -43,6 +43,7 @@
 #include "VCL_NNFrIntDiapazon.h"
 #include "VCL_NNFrLongLongIntDiapazon.h"
 #include "VCL_NNFrShortIntDiapazon.h"
+#include "VCL_NNDrawGrid.h"
 //---------------------------------------------------------------------------
 class TfmvExplorer : public TfmvDB
 {
@@ -90,8 +91,7 @@ __published:	// IDE-managed Components
   TDBEdit *dePriceCommod;
   TLabel *laPriceCommod;
   TfrvPeriod *frvUserPeriod;
-  TfrvLongLongIntDiapazon *frvLongLongIntDiapazon1;
-  TButton *Button1;
+  TNNVDrawGrid *dgColor;
   void __fastcall coResLoad( TObject *Sender );
   void __fastcall coResSave( TObject *Sender );
   void __fastcall coResEndLoad( TObject *Sender );
@@ -123,7 +123,15 @@ __published:	// IDE-managed Components
   void __fastcall aNewUserExecute( TObject *Sender );
   void __fastcall aSetUserPassordExecute( TObject *Sender );
   void __fastcall aDeleteUserExecute(TObject *Sender);
-  void __fastcall Button1Click(TObject *Sender);
+  void __fastcall dgColorDrawCell(TObject *Sender, int ACol, int ARow, TRect &Rect,
+          TGridDrawState State);
+  void __fastcall dgColorDblClick(TObject *Sender);
+  void __fastcall dgColorKeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
+  void __fastcall dgCommodDBCopy( TObject *Sender );
+  void __fastcall dgCommodDBCut(TObject *param_03);
+  void __fastcall dgCommodDBMerge(TObject *param_03);
+  void __fastcall dgCommodDBPaste(TObject *param_03);
+
 private:	// User declarations
   typedef TfmvDB inherited;
   void __fastcall LoadNodeAdmins();
@@ -132,6 +140,7 @@ private:	// User declarations
   void __fastcall SaveNodeAdmins();
   void __fastcall SaveTrees();
   void __fastcall SaveGrids();
+  void __fastcall ExecuteColorSetup();
 public:		// User declarations
   __fastcall TfmvExplorer( TComponent* Owner );
 };

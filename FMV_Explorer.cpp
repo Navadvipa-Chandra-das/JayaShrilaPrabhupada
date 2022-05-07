@@ -7,6 +7,7 @@
 #include "VCL_NNDmvNizhnyayaNavadvipa.h"
 #include "DMV_JayaShrilaPrabhupada.h"
 #include "VCL_NNFmChangePassword.h"
+#include "VCL_NNColor.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "VCL_NNConfig"
@@ -34,6 +35,7 @@
 #pragma link "VCL_NNFrIntDiapazon"
 #pragma link "VCL_NNFrLongLongIntDiapazon"
 #pragma link "VCL_NNFrShortIntDiapazon"
+#pragma link "VCL_NNDrawGrid"
 #pragma resource "*.dfm"
 TfmvExplorer *fmvExplorer;
 //---------------------------------------------------------------------------
@@ -140,6 +142,7 @@ void __fastcall TfmvExplorer::FormCreate(TObject *Sender)
   inherited::FormCreate( Sender );
 
   tvExamples->StartAdmin();
+  dgColor->OptimalDefaultRowHeight();
 }
 //---------------------------------------------------------------------------
 
@@ -154,6 +157,7 @@ void __fastcall TfmvExplorer::FormDestroy(TObject *Sender)
 void __fastcall TfmvExplorer::naColorEnter(TObject *Sender )
 {
   paColor->Visible = true;
+  dgColor->RowCount = NNVColor::ColorMap.size() + 1;
 }
 //---------------------------------------------------------------------------
 
@@ -316,12 +320,104 @@ void __fastcall TfmvExplorer::aDeleteUserExecute(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExplorer::Button1Click(TObject *Sender)
+void __fastcall TfmvExplorer::dgColorDrawCell( TObject *Sender, int ACol, int ARow
+                                             , TRect &Rect, TGridDrawState State )
 {
-  NNV::TLongLongIntDiapazon LD;
-  LD.Begin = 1234;
-  LD.End   = 43211234;
-  frvLongLongIntDiapazon1->LongLongIntDiapazon = LD;
+  int L = Rect.Left + 2, R = Rect.Top + 2;
+  if ( !ARow ) {
+    switch ( ACol ) {
+      case 0 :
+        dgColor->Canvas->TextRect( Rect, L, R, "Название" );
+        break;
+      case 1 :
+        dgColor->Canvas->TextRect( Rect, L, R, "Шрифт" );
+        break;
+      case 2 :
+        dgColor->Canvas->TextRect( Rect, L, R, "Фон" );
+        break;
+    }
+    return;
+  }
+  NNVColor::TColorMap::iterator i = NNVColor::ColorMap.find( (NNVColor::TColorKind)( ARow - 1 ) );
+  switch ( ACol ) {
+    case 0 :
+      dgColor->Canvas->Font->Color = (*i).second.FontColor;
+      dgColor->Canvas->Brush->Color = (*i).second.FonColor;
+      dgColor->Canvas->TextRect( Rect, L, R, (*i).second.Name );
+      break;
+    case 1 :
+      dgColor->Canvas->Brush->Color = (*i).second.FontColor;
+      dgColor->Canvas->FillRect( Rect );
+      break;
+    case 2 :
+      dgColor->Canvas->Brush->Color = (*i).second.FonColor;
+      dgColor->Canvas->FillRect( Rect );
+      break;
+  }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgColorDblClick(TObject *Sender)
+{
+  if ( dgColor->Row )
+    ExecuteColorSetup();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgColorKeyDown( TObject *Sender, WORD &Key, TShiftState Shift )
+{
+  if ( Key == VK_SPACE && dgColor->Col ) {
+    ExecuteColorSetup();
+    Key = 0;
+  }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::ExecuteColorSetup()
+{
+  NNVColor::TColorMap::iterator i;
+  switch ( dgColor->Col ) {
+    case 1 :
+      i = NNVColor::ColorMap.find( (NNVColor::TColorKind)( dgColor->Row - 1 ) );
+      dmvNizhnyayaNavadvipa->cdNN->Color = (*i).second.FontColor;
+      if ( dmvNizhnyayaNavadvipa->cdNN->Execute() ) {
+        (*i).second.FontColor = dmvNizhnyayaNavadvipa->cdNN->Color;
+        NNVColor::ColorMap.Refresh();
+        dgColor->Refresh();
+      }
+      break;
+    case 2 :
+      i = NNVColor::ColorMap.find( (NNVColor::TColorKind)( dgColor->Row - 1 ) );
+      dmvNizhnyayaNavadvipa->cdNN->Color = (*i).second.FonColor;
+      if ( dmvNizhnyayaNavadvipa->cdNN->Execute() ) {
+        (*i).second.FonColor = dmvNizhnyayaNavadvipa->cdNN->Color;
+        NNVColor::ColorMap.Refresh();
+        dgColor->Refresh();
+      }
+  }
+}
+
+void __fastcall TfmvExplorer::dgCommodDBCopy( TObject *Sender )
+{
+  dgCommod->CWSelect( dmCommod->odCommodCOMMODNO, dmData->OracleBuffer, cw::ccCopy, cw::obCommod );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgCommodDBCut( TObject *Sender )
+{
+  dgCommod->CWSelect( dmCommod->odCommodCOMMODNO, dmData->OracleBuffer, cw::ccCut, cw::obCommod );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgCommodDBMerge( TObject *Sender )
+{
+  dmvNizhnyayaNavadvipa->MergeCommod();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgCommodDBPaste( TObject *Sender )
+{
+  dmvNizhnyayaNavadvipa->PasteCommod();
 }
 //---------------------------------------------------------------------------
 
