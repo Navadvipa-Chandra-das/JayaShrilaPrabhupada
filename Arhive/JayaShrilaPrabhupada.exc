@@ -1,0 +1,15 @@
+*.obj
+*.dcu
+*.tds
+*.rar
+*.zip
+*.7z
+*.tar.gz
+*.$*
+*.~*
+*.*~
+..\.git
+..\__history
+..\__recovery
+..\Win32
+..\__astcache

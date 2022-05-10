@@ -123,14 +123,13 @@ __published:	// IDE-managed Components
   void __fastcall aNewUserExecute( TObject *Sender );
   void __fastcall aSetUserPassordExecute( TObject *Sender );
   void __fastcall aDeleteUserExecute(TObject *Sender);
-  void __fastcall dgColorDrawCell(TObject *Sender, int ACol, int ARow, TRect &Rect,
-          TGridDrawState State);
-  void __fastcall dgColorDblClick(TObject *Sender);
-  void __fastcall dgColorKeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
+  void __fastcall dgColorDrawCell( TObject *Sender, int ACol, int ARow, TRect &Rect,
+          TGridDrawState State );
+  void __fastcall dgColorDblClick( TObject *Sender );
+  void __fastcall dgColorKeyDown( TObject *Sender, WORD &Key, TShiftState Shift );
   void __fastcall dgCommodDBCopy( TObject *Sender );
-  void __fastcall dgCommodDBCut(TObject *param_03);
-  void __fastcall dgCommodDBMerge(TObject *param_03);
-  void __fastcall dgCommodDBPaste(TObject *param_03);
+  void __fastcall dgCommodDBCut( TObject *Sender );
+  void __fastcall dgCommodDBPaste( TObject *Sender );
 
 private:	// User declarations
   typedef TfmvDB inherited;

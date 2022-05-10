@@ -22,6 +22,7 @@ inherited fmvExplorer: TfmvExplorer
     Indent = 19
     TabOrder = 2
     OnEnter = DBTreeViewEnter
+    EditKindID = deKindID
     OnNodeAdminChange = DBTreeViewNodeAdminChange
     ActiveOrder = 0
   end
@@ -111,6 +112,7 @@ inherited fmvExplorer: TfmvExplorer
       Align = alClient
       DataSource = dmvNizhnyayaNavadvipa.dsUsers
       Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
+      PopupMenu = pmDBGrid
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
@@ -434,6 +436,7 @@ inherited fmvExplorer: TfmvExplorer
       Align = alClient
       DataSource = dmvNizhnyayaNavadvipa.dsCommod
       Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
+      PopupMenu = pmDBGrid
       TabOrder = 1
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
@@ -445,7 +448,6 @@ inherited fmvExplorer: TfmvExplorer
       OnDBCut = dgCommodDBCut
       OnDBCopy = dgCommodDBCopy
       OnDBPaste = dgCommodDBPaste
-      OnDBMerge = dgCommodDBMerge
       Columns = <
         item
           Alignment = taCenter
@@ -620,6 +622,10 @@ inherited fmvExplorer: TfmvExplorer
   end
   inherited ddDB: TNNVDateTimeDialog
     Left = 94
+    Top = 54
+  end
+  inherited pmDBGrid: TPopupMenu
+    Left = 122
     Top = 54
   end
 end

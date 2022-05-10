@@ -399,25 +399,19 @@ void __fastcall TfmvExplorer::ExecuteColorSetup()
 
 void __fastcall TfmvExplorer::dgCommodDBCopy( TObject *Sender )
 {
-  dgCommod->CWSelect( dmCommod->odCommodCOMMODNO, dmData->OracleBuffer, cw::ccCopy, cw::obCommod );
+  dgCommod->CWSelect( dmvNizhnyayaNavadvipa->quCommodEntityID, &dmvNizhnyayaNavadvipa->BufferIntBox, false, L"Commod" );
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::dgCommodDBCut( TObject *Sender )
 {
-  dgCommod->CWSelect( dmCommod->odCommodCOMMODNO, dmData->OracleBuffer, cw::ccCut, cw::obCommod );
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TfmvExplorer::dgCommodDBMerge( TObject *Sender )
-{
-  dmvNizhnyayaNavadvipa->MergeCommod();
-}
+  dgCommod->CWSelect( dmvNizhnyayaNavadvipa->quCommodEntityID, &dmvNizhnyayaNavadvipa->BufferIntBox, true, L"Commod" );
+};
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::dgCommodDBPaste( TObject *Sender )
 {
-  dmvNizhnyayaNavadvipa->PasteCommod();
+  dmvNizhnyayaNavadvipa->quCommod->DBPaste();
 }
 //---------------------------------------------------------------------------
 
