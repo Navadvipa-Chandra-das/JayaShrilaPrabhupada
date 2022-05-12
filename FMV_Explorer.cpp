@@ -397,12 +397,6 @@ void __fastcall TfmvExplorer::ExecuteColorSetup()
   }
 }
 
-void __fastcall TfmvExplorer::dgCommodDBCopy( TObject *Sender )
-{
-  dgCommod->CWSelect( dmvNizhnyayaNavadvipa->quCommodEntityID, &dmvNizhnyayaNavadvipa->BufferIntBox, false, L"Commod" );
-}
-//---------------------------------------------------------------------------
-
 void __fastcall TfmvExplorer::dgCommodDBCut( TObject *Sender )
 {
   dgCommod->CWSelect( dmvNizhnyayaNavadvipa->quCommodEntityID, &dmvNizhnyayaNavadvipa->BufferIntBox, true, L"Commod" );
@@ -414,4 +408,6 @@ void __fastcall TfmvExplorer::dgCommodDBPaste( TObject *Sender )
   dmvNizhnyayaNavadvipa->quCommod->DBPaste();
 }
 //---------------------------------------------------------------------------
+
+
 

@@ -18,6 +18,7 @@ inherited fmvExplorer: TfmvExplorer
     Height = 695
     Align = alLeft
     Constraints.MinWidth = 120
+    DragMode = dmAutomatic
     Images = dmvNizhnyayaNavadvipa.ilDB
     Indent = 19
     TabOrder = 2
@@ -446,7 +447,6 @@ inherited fmvExplorer: TfmvExplorer
       OnEnter = DBGridEnter
       OnKeyDown = DBGridKeyDown
       OnDBCut = dgCommodDBCut
-      OnDBCopy = dgCommodDBCopy
       OnDBPaste = dgCommodDBPaste
       Columns = <
         item
@@ -501,7 +501,6 @@ inherited fmvExplorer: TfmvExplorer
     OnEnter = naConfigEnter
     OnExit = naConfigExit
     ReadOnly = True
-    DragDropKind = ddkSort
     ReloadEnabled = False
     TreeView = tvExamples
     LoadOrder = 0
@@ -513,7 +512,6 @@ inherited fmvExplorer: TfmvExplorer
     OnEnter = naColorEnter
     OnExit = naColorExit
     ReadOnly = True
-    DragDropKind = ddkSort
     ReloadEnabled = False
     TreeView = tvExamples
     Left = 116
@@ -525,7 +523,6 @@ inherited fmvExplorer: TfmvExplorer
     OnEnter = naNumberToWordsEnter
     OnExit = naNumberToWordsExit
     ReadOnly = True
-    DragDropKind = ddkSort
     ReloadEnabled = False
     TreeView = tvExamples
     LoadOrder = 2
@@ -539,7 +536,6 @@ inherited fmvExplorer: TfmvExplorer
     OnExit = naUsersExit
     OnLastExit = naUsersLastExit
     ReadOnly = True
-    DragDropKind = ddkSort
     ReloadEnabled = False
     TreeView = tvExamples
     LoadOrder = 3
@@ -610,7 +606,6 @@ inherited fmvExplorer: TfmvExplorer
     OnEnter = naCommodKindEnter
     OnExit = naCommodKindExit
     OnLastExit = naCommodKindLastExit
-    DragDropKind = ddkSort
     ActualOnlyNeed = True
     EndToEndViewingNeed = True
     TreeView = tvExamples

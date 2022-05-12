@@ -127,7 +127,6 @@ __published:	// IDE-managed Components
           TGridDrawState State );
   void __fastcall dgColorDblClick( TObject *Sender );
   void __fastcall dgColorKeyDown( TObject *Sender, WORD &Key, TShiftState Shift );
-  void __fastcall dgCommodDBCopy( TObject *Sender );
   void __fastcall dgCommodDBCut( TObject *Sender );
   void __fastcall dgCommodDBPaste( TObject *Sender );
 
