@@ -184,9 +184,6 @@ Coordinates=164,300,126,58
 [dmvNizhnyayaNavadvipa.quCommodKind]
 Coordinates=231,10,255,168
 
-[naColor]
-Coordinates=451,849,60,36
-
 [aDBMerge]
 Coordinates=372,849,76,36
 
@@ -358,9 +355,6 @@ Coordinates=1776,221,199,36
 [aTVNodeAdminPrint]
 Coordinates=1776,276,131,36
 
-[paColor]
-Coordinates=1142,300,60,58
-
 [miDBMerge]
 Coordinates=1776,331,82,36
 
@@ -488,9 +482,12 @@ Coordinates=856,368,157,36
 Coordinates=1010,10,120,58
 
 []
-Coordinates=2017,111,91,36
+Coordinates=1142,300,60,58
 
 [tbrUsers]
 Coordinates=993,436,59,36
 Visible=True
+
+[naColorKind]
+Coordinates=451,849,60,36
 

@@ -50,7 +50,7 @@ inherited fmvExplorer: TfmvExplorer
     Width = 993
     Height = 695
     Align = alClient
-    TabOrder = 5
+    TabOrder = 4
     Visible = False
     object meNumberToWords: TMemo
       Left = 0
@@ -103,7 +103,7 @@ inherited fmvExplorer: TfmvExplorer
     Width = 993
     Height = 695
     Align = alClient
-    TabOrder = 7
+    TabOrder = 6
     Visible = False
     object dgUsers: TNNVDBGrid
       Left = 0
@@ -315,39 +315,13 @@ inherited fmvExplorer: TfmvExplorer
       end
     end
   end
-  object paColor: TNNVPanel [7]
+  object paCommod: TNNVPanel [7]
     Left = 192
     Top = 57
     Width = 993
     Height = 695
     Align = alClient
-    TabOrder = 4
-    Visible = False
-    object dgColor: TNNVDrawGrid
-      Left = 0
-      Top = 0
-      Width = 993
-      Height = 695
-      Align = alClient
-      ColCount = 3
-      Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goThumbTracking]
-      TabOrder = 0
-      OnDblClick = dgColorDblClick
-      OnDrawCell = dgColorDrawCell
-      OnKeyDown = dgColorKeyDown
-      ColWidths = (
-        434
-        83
-        78)
-    end
-  end
-  object paCommod: TNNVPanel [8]
-    Left = 192
-    Top = 57
-    Width = 993
-    Height = 695
-    Align = alClient
-    TabOrder = 6
+    TabOrder = 5
     Visible = False
     object paCommodT: TNNVPanel
       Left = 0
@@ -484,6 +458,133 @@ inherited fmvExplorer: TfmvExplorer
         end>
     end
   end
+  object drgColor: TNNVDrawGrid [8]
+    Left = 192
+    Top = 57
+    Width = 993
+    Height = 695
+    Align = alClient
+    ColCount = 3
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goThumbTracking]
+    TabOrder = 8
+    Visible = False
+    OnDblClick = drgColorDblClick
+    OnDrawCell = drgColorDrawCell
+    OnKeyDown = drgColorKeyDown
+    ColWidths = (
+      434
+      83
+      78)
+    RowHeights = (
+      24
+      23
+      24
+      25
+      24)
+  end
+  object paColor: TNNVPanel [9]
+    Left = 192
+    Top = 57
+    Width = 993
+    Height = 695
+    Align = alClient
+    TabOrder = 7
+    Visible = False
+    object tbColor: TToolBar
+      Left = 0
+      Top = 0
+      Width = 993
+      Height = 23
+      Caption = 'tbColor'
+      Images = dmvNizhnyayaNavadvipa.ilDB
+      TabOrder = 0
+      object tbColorIndexGenerate: TToolButton
+        Left = 0
+        Top = 0
+        Action = aColorIndexGenerate
+      end
+    end
+    object dgColor: TNNVDBGrid
+      Left = 0
+      Top = 23
+      Width = 993
+      Height = 672
+      Align = alClient
+      DataSource = dmvNizhnyayaNavadvipa.dsColor
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
+      PopupMenu = pmDBGrid
+      TabOrder = 1
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnDrawColumnCell = dgColorDrawColumnCell
+      OnEditButtonClick = dgColorEditButtonClick
+      OnEnter = DBGridEnter
+      OnKeyDown = DBGridKeyDown
+      OnDBCut = dgColorDBCut
+      OnDBPaste = dgColorDBPaste
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'Actual'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'EntityID'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'KindID'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'Entity'
+          Width = 334
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'EnumLiteral'
+          Width = 90
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'VectorIndex'
+          Width = 60
+          Visible = True
+        end
+        item
+          ButtonStyle = cbsEllipsis
+          Expanded = False
+          FieldName = 'FonColor'
+          Visible = True
+        end
+        item
+          ButtonStyle = cbsEllipsis
+          Expanded = False
+          FieldName = 'FontColor'
+          Visible = True
+        end
+        item
+          ButtonStyle = cbsEllipsis
+          Expanded = False
+          FieldName = 'FonColorUser'
+          Visible = True
+        end
+        item
+          ButtonStyle = cbsEllipsis
+          Expanded = False
+          FieldName = 'FontColorUser'
+          Visible = True
+        end>
+    end
+  end
   inherited fbRes: TNNVFlagBox
     caFree = True
     ShowInWindowList = True
@@ -496,7 +597,7 @@ inherited fmvExplorer: TfmvExplorer
     Left = 116
     Top = 152
   end
-  object naConfig: TNNVNodeAdmin [11]
+  object naConfig: TNNVNodeAdmin [12]
     OnLoadNodes = naConfigLoadNodes
     OnEnter = naConfigEnter
     OnExit = naConfigExit
@@ -507,17 +608,21 @@ inherited fmvExplorer: TfmvExplorer
     Left = 88
     Top = 100
   end
-  object naColor: TNNVNodeAdmin [12]
-    OnLoadNodes = naColorLoadNodes
-    OnEnter = naColorEnter
-    OnExit = naColorExit
-    ReadOnly = True
-    ReloadEnabled = False
+  object naColorKind: TNNVNodeAdmin [13]
+    OnLoadNodes = naColorKindLoadNodes
+    OnGetNodeParams = naColorKindGetNodeParams
+    OnFirstEnter = naColorKindFirstEnter
+    OnEnter = naColorKindEnter
+    OnExit = naColorKindExit
+    OnLastExit = naColorKindLastExit
+    EndToEndViewingNeed = True
     TreeView = tvExamples
+    DetailDataSource = dmvNizhnyayaNavadvipa.dsColor
+    DataSource = dmvNizhnyayaNavadvipa.dsColorKind
     Left = 116
     Top = 100
   end
-  object naNumberToWords: TNNVNodeAdmin [13]
+  object naNumberToWords: TNNVNodeAdmin [14]
     OnLoadNodes = naNumberToWordsLoadNodes
     OnFirstEnter = naNumberToWordsFirstEnter
     OnEnter = naNumberToWordsEnter
@@ -529,7 +634,7 @@ inherited fmvExplorer: TfmvExplorer
     Left = 144
     Top = 100
   end
-  object naUsers: TNNVNodeAdmin [14]
+  object naUsers: TNNVNodeAdmin [15]
     OnLoadNodes = naUsersLoadNodes
     OnFirstEnter = naUsersFirstEnter
     OnEnter = naUsersEnter
@@ -543,7 +648,7 @@ inherited fmvExplorer: TfmvExplorer
     Left = 172
     Top = 100
   end
-  object nwExamples: TNNVNumberToWords [15]
+  object nwExamples: TNNVNumberToWords [16]
     OnChange = nwExamplesChange
     Left = 256
     Top = 101
@@ -576,6 +681,13 @@ inherited fmvExplorer: TfmvExplorer
       ImageIndex = 177
       OnExecute = aDeleteUserExecute
     end
+    object aColorIndexGenerate: TAction
+      Category = 'Color'
+      Caption = #1043#1077#1085#1077#1088#1072#1094#1080#1103' '#1080#1085#1076#1077#1082#1089#1086#1074' '#1094#1074#1077#1090#1086#1074
+      Hint = #1043#1077#1085#1077#1088#1072#1094#1080#1103' '#1080#1085#1076#1077#1082#1089#1086#1074' '#1094#1074#1077#1090#1086#1074
+      ImageIndex = 38
+      OnExecute = aColorIndexGenerateExecute
+    end
   end
   inherited dsData: TDataSource
     Left = 200
@@ -599,7 +711,7 @@ inherited fmvExplorer: TfmvExplorer
       Checked = True
     end
   end
-  object naCommodKind: TNNVNodeAdmin [22]
+  object naCommodKind: TNNVNodeAdmin [23]
     OnLoadNodes = naCommodKindLoadNodes
     OnGetNodeParams = naCommodKindGetNodeParams
     OnFirstEnter = naCommodKindFirstEnter
@@ -622,5 +734,18 @@ inherited fmvExplorer: TfmvExplorer
   inherited pmDBGrid: TPopupMenu
     Left = 122
     Top = 54
+  end
+  object naColor: TNNVNodeAdmin
+    OnLoadNodes = naColorLoadNodes
+    OnEnter = naColorEnter
+    OnExit = naColorExit
+    ReadOnly = True
+    KeyEnabled = False
+    MoveEnabled = False
+    ReloadEnabled = False
+    TreeView = tvExamples
+    LoadOrder = 5
+    Left = 227
+    Top = 100
   end
 end

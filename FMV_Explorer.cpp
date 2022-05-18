@@ -70,7 +70,7 @@ void __fastcall TfmvExplorer::coResSave( TObject *Sender )
 void __fastcall TfmvExplorer::LoadNodeAdmins()
 {
   naConfig->LoadFromFiler( coRes->Filer );
-  naColor->LoadFromFiler( coRes->Filer );
+  naColorKind->LoadFromFiler( coRes->Filer );
   naNumberToWords->LoadFromFiler( coRes->Filer );
   naUsers->LoadFromFiler( coRes->Filer );
   naCommodKind->LoadFromFiler( coRes->Filer );
@@ -79,7 +79,7 @@ void __fastcall TfmvExplorer::LoadNodeAdmins()
 void __fastcall TfmvExplorer::SaveNodeAdmins()
 {
   naConfig->SaveToFiler( coRes->Filer );
-  naColor->SaveToFiler( coRes->Filer );
+  naColorKind->SaveToFiler( coRes->Filer );
   naNumberToWords->SaveToFiler( coRes->Filer );
   naUsers->SaveToFiler( coRes->Filer );
   naCommodKind->SaveToFiler( coRes->Filer );
@@ -99,12 +99,14 @@ void __fastcall TfmvExplorer::LoadGrids()
 {
   dgUsers->LoadFromFiler( coRes->Filer );
   dgCommod->LoadFromFiler( coRes->Filer );
+  dgColor->LoadFromFiler( coRes->Filer );
 }
 
 void __fastcall TfmvExplorer::SaveGrids()
 {
   dgUsers->SaveToFiler( coRes->Filer );
   dgCommod->SaveToFiler( coRes->Filer );
+  dgColor->SaveToFiler( coRes->Filer );
 }
 
 void __fastcall TfmvExplorer::coResEndLoad( TObject *Sender )
@@ -128,7 +130,7 @@ void __fastcall TfmvExplorer::naConfigExit( TObject *Sender )
 
 void __fastcall TfmvExplorer::naConfigLoadNodes( TObject *Sender )
 {
-  naConfig->CurrentNode = ((TNNVTreeNode*)( tvExamples->Items->Add( NULL, "Пример сохранения настроек" ) ));
+  naConfig->CurrentNode = ((TNNVTreeNode*)( tvExamples->Items->Add( nullptr, "Пример сохранения настроек" ) ));
   naConfig->CurrentNode->NodeAdmin = naConfig;
   naConfig->CurrentNode->PK = NNV::EmptyPK;
   naConfig->CurrentNode->ImageIndex = (int)NNV::TImagesKind::imCurrency;
@@ -142,7 +144,7 @@ void __fastcall TfmvExplorer::FormCreate(TObject *Sender)
   inherited::FormCreate( Sender );
 
   tvExamples->StartAdmin();
-  dgColor->OptimalDefaultRowHeight();
+  drgColor->OptimalDefaultRowHeight();
 }
 //---------------------------------------------------------------------------
 
@@ -154,27 +156,21 @@ void __fastcall TfmvExplorer::FormDestroy(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExplorer::naColorEnter(TObject *Sender )
+void __fastcall TfmvExplorer::naColorKindEnter(TObject *Sender )
 {
   paColor->Visible = true;
-  dgColor->RowCount = NNVColor::ColorMap.size() + 1;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExplorer::naColorExit(TObject *Sender )
+void __fastcall TfmvExplorer::naColorKindExit(TObject *Sender )
 {
   paColor->Visible = false;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExplorer::naColorLoadNodes(TObject *Sender )
+void __fastcall TfmvExplorer::naColorKindLoadNodes(TObject *Sender )
 {
-  naColor->CurrentNode = ((TNNVTreeNode*)( tvExamples->Items->Add( NULL, "Настройка цветов" ) ));
-  naColor->CurrentNode->NodeAdmin = naColor;
-  naColor->CurrentNode->PK = NNV::EmptyPK;
-  naColor->CurrentNode->ImageIndex = (int)NNV::TImagesKind::imCommod;
-  naColor->CurrentNode->SelectedIndex = (int)NNV::TImagesKind::imCommod;
-  naColor->LocateNode = naColor->CurrentNode;
+  tvExamples->LoadNodeAdmin( nullptr, naColorKind, 72 );
 }
 //---------------------------------------------------------------------------
 
@@ -192,7 +188,7 @@ void __fastcall TfmvExplorer::naNumberToWordsExit(TObject *Sender )
 
 void __fastcall TfmvExplorer::naNumberToWordsLoadNodes(TObject *Sender )
 {
-  naNumberToWords->CurrentNode = ((TNNVTreeNode*)( tvExamples->Items->Add( NULL, "Преобразование числа в словесную форму" ) ));
+  naNumberToWords->CurrentNode = ((TNNVTreeNode*)( tvExamples->Items->Add( nullptr, "Преобразование числа в словесную форму" ) ));
   naNumberToWords->CurrentNode->NodeAdmin = naNumberToWords;
   naNumberToWords->CurrentNode->PK = NNV::EmptyPK;
   naNumberToWords->CurrentNode->ImageIndex = (int)NNV::TImagesKind::imPrimKind;
@@ -215,7 +211,7 @@ void __fastcall TfmvExplorer::naUsersExit(TObject *Sender )
 
 void __fastcall TfmvExplorer::naUsersLoadNodes(TObject *Sender )
 {
-  naUsers->CurrentNode = ((TNNVTreeNode*)( tvExamples->Items->Add( NULL, "Пользователи" ) ));
+  naUsers->CurrentNode = ((TNNVTreeNode*)( tvExamples->Items->Add( nullptr, "Пользователи" ) ));
   naUsers->CurrentNode->NodeAdmin = naUsers;
   naUsers->CurrentNode->PK = NNV::EmptyPK;
   naUsers->CurrentNode->ImageIndex = (int)NNV::TImagesKind::imCash;
@@ -260,7 +256,7 @@ void __fastcall TfmvExplorer::naUsersLastExit( TObject *Sender )
 
 void __fastcall TfmvExplorer::naCommodKindLoadNodes(TObject *Sender)
 {
-  tvExamples->LoadNodeAdmin( NULL, naCommodKind, 1 );
+  tvExamples->LoadNodeAdmin( nullptr, naCommodKind, 1 );
 }
 //---------------------------------------------------------------------------
 
@@ -320,53 +316,53 @@ void __fastcall TfmvExplorer::aDeleteUserExecute(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExplorer::dgColorDrawCell( TObject *Sender, int ACol, int ARow
+void __fastcall TfmvExplorer::drgColorDrawCell( TObject *Sender, int ACol, int ARow
                                              , TRect &Rect, TGridDrawState State )
 {
   int L = Rect.Left + 2, R = Rect.Top + 2;
   if ( !ARow ) {
     switch ( ACol ) {
       case 0 :
-        dgColor->Canvas->TextRect( Rect, L, R, "Название" );
+        drgColor->Canvas->TextRect( Rect, L, R, "Название" );
         break;
       case 1 :
-        dgColor->Canvas->TextRect( Rect, L, R, "Шрифт" );
+        drgColor->Canvas->TextRect( Rect, L, R, "Шрифт" );
         break;
       case 2 :
-        dgColor->Canvas->TextRect( Rect, L, R, "Фон" );
+        drgColor->Canvas->TextRect( Rect, L, R, "Фон" );
         break;
     }
     return;
   }
-  NNVColor::TColorMap::iterator i = NNVColor::ColorMap.find( (NNVColor::TColorKind)( ARow - 1 ) );
+  NNV::TColorMap::iterator i = NNV::ColorMap.find( (NNV::TColorKind)( ARow - 1 ) );
   switch ( ACol ) {
     case 0 :
-      dgColor->Canvas->Font->Color = (*i).second.FontColor;
-      dgColor->Canvas->Brush->Color = (*i).second.FonColor;
-      dgColor->Canvas->TextRect( Rect, L, R, (*i).second.Name );
+      drgColor->Canvas->Font->Color = (*i).second.FontColor;
+      drgColor->Canvas->Brush->Color = (*i).second.FonColor;
+      drgColor->Canvas->TextRect( Rect, L, R, (*i).second.Name );
       break;
     case 1 :
-      dgColor->Canvas->Brush->Color = (*i).second.FontColor;
-      dgColor->Canvas->FillRect( Rect );
+      drgColor->Canvas->Brush->Color = (*i).second.FontColor;
+      drgColor->Canvas->FillRect( Rect );
       break;
     case 2 :
-      dgColor->Canvas->Brush->Color = (*i).second.FonColor;
-      dgColor->Canvas->FillRect( Rect );
+      drgColor->Canvas->Brush->Color = (*i).second.FonColor;
+      drgColor->Canvas->FillRect( Rect );
       break;
   }
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExplorer::dgColorDblClick(TObject *Sender)
+void __fastcall TfmvExplorer::drgColorDblClick(TObject *Sender)
 {
-  if ( dgColor->Row )
+  if ( drgColor->Row )
     ExecuteColorSetup();
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExplorer::dgColorKeyDown( TObject *Sender, WORD &Key, TShiftState Shift )
+void __fastcall TfmvExplorer::drgColorKeyDown( TObject *Sender, WORD &Key, TShiftState Shift )
 {
-  if ( Key == VK_SPACE && dgColor->Col ) {
+  if ( Key == VK_SPACE && drgColor->Col ) {
     ExecuteColorSetup();
     Key = 0;
   }
@@ -375,24 +371,24 @@ void __fastcall TfmvExplorer::dgColorKeyDown( TObject *Sender, WORD &Key, TShift
 
 void __fastcall TfmvExplorer::ExecuteColorSetup()
 {
-  NNVColor::TColorMap::iterator i;
-  switch ( dgColor->Col ) {
+  NNV::TColorMap::iterator i;
+  switch ( drgColor->Col ) {
     case 1 :
-      i = NNVColor::ColorMap.find( (NNVColor::TColorKind)( dgColor->Row - 1 ) );
+      i = NNV::ColorMap.find( (NNV::TColorKind)( drgColor->Row - 1 ) );
       dmvNizhnyayaNavadvipa->cdNN->Color = (*i).second.FontColor;
       if ( dmvNizhnyayaNavadvipa->cdNN->Execute() ) {
         (*i).second.FontColor = dmvNizhnyayaNavadvipa->cdNN->Color;
-        NNVColor::ColorMap.Refresh();
-        dgColor->Refresh();
+        NNV::ColorMap.Refresh();
+        drgColor->Refresh();
       }
       break;
     case 2 :
-      i = NNVColor::ColorMap.find( (NNVColor::TColorKind)( dgColor->Row - 1 ) );
+      i = NNV::ColorMap.find( (NNV::TColorKind)( drgColor->Row - 1 ) );
       dmvNizhnyayaNavadvipa->cdNN->Color = (*i).second.FonColor;
       if ( dmvNizhnyayaNavadvipa->cdNN->Execute() ) {
         (*i).second.FonColor = dmvNizhnyayaNavadvipa->cdNN->Color;
-        NNVColor::ColorMap.Refresh();
-        dgColor->Refresh();
+        NNV::ColorMap.Refresh();
+        drgColor->Refresh();
       }
   }
 }
@@ -409,5 +405,115 @@ void __fastcall TfmvExplorer::dgCommodDBPaste( TObject *Sender )
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TfmvExplorer::naColorKindFirstEnter( TObject *Sender )
+{
+  dmvNizhnyayaNavadvipa->quColorKind->CWOpen();
+  dmvNizhnyayaNavadvipa->quColor->CWOpen();
+}
+//---------------------------------------------------------------------------
 
+void __fastcall TfmvExplorer::naColorKindLastExit( TObject *Sender )
+{
+  dmvNizhnyayaNavadvipa->quColor->CWClose();
+  dmvNizhnyayaNavadvipa->quColorKind->CWClose();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::naColorKindGetNodeParams( TObject *Sender, TNNVNodeParams &NodeParams )
+{
+  dmvNizhnyayaNavadvipa->SetNodeParamsColorKind( NodeParams );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgColorDBCut( TObject *Sender )
+{
+  dgColor->CWSelect( dmvNizhnyayaNavadvipa->quColorEntityID, &dmvNizhnyayaNavadvipa->BufferIntBox, true, L"Color" );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgColorDBPaste( TObject *Sender )
+{
+  dmvNizhnyayaNavadvipa->quColor->DBPaste();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgColorEditButtonClick(TObject *Sender)
+{
+  TField *f = CurrentDBGrid->SelectedField;
+  TRect R   = CurrentDBGrid->CWRect;
+
+  if ( f->DataType == ftInteger ) {
+    dmvNizhnyayaNavadvipa->cdNN->Color = (TColor)f->AsInteger;
+    if ( dmvNizhnyayaNavadvipa->cdNN->Execute() ) {
+      TColor CL = dmvNizhnyayaNavadvipa->cdNN->Color;
+      Query->CWCheckEditMode();
+      f->AsInteger = CL;
+      if ( f->FieldKind == fkCalculated ) {
+        std::size_t I = dmvNizhnyayaNavadvipa->quColorVectorIndex->AsLargeInt;
+        if ( f == dmvNizhnyayaNavadvipa->quColorFonColorUser )
+          dmvNizhnyayaNavadvipa->ColorVector[ I ].FonColor = CL;
+        else
+          dmvNizhnyayaNavadvipa->ColorVector[ I ].FontColor = CL;
+        Query->Post();
+      }
+    }
+  }
+}
+
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::aColorIndexGenerateExecute( TObject *Sender )
+{
+  dmvNizhnyayaNavadvipa->ColorIndexGenerate();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::naColorEnter( TObject *Sender )
+{
+  drgColor->Visible = true;
+  drgColor->RowCount = NNV::ColorMap.size() + 1;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::naColorExit( TObject *Sender )
+{
+  drgColor->Visible = false;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::naColorLoadNodes( TObject *Sender )
+{
+  naColor->CurrentNode = ( (TNNVTreeNode*)( tvExamples->Items->Add( nullptr, "Настройка цвета" ) ) );
+  naColor->CurrentNode->NodeAdmin = naColor;
+  naColor->CurrentNode->PK = NNV::EmptyPK;
+  naColor->CurrentNode->ImageIndex = (int)NNV::TImagesKind::imDepartment;
+  naColor->CurrentNode->SelectedIndex = (int)NNV::TImagesKind::imDepartment;
+  naColor->LocateNode = naColor->CurrentNode;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgColorDrawColumnCell( TObject *Sender, const TRect &Rect
+                                                   , int DataCol, TColumn *Column
+                                                   , TGridDrawState State )
+{
+  TNNVDBGrid *dg = dgColor;
+
+  TField *f = Column->Field;
+
+  TBrush *br = dg->Canvas->Brush;
+  TFont  *fn = dg->Canvas->Font;
+
+  if ( !State.Contains( gdFocused ) && !dmvNizhnyayaNavadvipa->quColorEntityID->IsNull ) {
+    if ( f->FieldKind == fkData ) {
+      br->Color = (TColor)dmvNizhnyayaNavadvipa->quColorFonColor->AsInteger;
+      fn->Color = (TColor)dmvNizhnyayaNavadvipa->quColorFontColor->AsInteger;
+    } else {
+      br->Color = (TColor)dmvNizhnyayaNavadvipa->quColorFonColorUser->AsInteger;
+      fn->Color = (TColor)dmvNizhnyayaNavadvipa->quColorFontColorUser->AsInteger;
+    }
+  }
+
+  dg->DefaultDrawColumnCell( Rect, DataCol, Column, State );
+}
+//---------------------------------------------------------------------------
 

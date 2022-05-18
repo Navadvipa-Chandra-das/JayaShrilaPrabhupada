@@ -53,11 +53,10 @@ __published:	// IDE-managed Components
   TNNVPanel *paUsers;
   TNNVDBGrid *dgUsers;
   TNNVNodeAdmin *naConfig;
-  TNNVNodeAdmin *naColor;
+  TNNVNodeAdmin *naColorKind;
   TNNVNodeAdmin *naNumberToWords;
   TNNVNodeAdmin *naUsers;
   TNNVPanel *paConfig;
-  TNNVPanel *paColor;
   TNNVPanel *paNumberToWords;
   TMemo *meNumberToWords;
   TNNVPanel *paNumberToWordsT;
@@ -91,7 +90,13 @@ __published:	// IDE-managed Components
   TDBEdit *dePriceCommod;
   TLabel *laPriceCommod;
   TfrvPeriod *frvUserPeriod;
-  TNNVDrawGrid *dgColor;
+  TNNVPanel *paColor;
+  TToolBar *tbColor;
+  TNNVDBGrid *dgColor;
+  TAction *aColorIndexGenerate;
+  TToolButton *tbColorIndexGenerate;
+  TNNVNodeAdmin *naColor;
+  TNNVDrawGrid *drgColor;
   void __fastcall coResLoad( TObject *Sender );
   void __fastcall coResSave( TObject *Sender );
   void __fastcall coResEndLoad( TObject *Sender );
@@ -100,9 +105,9 @@ __published:	// IDE-managed Components
   void __fastcall naConfigLoadNodes( TObject *Sender );
   void __fastcall FormCreate(TObject *Sender);
   void __fastcall FormDestroy(TObject *Sender);
-  void __fastcall naColorEnter(TObject *Sender );
-  void __fastcall naColorExit(TObject *Sender );
-  void __fastcall naColorLoadNodes(TObject *Sender );
+  void __fastcall naColorKindEnter(TObject *Sender );
+  void __fastcall naColorKindExit(TObject *Sender );
+  void __fastcall naColorKindLoadNodes(TObject *Sender );
   void __fastcall naNumberToWordsEnter(TObject *Sender );
   void __fastcall naNumberToWordsExit(TObject *Sender );
   void __fastcall naNumberToWordsLoadNodes(TObject *Sender );
@@ -123,13 +128,24 @@ __published:	// IDE-managed Components
   void __fastcall aNewUserExecute( TObject *Sender );
   void __fastcall aSetUserPassordExecute( TObject *Sender );
   void __fastcall aDeleteUserExecute(TObject *Sender);
-  void __fastcall dgColorDrawCell( TObject *Sender, int ACol, int ARow, TRect &Rect,
+  void __fastcall drgColorDrawCell( TObject *Sender, int ACol, int ARow, TRect &Rect,
           TGridDrawState State );
-  void __fastcall dgColorDblClick( TObject *Sender );
-  void __fastcall dgColorKeyDown( TObject *Sender, WORD &Key, TShiftState Shift );
+  void __fastcall drgColorDblClick( TObject *Sender );
+  void __fastcall drgColorKeyDown( TObject *Sender, WORD &Key, TShiftState Shift );
   void __fastcall dgCommodDBCut( TObject *Sender );
   void __fastcall dgCommodDBPaste( TObject *Sender );
-
+  void __fastcall naColorKindFirstEnter( TObject *Sender );
+  void __fastcall naColorKindLastExit( TObject *Sender );
+  void __fastcall naColorKindGetNodeParams( TObject *Sender, TNNVNodeParams &NodeParams );
+  void __fastcall dgColorDBCut( TObject *Sender );
+  void __fastcall dgColorDBPaste( TObject *Sender );
+  void __fastcall dgColorEditButtonClick(TObject *Sender);
+  void __fastcall aColorIndexGenerateExecute( TObject *Sender );
+  void __fastcall naColorEnter( TObject *Sender );
+  void __fastcall naColorExit( TObject *Sender );
+  void __fastcall naColorLoadNodes( TObject *Sender );
+  void __fastcall dgColorDrawColumnCell(TObject *Sender, const TRect &Rect, int DataCol,
+          TColumn *Column, TGridDrawState State);
 private:	// User declarations
   typedef TfmvDB inherited;
   void __fastcall LoadNodeAdmins();
