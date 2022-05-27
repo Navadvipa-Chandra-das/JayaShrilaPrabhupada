@@ -74,6 +74,9 @@ void __fastcall TfmvExplorer::LoadNodeAdmins()
   naNumberToWords->LoadFromFiler( coRes->Filer );
   naUsers->LoadFromFiler( coRes->Filer );
   naCommodKind->LoadFromFiler( coRes->Filer );
+  naColor->LoadFromFiler( coRes->Filer );
+  naRightsKind->LoadFromFiler( coRes->Filer );
+  naRoleKind->LoadFromFiler( coRes->Filer );
 }
 
 void __fastcall TfmvExplorer::SaveNodeAdmins()
@@ -83,6 +86,9 @@ void __fastcall TfmvExplorer::SaveNodeAdmins()
   naNumberToWords->SaveToFiler( coRes->Filer );
   naUsers->SaveToFiler( coRes->Filer );
   naCommodKind->SaveToFiler( coRes->Filer );
+  naColor->SaveToFiler( coRes->Filer );
+  naRightsKind->SaveToFiler( coRes->Filer );
+  naRoleKind->SaveToFiler( coRes->Filer );
 }
 
 void __fastcall TfmvExplorer::LoadTrees()
@@ -214,8 +220,8 @@ void __fastcall TfmvExplorer::naUsersLoadNodes(TObject *Sender )
   naUsers->CurrentNode = ((TNNVTreeNode*)( tvExamples->Items->Add( nullptr, "Пользователи" ) ));
   naUsers->CurrentNode->NodeAdmin = naUsers;
   naUsers->CurrentNode->PK = NNV::EmptyPK;
-  naUsers->CurrentNode->ImageIndex = (int)NNV::TImagesKind::imCash;
-  naUsers->CurrentNode->SelectedIndex = (int)NNV::TImagesKind::imCash;
+  naUsers->CurrentNode->ImageIndex = (int)NNV::TImagesKind::imUsers;
+  naUsers->CurrentNode->SelectedIndex = (int)NNV::TImagesKind::imUsers;
   naUsers->LocateNode = naUsers->CurrentNode;
 }
 //---------------------------------------------------------------------------
@@ -281,7 +287,7 @@ void __fastcall TfmvExplorer::naCommodKindFirstEnter( TObject *Sender )
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExplorer::naCommodKindLastExit(TObject *param_05)
+void __fastcall TfmvExplorer::naCommodKindLastExit(TObject *Sender5)
 {
   dmvNizhnyayaNavadvipa->quCommod->CWClose();
   dmvNizhnyayaNavadvipa->quCommodKind->CWClose();
@@ -514,6 +520,108 @@ void __fastcall TfmvExplorer::dgColorDrawColumnCell( TObject *Sender, const TRec
   }
 
   dg->DefaultDrawColumnCell( Rect, DataCol, Column, State );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::naRightsKindEnter( TObject *Sender )
+{
+  DataSet = dmvNizhnyayaNavadvipa->quRightsKind;
+  paRights->Visible = true;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::naRightsKindExit( TObject *Sender )
+{
+  paRights->Visible = false;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::naRightsKindFirstEnter( TObject *Sender )
+{
+  dmvNizhnyayaNavadvipa->quRightsKind->CWOpen();
+  dmvNizhnyayaNavadvipa->quRights->CWOpen();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::naRightsKindGetNodeParams( TObject *Sender, TNNVNodeParams &NodeParams )
+{
+  dmvNizhnyayaNavadvipa->SetNodeParamsRightsKind( NodeParams );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::naRightsKindLastExit( TObject *Sender )
+{
+  dmvNizhnyayaNavadvipa->quRights->CWClose();
+  dmvNizhnyayaNavadvipa->quRightsKind->CWClose();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::naRightsKindLoadNodes( TObject *Sender )
+{
+  tvExamples->LoadNodeAdmin( nullptr, naRightsKind, 79 );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::naRoleKindEnter( TObject *Sender )
+{
+  DataSet = dmvNizhnyayaNavadvipa->quRoleKind;
+  paRole->Visible = true;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::naRoleKindExit( TObject *Sender )
+{
+  paRole->Visible = false;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::naRoleKindFirstEnter( TObject *Sender )
+{
+  dmvNizhnyayaNavadvipa->quRoleKind->CWOpen();
+  dmvNizhnyayaNavadvipa->quRole->CWOpen();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::naRoleKindGetNodeParams( TObject *Sender, TNNVNodeParams &NodeParams )
+{
+  dmvNizhnyayaNavadvipa->SetNodeParamsRoleKind( NodeParams );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::naRoleKindLastExit( TObject *Sender )
+{
+  dmvNizhnyayaNavadvipa->quRole->CWClose();
+  dmvNizhnyayaNavadvipa->quRoleKind->CWClose();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::naRoleKindLoadNodes( TObject *Sender )
+{
+  tvExamples->LoadNodeAdmin( nullptr, naRoleKind, 80 );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgRightsDBCut( TObject *Sender )
+{
+  dgRights->CWSelect( dmvNizhnyayaNavadvipa->quRightsEntityID, &dmvNizhnyayaNavadvipa->BufferIntBox, true, L"Rights" );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgRightsDBPaste( TObject *Sender )
+{
+  dmvNizhnyayaNavadvipa->quRights->DBPaste();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgRightsDrawColumnCell( TObject *Sender, const TRect &Rect,
+          int DataCol, TColumn *Column, TGridDrawState State  )
+{
+  if ( !State.Contains( gdFocused ) && !dgRights->IsCurrentSelected() ) {
+    TField *f = dmvNizhnyayaNavadvipa->quRightsKindID;
+    if ( !f->IsNull )
+      dmvNizhnyayaNavadvipa->DBGridColor( dgRights, f->AsLargeInt );
+  }
+  dgRights->DefaultDrawColumnCell( Rect, DataCol, Column, State );
 }
 //---------------------------------------------------------------------------
 

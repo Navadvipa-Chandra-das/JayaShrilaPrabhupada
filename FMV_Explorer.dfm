@@ -90,10 +90,9 @@ inherited fmvExplorer: TfmvExplorer
       end
     end
   end
-  inherited tbStatus: TToolBar
+  inherited tbStatus: TNNVPanel
     Top = 752
     Height = 22
-    Caption = ''
     ExplicitTop = 752
     ExplicitHeight = 22
   end
@@ -482,7 +481,16 @@ inherited fmvExplorer: TfmvExplorer
       25
       24)
   end
-  object paColor: TNNVPanel [9]
+  object paRole: TNNVPanel [9]
+    Left = 192
+    Top = 57
+    Width = 993
+    Height = 695
+    Align = alClient
+    TabOrder = 9
+    Visible = False
+  end
+  object paColor: TNNVPanel [10]
     Left = 192
     Top = 57
     Width = 993
@@ -585,6 +593,84 @@ inherited fmvExplorer: TfmvExplorer
         end>
     end
   end
+  object paRights: TNNVPanel [11]
+    Left = 192
+    Top = 57
+    Width = 993
+    Height = 695
+    Align = alClient
+    TabOrder = 10
+    Visible = False
+    object paRightsT: TNNVPanel
+      Left = 0
+      Top = 0
+      Width = 993
+      Height = 27
+      Align = alTop
+      TabOrder = 0
+    end
+    object dgRights: TNNVDBGrid
+      Left = 0
+      Top = 27
+      Width = 993
+      Height = 668
+      Align = alClient
+      DataSource = dmvNizhnyayaNavadvipa.dsRights
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
+      PopupMenu = pmDBGrid
+      TabOrder = 1
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnDrawColumnCell = dgRightsDrawColumnCell
+      OnEnter = DBGridEnter
+      OnKeyDown = DBGridKeyDown
+      OnDBCut = dgRightsDBCut
+      OnDBPaste = dgRightsDBPaste
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'EntityID'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'KindID'
+          Visible = False
+        end
+        item
+          Alignment = taCenter
+          Expanded = False
+          FieldName = 'Actual'
+          Font.Charset = SYMBOL_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Wingdings'
+          Font.Style = []
+          ReadOnly = True
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'Entity'
+          Width = 563
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Literal'
+          Width = 87
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'VectorIndex'
+          Visible = True
+        end>
+    end
+  end
   inherited fbRes: TNNVFlagBox
     caFree = True
     ShowInWindowList = True
@@ -597,7 +683,7 @@ inherited fmvExplorer: TfmvExplorer
     Left = 116
     Top = 152
   end
-  object naConfig: TNNVNodeAdmin [12]
+  object naConfig: TNNVNodeAdmin [14]
     OnLoadNodes = naConfigLoadNodes
     OnEnter = naConfigEnter
     OnExit = naConfigExit
@@ -608,7 +694,7 @@ inherited fmvExplorer: TfmvExplorer
     Left = 88
     Top = 100
   end
-  object naColorKind: TNNVNodeAdmin [13]
+  object naColorKind: TNNVNodeAdmin [15]
     OnLoadNodes = naColorKindLoadNodes
     OnGetNodeParams = naColorKindGetNodeParams
     OnFirstEnter = naColorKindFirstEnter
@@ -622,7 +708,7 @@ inherited fmvExplorer: TfmvExplorer
     Left = 116
     Top = 100
   end
-  object naNumberToWords: TNNVNodeAdmin [14]
+  object naNumberToWords: TNNVNodeAdmin [16]
     OnLoadNodes = naNumberToWordsLoadNodes
     OnFirstEnter = naNumberToWordsFirstEnter
     OnEnter = naNumberToWordsEnter
@@ -634,7 +720,7 @@ inherited fmvExplorer: TfmvExplorer
     Left = 144
     Top = 100
   end
-  object naUsers: TNNVNodeAdmin [15]
+  object naUsers: TNNVNodeAdmin [17]
     OnLoadNodes = naUsersLoadNodes
     OnFirstEnter = naUsersFirstEnter
     OnEnter = naUsersEnter
@@ -648,10 +734,10 @@ inherited fmvExplorer: TfmvExplorer
     Left = 172
     Top = 100
   end
-  object nwExamples: TNNVNumberToWords [16]
+  object nwExamples: TNNVNumberToWords [18]
     OnChange = nwExamplesChange
-    Left = 256
-    Top = 101
+    Left = 150
+    Top = 53
   end
   inherited rrRes: TNNVRight
     Left = 144
@@ -711,7 +797,7 @@ inherited fmvExplorer: TfmvExplorer
       Checked = True
     end
   end
-  object naCommodKind: TNNVNodeAdmin [23]
+  object naCommodKind: TNNVNodeAdmin [25]
     OnLoadNodes = naCommodKindLoadNodes
     OnGetNodeParams = naCommodKindGetNodeParams
     OnFirstEnter = naCommodKindFirstEnter
@@ -746,6 +832,38 @@ inherited fmvExplorer: TfmvExplorer
     TreeView = tvExamples
     LoadOrder = 5
     Left = 227
+    Top = 100
+  end
+  object naRightsKind: TNNVNodeAdmin
+    OnLoadNodes = naRightsKindLoadNodes
+    OnGetNodeParams = naRightsKindGetNodeParams
+    OnFirstEnter = naRightsKindFirstEnter
+    OnEnter = naRightsKindEnter
+    OnExit = naRightsKindExit
+    OnLastExit = naRightsKindLastExit
+    ActualOnlyNeed = True
+    EndToEndViewingNeed = True
+    TreeView = tvExamples
+    LoadOrder = 6
+    DetailDataSource = dmvNizhnyayaNavadvipa.dsRights
+    DataSource = dmvNizhnyayaNavadvipa.dsRightsKind
+    Left = 253
+    Top = 100
+  end
+  object naRoleKind: TNNVNodeAdmin
+    OnLoadNodes = naRoleKindLoadNodes
+    OnGetNodeParams = naRoleKindGetNodeParams
+    OnFirstEnter = naRoleKindFirstEnter
+    OnEnter = naRoleKindEnter
+    OnExit = naRoleKindExit
+    OnLastExit = naRoleKindLastExit
+    ActualOnlyNeed = True
+    EndToEndViewingNeed = True
+    TreeView = tvExamples
+    LoadOrder = 7
+    DetailDataSource = dmvNizhnyayaNavadvipa.dsRole
+    DataSource = dmvNizhnyayaNavadvipa.dsRoleKind
+    Left = 281
     Top = 100
   end
 end

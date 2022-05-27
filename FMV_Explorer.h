@@ -97,6 +97,12 @@ __published:	// IDE-managed Components
   TToolButton *tbColorIndexGenerate;
   TNNVNodeAdmin *naColor;
   TNNVDrawGrid *drgColor;
+  TNNVPanel *paRole;
+  TNNVPanel *paRights;
+  TNNVNodeAdmin *naRightsKind;
+  TNNVNodeAdmin *naRoleKind;
+  TNNVPanel *paRightsT;
+  TNNVDBGrid *dgRights;
   void __fastcall coResLoad( TObject *Sender );
   void __fastcall coResSave( TObject *Sender );
   void __fastcall coResEndLoad( TObject *Sender );
@@ -146,6 +152,23 @@ __published:	// IDE-managed Components
   void __fastcall naColorLoadNodes( TObject *Sender );
   void __fastcall dgColorDrawColumnCell(TObject *Sender, const TRect &Rect, int DataCol,
           TColumn *Column, TGridDrawState State);
+  void __fastcall naRightsKindEnter( TObject *Sender );
+  void __fastcall naRightsKindExit( TObject *Sender );
+  void __fastcall naRightsKindFirstEnter( TObject *Sender );
+  void __fastcall naRightsKindGetNodeParams( TObject *Sender, TNNVNodeParams &NodeParams );
+  void __fastcall naRightsKindLastExit( TObject *Sender );
+  void __fastcall naRightsKindLoadNodes( TObject *Sender );
+  void __fastcall naRoleKindEnter( TObject *Sender );
+  void __fastcall naRoleKindExit( TObject *Sender );
+  void __fastcall naRoleKindFirstEnter( TObject *Sender );
+  void __fastcall naRoleKindGetNodeParams( TObject *Sender, TNNVNodeParams &NodeParams );
+  void __fastcall naRoleKindLastExit( TObject *Sender );
+  void __fastcall naRoleKindLoadNodes( TObject *Sender );
+  void __fastcall dgRightsDBCut( TObject *Sender );
+  void __fastcall dgRightsDBPaste( TObject *Sender );
+  void __fastcall dgRightsDrawColumnCell( TObject *Sender, const TRect &Rect, int DataCol,
+          TColumn *Column, TGridDrawState State );
+
 private:	// User declarations
   typedef TfmvDB inherited;
   void __fastcall LoadNodeAdmins();
