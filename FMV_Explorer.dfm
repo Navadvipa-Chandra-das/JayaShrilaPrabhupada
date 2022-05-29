@@ -490,110 +490,7 @@ inherited fmvExplorer: TfmvExplorer
     TabOrder = 9
     Visible = False
   end
-  object paColor: TNNVPanel [10]
-    Left = 192
-    Top = 57
-    Width = 993
-    Height = 695
-    Align = alClient
-    TabOrder = 7
-    Visible = False
-    object tbColor: TToolBar
-      Left = 0
-      Top = 0
-      Width = 993
-      Height = 23
-      Caption = 'tbColor'
-      Images = dmvNizhnyayaNavadvipa.ilDB
-      TabOrder = 0
-      object tbColorIndexGenerate: TToolButton
-        Left = 0
-        Top = 0
-        Action = aColorIndexGenerate
-      end
-    end
-    object dgColor: TNNVDBGrid
-      Left = 0
-      Top = 23
-      Width = 993
-      Height = 672
-      Align = alClient
-      DataSource = dmvNizhnyayaNavadvipa.dsColor
-      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
-      PopupMenu = pmDBGrid
-      TabOrder = 1
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clWindowText
-      TitleFont.Height = -11
-      TitleFont.Name = 'Tahoma'
-      TitleFont.Style = []
-      OnDrawColumnCell = dgColorDrawColumnCell
-      OnEditButtonClick = dgColorEditButtonClick
-      OnEnter = DBGridEnter
-      OnKeyDown = DBGridKeyDown
-      OnDBCut = dgColorDBCut
-      OnDBPaste = dgColorDBPaste
-      Columns = <
-        item
-          Expanded = False
-          FieldName = 'Actual'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'EntityID'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'KindID'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'Entity'
-          Width = 334
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'EnumLiteral'
-          Width = 90
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'VectorIndex'
-          Width = 60
-          Visible = True
-        end
-        item
-          ButtonStyle = cbsEllipsis
-          Expanded = False
-          FieldName = 'FonColor'
-          Visible = True
-        end
-        item
-          ButtonStyle = cbsEllipsis
-          Expanded = False
-          FieldName = 'FontColor'
-          Visible = True
-        end
-        item
-          ButtonStyle = cbsEllipsis
-          Expanded = False
-          FieldName = 'FonColorUser'
-          Visible = True
-        end
-        item
-          ButtonStyle = cbsEllipsis
-          Expanded = False
-          FieldName = 'FontColorUser'
-          Visible = True
-        end>
-    end
-  end
-  object paRights: TNNVPanel [11]
+  object paRights: TNNVPanel [10]
     Left = 192
     Top = 57
     Width = 993
@@ -667,6 +564,117 @@ inherited fmvExplorer: TfmvExplorer
         item
           Expanded = False
           FieldName = 'VectorIndex'
+          Visible = True
+        end>
+    end
+  end
+  object paColor: TNNVPanel [11]
+    Left = 192
+    Top = 57
+    Width = 993
+    Height = 695
+    Align = alClient
+    TabOrder = 7
+    Visible = False
+    object tbColor: TToolBar
+      Left = 0
+      Top = 0
+      Width = 993
+      Height = 23
+      Caption = 'tbColor'
+      Images = dmvNizhnyayaNavadvipa.ilDB
+      TabOrder = 0
+      object tbColorIndexGenerate: TToolButton
+        Left = 0
+        Top = 0
+        Action = aColorIndexGenerate
+      end
+      object tbGenerateColorConsts: TToolButton
+        Left = 23
+        Top = 0
+        Action = aGenerateColorConsts
+      end
+    end
+    object dgColor: TNNVDBGrid
+      Left = 0
+      Top = 23
+      Width = 993
+      Height = 672
+      Align = alClient
+      DataSource = dmvNizhnyayaNavadvipa.dsColor
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
+      PopupMenu = pmDBGrid
+      TabOrder = 1
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnDrawColumnCell = dgColorDrawColumnCell
+      OnEditButtonClick = dgColorEditButtonClick
+      OnEnter = DBGridEnter
+      OnKeyDown = DBGridKeyDown
+      OnTitleClick = dgColorTitleClick
+      OnDBCut = dgColorDBCut
+      OnDBPaste = dgColorDBPaste
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'Actual'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'EntityID'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'KindID'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'Entity'
+          Width = 334
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'EnumLiteral'
+          Width = 90
+          Visible = True
+          OrderBy = 'a."EnumLiteral"'
+        end
+        item
+          Expanded = False
+          FieldName = 'VectorIndex'
+          Width = 60
+          Visible = True
+          OrderBy = 'a."VectorIndex"'
+        end
+        item
+          ButtonStyle = cbsEllipsis
+          Expanded = False
+          FieldName = 'FonColor'
+          Visible = True
+        end
+        item
+          ButtonStyle = cbsEllipsis
+          Expanded = False
+          FieldName = 'FontColor'
+          Visible = True
+        end
+        item
+          ButtonStyle = cbsEllipsis
+          Expanded = False
+          FieldName = 'FonColorUser'
+          Visible = True
+        end
+        item
+          ButtonStyle = cbsEllipsis
+          Expanded = False
+          FieldName = 'FontColorUser'
           Visible = True
         end>
     end
@@ -773,6 +781,13 @@ inherited fmvExplorer: TfmvExplorer
       Hint = #1043#1077#1085#1077#1088#1072#1094#1080#1103' '#1080#1085#1076#1077#1082#1089#1086#1074' '#1094#1074#1077#1090#1086#1074
       ImageIndex = 38
       OnExecute = aColorIndexGenerateExecute
+    end
+    object aGenerateColorConsts: TAction
+      Category = 'Color'
+      Caption = #1057#1086#1079#1076#1072#1085#1080#1077' '#1089#1087#1080#1089#1082#1072' '#1082#1086#1085#1089#1090#1072#1085#1090' '#1094#1074#1077#1090#1086#1074
+      Hint = #1057#1086#1079#1076#1072#1085#1080#1077' '#1089#1087#1080#1089#1082#1072' '#1082#1086#1085#1089#1090#1072#1085#1090' '#1094#1074#1077#1090#1086#1074
+      ImageIndex = 5
+      OnExecute = aGenerateColorConstsExecute
     end
   end
   inherited dsData: TDataSource

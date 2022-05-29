@@ -8,6 +8,7 @@
 #include "DMV_JayaShrilaPrabhupada.h"
 #include "VCL_NNFmChangePassword.h"
 #include "VCL_NNColor.h"
+#include "VCL_NNFmvCode.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "VCL_NNConfig"
@@ -622,6 +623,33 @@ void __fastcall TfmvExplorer::dgRightsDrawColumnCell( TObject *Sender, const TRe
       dmvNizhnyayaNavadvipa->DBGridColor( dgRights, f->AsLargeInt );
   }
   dgRights->DefaultDrawColumnCell( Rect, DataCol, Column, State );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::aGenerateColorConstsExecute( TObject *Sender )
+{
+  fmvCode = new TfmvCode( Application );
+
+  TBookmark B = dmvNizhnyayaNavadvipa->quColor->Bookmark;
+  dmvNizhnyayaNavadvipa->quColor->DisableControls();
+  try {
+    dmvNizhnyayaNavadvipa->quColor->First();
+    while ( !dmvNizhnyayaNavadvipa->quColor->Eof ) {
+      fmvCode->meCode->Lines->Add( dmvNizhnyayaNavadvipa->quColorEnumLiteral->AsString + L" = " + dmvNizhnyayaNavadvipa->quColorVectorIndex->AsString );
+      dmvNizhnyayaNavadvipa->quColor->Next();
+    }
+    dmvNizhnyayaNavadvipa->quColor->Bookmark = B;
+  } __finally {
+    dmvNizhnyayaNavadvipa->quColor->EnableControls();
+  }
+
+  fmvCode->ShowDialog( this );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgColorTitleClick( TColumn *Column )
+{
+  dmvNizhnyayaNavadvipa->quColor->OrderByColumn = Column;
 }
 //---------------------------------------------------------------------------
 

@@ -103,6 +103,8 @@ __published:	// IDE-managed Components
   TNNVNodeAdmin *naRoleKind;
   TNNVPanel *paRightsT;
   TNNVDBGrid *dgRights;
+  TAction *aGenerateColorConsts;
+  TToolButton *tbGenerateColorConsts;
   void __fastcall coResLoad( TObject *Sender );
   void __fastcall coResSave( TObject *Sender );
   void __fastcall coResEndLoad( TObject *Sender );
@@ -168,6 +170,8 @@ __published:	// IDE-managed Components
   void __fastcall dgRightsDBPaste( TObject *Sender );
   void __fastcall dgRightsDrawColumnCell( TObject *Sender, const TRect &Rect, int DataCol,
           TColumn *Column, TGridDrawState State );
+  void __fastcall aGenerateColorConstsExecute( TObject *Sender );
+  void __fastcall dgColorTitleClick( TColumn *Column );
 
 private:	// User declarations
   typedef TfmvDB inherited;
