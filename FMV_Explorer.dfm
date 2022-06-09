@@ -11,23 +11,7 @@ inherited fmvExplorer: TfmvExplorer
     ExplicitLeft = 186
     ExplicitHeight = 717
   end
-  object tvExamples: TNNVDBTreeView [1]
-    Left = 0
-    Top = 57
-    Width = 189
-    Height = 695
-    Align = alLeft
-    Constraints.MinWidth = 120
-    DragMode = dmAutomatic
-    Images = dmvNizhnyayaNavadvipa.ilDB
-    Indent = 19
-    TabOrder = 2
-    OnEnter = DBTreeViewEnter
-    EditKindID = deKindID
-    OnNodeAdminChange = DBTreeViewNodeAdminChange
-    ActiveOrder = 0
-  end
-  object paConfig: TNNVPanel [2]
+  object paConfig: TNNVPanel [1]
     Left = 192
     Top = 57
     Width = 993
@@ -44,7 +28,7 @@ inherited fmvExplorer: TfmvExplorer
       end
     end
   end
-  object paNumberToWords: TNNVPanel [4]
+  object paNumberToWords: TNNVPanel [3]
     Left = 192
     Top = 57
     Width = 993
@@ -96,6 +80,150 @@ inherited fmvExplorer: TfmvExplorer
     ExplicitTop = 752
     ExplicitHeight = 22
   end
+  object paCommod: TNNVPanel [5]
+    Left = 192
+    Top = 57
+    Width = 993
+    Height = 695
+    Align = alClient
+    TabOrder = 5
+    Visible = False
+    object paCommodT: TNNVPanel
+      Left = 0
+      Top = 0
+      Width = 993
+      Height = 41
+      Align = alTop
+      TabOrder = 0
+    end
+    object paCommodProp: TNNVPanel
+      Left = 0
+      Top = 330
+      Width = 993
+      Height = 365
+      Align = alBottom
+      TabOrder = 2
+      object laEntityCommodID: TLabel
+        Left = 9
+        Top = 7
+        Width = 48
+        Height = 13
+        Caption = #1058#1086#1074#1072#1088' '#1048#1044
+      end
+      object laKindCommodID1q: TLabel
+        Left = 132
+        Top = 7
+        Width = 76
+        Height = 13
+        Caption = #1042#1080#1076' '#1090#1086#1074#1072#1088#1072' '#1048#1044
+      end
+      object laEntityCommod: TLabel
+        Left = 9
+        Top = 32
+        Width = 30
+        Height = 13
+        Caption = #1058#1086#1074#1072#1088
+      end
+      object laPriceCommod: TLabel
+        Left = 340
+        Top = 27
+        Width = 26
+        Height = 13
+        Caption = #1062#1077#1085#1072
+      end
+      object edEntityCommodID: TDBEdit
+        Left = 61
+        Top = 4
+        Width = 63
+        Height = 21
+        DataField = 'EntityID'
+        DataSource = dmvNewNavadvipa.dsCommod
+        TabOrder = 0
+      end
+      object edKindCommodID: TDBEdit
+        Left = 213
+        Top = 3
+        Width = 121
+        Height = 21
+        DataField = 'KindID'
+        DataSource = dmvNewNavadvipa.dsCommod
+        TabOrder = 1
+      end
+      object edEntityCommod: TDBEdit
+        Left = 58
+        Top = 27
+        Width = 273
+        Height = 21
+        DataField = 'Entity'
+        DataSource = dmvNewNavadvipa.dsCommod
+        TabOrder = 2
+      end
+      object dePriceCommod: TDBEdit
+        Left = 392
+        Top = 24
+        Width = 93
+        Height = 21
+        DataField = 'Price'
+        DataSource = dmvNewNavadvipa.dsCommod
+        TabOrder = 3
+      end
+    end
+    object dgCommod: TNNVDBGrid
+      Left = 0
+      Top = 41
+      Width = 993
+      Height = 289
+      Align = alClient
+      DataSource = dmvNewNavadvipa.dsCommod
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
+      PopupMenu = pmDBGrid
+      TabOrder = 1
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnEnter = DBGridEnter
+      OnKeyDown = DBGridKeyDown
+      OnTitleClick = DBGridTitleClick
+      OnDBCut = dgCommodDBCut
+      OnDBPaste = dgCommodDBPaste
+      Columns = <
+        item
+          Alignment = taCenter
+          Expanded = False
+          FieldName = 'Actual'
+          Font.Charset = SYMBOL_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Wingdings'
+          Font.Style = []
+          ReadOnly = True
+          Width = 30
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'EntityID'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'KindID'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'Entity'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Price'
+          Visible = True
+        end>
+    end
+  end
   object paUsers: TNNVPanel [6]
     Left = 192
     Top = 57
@@ -104,13 +232,23 @@ inherited fmvExplorer: TfmvExplorer
     Align = alClient
     TabOrder = 6
     Visible = False
+    object splUsersB: TNNVSplitter
+      Left = 0
+      Top = 345
+      Width = 993
+      Height = 3
+      Cursor = crVSplit
+      Align = alBottom
+      ExplicitTop = 62
+      ExplicitWidth = 286
+    end
     object dgUsers: TNNVDBGrid
       Left = 0
       Top = 62
       Width = 993
-      Height = 633
+      Height = 283
       Align = alClient
-      DataSource = dmvNizhnyayaNavadvipa.dsUsers
+      DataSource = dmvNewNavadvipa.dsUsers
       Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
       PopupMenu = pmDBGrid
       TabOrder = 0
@@ -121,6 +259,7 @@ inherited fmvExplorer: TfmvExplorer
       TitleFont.Style = []
       OnEditButtonClick = DBGridEditButtonClick
       OnEnter = DBGridEnter
+      OnTitleClick = DBGridTitleClick
       Columns = <
         item
           Alignment = taCenter
@@ -206,7 +345,7 @@ inherited fmvExplorer: TfmvExplorer
         Width = 993
         Height = 23
         Caption = 'tbrUsers'
-        Images = dmvNizhnyayaNavadvipa.ilDB
+        Images = dmvNewNavadvipa.ilDB
         TabOrder = 0
         inline frvUserPeriod: TfrvPeriod
           Left = 0
@@ -252,7 +391,7 @@ inherited fmvExplorer: TfmvExplorer
         TabOrder = 1
         NeedTime = False
         DataField = 'Anketa.PassportDate'
-        DataSource = dmvNizhnyayaNavadvipa.dsUsers
+        DataSource = dmvNewNavadvipa.dsUsers
       end
       object dcbUsersNote: TNNVDBComboBox
         Left = 134
@@ -260,7 +399,7 @@ inherited fmvExplorer: TfmvExplorer
         Width = 114
         Height = 21
         DataField = 'Note'
-        DataSource = dmvNizhnyayaNavadvipa.dsUsers
+        DataSource = dmvNewNavadvipa.dsUsers
         TabOrder = 2
       end
       object ddtUsersBirthDate: TNNVDBComboBoxDateTime
@@ -277,7 +416,7 @@ inherited fmvExplorer: TfmvExplorer
         ParentFont = False
         TabOrder = 3
         DataField = 'BirthDate'
-        DataSource = dmvNizhnyayaNavadvipa.dsUsers
+        DataSource = dmvNewNavadvipa.dsUsers
       end
       object ddtUsersCreateDate: TNNVDBComboBoxDateTime
         Left = 377
@@ -293,122 +432,221 @@ inherited fmvExplorer: TfmvExplorer
         ParentFont = False
         TabOrder = 4
         DataField = 'CreateDate'
-        DataSource = dmvNizhnyayaNavadvipa.dsUsers
+        DataSource = dmvNewNavadvipa.dsUsers
       end
-      object NNVComboBoxDateTime1: TNNVComboBoxDateTime
-        Left = 503
-        Top = 32
-        Width = 160
-        Height = 21
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
-        Font.Style = []
-        MaxLength = 22
-        ParentFont = False
-        TabOrder = 5
-        IsUserCanChangeCheckStyle = True
-        CheckStyle = GreaterOrEqual
-        CheckStyleSetKind = Greater
+    end
+    object paUsersB: TNNVPanel
+      Left = 0
+      Top = 348
+      Width = 993
+      Height = 347
+      Align = alBottom
+      TabOrder = 2
+      object splUserRights: TNNVSplitter
+        Left = 511
+        Top = 0
+        Height = 347
+        ExplicitLeft = 526
+        ExplicitTop = 98
+        ExplicitHeight = 100
+      end
+      object dgUserRights: TNNVDBGrid
+        Left = 0
+        Top = 0
+        Width = 511
+        Height = 347
+        Align = alLeft
+        DataSource = dmvNewNavadvipa.dsUserRights
+        Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        OnDrawColumnCell = dgUserRightsDrawColumnCell
+        OnEditButtonClick = DBGridEditButtonClick
+        OnEnter = DBGridEnter
+        OnKeyDown = DBGridKeyDown
+        OnTitleClick = DBGridTitleClick
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'UserRightsID'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'UserID'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'EntityID'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'IsPlus'
+            ReadOnly = True
+            Visible = True
+          end
+          item
+            ButtonStyle = cbsEllipsis
+            Expanded = False
+            FieldName = 'Right'
+            ReadOnly = True
+            Width = 383
+            Visible = True
+            Dialog = DUserRights
+          end>
+      end
+      object dgUserRoles: TNNVDBGrid
+        Left = 514
+        Top = 0
+        Width = 479
+        Height = 347
+        Align = alClient
+        DataSource = dmvNewNavadvipa.dsUserRoles
+        Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
+        TabOrder = 1
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        OnDrawColumnCell = dgUserRolesDrawColumnCell
+        OnEditButtonClick = DBGridEditButtonClick
+        OnEnter = DBGridEnter
+        OnTitleClick = DBGridTitleClick
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'UserRolesID'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'UserID'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'EntityID'
+            Visible = False
+          end
+          item
+            ButtonStyle = cbsEllipsis
+            Expanded = False
+            FieldName = 'Role'
+            ReadOnly = True
+            Width = 424
+            Visible = True
+            Dialog = DUserRole
+          end>
       end
     end
   end
-  object paCommod: TNNVPanel [7]
+  object tvExamples: TNNVDBTreeView [7]
+    Left = 0
+    Top = 57
+    Width = 189
+    Height = 695
+    Align = alLeft
+    Constraints.MinWidth = 120
+    DragMode = dmAutomatic
+    Images = dmvNewNavadvipa.ilDB
+    Indent = 19
+    TabOrder = 2
+    OnEnter = DBTreeViewEnter
+    EditKindID = deKindID
+    OnNodeAdminChange = DBTreeViewNodeAdminChange
+    ActiveOrder = 0
+  end
+  object paRole: TNNVPanel [8]
     Left = 192
     Top = 57
     Width = 993
     Height = 695
     Align = alClient
-    TabOrder = 5
+    TabOrder = 8
     Visible = False
-    object paCommodT: TNNVPanel
+    object splRole: TNNVSplitter
+      Left = 0
+      Top = 326
+      Width = 993
+      Height = 3
+      Cursor = crVSplit
+      Align = alTop
+      ExplicitWidth = 369
+    end
+    object tbRole: TToolBar
       Left = 0
       Top = 0
       Width = 993
-      Height = 41
-      Align = alTop
+      Height = 29
+      Caption = 'tbRole'
+      Images = dmvNewNavadvipa.ilDB
       TabOrder = 0
-    end
-    object paCommodProp: TNNVPanel
-      Left = 0
-      Top = 330
-      Width = 993
-      Height = 365
-      Align = alBottom
-      TabOrder = 2
-      object laEntityCommodID: TLabel
-        Left = 9
-        Top = 7
-        Width = 48
-        Height = 13
-        Caption = #1058#1086#1074#1072#1088' '#1048#1044
-      end
-      object laKindCommodID1q: TLabel
-        Left = 132
-        Top = 7
-        Width = 76
-        Height = 13
-        Caption = #1042#1080#1076' '#1090#1086#1074#1072#1088#1072' '#1048#1044
-      end
-      object laEntityCommod: TLabel
-        Left = 9
-        Top = 32
-        Width = 30
-        Height = 13
-        Caption = #1058#1086#1074#1072#1088
-      end
-      object laPriceCommod: TLabel
-        Left = 340
-        Top = 27
-        Width = 26
-        Height = 13
-        Caption = #1062#1077#1085#1072
-      end
-      object edEntityCommodID: TDBEdit
-        Left = 61
-        Top = 4
-        Width = 63
-        Height = 21
-        DataField = 'EntityID'
-        DataSource = dmvNizhnyayaNavadvipa.dsCommod
-        TabOrder = 0
-      end
-      object edKindCommodID: TDBEdit
-        Left = 213
-        Top = 3
-        Width = 121
-        Height = 21
-        DataField = 'KindID'
-        DataSource = dmvNizhnyayaNavadvipa.dsCommod
-        TabOrder = 1
-      end
-      object edEntityCommod: TDBEdit
-        Left = 58
-        Top = 27
-        Width = 273
-        Height = 21
-        DataField = 'Entity'
-        DataSource = dmvNizhnyayaNavadvipa.dsCommod
-        TabOrder = 2
-      end
-      object dePriceCommod: TDBEdit
-        Left = 392
-        Top = 24
-        Width = 93
-        Height = 21
-        DataField = 'Price'
-        DataSource = dmvNizhnyayaNavadvipa.dsCommod
-        TabOrder = 3
+      object tbRoleMaster: TToolButton
+        Left = 0
+        Top = 0
+        Action = aRoleMaster
       end
     end
-    object dgCommod: TNNVDBGrid
+    object dgRoleRights: TNNVDBGrid
       Left = 0
-      Top = 41
+      Top = 329
       Width = 993
-      Height = 289
+      Height = 366
       Align = alClient
-      DataSource = dmvNizhnyayaNavadvipa.dsCommod
+      DataSource = dmvNewNavadvipa.dsRoleRights
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
+      PopupMenu = pmDBGrid
+      TabOrder = 2
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnDrawColumnCell = dgRoleRightsDrawColumnCell
+      OnEditButtonClick = DBGridEditButtonClick
+      OnEnter = DBGridEnter
+      OnKeyDown = DBGridKeyDown
+      OnTitleClick = DBGridTitleClick
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'RoleRightsID'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'RoleID'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'EntityID'
+          Visible = False
+        end
+        item
+          ButtonStyle = cbsEllipsis
+          Expanded = False
+          FieldName = 'Right'
+          ReadOnly = True
+          Width = 445
+          Visible = True
+          Dialog = DRoleRights
+        end>
+    end
+    object dgRole: TNNVDBGrid
+      Left = 0
+      Top = 29
+      Width = 993
+      Height = 297
+      Align = alTop
+      DataSource = dmvNewNavadvipa.dsRole
       Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
       PopupMenu = pmDBGrid
       TabOrder = 1
@@ -417,24 +655,13 @@ inherited fmvExplorer: TfmvExplorer
       TitleFont.Height = -11
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
+      OnDrawColumnCell = dgRoleDrawColumnCell
       OnEnter = DBGridEnter
       OnKeyDown = DBGridKeyDown
-      OnDBCut = dgCommodDBCut
-      OnDBPaste = dgCommodDBPaste
+      OnTitleClick = DBGridTitleClick
+      OnDBCut = dgRoleDBCut
+      OnDBPaste = dgRoleDBPaste
       Columns = <
-        item
-          Alignment = taCenter
-          Expanded = False
-          FieldName = 'Actual'
-          Font.Charset = SYMBOL_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Wingdings'
-          Font.Style = []
-          ReadOnly = True
-          Width = 30
-          Visible = True
-        end
         item
           Expanded = False
           FieldName = 'EntityID'
@@ -447,56 +674,30 @@ inherited fmvExplorer: TfmvExplorer
         end
         item
           Expanded = False
-          FieldName = 'Entity'
+          FieldName = 'Actual'
+          Font.Charset = SYMBOL_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Wingdings'
+          Font.Style = []
+          ReadOnly = True
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'Price'
+          FieldName = 'Entity'
+          Width = 400
           Visible = True
         end>
     end
   end
-  object drgColor: TNNVDrawGrid [8]
-    Left = 192
-    Top = 57
-    Width = 993
-    Height = 695
-    Align = alClient
-    ColCount = 3
-    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goThumbTracking]
-    TabOrder = 8
-    Visible = False
-    OnDblClick = drgColorDblClick
-    OnDrawCell = drgColorDrawCell
-    OnKeyDown = drgColorKeyDown
-    ColWidths = (
-      434
-      83
-      78)
-    RowHeights = (
-      24
-      23
-      24
-      25
-      24)
-  end
-  object paRole: TNNVPanel [9]
+  object paRights: TNNVPanel [9]
     Left = 192
     Top = 57
     Width = 993
     Height = 695
     Align = alClient
     TabOrder = 9
-    Visible = False
-  end
-  object paRights: TNNVPanel [10]
-    Left = 192
-    Top = 57
-    Width = 993
-    Height = 695
-    Align = alClient
-    TabOrder = 10
     Visible = False
     object paRightsT: TNNVPanel
       Left = 0
@@ -512,7 +713,7 @@ inherited fmvExplorer: TfmvExplorer
       Width = 993
       Height = 668
       Align = alClient
-      DataSource = dmvNizhnyayaNavadvipa.dsRights
+      DataSource = dmvNewNavadvipa.dsRights
       Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
       PopupMenu = pmDBGrid
       TabOrder = 1
@@ -524,6 +725,7 @@ inherited fmvExplorer: TfmvExplorer
       OnDrawColumnCell = dgRightsDrawColumnCell
       OnEnter = DBGridEnter
       OnKeyDown = DBGridKeyDown
+      OnTitleClick = DBGridTitleClick
       OnDBCut = dgRightsDBCut
       OnDBPaste = dgRightsDBPaste
       Columns = <
@@ -552,7 +754,7 @@ inherited fmvExplorer: TfmvExplorer
         item
           Expanded = False
           FieldName = 'Entity'
-          Width = 563
+          Width = 303
           Visible = True
         end
         item
@@ -568,7 +770,7 @@ inherited fmvExplorer: TfmvExplorer
         end>
     end
   end
-  object paColor: TNNVPanel [11]
+  object paColor: TNNVPanel [10]
     Left = 192
     Top = 57
     Width = 993
@@ -576,35 +778,16 @@ inherited fmvExplorer: TfmvExplorer
     Align = alClient
     TabOrder = 7
     Visible = False
-    object tbColor: TToolBar
-      Left = 0
-      Top = 0
-      Width = 993
-      Height = 23
-      Caption = 'tbColor'
-      Images = dmvNizhnyayaNavadvipa.ilDB
-      TabOrder = 0
-      object tbColorIndexGenerate: TToolButton
-        Left = 0
-        Top = 0
-        Action = aColorIndexGenerate
-      end
-      object tbGenerateColorConsts: TToolButton
-        Left = 23
-        Top = 0
-        Action = aGenerateColorConsts
-      end
-    end
     object dgColor: TNNVDBGrid
       Left = 0
-      Top = 23
+      Top = 25
       Width = 993
-      Height = 672
+      Height = 670
       Align = alClient
-      DataSource = dmvNizhnyayaNavadvipa.dsColor
+      DataSource = dmvNewNavadvipa.dsColor
       Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
       PopupMenu = pmDBGrid
-      TabOrder = 1
+      TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
       TitleFont.Height = -11
@@ -614,13 +797,19 @@ inherited fmvExplorer: TfmvExplorer
       OnEditButtonClick = dgColorEditButtonClick
       OnEnter = DBGridEnter
       OnKeyDown = DBGridKeyDown
-      OnTitleClick = dgColorTitleClick
+      OnTitleClick = DBGridTitleClick
       OnDBCut = dgColorDBCut
       OnDBPaste = dgColorDBPaste
       Columns = <
         item
           Expanded = False
           FieldName = 'Actual'
+          Font.Charset = SYMBOL_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Wingdings'
+          Font.Style = []
+          ReadOnly = True
           Visible = False
         end
         item
@@ -678,6 +867,62 @@ inherited fmvExplorer: TfmvExplorer
           Visible = True
         end>
     end
+    object paColorT: TNNVPanel
+      Left = 0
+      Top = 0
+      Width = 993
+      Height = 25
+      Align = alTop
+      TabOrder = 1
+      object tbColor: TToolBar
+        Left = 0
+        Top = 2
+        Width = 79
+        Height = 23
+        Align = alNone
+        Caption = 'tbColor'
+        Images = dmvNewNavadvipa.ilDB
+        TabOrder = 0
+        object tbColorIndexGenerate: TToolButton
+          Left = 0
+          Top = 0
+          Action = aColorIndexGenerate
+        end
+        object tbGenerateColorConsts: TToolButton
+          Left = 23
+          Top = 0
+          Action = aGenerateColorConsts
+        end
+        object tbGenerateColorConstsWithoutIndex: TToolButton
+          Left = 46
+          Top = 0
+          Action = aGenerateColorConstsWithoutIndex
+        end
+      end
+      object paFonValueChange: TNNVPanel
+        Left = 86
+        Top = 3
+        Width = 49
+        Height = 18
+        Hint = #1062#1074#1077#1090' '#1092#1086#1085#1072' '#1101#1083#1077#1084#1077#1085#1090#1086#1074' '#1074#1074#1086#1076#1072' '#1076#1080#1072#1087#1072#1079#1086#1085#1086#1074
+        BevelOuter = bvLowered
+        Caption = #1055#1088#1080#1084#1077#1088
+        ParentBackground = False
+        TabOrder = 1
+        OnDblClick = paFonValueChangeDblClick
+      end
+      object paFontValueChange: TNNVPanel
+        Left = 145
+        Top = 3
+        Width = 49
+        Height = 18
+        Hint = #1062#1074#1077#1090' '#1096#1088#1080#1092#1090#1072' '#1101#1083#1077#1084#1077#1085#1090#1086#1074' '#1074#1074#1086#1076#1072' '#1076#1080#1072#1087#1072#1079#1086#1085#1086#1074
+        BevelOuter = bvLowered
+        ParentBackground = False
+        TabOrder = 2
+        OnDblClick = paFontValueChangeDblClick
+      end
+    end
   end
   inherited fbRes: TNNVFlagBox
     caFree = True
@@ -687,11 +932,11 @@ inherited fmvExplorer: TfmvExplorer
   end
   inherited coRes: TNNVConfig
     Version = #3
-    Connection = dmvNizhnyayaNavadvipa.conDB
+    OnEndLoad = coResEndLoad
     Left = 116
-    Top = 152
+    Top = 151
   end
-  object naConfig: TNNVNodeAdmin [14]
+  object naConfig: TNNVNodeAdmin [13]
     OnLoadNodes = naConfigLoadNodes
     OnEnter = naConfigEnter
     OnExit = naConfigExit
@@ -702,7 +947,7 @@ inherited fmvExplorer: TfmvExplorer
     Left = 88
     Top = 100
   end
-  object naColorKind: TNNVNodeAdmin [15]
+  object naColorKind: TNNVNodeAdmin [14]
     OnLoadNodes = naColorKindLoadNodes
     OnGetNodeParams = naColorKindGetNodeParams
     OnFirstEnter = naColorKindFirstEnter
@@ -711,12 +956,12 @@ inherited fmvExplorer: TfmvExplorer
     OnLastExit = naColorKindLastExit
     EndToEndViewingNeed = True
     TreeView = tvExamples
-    DetailDataSource = dmvNizhnyayaNavadvipa.dsColor
-    DataSource = dmvNizhnyayaNavadvipa.dsColorKind
+    DetailDataSource = dmvNewNavadvipa.dsColor
+    DataSource = dmvNewNavadvipa.dsColorKind
     Left = 116
     Top = 100
   end
-  object naNumberToWords: TNNVNodeAdmin [16]
+  object naNumberToWords: TNNVNodeAdmin [15]
     OnLoadNodes = naNumberToWordsLoadNodes
     OnFirstEnter = naNumberToWordsFirstEnter
     OnEnter = naNumberToWordsEnter
@@ -728,7 +973,7 @@ inherited fmvExplorer: TfmvExplorer
     Left = 144
     Top = 100
   end
-  object naUsers: TNNVNodeAdmin [17]
+  object naUsers: TNNVNodeAdmin [16]
     OnLoadNodes = naUsersLoadNodes
     OnFirstEnter = naUsersFirstEnter
     OnEnter = naUsersEnter
@@ -738,11 +983,11 @@ inherited fmvExplorer: TfmvExplorer
     ReloadEnabled = False
     TreeView = tvExamples
     LoadOrder = 3
-    DetailDataSource = dmvNizhnyayaNavadvipa.dsUsers
+    DetailDataSource = dmvNewNavadvipa.dsUsers
     Left = 172
     Top = 100
   end
-  object nwExamples: TNNVNumberToWords [18]
+  object nwExamples: TNNVNumberToWords [17]
     OnChange = nwExamplesChange
     Left = 150
     Top = 53
@@ -784,10 +1029,23 @@ inherited fmvExplorer: TfmvExplorer
     end
     object aGenerateColorConsts: TAction
       Category = 'Color'
-      Caption = #1057#1086#1079#1076#1072#1085#1080#1077' '#1089#1087#1080#1089#1082#1072' '#1082#1086#1085#1089#1090#1072#1085#1090' '#1094#1074#1077#1090#1086#1074
-      Hint = #1057#1086#1079#1076#1072#1085#1080#1077' '#1089#1087#1080#1089#1082#1072' '#1082#1086#1085#1089#1090#1072#1085#1090' '#1094#1074#1077#1090#1086#1074
+      Caption = #1057#1086#1079#1076#1072#1085#1080#1077' '#1089#1087#1080#1089#1082#1072' '#1082#1086#1085#1089#1090#1072#1085#1090' '#1094#1074#1077#1090#1086#1074' '#1076#1083#1103' *.cpp'
+      Hint = #1057#1086#1079#1076#1072#1085#1080#1077' '#1089#1087#1080#1089#1082#1072' '#1082#1086#1085#1089#1090#1072#1085#1090' '#1094#1074#1077#1090#1086#1074' '#1076#1083#1103' *.cpp'
       ImageIndex = 5
       OnExecute = aGenerateColorConstsExecute
+    end
+    object aRoleMaster: TAction
+      Category = 'Role'
+      Caption = 'aRoleMaster'
+      ImageIndex = 15
+      OnExecute = aRoleMasterExecute
+    end
+    object aGenerateColorConstsWithoutIndex: TAction
+      Category = 'Color'
+      Caption = #1057#1086#1079#1076#1072#1085#1080#1077' '#1089#1087#1080#1089#1082#1072' '#1082#1086#1085#1089#1090#1072#1085#1090' '#1094#1074#1077#1090#1086#1074' '#1076#1083#1103' *.h'
+      Hint = #1057#1086#1079#1076#1072#1085#1080#1077' '#1089#1087#1080#1089#1082#1072' '#1082#1086#1085#1089#1090#1072#1085#1090' '#1094#1074#1077#1090#1086#1074' '#1076#1083#1103' *.h'
+      ImageIndex = 10
+      OnExecute = aGenerateColorConstsWithoutIndexExecute
     end
   end
   inherited dsData: TDataSource
@@ -812,7 +1070,7 @@ inherited fmvExplorer: TfmvExplorer
       Checked = True
     end
   end
-  object naCommodKind: TNNVNodeAdmin [25]
+  object naCommodKind: TNNVNodeAdmin [24]
     OnLoadNodes = naCommodKindLoadNodes
     OnGetNodeParams = naCommodKindGetNodeParams
     OnFirstEnter = naCommodKindFirstEnter
@@ -823,8 +1081,8 @@ inherited fmvExplorer: TfmvExplorer
     EndToEndViewingNeed = True
     TreeView = tvExamples
     LoadOrder = 4
-    DetailDataSource = dmvNizhnyayaNavadvipa.dsCommod
-    DataSource = dmvNizhnyayaNavadvipa.dsCommodKind
+    DetailDataSource = dmvNewNavadvipa.dsCommod
+    DataSource = dmvNewNavadvipa.dsCommodKind
     Left = 200
     Top = 101
   end
@@ -836,19 +1094,6 @@ inherited fmvExplorer: TfmvExplorer
     Left = 122
     Top = 54
   end
-  object naColor: TNNVNodeAdmin
-    OnLoadNodes = naColorLoadNodes
-    OnEnter = naColorEnter
-    OnExit = naColorExit
-    ReadOnly = True
-    KeyEnabled = False
-    MoveEnabled = False
-    ReloadEnabled = False
-    TreeView = tvExamples
-    LoadOrder = 5
-    Left = 227
-    Top = 100
-  end
   object naRightsKind: TNNVNodeAdmin
     OnLoadNodes = naRightsKindLoadNodes
     OnGetNodeParams = naRightsKindGetNodeParams
@@ -859,11 +1104,11 @@ inherited fmvExplorer: TfmvExplorer
     ActualOnlyNeed = True
     EndToEndViewingNeed = True
     TreeView = tvExamples
-    LoadOrder = 6
-    DetailDataSource = dmvNizhnyayaNavadvipa.dsRights
-    DataSource = dmvNizhnyayaNavadvipa.dsRightsKind
-    Left = 253
-    Top = 100
+    LoadOrder = 5
+    DetailDataSource = dmvNewNavadvipa.dsRights
+    DataSource = dmvNewNavadvipa.dsRightsKind
+    Left = 228
+    Top = 101
   end
   object naRoleKind: TNNVNodeAdmin
     OnLoadNodes = naRoleKindLoadNodes
@@ -875,10 +1120,28 @@ inherited fmvExplorer: TfmvExplorer
     ActualOnlyNeed = True
     EndToEndViewingNeed = True
     TreeView = tvExamples
-    LoadOrder = 7
-    DetailDataSource = dmvNizhnyayaNavadvipa.dsRole
-    DataSource = dmvNizhnyayaNavadvipa.dsRoleKind
-    Left = 281
-    Top = 100
+    LoadOrder = 6
+    DetailDataSource = dmvNewNavadvipa.dsRole
+    DataSource = dmvNewNavadvipa.dsRoleKind
+    Left = 256
+    Top = 101
+  end
+  object DRoleRights: TNNVDialog
+    OnPrepare = DRoleRightsPrepare
+    OnExecute = DRoleRightsExecute
+    Left = 228
+    Top = 153
+  end
+  object DUserRights: TNNVDialog
+    OnPrepare = DUserRightsPrepare
+    OnExecute = dUserRightsExecute
+    Left = 255
+    Top = 153
+  end
+  object DUserRole: TNNVDialog
+    OnPrepare = DUserRolePrepare
+    OnExecute = DUserRoleExecute
+    Left = 283
+    Top = 153
   end
 end

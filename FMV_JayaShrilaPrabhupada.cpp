@@ -6,7 +6,7 @@
 #include "FMV_JayaShrilaPrabhupada.h"
 #include "VCL_NNFmLogin.h"
 #include "FMV_Explorer.h"
-#include "VCL_NNDmvNizhnyayaNavadvipa.h"
+#include "VCL_NNDmvNewNavadvipa.h"
 #include "DMV_JayaShrilaPrabhupada.h"
 #include "VCL_NNFormHistory.h"
 #include "VCL_NNFmLock.h"
@@ -38,7 +38,7 @@ void __fastcall TfmvJayaShrilaPrabhupada::alExamplesExecute( TObject *Sender )
 
 void __fastcall TfmvJayaShrilaPrabhupada::aChangePassordExecute( TObject *Sender )
 {
-  dmvNizhnyayaNavadvipa->ChangePassword( this );
+  dmvNewNavadvipa->ChangePassword( this );
 }
 //---------------------------------------------------------------------------
 
@@ -99,7 +99,7 @@ void __fastcall TfmvJayaShrilaPrabhupada::aFormNextUpdate(TObject *Sender)
 
 void __fastcall TfmvJayaShrilaPrabhupada::FormCreate( TObject *Sender )
 {
-  dmvNizhnyayaNavadvipa = new TdmvNizhnyayaNavadvipa( Application, dmvJayaShrilaPrabhupada->DoLogin );
+  dmvNewNavadvipa = new TdmvNewNavadvipa( Application, dmvJayaShrilaPrabhupada->DoLogin );
   inherited::FormCreate( Sender );
 }
 //---------------------------------------------------------------------------

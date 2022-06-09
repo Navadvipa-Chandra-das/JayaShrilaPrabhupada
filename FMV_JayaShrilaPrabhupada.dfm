@@ -21,7 +21,7 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
     Width = 663
     Height = 29
     Caption = 'tbrTest'
-    Images = dmvNizhnyayaNavadvipa.ilDB
+    Images = dmvNewNavadvipa.ilDB
     TabOrder = 0
     object tbExamples: TToolButton
       Left = 0
@@ -184,7 +184,7 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
     end
   end
   object mmShrilaPrabhupada: TMainMenu
-    Images = dmvNizhnyayaNavadvipa.ilDB
+    Images = dmvNewNavadvipa.ilDB
     Left = 185
     Top = 8
     object miAction: TMenuItem

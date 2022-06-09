@@ -56,18 +56,18 @@
         <ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\release\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
         <ProjectType>CppVCLApplication</ProjectType>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
-        <AllPackageLibs>rtl.lib;vcl.lib;dbrtl.lib;FireDAC.lib;FireDACCommonDriver.lib;FireDACCommon.lib;xmlrtl.lib;VCL_NizhnyayaNavadvipa.lib;vcldb.lib;vclwinx.lib;vclimg.lib;bindengine.lib;vclx.lib;vclFireDAC.lib;FireDACPgDriver.lib;frx27.lib;fs27.lib;fqb270.lib;vclactnband.lib</AllPackageLibs>
+        <AllPackageLibs>rtl.lib;vcl.lib;dbrtl.lib;FireDAC.lib;FireDACCommonDriver.lib;FireDACCommon.lib;xmlrtl.lib;VCL_NewNavadvipa.lib;vcldb.lib;vclwinx.lib;vclimg.lib;bindengine.lib;vclx.lib;vclFireDAC.lib;FireDACPgDriver.lib;frx27.lib;fs27.lib;fqb270.lib;vclactnband.lib;VCL_NewNavadvipa.lib</AllPackageLibs>
         <_TCHARMapping>wchar_t</_TCHARMapping>
         <Multithreaded>true</Multithreaded>
         <Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
         <UWP_CppLogo44>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_44.png</UWP_CppLogo44>
         <UWP_CppLogo150>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_150.png</UWP_CppLogo150>
         <SanitizedProjectName>JayaShrilaPrabhupada</SanitizedProjectName>
-        <IncludePath>C:\PRG\FastReport VCL Trial\LIBD27\;..\NizhnyayaNavadvipa\;$(IncludePath)</IncludePath>
-        <ILINK_LibraryPath>C:\PRG\FastReport VCL Trial\LIBD27\;..\NizhnyayaNavadvipa\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <IncludePath>C:\PRG\FastReport VCL Trial\LIBD27\;..\NewNavadvipa\;$(IncludePath)</IncludePath>
+        <ILINK_LibraryPath>C:\PRG\FastReport VCL Trial\LIBD27\;..\NewNavadvipa\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
-        <PackageImports>adortl;appanalytics;bcbie;bcbsmp;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindcompvclsmp;bindcompvclwinx;bindengine;CloudService;CustomIPTransport;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXInterBaseDriver;DBXMySQLDriver;DBXSqliteDriver;dsnap;dsnapcon;dsnapxml;FireDAC;FireDACADSDriver;FireDACCommon;FireDACCommonDriver;FireDACCommonODBC;FireDACIBDriver;FireDACMSAccDriver;FireDACMySQLDriver;FireDACPgDriver;FireDACSqliteDriver;fmx;VCL_NizhnyayaNavadvipa;FMX_NizhnyayaNavadvipa;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;OrpheusCD;OrpheusCR;OrpheusDBCR;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;svn;Tee;TeeDB;TeeUI;tethering;vcl;vclactnband;vcldb;vcldsnap;vcledge;vclFireDAC;vclie;vclimg;VCLRESTComponents;VclSmp;vcltouch;vclwinx;vclx;xmlrtl;$(PackageImports)</PackageImports>
+        <PackageImports>adortl;appanalytics;bcbie;bcbsmp;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindcompvclsmp;bindcompvclwinx;bindengine;CloudService;CustomIPTransport;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXInterBaseDriver;DBXMySQLDriver;DBXSqliteDriver;dsnap;dsnapcon;dsnapxml;FireDAC;FireDACADSDriver;FireDACCommon;FireDACCommonDriver;FireDACCommonODBC;FireDACIBDriver;FireDACMSAccDriver;FireDACMySQLDriver;FireDACPgDriver;FireDACSqliteDriver;fmx;VCL_NewNavadvipa;FMX_NewNavadvipa;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;OrpheusCD;OrpheusCR;OrpheusDBCR;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;svn;Tee;TeeDB;TeeUI;tethering;vcl;vclactnband;vcldb;vcldsnap;vcledge;vclFireDAC;vclie;vclimg;VCLRESTComponents;VclSmp;vcltouch;vclwinx;vclx;xmlrtl;$(PackageImports)</PackageImports>
         <IncludePath>$(BDSINCLUDE)\windows\vcl;$(IncludePath)</IncludePath>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
@@ -108,7 +108,7 @@
         <BCC_UseClassicCompiler>false</BCC_UseClassicCompiler>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <LinkPackageStatics>rtl.lib;vcl.lib;dbrtl.lib;FireDAC.lib;FireDACCommonDriver.lib;FireDACCommon.lib;xmlrtl.lib;VCL_NizhnyayaNavadvipa.lib;vcldb.lib;vclwinx.lib;vclimg.lib;bindengine.lib;vclx.lib;vclFireDAC.lib;FireDACPgDriver.lib;frx27.lib;fs27.lib;fqb270.lib;vclactnband.lib</LinkPackageStatics>
+        <LinkPackageStatics>rtl.lib;vcl.lib;dbrtl.lib;FireDAC.lib;FireDACCommonDriver.lib;FireDACCommon.lib;xmlrtl.lib;VCL_NewNavadvipa.lib;vcldb.lib;vclwinx.lib;vclimg.lib;bindengine.lib;vclx.lib;vclFireDAC.lib;FireDACPgDriver.lib;frx27.lib;fs27.lib;fqb270.lib;vclactnband.lib</LinkPackageStatics>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <Defines>NDEBUG;$(Defines)</Defines>
@@ -121,7 +121,7 @@
         <UsePackages>true</UsePackages>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <LinkPackageImports>rtl.bpi;vcl.bpi;dbrtl.bpi;FireDAC.bpi;FireDACCommonDriver.bpi;FireDACCommon.bpi;xmlrtl.bpi;VCL_NizhnyayaNavadvipa.bpi;vcldb.bpi;vclwinx.bpi;vclimg.bpi;bindengine.bpi;vclx.bpi</LinkPackageImports>
+        <LinkPackageImports>rtl.bpi;vcl.bpi;dbrtl.bpi;FireDAC.bpi;FireDACCommonDriver.bpi;FireDACCommon.bpi;xmlrtl.bpi;VCL_NewNavadvipa.bpi;vcldb.bpi;vclwinx.bpi;vclimg.bpi;bindengine.bpi;vclx.bpi</LinkPackageImports>
     </PropertyGroup>
     <ItemGroup>
         <CppCompile Include="DMV_JayaShrilaPrabhupada.cpp">
@@ -156,131 +156,145 @@
             <BuildOrder>1</BuildOrder>
             <PCH>true</PCH>
         </PCHCompile>
-        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNDmRes.cpp">
+        <CppCompile Include="..\NewNavadvipa\VCL_NNDmRes.cpp">
             <Form>dmvRes</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
-            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNDmRes.h</DependentOn>
+            <DependentOn>..\NewNavadvipa\VCL_NNDmRes.h</DependentOn>
             <BuildOrder>7</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNDmvNizhnyayaNavadvipa.cpp">
-            <Form>dmvNizhnyayaNavadvipa</Form>
+        <CppCompile Include="..\NewNavadvipa\VCL_NNDmvNewNavadvipa.cpp">
+            <Form>dmvNewNavadvipa</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
-            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNDmvNizhnyayaNavadvipa.h</DependentOn>
+            <DependentOn>..\NewNavadvipa\VCL_NNDmvNewNavadvipa.h</DependentOn>
             <BuildOrder>9</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFmChangePassword.cpp">
+        <CppCompile Include="..\NewNavadvipa\VCL_NNFmChangePassword.cpp">
             <Form>fmvChangePassword</Form>
             <FormType>dfm</FormType>
-            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFmChangePassword.h</DependentOn>
+            <DependentOn>..\NewNavadvipa\VCL_NNFmChangePassword.h</DependentOn>
             <BuildOrder>12</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFmDateTime.cpp">
+        <CppCompile Include="..\NewNavadvipa\VCL_NNFmDateTime.cpp">
             <Form>fmvDateTime</Form>
             <FormType>dfm</FormType>
-            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFmDateTime.h</DependentOn>
+            <DependentOn>..\NewNavadvipa\VCL_NNFmDateTime.h</DependentOn>
             <BuildOrder>13</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFmDB.cpp">
+        <CppCompile Include="..\NewNavadvipa\VCL_NNFmDB.cpp">
             <Form>fmvDB</Form>
             <FormType>dfm</FormType>
-            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFmDB.h</DependentOn>
+            <DependentOn>..\NewNavadvipa\VCL_NNFmDB.h</DependentOn>
             <BuildOrder>10</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFmLock.cpp">
+        <CppCompile Include="..\NewNavadvipa\VCL_NNFmLock.cpp">
             <Form>fmvLock</Form>
             <FormType>dfm</FormType>
-            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFmLock.h</DependentOn>
+            <DependentOn>..\NewNavadvipa\VCL_NNFmLock.h</DependentOn>
             <BuildOrder>15</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFmLogin.cpp">
+        <CppCompile Include="..\NewNavadvipa\VCL_NNFmLogin.cpp">
             <Form>fmvLogin</Form>
             <FormType>dfm</FormType>
-            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFmLogin.h</DependentOn>
+            <DependentOn>..\NewNavadvipa\VCL_NNFmLogin.h</DependentOn>
             <BuildOrder>10</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFmRes.cpp">
+        <CppCompile Include="..\NewNavadvipa\VCL_NNFmRes.cpp">
             <Form>fmvRes</Form>
             <FormType>dfm</FormType>
-            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFmRes.h</DependentOn>
+            <DependentOn>..\NewNavadvipa\VCL_NNFmRes.h</DependentOn>
             <BuildOrder>1</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFmvCode.cpp">
+        <CppCompile Include="..\NewNavadvipa\VCL_NNFmRights.cpp">
+            <Form>fmvRights</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>..\NewNavadvipa\VCL_NNFmRights.h</DependentOn>
+            <BuildOrder>22</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\NewNavadvipa\VCL_NNFmRoles.cpp">
+            <Form>fmvRoles</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>..\NewNavadvipa\VCL_NNFmRoles.h</DependentOn>
+            <BuildOrder>23</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="..\NewNavadvipa\VCL_NNFmvCode.cpp">
             <Form>fmvCode</Form>
             <FormType>dfm</FormType>
-            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFmvCode.h</DependentOn>
+            <DependentOn>..\NewNavadvipa\VCL_NNFmvCode.h</DependentOn>
             <BuildOrder>21</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFrDiapazon.cpp">
+        <CppCompile Include="..\NewNavadvipa\VCL_NNFrDiapazon.cpp">
             <Form>frvDiapazon</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
-            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFrDiapazon.h</DependentOn>
+            <DependentOn>..\NewNavadvipa\VCL_NNFrDiapazon.h</DependentOn>
             <BuildOrder>16</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFrDoubleDiapazon.cpp">
+        <CppCompile Include="..\NewNavadvipa\VCL_NNFrDoubleDiapazon.cpp">
             <Form>frvDoubleDiapazon</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
-            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFrDoubleDiapazon.h</DependentOn>
+            <DependentOn>..\NewNavadvipa\VCL_NNFrDoubleDiapazon.h</DependentOn>
             <BuildOrder>16</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFrIntDiapazon.cpp">
+        <CppCompile Include="..\NewNavadvipa\VCL_NNFrIntDiapazon.cpp">
             <Form>frvIntDiapazon</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
-            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFrIntDiapazon.h</DependentOn>
+            <DependentOn>..\NewNavadvipa\VCL_NNFrIntDiapazon.h</DependentOn>
             <BuildOrder>18</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFrLogin.cpp">
+        <CppCompile Include="..\NewNavadvipa\VCL_NNFrLogin.cpp">
             <Form>frvLogin</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
-            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFrLogin.h</DependentOn>
+            <DependentOn>..\NewNavadvipa\VCL_NNFrLogin.h</DependentOn>
             <BuildOrder>0</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFrLongLongIntDiapazon.cpp">
+        <CppCompile Include="..\NewNavadvipa\VCL_NNFrLongLongIntDiapazon.cpp">
             <Form>frvLongLongIntDiapazon</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
-            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFrLongLongIntDiapazon.h</DependentOn>
+            <DependentOn>..\NewNavadvipa\VCL_NNFrLongLongIntDiapazon.h</DependentOn>
             <BuildOrder>19</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFrPeriod.cpp">
+        <CppCompile Include="..\NewNavadvipa\VCL_NNFrPeriod.cpp">
             <Form>frvPeriod</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
-            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFrPeriod.h</DependentOn>
+            <DependentOn>..\NewNavadvipa\VCL_NNFrPeriod.h</DependentOn>
             <BuildOrder>17</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\NizhnyayaNavadvipa\VCL_NNFrShortIntDiapazon.cpp">
+        <CppCompile Include="..\NewNavadvipa\VCL_NNFrShortIntDiapazon.cpp">
             <Form>frvShortIntDiapazon</Form>
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
-            <DependentOn>..\NizhnyayaNavadvipa\VCL_NNFrShortIntDiapazon.h</DependentOn>
+            <DependentOn>..\NewNavadvipa\VCL_NNFrShortIntDiapazon.h</DependentOn>
             <BuildOrder>20</BuildOrder>
         </CppCompile>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFrDoubleDiapazon.dfm"/>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFrDiapazon.dfm"/>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmRes.dfm"/>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmLogin.dfm"/>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmLock.dfm"/>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFrShortIntDiapazon.dfm"/>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFrPeriod.dfm"/>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFrLongLongIntDiapazon.dfm"/>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFrLogin.dfm"/>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFrIntDiapazon.dfm"/>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmDB.dfm"/>
+        <FormResources Include="..\NewNavadvipa\VCL_NNFmRoles.dfm"/>
+        <FormResources Include="..\NewNavadvipa\VCL_NNFmvCode.dfm"/>
+        <FormResources Include="..\NewNavadvipa\VCL_NNFrDiapazon.dfm"/>
+        <FormResources Include="..\NewNavadvipa\VCL_NNFmLogin.dfm"/>
+        <FormResources Include="..\NewNavadvipa\VCL_NNFmRes.dfm"/>
+        <FormResources Include="..\NewNavadvipa\VCL_NNFmRights.dfm"/>
+        <FormResources Include="..\NewNavadvipa\VCL_NNFrLongLongIntDiapazon.dfm"/>
+        <FormResources Include="..\NewNavadvipa\VCL_NNFrPeriod.dfm"/>
+        <FormResources Include="..\NewNavadvipa\VCL_NNFrShortIntDiapazon.dfm"/>
+        <FormResources Include="..\NewNavadvipa\VCL_NNFrDoubleDiapazon.dfm"/>
+        <FormResources Include="..\NewNavadvipa\VCL_NNFrIntDiapazon.dfm"/>
+        <FormResources Include="..\NewNavadvipa\VCL_NNFrLogin.dfm"/>
         <FormResources Include="FMV_LoginJayaShrilaPrabhupada.dfm"/>
-        <FormResources Include="FMV_JayaShrilaPrabhupada.dfm"/>
-        <FormResources Include="FMV_Explorer.dfm"/>
         <FormResources Include="DMV_JayaShrilaPrabhupada.dfm"/>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmDateTime.dfm"/>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmChangePassword.dfm"/>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNDmvNizhnyayaNavadvipa.dfm"/>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNDmRes.dfm"/>
-        <FormResources Include="..\NizhnyayaNavadvipa\VCL_NNFmvCode.dfm"/>
+        <FormResources Include="FMV_Explorer.dfm"/>
+        <FormResources Include="FMV_JayaShrilaPrabhupada.dfm"/>
+        <FormResources Include="..\NewNavadvipa\VCL_NNFmDateTime.dfm"/>
+        <FormResources Include="..\NewNavadvipa\VCL_NNFmDB.dfm"/>
+        <FormResources Include="..\NewNavadvipa\VCL_NNFmLock.dfm"/>
+        <FormResources Include="..\NewNavadvipa\VCL_NNDmRes.dfm"/>
+        <FormResources Include="..\NewNavadvipa\VCL_NNDmvNewNavadvipa.dfm"/>
+        <FormResources Include="..\NewNavadvipa\VCL_NNFmChangePassword.dfm"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -325,13 +339,13 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32270.dll" Class="DependencyModule">
-                    <Platform Name="Win32">
+                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx64\libcgstl.dylib" Class="DependencyModule">
+                    <Platform Name="OSX64">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx32\libcgcrtl.dylib" Class="DependencyModule">
-                    <Platform Name="OSX32">
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32270.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -340,8 +354,8 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx64\libcgstl.dylib" Class="DependencyModule">
-                    <Platform Name="OSX64">
+                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx32\libcgcrtl.dylib" Class="DependencyModule">
+                    <Platform Name="OSX32">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

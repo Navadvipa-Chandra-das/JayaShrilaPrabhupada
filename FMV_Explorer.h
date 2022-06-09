@@ -1,4 +1,4 @@
-//---------------------------------------------------------------------------
+﻿//---------------------------------------------------------------------------
 
 #ifndef FMV_ExplorerH
 #define FMV_ExplorerH
@@ -44,6 +44,7 @@
 #include "VCL_NNFrLongLongIntDiapazon.h"
 #include "VCL_NNFrShortIntDiapazon.h"
 #include "VCL_NNDrawGrid.h"
+#include "VCL_NNDialog.h"
 //---------------------------------------------------------------------------
 class TfmvExplorer : public TfmvDB
 {
@@ -80,7 +81,6 @@ __published:	// IDE-managed Components
   TNNVDBComboBox *dcbUsersNote;
   TNNVDBComboBoxDateTime *ddtUsersBirthDate;
   TNNVDBComboBoxDateTime *ddtUsersCreateDate;
-  TNNVComboBoxDateTime *NNVComboBoxDateTime1;
   TLabel *laEntityCommodID;
   TDBEdit *edEntityCommodID;
   TDBEdit *edKindCommodID;
@@ -91,12 +91,8 @@ __published:	// IDE-managed Components
   TLabel *laPriceCommod;
   TfrvPeriod *frvUserPeriod;
   TNNVPanel *paColor;
-  TToolBar *tbColor;
   TNNVDBGrid *dgColor;
   TAction *aColorIndexGenerate;
-  TToolButton *tbColorIndexGenerate;
-  TNNVNodeAdmin *naColor;
-  TNNVDrawGrid *drgColor;
   TNNVPanel *paRole;
   TNNVPanel *paRights;
   TNNVNodeAdmin *naRightsKind;
@@ -104,7 +100,28 @@ __published:	// IDE-managed Components
   TNNVPanel *paRightsT;
   TNNVDBGrid *dgRights;
   TAction *aGenerateColorConsts;
+  TToolBar *tbRole;
+  TNNVDBGrid *dgRole;
+  TNNVSplitter *splRole;
+  TNNVDBGrid *dgRoleRights;
+  TAction *aRoleMaster;
+  TToolButton *tbRoleMaster;
+  TNNVDialog *DRoleRights;
+  TNNVPanel *paUsersB;
+  TNNVDBGrid *dgUserRights;
+  TNNVSplitter *splUserRights;
+  TNNVSplitter *splUsersB;
+  TNNVDBGrid *dgUserRoles;
+  TNNVDialog *DUserRights;
+  TNNVDialog *DUserRole;
+  TAction *aGenerateColorConstsWithoutIndex;
+  TNNVPanel *paColorT;
+  TToolBar *tbColor;
+  TToolButton *tbColorIndexGenerate;
   TToolButton *tbGenerateColorConsts;
+  TToolButton *tbGenerateColorConstsWithoutIndex;
+  TNNVPanel *paFonValueChange;
+  TNNVPanel *paFontValueChange;
   void __fastcall coResLoad( TObject *Sender );
   void __fastcall coResSave( TObject *Sender );
   void __fastcall coResEndLoad( TObject *Sender );
@@ -136,10 +153,6 @@ __published:	// IDE-managed Components
   void __fastcall aNewUserExecute( TObject *Sender );
   void __fastcall aSetUserPassordExecute( TObject *Sender );
   void __fastcall aDeleteUserExecute(TObject *Sender);
-  void __fastcall drgColorDrawCell( TObject *Sender, int ACol, int ARow, TRect &Rect,
-          TGridDrawState State );
-  void __fastcall drgColorDblClick( TObject *Sender );
-  void __fastcall drgColorKeyDown( TObject *Sender, WORD &Key, TShiftState Shift );
   void __fastcall dgCommodDBCut( TObject *Sender );
   void __fastcall dgCommodDBPaste( TObject *Sender );
   void __fastcall naColorKindFirstEnter( TObject *Sender );
@@ -149,9 +162,6 @@ __published:	// IDE-managed Components
   void __fastcall dgColorDBPaste( TObject *Sender );
   void __fastcall dgColorEditButtonClick(TObject *Sender);
   void __fastcall aColorIndexGenerateExecute( TObject *Sender );
-  void __fastcall naColorEnter( TObject *Sender );
-  void __fastcall naColorExit( TObject *Sender );
-  void __fastcall naColorLoadNodes( TObject *Sender );
   void __fastcall dgColorDrawColumnCell(TObject *Sender, const TRect &Rect, int DataCol,
           TColumn *Column, TGridDrawState State);
   void __fastcall naRightsKindEnter( TObject *Sender );
@@ -172,6 +182,29 @@ __published:	// IDE-managed Components
           TColumn *Column, TGridDrawState State );
   void __fastcall aGenerateColorConstsExecute( TObject *Sender );
   void __fastcall dgColorTitleClick( TColumn *Column );
+  void __fastcall dgRoleRigtsDBCut( TObject *Sender );
+  void __fastcall dgRoleDBCut( TObject *Sender );
+  void __fastcall aRoleMasterExecute( TObject *Sender );
+  void __fastcall dgRoleDBPaste( TObject *Sender );
+  void __fastcall dgRoleDrawColumnCell(TObject *Sender, const TRect &Rect, int DataCol,
+          TColumn *Column, TGridDrawState State);
+  void __fastcall DRoleRightsPrepare( TObject *Sender );
+  void __fastcall RightsGetDialogForm( TObject *Sender, TCustomForm *&fm );
+  void __fastcall RolesGetDialogForm( TObject *Sender, TCustomForm *&fm );
+  void __fastcall DRoleRightsExecute( TObject *Sender );
+  void __fastcall DUserRightsPrepare( TObject *Sender );
+  void __fastcall DUserRightsExecute( TObject *Sender );
+  void __fastcall DUserRolePrepare(TObject *param_06hv�0);
+  void __fastcall DUserRoleExecute(TObject *param_06hv�0);
+  void __fastcall dgUserRightsDrawColumnCell(TObject *Sender, const TRect &Rect,
+          int DataCol, TColumn *Column, TGridDrawState State);
+  void __fastcall dgRoleRightsDrawColumnCell(TObject *Sender, const TRect &Rect,
+          int DataCol, TColumn *Column, TGridDrawState State);
+  void __fastcall dgUserRolesDrawColumnCell(TObject *Sender, const TRect &Rect, int DataCol,
+          TColumn *Column, TGridDrawState State);
+  void __fastcall aGenerateColorConstsWithoutIndexExecute(TObject *Sender);
+  void __fastcall paFonValueChangeDblClick(TObject *Sender);
+  void __fastcall paFontValueChangeDblClick(TObject *Sender);
 
 private:	// User declarations
   typedef TfmvDB inherited;
@@ -182,6 +215,9 @@ private:	// User declarations
   void __fastcall SaveTrees();
   void __fastcall SaveGrids();
   void __fastcall ExecuteColorSetup();
+  void __fastcall SetOnGetDialogFormsBecauseBug();
+  void __fastcall GenerateColorConsts( bool IsCpp );
+  void __fastcall SetColorPanelValueChange();
 public:		// User declarations
   __fastcall TfmvExplorer( TComponent* Owner );
 };

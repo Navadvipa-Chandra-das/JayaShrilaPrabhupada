@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef VCL_DMNizhnyayaNavadvipaH
-#define VCL_DMNizhnyayaNavadvipaH
+#ifndef VCL_DMJayaShrilePrabhupadaH
+#define VCL_DMJayaShrilePrabhupadaH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include "VCL_NNConfig.h"

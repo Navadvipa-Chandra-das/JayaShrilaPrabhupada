@@ -4,7 +4,7 @@
 
 #include "DMV_JayaShrilaPrabhupada.h"
 #include "FMV_LoginJayaShrilaPrabhupada.h"
-#include "VCL_NNDmvNizhnyayaNavadvipa.h"
+#include "VCL_NNDmvNewNavadvipa.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma classgroup "Vcl.Controls.TControl"
@@ -26,7 +26,7 @@ __fastcall TdmvJayaShrilaPrabhupada::TdmvJayaShrilaPrabhupada( TComponent* Owner
 void __fastcall TdmvJayaShrilaPrabhupada::DoLogin( TObject* Sender, TFDConnection *AConnection )
 {
   AConnection->Params->UserName           = L"Navadvipa Chandra das";
-  AConnection->Params->Database           = L"NizhnyayaNavadvipa";
+  AConnection->Params->Database           = L"NewNavadvipa";
   AConnection->Params->Values[ "Server" ] = L"127.0.0.1";
   AConnection->Params->Values[ "Port" ]   = 5432;
 

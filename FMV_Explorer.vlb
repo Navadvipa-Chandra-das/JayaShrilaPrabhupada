@@ -7,7 +7,7 @@ Coordinates=1120,1,144,36
 [aStoreData]
 Coordinates=44,347,79,36
 
-[dmvNizhnyayaNavadvipa.quCommod]
+[dmvNewNavadvipa.quCommod]
 Coordinates=496,10,229,168
 
 [tbrDBTree]
@@ -43,7 +43,7 @@ Coordinates=1120,441,123,36
 [aDBTreeViewReload]
 Coordinates=1120,496,134,36
 
-[dmvNizhnyayaNavadvipa.dsCommodKind]
+[dmvNewNavadvipa.dsCommodKind]
 Coordinates=664,496,254,36
 
 [aDBTreeViewNodeActualInvert]
@@ -73,7 +73,7 @@ Coordinates=680,753,51,36
 [edKindCommodID]
 Coordinates=485,574,119,36
 
-[dmvNizhnyayaNavadvipa.dsUsers]
+[dmvNewNavadvipa.dsUsers]
 Coordinates=133,297,210,36
 
 [aDBCachedUpdates]
@@ -115,7 +115,7 @@ Coordinates=1302,221,46,36
 [edEntityCommodID]
 Coordinates=190,574,126,36
 
-[dmvNizhnyayaNavadvipa.quDB]
+[dmvNewNavadvipa.quDB]
 Coordinates=844,300,195,58
 
 [aNewUser]
@@ -181,7 +181,7 @@ Coordinates=520,849,66,36
 [edNumberToWords]
 Coordinates=164,300,126,58
 
-[dmvNizhnyayaNavadvipa.quCommodKind]
+[dmvNewNavadvipa.quCommodKind]
 Coordinates=231,10,255,168
 
 [aDBMerge]
@@ -253,7 +253,7 @@ Coordinates=256,368,129,58
 [aSetUserPassord]
 Coordinates=1532,771,115,36
 
-[dmvNizhnyayaNavadvipa.dsCommod]
+[dmvNewNavadvipa.dsCommod]
 Coordinates=346,547,228,36
 
 [miDBTreeViewEndToEndViewing]
@@ -292,7 +292,7 @@ Coordinates=800,923,106,36
 [naCommodKind]
 Coordinates=691,923,106,36
 
-[dmvNizhnyayaNavadvipa.quUsers]
+[dmvNewNavadvipa.quUsers]
 Coordinates=10,10,211,212
 
 [edDBStatus]
@@ -388,9 +388,6 @@ Coordinates=1776,826,112,36
 [tsSetup]
 Coordinates=856,436,58,36
 
-[NNVComboBoxDateTime1]
-Coordinates=1045,232,167,58
-
 [aSEIsMistake]
 Coordinates=1776,936,93,36
 
@@ -482,7 +479,7 @@ Coordinates=856,368,157,36
 Coordinates=1010,10,120,58
 
 []
-Coordinates=1142,300,60,58
+Coordinates=1045,232,167,58
 
 [tbrUsers]
 Coordinates=993,436,59,36

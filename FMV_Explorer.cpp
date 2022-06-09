@@ -4,11 +4,14 @@
 #pragma hdrstop
 
 #include "FMV_Explorer.h"
-#include "VCL_NNDmvNizhnyayaNavadvipa.h"
+#include "VCL_NNDmvNewNavadvipa.h"
 #include "DMV_JayaShrilaPrabhupada.h"
 #include "VCL_NNFmChangePassword.h"
 #include "VCL_NNColor.h"
 #include "VCL_NNFmvCode.h"
+#include "VCL_NNFmRights.h"
+#include "VCL_NNFormAdmin.h"
+#include "VCL_NNFmRoles.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "VCL_NNConfig"
@@ -37,6 +40,7 @@
 #pragma link "VCL_NNFrLongLongIntDiapazon"
 #pragma link "VCL_NNFrShortIntDiapazon"
 #pragma link "VCL_NNDrawGrid"
+#pragma link "VCL_NNDialog"
 #pragma resource "*.dfm"
 TfmvExplorer *fmvExplorer;
 //---------------------------------------------------------------------------
@@ -54,6 +58,9 @@ void __fastcall TfmvExplorer::coResLoad( TObject *Sender )
   LoadGrids();
   tvExamples->Width = coRes->Filer->ReadInt();
   edNumberToWords->Text = coRes->Filer->ReadString();
+  dgRole->Height = coRes->Filer->ReadInt();
+  paUsersB->Height = coRes->Filer->ReadInt();
+  dgUserRights->Width = coRes->Filer->ReadInt();
 }
 //---------------------------------------------------------------------------
 
@@ -65,6 +72,9 @@ void __fastcall TfmvExplorer::coResSave( TObject *Sender )
   SaveGrids();
   coRes->Filer->WriteInt( tvExamples->Width );
   coRes->Filer->WriteString( edNumberToWords->Text );
+  coRes->Filer->WriteInt( dgRole->Height );
+  coRes->Filer->WriteInt( paUsersB->Height );
+  coRes->Filer->WriteInt( dgUserRights->Width );
 }
 //---------------------------------------------------------------------------
 
@@ -75,7 +85,6 @@ void __fastcall TfmvExplorer::LoadNodeAdmins()
   naNumberToWords->LoadFromFiler( coRes->Filer );
   naUsers->LoadFromFiler( coRes->Filer );
   naCommodKind->LoadFromFiler( coRes->Filer );
-  naColor->LoadFromFiler( coRes->Filer );
   naRightsKind->LoadFromFiler( coRes->Filer );
   naRoleKind->LoadFromFiler( coRes->Filer );
 }
@@ -87,7 +96,6 @@ void __fastcall TfmvExplorer::SaveNodeAdmins()
   naNumberToWords->SaveToFiler( coRes->Filer );
   naUsers->SaveToFiler( coRes->Filer );
   naCommodKind->SaveToFiler( coRes->Filer );
-  naColor->SaveToFiler( coRes->Filer );
   naRightsKind->SaveToFiler( coRes->Filer );
   naRoleKind->SaveToFiler( coRes->Filer );
 }
@@ -107,6 +115,11 @@ void __fastcall TfmvExplorer::LoadGrids()
   dgUsers->LoadFromFiler( coRes->Filer );
   dgCommod->LoadFromFiler( coRes->Filer );
   dgColor->LoadFromFiler( coRes->Filer );
+  dgRights->LoadFromFiler( coRes->Filer );
+  dgRole->LoadFromFiler( coRes->Filer );
+  dgRoleRights->LoadFromFiler( coRes->Filer );
+  dgUserRights->LoadFromFiler( coRes->Filer );
+  dgUserRoles->LoadFromFiler( coRes->Filer );
 }
 
 void __fastcall TfmvExplorer::SaveGrids()
@@ -114,11 +127,19 @@ void __fastcall TfmvExplorer::SaveGrids()
   dgUsers->SaveToFiler( coRes->Filer );
   dgCommod->SaveToFiler( coRes->Filer );
   dgColor->SaveToFiler( coRes->Filer );
+  dgRights->SaveToFiler( coRes->Filer );
+  dgRole->SaveToFiler( coRes->Filer );
+  dgRoleRights->SaveToFiler( coRes->Filer );
+  dgUserRights->SaveToFiler( coRes->Filer );
+  dgUserRoles->SaveToFiler( coRes->Filer );
 }
 
 void __fastcall TfmvExplorer::coResEndLoad( TObject *Sender )
 {
   splExamples->Left = tvExamples->Left + tvExamples->Width + 1;
+  splRole->Top = dgRole->Top + dgRole->Height + 1;
+  splUsersB->Top = paUsersB->Top - 1;
+  dgUserRights->Left = dgUserRights->Left + dgUserRights->Width + 1;
 }
 //---------------------------------------------------------------------------
 
@@ -146,14 +167,31 @@ void __fastcall TfmvExplorer::naConfigLoadNodes( TObject *Sender )
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExplorer::FormCreate(TObject *Sender)
+void __fastcall TfmvExplorer::FormCreate( TObject *Sender )
 {
   inherited::FormCreate( Sender );
 
+  SetColorPanelValueChange();
+
   tvExamples->StartAdmin();
-  drgColor->OptimalDefaultRowHeight();
+
+  SetOnGetDialogFormsBecauseBug();
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::SetColorPanelValueChange()
+{
+  paFonValueChange->Color       = NNVConst::FonColorValueChange;
+  paFontValueChange->Color      = NNVConst::FontColorValueChange;
+  paFonValueChange->Font->Color = NNVConst::FontColorValueChange;
+}
+
+void __fastcall TfmvExplorer::SetOnGetDialogFormsBecauseBug()
+{
+  DRoleRights->OnGetDialogForm = RightsGetDialogForm;
+  DUserRights->OnGetDialogForm = RightsGetDialogForm;
+  DUserRole->OnGetDialogForm   = RolesGetDialogForm;
+}
 
 void __fastcall TfmvExplorer::FormDestroy(TObject *Sender)
 {
@@ -177,7 +215,7 @@ void __fastcall TfmvExplorer::naColorKindExit(TObject *Sender )
 
 void __fastcall TfmvExplorer::naColorKindLoadNodes(TObject *Sender )
 {
-  tvExamples->LoadNodeAdmin( nullptr, naColorKind, 72 );
+  tvExamples->LoadNodeAdmin( nullptr, naColorKind, NNV::RootColorKindID );
 }
 //---------------------------------------------------------------------------
 
@@ -251,25 +289,29 @@ void __fastcall TfmvExplorer::naNumberToWordsFirstEnter( TObject *Sender )
 
 void __fastcall TfmvExplorer::naUsersFirstEnter( TObject *Sender )
 {
-  dmvNizhnyayaNavadvipa->quUsers->CWOpen();
+  dmvNewNavadvipa->quUsers->CWOpen();
+  dmvNewNavadvipa->quUserRights->CWOpen();
+  dmvNewNavadvipa->quUserRoles->CWOpen();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::naUsersLastExit( TObject *Sender )
 {
-  dmvNizhnyayaNavadvipa->quUsers->CWClose();
+  dmvNewNavadvipa->quUserRoles->CWClose();
+  dmvNewNavadvipa->quUserRights->CWClose();
+  dmvNewNavadvipa->quUsers->CWClose();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::naCommodKindLoadNodes(TObject *Sender)
 {
-  tvExamples->LoadNodeAdmin( nullptr, naCommodKind, 1 );
+  tvExamples->LoadNodeAdmin( nullptr, naCommodKind, NNV::RootCommodKindID );
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::naCommodKindEnter( TObject *Sender )
 {
-  DataSet = dmvNizhnyayaNavadvipa->quCommodKind;
+  DataSet = dmvNewNavadvipa->quCommodKind;
   paCommod->Visible = true;
 }
 //---------------------------------------------------------------------------
@@ -283,164 +325,87 @@ void __fastcall TfmvExplorer::naCommodKindExit( TObject *Sender )
 
 void __fastcall TfmvExplorer::naCommodKindFirstEnter( TObject *Sender )
 {
-  dmvNizhnyayaNavadvipa->quCommodKind->CWOpen();
-  dmvNizhnyayaNavadvipa->quCommod->CWOpen();
+  dmvNewNavadvipa->quCommodKind->CWOpen();
+  dmvNewNavadvipa->quCommod->CWOpen();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::naCommodKindLastExit(TObject *Sender5)
 {
-  dmvNizhnyayaNavadvipa->quCommod->CWClose();
-  dmvNizhnyayaNavadvipa->quCommodKind->CWClose();
+  dmvNewNavadvipa->quCommod->CWClose();
+  dmvNewNavadvipa->quCommodKind->CWClose();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::naCommodKindGetNodeParams( TObject *Sender, TNNVNodeParams &NodeParams )
 {
-  dmvNizhnyayaNavadvipa->SetNodeParamsCommodKind( NodeParams );
+  dmvNewNavadvipa->SetNodeParamsCommodKind( NodeParams );
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::aNewUserExecute( TObject *Sender )
 {
-  dmvNizhnyayaNavadvipa->SetIsDeletedUser( false );
-  dmvNizhnyayaNavadvipa->CreateNewUser( dmvNizhnyayaNavadvipa->quUsersName->AsString
-                                      , dmvNizhnyayaNavadvipa->quUsersName->AsString );
+  dmvNewNavadvipa->SetIsDeletedUser( false );
+  dmvNewNavadvipa->CreateNewUser( dmvNewNavadvipa->quUsersName->AsString
+                                      , dmvNewNavadvipa->quUsersName->AsString );
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::aSetUserPassordExecute( TObject *Sender )
 {
   fmvChangePassword = new TfmvChangePassword( Application );
-  fmvChangePassword->ShowChangePassword( dmvNizhnyayaNavadvipa->quUsersName->AsString, this );
+  fmvChangePassword->ShowChangePassword( dmvNewNavadvipa->quUsersName->AsString, this );
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::aDeleteUserExecute(TObject *Sender)
 {
-  dmvNizhnyayaNavadvipa->SetIsDeletedUser( true );
-  dmvNizhnyayaNavadvipa->DeleteUser( dmvNizhnyayaNavadvipa->quUsersName->AsString );
+  dmvNewNavadvipa->SetIsDeletedUser( true );
+  dmvNewNavadvipa->DeleteUser( dmvNewNavadvipa->quUsersName->AsString );
 }
 //---------------------------------------------------------------------------
-
-void __fastcall TfmvExplorer::drgColorDrawCell( TObject *Sender, int ACol, int ARow
-                                             , TRect &Rect, TGridDrawState State )
-{
-  int L = Rect.Left + 2, R = Rect.Top + 2;
-  if ( !ARow ) {
-    switch ( ACol ) {
-      case 0 :
-        drgColor->Canvas->TextRect( Rect, L, R, "Название" );
-        break;
-      case 1 :
-        drgColor->Canvas->TextRect( Rect, L, R, "Шрифт" );
-        break;
-      case 2 :
-        drgColor->Canvas->TextRect( Rect, L, R, "Фон" );
-        break;
-    }
-    return;
-  }
-  NNV::TColorMap::iterator i = NNV::ColorMap.find( (NNV::TColorKind)( ARow - 1 ) );
-  switch ( ACol ) {
-    case 0 :
-      drgColor->Canvas->Font->Color = (*i).second.FontColor;
-      drgColor->Canvas->Brush->Color = (*i).second.FonColor;
-      drgColor->Canvas->TextRect( Rect, L, R, (*i).second.Name );
-      break;
-    case 1 :
-      drgColor->Canvas->Brush->Color = (*i).second.FontColor;
-      drgColor->Canvas->FillRect( Rect );
-      break;
-    case 2 :
-      drgColor->Canvas->Brush->Color = (*i).second.FonColor;
-      drgColor->Canvas->FillRect( Rect );
-      break;
-  }
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TfmvExplorer::drgColorDblClick(TObject *Sender)
-{
-  if ( drgColor->Row )
-    ExecuteColorSetup();
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TfmvExplorer::drgColorKeyDown( TObject *Sender, WORD &Key, TShiftState Shift )
-{
-  if ( Key == VK_SPACE && drgColor->Col ) {
-    ExecuteColorSetup();
-    Key = 0;
-  }
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TfmvExplorer::ExecuteColorSetup()
-{
-  NNV::TColorMap::iterator i;
-  switch ( drgColor->Col ) {
-    case 1 :
-      i = NNV::ColorMap.find( (NNV::TColorKind)( drgColor->Row - 1 ) );
-      dmvNizhnyayaNavadvipa->cdNN->Color = (*i).second.FontColor;
-      if ( dmvNizhnyayaNavadvipa->cdNN->Execute() ) {
-        (*i).second.FontColor = dmvNizhnyayaNavadvipa->cdNN->Color;
-        NNV::ColorMap.Refresh();
-        drgColor->Refresh();
-      }
-      break;
-    case 2 :
-      i = NNV::ColorMap.find( (NNV::TColorKind)( drgColor->Row - 1 ) );
-      dmvNizhnyayaNavadvipa->cdNN->Color = (*i).second.FonColor;
-      if ( dmvNizhnyayaNavadvipa->cdNN->Execute() ) {
-        (*i).second.FonColor = dmvNizhnyayaNavadvipa->cdNN->Color;
-        NNV::ColorMap.Refresh();
-        drgColor->Refresh();
-      }
-  }
-}
 
 void __fastcall TfmvExplorer::dgCommodDBCut( TObject *Sender )
 {
-  dgCommod->CWSelect( dmvNizhnyayaNavadvipa->quCommodEntityID, &dmvNizhnyayaNavadvipa->BufferIntBox, true, L"Commod" );
+  dgCommod->CWSelect( dmvNewNavadvipa->quCommodEntityID, &dmvNewNavadvipa->BufferIntBox, true, L"Commod" );
 };
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::dgCommodDBPaste( TObject *Sender )
 {
-  dmvNizhnyayaNavadvipa->quCommod->DBPaste();
+  dmvNewNavadvipa->quCommod->DBPaste();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::naColorKindFirstEnter( TObject *Sender )
 {
-  dmvNizhnyayaNavadvipa->quColorKind->CWOpen();
-  dmvNizhnyayaNavadvipa->quColor->CWOpen();
+  dmvNewNavadvipa->quColorKind->CWOpen();
+  dmvNewNavadvipa->quColor->CWOpen();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::naColorKindLastExit( TObject *Sender )
 {
-  dmvNizhnyayaNavadvipa->quColor->CWClose();
-  dmvNizhnyayaNavadvipa->quColorKind->CWClose();
+  dmvNewNavadvipa->quColor->CWClose();
+  dmvNewNavadvipa->quColorKind->CWClose();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::naColorKindGetNodeParams( TObject *Sender, TNNVNodeParams &NodeParams )
 {
-  dmvNizhnyayaNavadvipa->SetNodeParamsColorKind( NodeParams );
+  dmvNewNavadvipa->SetNodeParamsColorKind( NodeParams );
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::dgColorDBCut( TObject *Sender )
 {
-  dgColor->CWSelect( dmvNizhnyayaNavadvipa->quColorEntityID, &dmvNizhnyayaNavadvipa->BufferIntBox, true, L"Color" );
+  dgColor->CWSelect( dmvNewNavadvipa->quColorEntityID, &dmvNewNavadvipa->BufferIntBox, true, L"Color" );
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::dgColorDBPaste( TObject *Sender )
 {
-  dmvNizhnyayaNavadvipa->quColor->DBPaste();
+  dmvNewNavadvipa->quColor->DBPaste();
 }
 //---------------------------------------------------------------------------
 
@@ -450,17 +415,17 @@ void __fastcall TfmvExplorer::dgColorEditButtonClick(TObject *Sender)
   TRect R   = CurrentDBGrid->CWRect;
 
   if ( f->DataType == ftInteger ) {
-    dmvNizhnyayaNavadvipa->cdNN->Color = (TColor)f->AsInteger;
-    if ( dmvNizhnyayaNavadvipa->cdNN->Execute() ) {
-      TColor CL = dmvNizhnyayaNavadvipa->cdNN->Color;
+    dmvNewNavadvipa->cdNN->Color = (TColor)f->AsInteger;
+    if ( dmvNewNavadvipa->cdNN->Execute() ) {
+      TColor CL = dmvNewNavadvipa->cdNN->Color;
       Query->CWCheckEditMode();
       f->AsInteger = CL;
       if ( f->FieldKind == fkCalculated ) {
-        std::size_t I = dmvNizhnyayaNavadvipa->quColorVectorIndex->AsLargeInt;
-        if ( f == dmvNizhnyayaNavadvipa->quColorFonColorUser )
-          dmvNizhnyayaNavadvipa->ColorVector[ I ].FonColor = CL;
+        std::size_t I = dmvNewNavadvipa->quColorVectorIndex->AsLargeInt;
+        if ( f == dmvNewNavadvipa->quColorFonColorUser )
+          dmvNewNavadvipa->ColorVector[ I ].FonColor = CL;
         else
-          dmvNizhnyayaNavadvipa->ColorVector[ I ].FontColor = CL;
+          dmvNewNavadvipa->ColorVector[ I ].FontColor = CL;
         Query->Post();
       }
     }
@@ -471,31 +436,7 @@ void __fastcall TfmvExplorer::dgColorEditButtonClick(TObject *Sender)
 
 void __fastcall TfmvExplorer::aColorIndexGenerateExecute( TObject *Sender )
 {
-  dmvNizhnyayaNavadvipa->ColorIndexGenerate();
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TfmvExplorer::naColorEnter( TObject *Sender )
-{
-  drgColor->Visible = true;
-  drgColor->RowCount = NNV::ColorMap.size() + 1;
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TfmvExplorer::naColorExit( TObject *Sender )
-{
-  drgColor->Visible = false;
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TfmvExplorer::naColorLoadNodes( TObject *Sender )
-{
-  naColor->CurrentNode = ( (TNNVTreeNode*)( tvExamples->Items->Add( nullptr, "Настройка цвета" ) ) );
-  naColor->CurrentNode->NodeAdmin = naColor;
-  naColor->CurrentNode->PK = NNV::EmptyPK;
-  naColor->CurrentNode->ImageIndex = (int)NNV::TImagesKind::imDepartment;
-  naColor->CurrentNode->SelectedIndex = (int)NNV::TImagesKind::imDepartment;
-  naColor->LocateNode = naColor->CurrentNode;
+  dmvNewNavadvipa->ColorIndexGenerate();
 }
 //---------------------------------------------------------------------------
 
@@ -510,13 +451,13 @@ void __fastcall TfmvExplorer::dgColorDrawColumnCell( TObject *Sender, const TRec
   TBrush *br = dg->Canvas->Brush;
   TFont  *fn = dg->Canvas->Font;
 
-  if ( !State.Contains( gdFocused ) && !dmvNizhnyayaNavadvipa->quColorEntityID->IsNull ) {
+  if ( !State.Contains( gdFocused ) && !dmvNewNavadvipa->quColorEntityID->IsNull ) {
     if ( f->FieldKind == fkData ) {
-      br->Color = (TColor)dmvNizhnyayaNavadvipa->quColorFonColor->AsInteger;
-      fn->Color = (TColor)dmvNizhnyayaNavadvipa->quColorFontColor->AsInteger;
+      br->Color = (TColor)dmvNewNavadvipa->quColorFonColor->AsInteger;
+      fn->Color = (TColor)dmvNewNavadvipa->quColorFontColor->AsInteger;
     } else {
-      br->Color = (TColor)dmvNizhnyayaNavadvipa->quColorFonColorUser->AsInteger;
-      fn->Color = (TColor)dmvNizhnyayaNavadvipa->quColorFontColorUser->AsInteger;
+      br->Color = (TColor)dmvNewNavadvipa->quColorFonColorUser->AsInteger;
+      fn->Color = (TColor)dmvNewNavadvipa->quColorFontColorUser->AsInteger;
     }
   }
 
@@ -526,7 +467,7 @@ void __fastcall TfmvExplorer::dgColorDrawColumnCell( TObject *Sender, const TRec
 
 void __fastcall TfmvExplorer::naRightsKindEnter( TObject *Sender )
 {
-  DataSet = dmvNizhnyayaNavadvipa->quRightsKind;
+  DataSet = dmvNewNavadvipa->quRightsKind;
   paRights->Visible = true;
 }
 //---------------------------------------------------------------------------
@@ -539,33 +480,33 @@ void __fastcall TfmvExplorer::naRightsKindExit( TObject *Sender )
 
 void __fastcall TfmvExplorer::naRightsKindFirstEnter( TObject *Sender )
 {
-  dmvNizhnyayaNavadvipa->quRightsKind->CWOpen();
-  dmvNizhnyayaNavadvipa->quRights->CWOpen();
+  dmvNewNavadvipa->quRightsKind->CWOpen();
+  dmvNewNavadvipa->quRights->CWOpen();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::naRightsKindGetNodeParams( TObject *Sender, TNNVNodeParams &NodeParams )
 {
-  dmvNizhnyayaNavadvipa->SetNodeParamsRightsKind( NodeParams );
+  dmvNewNavadvipa->SetNodeParamsRightsKind( NodeParams );
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::naRightsKindLastExit( TObject *Sender )
 {
-  dmvNizhnyayaNavadvipa->quRights->CWClose();
-  dmvNizhnyayaNavadvipa->quRightsKind->CWClose();
+  dmvNewNavadvipa->quRights->CWClose();
+  dmvNewNavadvipa->quRightsKind->CWClose();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::naRightsKindLoadNodes( TObject *Sender )
 {
-  tvExamples->LoadNodeAdmin( nullptr, naRightsKind, 79 );
+  tvExamples->LoadNodeAdmin( nullptr, naRightsKind, NNV::RootRightsKindID );
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::naRoleKindEnter( TObject *Sender )
 {
-  DataSet = dmvNizhnyayaNavadvipa->quRoleKind;
+  DataSet = dmvNewNavadvipa->quRoleKind;
   paRole->Visible = true;
 }
 //---------------------------------------------------------------------------
@@ -578,39 +519,41 @@ void __fastcall TfmvExplorer::naRoleKindExit( TObject *Sender )
 
 void __fastcall TfmvExplorer::naRoleKindFirstEnter( TObject *Sender )
 {
-  dmvNizhnyayaNavadvipa->quRoleKind->CWOpen();
-  dmvNizhnyayaNavadvipa->quRole->CWOpen();
+  dmvNewNavadvipa->quRoleKind->CWOpen();
+  dmvNewNavadvipa->quRole->CWOpen();
+  dmvNewNavadvipa->quRoleRights->CWOpen();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::naRoleKindGetNodeParams( TObject *Sender, TNNVNodeParams &NodeParams )
 {
-  dmvNizhnyayaNavadvipa->SetNodeParamsRoleKind( NodeParams );
+  dmvNewNavadvipa->SetNodeParamsRoleKind( NodeParams );
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::naRoleKindLastExit( TObject *Sender )
 {
-  dmvNizhnyayaNavadvipa->quRole->CWClose();
-  dmvNizhnyayaNavadvipa->quRoleKind->CWClose();
+  dmvNewNavadvipa->quRoleRights->CWClose();
+  dmvNewNavadvipa->quRole->CWClose();
+  dmvNewNavadvipa->quRoleKind->CWClose();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::naRoleKindLoadNodes( TObject *Sender )
 {
-  tvExamples->LoadNodeAdmin( nullptr, naRoleKind, 80 );
+  tvExamples->LoadNodeAdmin( nullptr, naRoleKind, NNV::RootRoleKindID );
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::dgRightsDBCut( TObject *Sender )
 {
-  dgRights->CWSelect( dmvNizhnyayaNavadvipa->quRightsEntityID, &dmvNizhnyayaNavadvipa->BufferIntBox, true, L"Rights" );
+  dgRights->CWSelect( dmvNewNavadvipa->quRightsEntityID, &dmvNewNavadvipa->BufferIntBox, true, L"Rights" );
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::dgRightsDBPaste( TObject *Sender )
 {
-  dmvNizhnyayaNavadvipa->quRights->DBPaste();
+  dmvNewNavadvipa->quRights->DBPaste();
 }
 //---------------------------------------------------------------------------
 
@@ -618,38 +561,208 @@ void __fastcall TfmvExplorer::dgRightsDrawColumnCell( TObject *Sender, const TRe
           int DataCol, TColumn *Column, TGridDrawState State  )
 {
   if ( !State.Contains( gdFocused ) && !dgRights->IsCurrentSelected() ) {
-    TField *f = dmvNizhnyayaNavadvipa->quRightsKindID;
+    TField *f = dmvNewNavadvipa->quRightsKindID;
     if ( !f->IsNull )
-      dmvNizhnyayaNavadvipa->DBGridColor( dgRights, f->AsLargeInt );
+      dmvNewNavadvipa->DBGridColor( dgRights, f->AsLargeInt );
   }
   dgRights->DefaultDrawColumnCell( Rect, DataCol, Column, State );
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExplorer::aGenerateColorConstsExecute( TObject *Sender )
+void __fastcall TfmvExplorer::GenerateColorConsts( bool IsCpp )
 {
   fmvCode = new TfmvCode( Application );
 
-  TBookmark B = dmvNizhnyayaNavadvipa->quColor->Bookmark;
-  dmvNizhnyayaNavadvipa->quColor->DisableControls();
+  TBookmark B = dmvNewNavadvipa->quColor->Bookmark;
+  dmvNewNavadvipa->quColor->DisableControls();
+  String S;
   try {
-    dmvNizhnyayaNavadvipa->quColor->First();
-    while ( !dmvNizhnyayaNavadvipa->quColor->Eof ) {
-      fmvCode->meCode->Lines->Add( dmvNizhnyayaNavadvipa->quColorEnumLiteral->AsString + L" = " + dmvNizhnyayaNavadvipa->quColorVectorIndex->AsString );
-      dmvNizhnyayaNavadvipa->quColor->Next();
+    dmvNewNavadvipa->quColor->First();
+    while ( !dmvNewNavadvipa->quColor->Eof ) {
+      S = L"const std::size_t icl" + dmvNewNavadvipa->quColorEnumLiteral->AsString;
+      if ( IsCpp )
+        S = S + L" = " + dmvNewNavadvipa->quColorVectorIndex->AsString + L";";
+      else
+        S = L"extern PACKAGE " + S + L";";
+      fmvCode->meCode->Lines->Add( S );
+      dmvNewNavadvipa->quColor->Next();
     }
-    dmvNizhnyayaNavadvipa->quColor->Bookmark = B;
+    dmvNewNavadvipa->quColor->Bookmark = B;
   } __finally {
-    dmvNizhnyayaNavadvipa->quColor->EnableControls();
+    dmvNewNavadvipa->quColor->EnableControls();
   }
 
   fmvCode->ShowDialog( this );
+}
+
+void __fastcall TfmvExplorer::aGenerateColorConstsExecute( TObject *Sender )
+{
+  GenerateColorConsts( true );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::aGenerateColorConstsWithoutIndexExecute(TObject *Sender)
+{
+  GenerateColorConsts( false );
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::dgColorTitleClick( TColumn *Column )
 {
-  dmvNizhnyayaNavadvipa->quColor->OrderByColumn = Column;
+  dmvNewNavadvipa->quColor->OrderByColumn = Column;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgRoleDBCut( TObject *Sender )
+{
+  dgRoleRights->CWSelect( dmvNewNavadvipa->quRightsEntityID, &dmvNewNavadvipa->BufferIntBox, true, L"Rights" );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgRoleRigtsDBCut(TObject *Sender )
+{
+  dgRoleRights->CWSelect( dmvNewNavadvipa->quRightsEntityID, &dmvNewNavadvipa->BufferIntBox, true, L"Rights" );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::aRoleMasterExecute(TObject *Sender)
+{
+  if ( dmvNewNavadvipa->quRoleRights->MasterSource == dmvNewNavadvipa->dsRole )
+    dmvNewNavadvipa->quRoleRights->MasterSource = nullptr;
+  else
+    dmvNewNavadvipa->quRoleRights->MasterSource = dmvNewNavadvipa->dsRole;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgRoleDBPaste( TObject *Sender )
+{
+  dmvNewNavadvipa->quRole->DBPaste();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgRoleDrawColumnCell(TObject *Sender, const TRect &Rect,
+          int DataCol, TColumn *Column, TGridDrawState State)
+{
+  if ( !State.Contains( gdFocused ) && !dgRole->IsCurrentSelected() ) {
+    TField *f = dmvNewNavadvipa->quRoleKindID;
+    if ( !f->IsNull )
+      dmvNewNavadvipa->DBGridColor( dgRole, f->AsLargeInt );
+  }
+  dgRole->DefaultDrawColumnCell( Rect, DataCol, Column, State );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::DRoleRightsPrepare( TObject *Sender )
+{
+  fmvRights->FindID( dmvNewNavadvipa->quRoleRightsEntityID->AsLargeInt );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::RightsGetDialogForm( TObject *Sender, TCustomForm *&fm )
+{
+  NNVFormList.New( __classid( TfmvRights ), &fmvRights, this );
+  fm = fmvRights;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::DRoleRightsExecute( TObject *Sender )
+{
+  dmvNewNavadvipa->quRoleRights->CWCheckEditMode();
+  NNV::SetFieldValue( dmvNewNavadvipa->quRoleRightsEntityID, fmvRights->ResultNo );
+  NNV::SetFieldValue( dmvNewNavadvipa->quRoleRightsRight,    fmvRights->ResultNote );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::DUserRightsPrepare( TObject *Sender )
+{
+  fmvRights->FindID( dmvNewNavadvipa->quUserRightsEntityID->AsLargeInt );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::DUserRightsExecute( TObject *Sender )
+{
+  dmvNewNavadvipa->quUserRights->CWCheckEditMode();
+  NNV::SetFieldValue( dmvNewNavadvipa->quUserRightsEntityID, fmvRights->ResultNo );
+  NNV::SetFieldValue( dmvNewNavadvipa->quUserRightsRight,    fmvRights->ResultNote );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::DUserRolePrepare( TObject *Sender )
+{
+  fmvRoles->FindID( dmvNewNavadvipa->quUserRolesEntityID->AsLargeInt );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::DUserRoleExecute( TObject *Sender )
+{
+  dmvNewNavadvipa->quUserRoles->CWCheckEditMode();
+  NNV::SetFieldValue( dmvNewNavadvipa->quUserRolesEntityID, fmvRoles->ResultNo );
+  NNV::SetFieldValue( dmvNewNavadvipa->quUserRolesRole,     fmvRoles->ResultNote );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::RolesGetDialogForm( TObject *Sender, TCustomForm *&fm )
+{
+  NNVFormList.New( __classid( TfmvRoles ), &fmvRoles, this );
+  fm = fmvRoles;
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TfmvExplorer::dgUserRightsDrawColumnCell(TObject *Sender, const TRect &Rect,
+          int DataCol, TColumn *Column, TGridDrawState State)
+{
+  if ( !State.Contains( gdFocused ) && !dgUserRights->IsCurrentSelected() ) {
+    TField *f = dmvNewNavadvipa->quUserRightsRightID;
+    if ( !f->IsNull )
+      dmvNewNavadvipa->DBGridColor( dgUserRights, f->AsLargeInt );
+  }
+  dgUserRights->DefaultDrawColumnCell( Rect, DataCol, Column, State );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgRoleRightsDrawColumnCell(TObject *Sender, const TRect &Rect,
+          int DataCol, TColumn *Column, TGridDrawState State)
+{
+  if ( !State.Contains( gdFocused ) && !dgRoleRights->IsCurrentSelected() ) {
+    TField *f = dmvNewNavadvipa->quRoleRightsRightID;
+    if ( !f->IsNull )
+      dmvNewNavadvipa->DBGridColor( dgRoleRights, f->AsLargeInt );
+  }
+  dgRoleRights->DefaultDrawColumnCell( Rect, DataCol, Column, State );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgUserRolesDrawColumnCell(TObject *Sender, const TRect &Rect,
+          int DataCol, TColumn *Column, TGridDrawState State)
+{
+  if ( !State.Contains( gdFocused ) && !dgUserRoles->IsCurrentSelected() ) {
+    TField *f = dmvNewNavadvipa->quUserRolesRoleID;
+    if ( !f->IsNull )
+      dmvNewNavadvipa->DBGridColor( dgUserRoles, f->AsLargeInt );
+  }
+  dgUserRoles->DefaultDrawColumnCell( Rect, DataCol, Column, State );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::paFonValueChangeDblClick(TObject *Sender)
+{
+  dmvNewNavadvipa->cdNN->Color = paFonValueChange->Color;
+  if ( dmvNewNavadvipa->cdNN->Execute() ) {
+    NNVConst::FonColorValueChange = dmvNewNavadvipa->cdNN->Color;
+    paFonValueChange->Color       = dmvNewNavadvipa->cdNN->Color;
+  }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::paFontValueChangeDblClick(TObject *Sender)
+{
+  dmvNewNavadvipa->cdNN->Color = paFontValueChange->Color;
+  if ( dmvNewNavadvipa->cdNN->Execute() ) {
+    NNVConst::FontColorValueChange = dmvNewNavadvipa->cdNN->Color;
+    paFontValueChange->Color       = dmvNewNavadvipa->cdNN->Color;
+    paFonValueChange->Font->Color  = dmvNewNavadvipa->cdNN->Color;
+  }
 }
 //---------------------------------------------------------------------------
 
