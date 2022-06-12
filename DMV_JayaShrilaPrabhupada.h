@@ -45,5 +45,6 @@ public:		// User declarations
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TdmvJayaShrilaPrabhupada *dmvJayaShrilaPrabhupada;
+extern PACKAGE const String SuperUserName;
 //---------------------------------------------------------------------------
 #endif

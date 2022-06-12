@@ -347,7 +347,19 @@ void __fastcall TfmvExplorer::aNewUserExecute( TObject *Sender )
 {
   dmvNewNavadvipa->SetIsDeletedUser( false );
   dmvNewNavadvipa->CreateNewUser( dmvNewNavadvipa->quUsersName->AsString
-                                      , dmvNewNavadvipa->quUsersName->AsString );
+                                , dmvNewNavadvipa->quUsersName->AsString
+                                , SuperUserName
+                                , false );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::aNewSuperUserExecute(TObject *Sender)
+{
+  dmvNewNavadvipa->SetIsDeletedUser( false );
+  dmvNewNavadvipa->CreateNewUser( dmvNewNavadvipa->quUsersName->AsString
+                                , dmvNewNavadvipa->quUsersName->AsString
+                                , SuperUserName
+                                , true );
 }
 //---------------------------------------------------------------------------
 
@@ -360,8 +372,10 @@ void __fastcall TfmvExplorer::aSetUserPassordExecute( TObject *Sender )
 
 void __fastcall TfmvExplorer::aDeleteUserExecute(TObject *Sender)
 {
-  dmvNewNavadvipa->SetIsDeletedUser( true );
-  dmvNewNavadvipa->DeleteUser( dmvNewNavadvipa->quUsersName->AsString );
+  if ( dmvNewNavadvipa->quUsersName->AsString != SuperUserName ) {
+    dmvNewNavadvipa->SetIsDeletedUser( true );
+    dmvNewNavadvipa->DeleteUser( dmvNewNavadvipa->quUsersName->AsString );
+  }
 }
 //---------------------------------------------------------------------------
 
@@ -763,6 +777,22 @@ void __fastcall TfmvExplorer::paFontValueChangeDblClick(TObject *Sender)
     paFontValueChange->Color       = dmvNewNavadvipa->cdNN->Color;
     paFonValueChange->Font->Color  = dmvNewNavadvipa->cdNN->Color;
   }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::aGrantSuperUserExecute(TObject *Sender)
+{
+  dmvNewNavadvipa->SetUserRole( dmvNewNavadvipa->quUsersName->AsString
+                              , SuperUserName
+                              , true );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::aRevokeSuperUserExecute(TObject *Sender)
+{
+  dmvNewNavadvipa->SetUserRole( dmvNewNavadvipa->quUsersName->AsString
+                              , SuperUserName
+                              , false );
 }
 //---------------------------------------------------------------------------
 

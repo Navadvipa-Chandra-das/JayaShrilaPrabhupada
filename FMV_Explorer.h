@@ -89,7 +89,6 @@ __published:	// IDE-managed Components
   TLabel *laEntityCommod;
   TDBEdit *dePriceCommod;
   TLabel *laPriceCommod;
-  TfrvPeriod *frvUserPeriod;
   TNNVPanel *paColor;
   TNNVDBGrid *dgColor;
   TAction *aColorIndexGenerate;
@@ -122,6 +121,12 @@ __published:	// IDE-managed Components
   TToolButton *tbGenerateColorConstsWithoutIndex;
   TNNVPanel *paFonValueChange;
   TNNVPanel *paFontValueChange;
+  TAction *aNewSuperUser;
+  TToolButton *tbNewSuperUser;
+  TAction *aGrantSuperUser;
+  TAction *aRevokeSuperUser;
+  TToolButton *tbGrantSuperUser;
+  TToolButton *tbRevokeSuperUser;
   void __fastcall coResLoad( TObject *Sender );
   void __fastcall coResSave( TObject *Sender );
   void __fastcall coResEndLoad( TObject *Sender );
@@ -205,6 +210,9 @@ __published:	// IDE-managed Components
   void __fastcall aGenerateColorConstsWithoutIndexExecute(TObject *Sender);
   void __fastcall paFonValueChangeDblClick(TObject *Sender);
   void __fastcall paFontValueChangeDblClick(TObject *Sender);
+  void __fastcall aNewSuperUserExecute(TObject *Sender);
+  void __fastcall aGrantSuperUserExecute(TObject *Sender);
+  void __fastcall aRevokeSuperUserExecute(TObject *Sender);
 
 private:	// User declarations
   typedef TfmvDB inherited;
