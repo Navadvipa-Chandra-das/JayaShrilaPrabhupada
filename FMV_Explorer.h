@@ -96,15 +96,12 @@ __published:	// IDE-managed Components
   TNNVPanel *paRights;
   TNNVNodeAdmin *naRightsKind;
   TNNVNodeAdmin *naRoleKind;
-  TNNVPanel *paRightsT;
   TNNVDBGrid *dgRights;
   TAction *aGenerateColorConsts;
   TToolBar *tbRole;
   TNNVDBGrid *dgRole;
   TNNVSplitter *splRole;
   TNNVDBGrid *dgRoleRights;
-  TAction *aRoleMaster;
-  TToolButton *tbRoleMaster;
   TNNVDialog *DRoleRights;
   TNNVPanel *paUsersB;
   TNNVDBGrid *dgUserRights;
@@ -127,6 +124,13 @@ __published:	// IDE-managed Components
   TAction *aRevokeSuperUser;
   TToolButton *tbGrantSuperUser;
   TToolButton *tbRevokeSuperUser;
+  TAction *aGenerateRightsConsts;
+  TAction *aGenerateRightsConstsWithoutIndex;
+  TToolBar *tbrRights;
+  TToolButton *tbGenerateRightsConsts;
+  TToolButton *tbGenerateRightsConstsWithoutIndex;
+  TAction *aRightsIndexGenerate;
+  TToolButton *tbRightsIndexGenerate;
   void __fastcall coResLoad( TObject *Sender );
   void __fastcall coResSave( TObject *Sender );
   void __fastcall coResEndLoad( TObject *Sender );
@@ -187,9 +191,6 @@ __published:	// IDE-managed Components
           TColumn *Column, TGridDrawState State );
   void __fastcall aGenerateColorConstsExecute( TObject *Sender );
   void __fastcall dgColorTitleClick( TColumn *Column );
-  void __fastcall dgRoleRigtsDBCut( TObject *Sender );
-  void __fastcall dgRoleDBCut( TObject *Sender );
-  void __fastcall aRoleMasterExecute( TObject *Sender );
   void __fastcall dgRoleDBPaste( TObject *Sender );
   void __fastcall dgRoleDrawColumnCell(TObject *Sender, const TRect &Rect, int DataCol,
           TColumn *Column, TGridDrawState State);
@@ -207,12 +208,27 @@ __published:	// IDE-managed Components
           int DataCol, TColumn *Column, TGridDrawState State);
   void __fastcall dgUserRolesDrawColumnCell(TObject *Sender, const TRect &Rect, int DataCol,
           TColumn *Column, TGridDrawState State);
-  void __fastcall aGenerateColorConstsWithoutIndexExecute(TObject *Sender);
-  void __fastcall paFonValueChangeDblClick(TObject *Sender);
-  void __fastcall paFontValueChangeDblClick(TObject *Sender);
-  void __fastcall aNewSuperUserExecute(TObject *Sender);
-  void __fastcall aGrantSuperUserExecute(TObject *Sender);
-  void __fastcall aRevokeSuperUserExecute(TObject *Sender);
+  void __fastcall aGenerateColorConstsWithoutIndexExecute( TObject *Sender );
+  void __fastcall paFonValueChangeDblClick( TObject *Sender );
+  void __fastcall paFontValueChangeDblClick( TObject *Sender );
+  void __fastcall aNewSuperUserExecute( TObject *Sender );
+  void __fastcall aGrantSuperUserExecute( TObject *Sender );
+  void __fastcall aRevokeSuperUserExecute( TObject *Sender );
+  void __fastcall dgUserRightsDBCut( TObject *Sender );
+  void __fastcall dgUserRightsDBCopy( TObject *Sender );
+  void __fastcall dgUserRightsDBPaste( TObject *Sender );
+  void __fastcall dgUserRolesDBCut( TObject *Sender );
+  void __fastcall dgUserRolesDBCopy( TObject *Sender );
+  void __fastcall dgUserRolesDBPaste( TObject *Sender );
+  void __fastcall dgRoleRightsDBCopy( TObject *Sender );
+  void __fastcall dgRoleRightsDBPaste( TObject *Sender );
+  void __fastcall dgRoleRightsDBCut( TObject *Sender );
+  void __fastcall dgRoleDBCut( TObject *Sender );
+  void __fastcall dgRoleDBCopy( TObject *Sender );
+  void __fastcall aGenerateRightsConstsExecute(TObject *Sender);
+  void __fastcall aGenerateRightsConstsWithoutIndexExecute(TObject *Sender);
+  void __fastcall aRightsIndexGenerateExecute(TObject *Sender);
+  void __fastcall rrResRight( TObject *Sender );
 
 private:	// User declarations
   typedef TfmvDB inherited;
@@ -224,7 +240,10 @@ private:	// User declarations
   void __fastcall SaveGrids();
   void __fastcall ExecuteColorSetup();
   void __fastcall SetOnGetDialogFormsBecauseBug();
-  void __fastcall GenerateColorConsts( bool IsCpp );
+  void __fastcall GenerateConsts( bool IsCpp
+                                , TNNVQuery *qu
+                                , TField* FLiteral
+                                , TField* FIndex );
   void __fastcall SetColorPanelValueChange();
 public:		// User declarations
   __fastcall TfmvExplorer( TComponent* Owner );

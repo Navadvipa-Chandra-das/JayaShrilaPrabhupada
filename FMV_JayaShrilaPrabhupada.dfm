@@ -54,6 +54,11 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
       Top = 0
       Action = aLock
     end
+    object tbRightsRefresh: TToolButton
+      Left = 115
+      Top = 0
+      Action = aRightsRefresh
+    end
   end
   inherited fbRes: TNNVFlagBox
     caFree = True
@@ -147,6 +152,13 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
       ShortCut = 16460
       OnExecute = aLockExecute
     end
+    object aRightsRefresh: TAction
+      Category = 'Setup'
+      Caption = #1054#1073#1085#1086#1074#1080#1090#1100' '#1087#1088#1072#1074#1072
+      Hint = #1054#1073#1085#1086#1074#1080#1090#1100' '#1087#1088#1072#1074#1072
+      ImageIndex = 41
+      OnExecute = aRightsRefreshExecute
+    end
   end
   object frxReport1: TfrxReport
     Version = '2022.1.3'
@@ -228,6 +240,9 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
       GroupIndex = 4
       object miActionListSetup: TMenuItem
         Action = aActionListSetup
+      end
+      object miRightsRefresh: TMenuItem
+        Action = aRightsRefresh
       end
     end
   end

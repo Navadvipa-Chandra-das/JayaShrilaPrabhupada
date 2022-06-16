@@ -12,6 +12,7 @@
 #include "VCL_NNFmRights.h"
 #include "VCL_NNFormAdmin.h"
 #include "VCL_NNFmRoles.h"
+#include "VCL_NNRightsIndex.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "VCL_NNConfig"
@@ -43,6 +44,7 @@
 #pragma link "VCL_NNDialog"
 #pragma resource "*.dfm"
 TfmvExplorer *fmvExplorer;
+
 //---------------------------------------------------------------------------
 __fastcall TfmvExplorer::TfmvExplorer(TComponent* Owner)
   : inherited( Owner )
@@ -381,13 +383,13 @@ void __fastcall TfmvExplorer::aDeleteUserExecute(TObject *Sender)
 
 void __fastcall TfmvExplorer::dgCommodDBCut( TObject *Sender )
 {
-  dgCommod->CWSelect( dmvNewNavadvipa->quCommodEntityID, &dmvNewNavadvipa->BufferIntBox, true, L"Commod" );
+  dgCommod->CWSelect( dmvNewNavadvipa->quCommodEntityID, &dmvNewNavadvipa->BufferIntBox, true );
 };
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::dgCommodDBPaste( TObject *Sender )
 {
-  dmvNewNavadvipa->quCommod->DBPaste();
+  dmvNewNavadvipa->quCommod->DBPaste( dmvNewNavadvipa->BufferIntBox, dmvNewNavadvipa->quDB, dmvNewNavadvipa->quCommodKindKindID );
 }
 //---------------------------------------------------------------------------
 
@@ -413,13 +415,13 @@ void __fastcall TfmvExplorer::naColorKindGetNodeParams( TObject *Sender, TNNVNod
 
 void __fastcall TfmvExplorer::dgColorDBCut( TObject *Sender )
 {
-  dgColor->CWSelect( dmvNewNavadvipa->quColorEntityID, &dmvNewNavadvipa->BufferIntBox, true, L"Color" );
+  dgColor->CWSelect( dmvNewNavadvipa->quColorEntityID, &dmvNewNavadvipa->BufferIntBox, true );
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::dgColorDBPaste( TObject *Sender )
 {
-  dmvNewNavadvipa->quColor->DBPaste();
+  dmvNewNavadvipa->quColor->DBPaste( dmvNewNavadvipa->BufferIntBox, dmvNewNavadvipa->quDB, dmvNewNavadvipa->quColorKindKindID );
 }
 //---------------------------------------------------------------------------
 
@@ -561,13 +563,13 @@ void __fastcall TfmvExplorer::naRoleKindLoadNodes( TObject *Sender )
 
 void __fastcall TfmvExplorer::dgRightsDBCut( TObject *Sender )
 {
-  dgRights->CWSelect( dmvNewNavadvipa->quRightsEntityID, &dmvNewNavadvipa->BufferIntBox, true, L"Rights" );
+  dgRights->CWSelect( dmvNewNavadvipa->quRightsEntityID, &dmvNewNavadvipa->BufferIntBox, true );
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::dgRightsDBPaste( TObject *Sender )
 {
-  dmvNewNavadvipa->quRights->DBPaste();
+  dmvNewNavadvipa->quRights->DBPaste( dmvNewNavadvipa->BufferIntBox, dmvNewNavadvipa->quDB, dmvNewNavadvipa->quRightsKindKindID );
 }
 //---------------------------------------------------------------------------
 
@@ -583,27 +585,30 @@ void __fastcall TfmvExplorer::dgRightsDrawColumnCell( TObject *Sender, const TRe
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExplorer::GenerateColorConsts( bool IsCpp )
+void __fastcall TfmvExplorer::GenerateConsts( bool IsCpp
+                                            , TNNVQuery *qu
+                                            , TField* FLiteral
+                                            , TField* FIndex )
 {
   fmvCode = new TfmvCode( Application );
 
-  TBookmark B = dmvNewNavadvipa->quColor->Bookmark;
-  dmvNewNavadvipa->quColor->DisableControls();
+  TBookmark B = qu->Bookmark;
+  qu->DisableControls();
   String S;
   try {
-    dmvNewNavadvipa->quColor->First();
-    while ( !dmvNewNavadvipa->quColor->Eof ) {
-      S = L"const std::size_t icl" + dmvNewNavadvipa->quColorEnumLiteral->AsString;
+    qu->First();
+    while ( !qu->Eof ) {
+      S = L"const std::size_t " + FLiteral->AsString;
       if ( IsCpp )
-        S = S + L" = " + dmvNewNavadvipa->quColorVectorIndex->AsString + L";";
+        S = S + L" = " + FIndex->AsString + L";";
       else
         S = L"extern PACKAGE " + S + L";";
       fmvCode->meCode->Lines->Add( S );
-      dmvNewNavadvipa->quColor->Next();
+      qu->Next();
     }
-    dmvNewNavadvipa->quColor->Bookmark = B;
+    qu->Bookmark = B;
   } __finally {
-    dmvNewNavadvipa->quColor->EnableControls();
+    qu->EnableControls();
   }
 
   fmvCode->ShowDialog( this );
@@ -611,13 +616,19 @@ void __fastcall TfmvExplorer::GenerateColorConsts( bool IsCpp )
 
 void __fastcall TfmvExplorer::aGenerateColorConstsExecute( TObject *Sender )
 {
-  GenerateColorConsts( true );
+  GenerateConsts( true
+                , dmvNewNavadvipa->quColor
+                , dmvNewNavadvipa->quColorEnumLiteral
+                , dmvNewNavadvipa->quColorVectorIndex );
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::aGenerateColorConstsWithoutIndexExecute(TObject *Sender)
 {
-  GenerateColorConsts( false );
+  GenerateConsts( false
+                , dmvNewNavadvipa->quColor
+                , dmvNewNavadvipa->quColorEnumLiteral
+                , dmvNewNavadvipa->quColorVectorIndex );
 }
 //---------------------------------------------------------------------------
 
@@ -627,30 +638,39 @@ void __fastcall TfmvExplorer::dgColorTitleClick( TColumn *Column )
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TfmvExplorer::dgRoleRightsDBCut( TObject *Sender )
+{
+  dgRoleRights->CWSelect( dmvNewNavadvipa->quRoleRightsRoleRightsID, &dmvNewNavadvipa->BufferIntBox, true );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgRoleRightsDBCopy( TObject *Sender )
+{
+  dgRoleRights->CWSelect( dmvNewNavadvipa->quRoleRightsRoleRightsID, &dmvNewNavadvipa->BufferIntBox, false );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgRoleRightsDBPaste( TObject *Sender )
+{
+  dmvNewNavadvipa->quRoleRights->DBPaste( dmvNewNavadvipa->BufferIntBox, dmvNewNavadvipa->quDB, dmvNewNavadvipa->quRoleEntityID );
+}
+//---------------------------------------------------------------------------
+
 void __fastcall TfmvExplorer::dgRoleDBCut( TObject *Sender )
 {
-  dgRoleRights->CWSelect( dmvNewNavadvipa->quRightsEntityID, &dmvNewNavadvipa->BufferIntBox, true, L"Rights" );
+  dgRole->CWSelect( dmvNewNavadvipa->quRoleEntityID, &dmvNewNavadvipa->BufferIntBox, true );
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExplorer::dgRoleRigtsDBCut(TObject *Sender )
+void __fastcall TfmvExplorer::dgRoleDBCopy( TObject *Sender )
 {
-  dgRoleRights->CWSelect( dmvNewNavadvipa->quRightsEntityID, &dmvNewNavadvipa->BufferIntBox, true, L"Rights" );
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TfmvExplorer::aRoleMasterExecute(TObject *Sender)
-{
-  if ( dmvNewNavadvipa->quRoleRights->MasterSource == dmvNewNavadvipa->dsRole )
-    dmvNewNavadvipa->quRoleRights->MasterSource = nullptr;
-  else
-    dmvNewNavadvipa->quRoleRights->MasterSource = dmvNewNavadvipa->dsRole;
+  dmvNewNavadvipa->quRole->DBPaste( dmvNewNavadvipa->BufferIntBox, dmvNewNavadvipa->quDB, dmvNewNavadvipa->quRoleKindKindID );
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::dgRoleDBPaste( TObject *Sender )
 {
-  dmvNewNavadvipa->quRole->DBPaste();
+  dmvNewNavadvipa->quRole->DBPaste( dmvNewNavadvipa->BufferIntBox, dmvNewNavadvipa->quDB, dmvNewNavadvipa->quRoleKindKindID );
 }
 //---------------------------------------------------------------------------
 
@@ -793,6 +813,89 @@ void __fastcall TfmvExplorer::aRevokeSuperUserExecute(TObject *Sender)
   dmvNewNavadvipa->SetUserRole( dmvNewNavadvipa->quUsersName->AsString
                               , SuperUserName
                               , false );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgUserRightsDBCut( TObject *Sender )
+{
+  dgUserRights->CWSelect( dmvNewNavadvipa->quUserRightsUserRightsID, &dmvNewNavadvipa->BufferIntBox, true );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgUserRightsDBCopy( TObject *Sender )
+{
+  dgUserRights->CWSelect( dmvNewNavadvipa->quUserRightsUserRightsID, &dmvNewNavadvipa->BufferIntBox, false );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgUserRightsDBPaste( TObject *Sender )
+{
+  dmvNewNavadvipa->quUserRights->DBPaste( dmvNewNavadvipa->BufferIntBox, dmvNewNavadvipa->quDB, dmvNewNavadvipa->quUsersUserID );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgUserRolesDBCut(TObject *param_0$)
+{
+  dgUserRoles->CWSelect( dmvNewNavadvipa->quUserRolesUserRolesID, &dmvNewNavadvipa->BufferIntBox, true );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgUserRolesDBCopy( TObject *Sender )
+{
+  dgUserRoles->CWSelect( dmvNewNavadvipa->quUserRolesUserRolesID, &dmvNewNavadvipa->BufferIntBox, false );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::dgUserRolesDBPaste( TObject *Sender )
+{
+  dmvNewNavadvipa->quUserRoles->DBPaste( dmvNewNavadvipa->BufferIntBox, dmvNewNavadvipa->quDB, dmvNewNavadvipa->quUsersUserID );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::aGenerateRightsConstsExecute(TObject *Sender)
+{
+  GenerateConsts( true
+                , dmvNewNavadvipa->quRights
+                , dmvNewNavadvipa->quRightsLiteral
+                , dmvNewNavadvipa->quRightsVectorIndex );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::aGenerateRightsConstsWithoutIndexExecute(TObject *Sender)
+
+{
+  GenerateConsts( false
+                , dmvNewNavadvipa->quRights
+                , dmvNewNavadvipa->quRightsLiteral
+                , dmvNewNavadvipa->quRightsVectorIndex );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::aRightsIndexGenerateExecute(TObject *Sender)
+{
+  dmvNewNavadvipa->RightsIndexGenerate();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::rrResRight( TObject *Sender )
+{
+  NNV::TBoolVector &Rights = dmvNewNavadvipa->rmDB->Rights;
+
+  aNewUser->Enabled         = Rights[ NNRights::UserEdit ];
+  aSetUserPassord->Enabled  = Rights[ NNRights::UserEdit ];
+  aDeleteUser->Enabled      = Rights[ NNRights::UserEdit ];
+  aNewSuperUser->Enabled    = Rights[ NNRights::UserEdit ];
+  aGrantSuperUser->Enabled  = Rights[ NNRights::UserEdit ];
+  aRevokeSuperUser->Enabled = Rights[ NNRights::UserEdit ];
+
+  dgUsers->ReadOnly         = !Rights[ NNRights::UserEdit ];
+  dgUserRights->ReadOnly    = !Rights[ NNRights::UserEdit ];
+  dgUserRoles->ReadOnly     = !Rights[ NNRights::UserEdit ];
+  dgRights->ReadOnly        = !Rights[ NNRights::RightsEdit ];
+  dgCommod->ReadOnly        = !Rights[ NNRights::CommodEdit ];
+  dgColor->ReadOnly         = !Rights[ NNRights::ColorEdit ];
+  dgRole->ReadOnly          = !Rights[ NNRights::RoleEdit ];
+  dgRoleRights->ReadOnly    = !Rights[ NNRights::RoleEdit ];
 }
 //---------------------------------------------------------------------------
 

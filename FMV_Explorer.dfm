@@ -234,220 +234,14 @@ inherited fmvExplorer: TfmvExplorer
     DragMode = dmAutomatic
     Images = dmvNewNavadvipa.ilDB
     Indent = 19
+    PopupMenu = pmDBTreeView
     TabOrder = 2
     OnEnter = DBTreeViewEnter
     EditKindID = deKindID
     OnNodeAdminChange = DBTreeViewNodeAdminChange
     ActiveOrder = 0
   end
-  object paRole: TNNVPanel [7]
-    Left = 192
-    Top = 57
-    Width = 993
-    Height = 695
-    Align = alClient
-    TabOrder = 8
-    Visible = False
-    object splRole: TNNVSplitter
-      Left = 0
-      Top = 326
-      Width = 993
-      Height = 3
-      Cursor = crVSplit
-      Align = alTop
-      ExplicitWidth = 369
-    end
-    object tbRole: TToolBar
-      Left = 0
-      Top = 0
-      Width = 993
-      Height = 29
-      Caption = 'tbRole'
-      Images = dmvNewNavadvipa.ilDB
-      TabOrder = 0
-      object tbRoleMaster: TToolButton
-        Left = 0
-        Top = 0
-        Action = aRoleMaster
-      end
-    end
-    object dgRoleRights: TNNVDBGrid
-      Left = 0
-      Top = 329
-      Width = 993
-      Height = 366
-      Align = alClient
-      DataSource = dmvNewNavadvipa.dsRoleRights
-      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
-      PopupMenu = pmDBGrid
-      TabOrder = 2
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clWindowText
-      TitleFont.Height = -11
-      TitleFont.Name = 'Tahoma'
-      TitleFont.Style = []
-      OnDrawColumnCell = dgRoleRightsDrawColumnCell
-      OnEditButtonClick = DBGridEditButtonClick
-      OnEnter = DBGridEnter
-      OnKeyDown = DBGridKeyDown
-      OnTitleClick = DBGridTitleClick
-      Columns = <
-        item
-          Expanded = False
-          FieldName = 'RoleRightsID'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'RoleID'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'EntityID'
-          Visible = False
-        end
-        item
-          ButtonStyle = cbsEllipsis
-          Expanded = False
-          FieldName = 'Right'
-          ReadOnly = True
-          Width = 445
-          Visible = True
-          Dialog = DRoleRights
-        end>
-    end
-    object dgRole: TNNVDBGrid
-      Left = 0
-      Top = 29
-      Width = 993
-      Height = 297
-      Align = alTop
-      DataSource = dmvNewNavadvipa.dsRole
-      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
-      PopupMenu = pmDBGrid
-      TabOrder = 1
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clWindowText
-      TitleFont.Height = -11
-      TitleFont.Name = 'Tahoma'
-      TitleFont.Style = []
-      OnDrawColumnCell = dgRoleDrawColumnCell
-      OnEnter = DBGridEnter
-      OnKeyDown = DBGridKeyDown
-      OnTitleClick = DBGridTitleClick
-      OnDBCut = dgRoleDBCut
-      OnDBPaste = dgRoleDBPaste
-      Columns = <
-        item
-          Expanded = False
-          FieldName = 'EntityID'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'KindID'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'Actual'
-          Font.Charset = SYMBOL_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Wingdings'
-          Font.Style = []
-          ReadOnly = True
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Entity'
-          Width = 400
-          Visible = True
-        end>
-    end
-  end
-  object paRights: TNNVPanel [8]
-    Left = 192
-    Top = 57
-    Width = 993
-    Height = 695
-    Align = alClient
-    TabOrder = 9
-    Visible = False
-    object paRightsT: TNNVPanel
-      Left = 0
-      Top = 0
-      Width = 993
-      Height = 27
-      Align = alTop
-      TabOrder = 0
-    end
-    object dgRights: TNNVDBGrid
-      Left = 0
-      Top = 27
-      Width = 993
-      Height = 668
-      Align = alClient
-      DataSource = dmvNewNavadvipa.dsRights
-      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
-      PopupMenu = pmDBGrid
-      TabOrder = 1
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clWindowText
-      TitleFont.Height = -11
-      TitleFont.Name = 'Tahoma'
-      TitleFont.Style = []
-      OnDrawColumnCell = dgRightsDrawColumnCell
-      OnEnter = DBGridEnter
-      OnKeyDown = DBGridKeyDown
-      OnTitleClick = DBGridTitleClick
-      OnDBCut = dgRightsDBCut
-      OnDBPaste = dgRightsDBPaste
-      Columns = <
-        item
-          Expanded = False
-          FieldName = 'EntityID'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'KindID'
-          Visible = False
-        end
-        item
-          Alignment = taCenter
-          Expanded = False
-          FieldName = 'Actual'
-          Font.Charset = SYMBOL_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Wingdings'
-          Font.Style = []
-          ReadOnly = True
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'Entity'
-          Width = 303
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Literal'
-          Width = 87
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'VectorIndex'
-          Visible = True
-        end>
-    end
-  end
-  object paColor: TNNVPanel [9]
+  object paColor: TNNVPanel [7]
     Left = 192
     Top = 57
     Width = 993
@@ -598,6 +392,228 @@ inherited fmvExplorer: TfmvExplorer
         ParentBackground = False
         TabOrder = 2
         OnDblClick = paFontValueChangeDblClick
+      end
+    end
+  end
+  object paRole: TNNVPanel [8]
+    Left = 192
+    Top = 57
+    Width = 993
+    Height = 695
+    Align = alClient
+    TabOrder = 8
+    Visible = False
+    object splRole: TNNVSplitter
+      Left = 0
+      Top = 326
+      Width = 993
+      Height = 3
+      Cursor = crVSplit
+      Align = alTop
+      ExplicitWidth = 369
+    end
+    object tbRole: TToolBar
+      Left = 0
+      Top = 0
+      Width = 993
+      Height = 29
+      Caption = 'tbRole'
+      Images = dmvNewNavadvipa.ilDB
+      TabOrder = 0
+    end
+    object dgRoleRights: TNNVDBGrid
+      Left = 0
+      Top = 329
+      Width = 993
+      Height = 366
+      Align = alClient
+      DataSource = dmvNewNavadvipa.dsRoleRights
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
+      PopupMenu = pmDBGrid
+      TabOrder = 2
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnDrawColumnCell = dgRoleRightsDrawColumnCell
+      OnEditButtonClick = DBGridEditButtonClick
+      OnEnter = DBGridEnter
+      OnKeyDown = DBGridKeyDown
+      OnTitleClick = DBGridTitleClick
+      OnDBCut = dgRoleRightsDBCut
+      OnDBCopy = dgRoleRightsDBCopy
+      OnDBPaste = dgRoleRightsDBPaste
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'RoleRightsID'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'RoleID'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'EntityID'
+          Visible = False
+        end
+        item
+          ButtonStyle = cbsEllipsis
+          Expanded = False
+          FieldName = 'Right'
+          ReadOnly = True
+          Width = 445
+          Visible = True
+          Dialog = DRoleRights
+        end>
+    end
+    object dgRole: TNNVDBGrid
+      Left = 0
+      Top = 29
+      Width = 993
+      Height = 297
+      Align = alTop
+      DataSource = dmvNewNavadvipa.dsRole
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
+      PopupMenu = pmDBGrid
+      TabOrder = 1
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnDrawColumnCell = dgRoleDrawColumnCell
+      OnEnter = DBGridEnter
+      OnKeyDown = DBGridKeyDown
+      OnTitleClick = DBGridTitleClick
+      OnDBCut = dgRoleDBCut
+      OnDBCopy = dgRoleDBCopy
+      OnDBPaste = dgRoleDBPaste
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'EntityID'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'KindID'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'Actual'
+          Font.Charset = SYMBOL_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Wingdings'
+          Font.Style = []
+          ReadOnly = True
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Entity'
+          Width = 400
+          Visible = True
+        end>
+    end
+  end
+  object paRights: TNNVPanel [9]
+    Left = 192
+    Top = 57
+    Width = 993
+    Height = 695
+    Align = alClient
+    TabOrder = 9
+    Visible = False
+    object dgRights: TNNVDBGrid
+      Left = 0
+      Top = 23
+      Width = 993
+      Height = 672
+      Align = alClient
+      DataSource = dmvNewNavadvipa.dsRights
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
+      PopupMenu = pmDBGrid
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnDrawColumnCell = dgRightsDrawColumnCell
+      OnEnter = DBGridEnter
+      OnKeyDown = DBGridKeyDown
+      OnTitleClick = DBGridTitleClick
+      OnDBCut = dgRightsDBCut
+      OnDBPaste = dgRightsDBPaste
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'EntityID'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'KindID'
+          Visible = False
+        end
+        item
+          Alignment = taCenter
+          Expanded = False
+          FieldName = 'Actual'
+          Font.Charset = SYMBOL_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Wingdings'
+          Font.Style = []
+          ReadOnly = True
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'Entity'
+          Width = 303
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Literal'
+          Width = 87
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'VectorIndex'
+          Visible = True
+        end>
+    end
+    object tbrRights: TToolBar
+      Left = 0
+      Top = 0
+      Width = 993
+      Height = 23
+      Caption = 'tbrRights'
+      Images = dmvNewNavadvipa.ilDB
+      TabOrder = 1
+      object tbRightsIndexGenerate: TToolButton
+        Left = 0
+        Top = 0
+        Action = aRightsIndexGenerate
+      end
+      object tbGenerateRightsConsts: TToolButton
+        Left = 23
+        Top = 0
+        Action = aGenerateRightsConsts
+      end
+      object tbGenerateRightsConstsWithoutIndex: TToolButton
+        Left = 46
+        Top = 0
+        Action = aGenerateRightsConstsWithoutIndex
       end
     end
   end
@@ -837,6 +853,7 @@ inherited fmvExplorer: TfmvExplorer
         Align = alLeft
         DataSource = dmvNewNavadvipa.dsUserRights
         Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
+        PopupMenu = pmDBGrid
         TabOrder = 0
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
@@ -848,6 +865,9 @@ inherited fmvExplorer: TfmvExplorer
         OnEnter = DBGridEnter
         OnKeyDown = DBGridKeyDown
         OnTitleClick = DBGridTitleClick
+        OnDBCut = dgUserRightsDBCut
+        OnDBCopy = dgUserRightsDBCopy
+        OnDBPaste = dgUserRightsDBPaste
         Columns = <
           item
             Expanded = False
@@ -888,6 +908,7 @@ inherited fmvExplorer: TfmvExplorer
         Align = alClient
         DataSource = dmvNewNavadvipa.dsUserRoles
         Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
+        PopupMenu = pmDBGrid
         TabOrder = 1
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
@@ -898,6 +919,9 @@ inherited fmvExplorer: TfmvExplorer
         OnEditButtonClick = DBGridEditButtonClick
         OnEnter = DBGridEnter
         OnTitleClick = DBGridTitleClick
+        OnDBCut = dgUserRolesDBCut
+        OnDBCopy = dgUserRolesDBCopy
+        OnDBPaste = dgUserRolesDBPaste
         Columns = <
           item
             Expanded = False
@@ -995,27 +1019,35 @@ inherited fmvExplorer: TfmvExplorer
     Top = 53
   end
   inherited rrRes: TNNVRight
+    OnRight = rrResRight
     Left = 144
     Top = 152
   end
   inherited alRes: TNNVActionList
     Left = 172
     Top = 152
-    object aNewUser: TAction [11]
+    object aRightsIndexGenerate: TAction [0]
+      Category = 'Rights'
+      Caption = #1043#1077#1085#1077#1088#1072#1094#1080#1103' '#1080#1085#1076#1077#1082#1089#1086#1074' '#1087#1088#1072#1074
+      Hint = #1043#1077#1085#1077#1088#1072#1094#1080#1103' '#1080#1085#1076#1077#1082#1089#1086#1074' '#1087#1088#1072#1074
+      ImageIndex = 38
+      OnExecute = aRightsIndexGenerateExecute
+    end
+    object aNewUser: TAction [12]
       Category = 'Users'
       Caption = #1057#1086#1079#1076#1072#1090#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
       Hint = #1057#1086#1079#1076#1072#1090#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
       ImageIndex = 100
       OnExecute = aNewUserExecute
     end
-    object aSetUserPassord: TAction [12]
+    object aSetUserPassord: TAction [13]
       Category = 'Users'
       Caption = #1047#1072#1076#1072#1090#1100' '#1087#1072#1088#1086#1083#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1102
       Hint = #1047#1072#1076#1072#1090#1100' '#1087#1072#1088#1086#1083#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1102
       ImageIndex = 76
       OnExecute = aSetUserPassordExecute
     end
-    object aDeleteUser: TAction [13]
+    object aDeleteUser: TAction [14]
       Category = 'Users'
       Caption = #1059#1076#1072#1083#1080#1090#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
       Hint = #1059#1076#1072#1083#1080#1090#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
@@ -1035,12 +1067,6 @@ inherited fmvExplorer: TfmvExplorer
       Hint = #1057#1086#1079#1076#1072#1085#1080#1077' '#1089#1087#1080#1089#1082#1072' '#1082#1086#1085#1089#1090#1072#1085#1090' '#1094#1074#1077#1090#1086#1074' '#1076#1083#1103' *.cpp'
       ImageIndex = 5
       OnExecute = aGenerateColorConstsExecute
-    end
-    object aRoleMaster: TAction
-      Category = 'Role'
-      Caption = 'aRoleMaster'
-      ImageIndex = 15
-      OnExecute = aRoleMasterExecute
     end
     object aGenerateColorConstsWithoutIndex: TAction
       Category = 'Color'
@@ -1069,6 +1095,20 @@ inherited fmvExplorer: TfmvExplorer
       Hint = #1047#1072#1073#1088#1072#1090#1100' '#1087#1088#1072#1074#1072' '#1089#1091#1087#1077#1088#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
       ImageIndex = 188
       OnExecute = aRevokeSuperUserExecute
+    end
+    object aGenerateRightsConsts: TAction
+      Category = 'Rights'
+      Caption = #1057#1086#1079#1076#1072#1085#1080#1077' '#1089#1087#1080#1089#1082#1072' '#1082#1086#1085#1089#1090#1072#1085#1090' '#1087#1088#1072#1074' '#1076#1083#1103' *.cpp'
+      Hint = #1057#1086#1079#1076#1072#1085#1080#1077' '#1089#1087#1080#1089#1082#1072' '#1082#1086#1085#1089#1090#1072#1085#1090' '#1087#1088#1072#1074' '#1076#1083#1103' *.cpp'
+      ImageIndex = 5
+      OnExecute = aGenerateRightsConstsExecute
+    end
+    object aGenerateRightsConstsWithoutIndex: TAction
+      Category = 'Rights'
+      Caption = #1057#1086#1079#1076#1072#1085#1080#1077' '#1089#1087#1080#1089#1082#1072' '#1082#1086#1085#1089#1090#1072#1085#1090' '#1087#1088#1072#1074' '#1076#1083#1103' *.h'
+      Hint = #1057#1086#1079#1076#1072#1085#1080#1077' '#1089#1087#1080#1089#1082#1072' '#1082#1086#1085#1089#1090#1072#1085#1090' '#1087#1088#1072#1074' '#1076#1083#1103' *.h'
+      ImageIndex = 10
+      OnExecute = aGenerateRightsConstsWithoutIndexExecute
     end
   end
   inherited dsData: TDataSource
@@ -1117,7 +1157,7 @@ inherited fmvExplorer: TfmvExplorer
     Left = 122
     Top = 54
   end
-  object naRightsKind: TNNVNodeAdmin
+  object naRightsKind: TNNVNodeAdmin [27]
     OnLoadNodes = naRightsKindLoadNodes
     OnGetNodeParams = naRightsKindGetNodeParams
     OnFirstEnter = naRightsKindFirstEnter
@@ -1133,7 +1173,7 @@ inherited fmvExplorer: TfmvExplorer
     Left = 228
     Top = 101
   end
-  object naRoleKind: TNNVNodeAdmin
+  object naRoleKind: TNNVNodeAdmin [28]
     OnLoadNodes = naRoleKindLoadNodes
     OnGetNodeParams = naRoleKindGetNodeParams
     OnFirstEnter = naRoleKindFirstEnter
@@ -1149,22 +1189,26 @@ inherited fmvExplorer: TfmvExplorer
     Left = 256
     Top = 101
   end
-  object DRoleRights: TNNVDialog
+  object DRoleRights: TNNVDialog [29]
     OnPrepare = DRoleRightsPrepare
     OnExecute = DRoleRightsExecute
     Left = 228
     Top = 153
   end
-  object DUserRights: TNNVDialog
+  object DUserRights: TNNVDialog [30]
     OnPrepare = DUserRightsPrepare
     OnExecute = dUserRightsExecute
     Left = 255
     Top = 153
   end
-  object DUserRole: TNNVDialog
+  object DUserRole: TNNVDialog [31]
     OnPrepare = DUserRolePrepare
     OnExecute = DUserRoleExecute
     Left = 283
+    Top = 153
+  end
+  inherited pmDBTreeView: TPopupMenu
+    Left = 310
     Top = 153
   end
 end

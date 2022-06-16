@@ -129,3 +129,9 @@ void __fastcall TfmvJayaShrilaPrabhupada::PrepareUnLock( TObject *Sender )
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TfmvJayaShrilaPrabhupada::aRightsRefreshExecute(TObject *Sender)
+{
+  dmvNewNavadvipa->rmDB->RefreshRights( dmvNewNavadvipa->UserID );
+}
+//---------------------------------------------------------------------------
+

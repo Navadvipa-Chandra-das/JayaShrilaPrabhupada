@@ -71,6 +71,9 @@ __published:	// IDE-managed Components
   TAction *aLock;
   TToolButton *tbLock;
   TMenuItem *miLock;
+  TAction *aRightsRefresh;
+  TToolButton *tbRightsRefresh;
+  TMenuItem *miRightsRefresh;
   void __fastcall alExamplesExecute( TObject *Sender );
   void __fastcall aChangePassordExecute(TObject *Sender);
   void __fastcall aFormListShowExecute(TObject *Sender);
@@ -83,6 +86,7 @@ __published:	// IDE-managed Components
   void __fastcall aFormNextUpdate(TObject *Sender);
   void __fastcall FormCreate(TObject *Sender);
   void __fastcall aLockExecute(TObject *Sender);
+  void __fastcall aRightsRefreshExecute(TObject *Sender);
 private:	// User declarations
   typedef TfmvRes inherited;
   void __fastcall PrepareLock( TObject *Sender );
