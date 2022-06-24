@@ -31,7 +31,7 @@
 #include <FireDAC.DApt.Intf.hpp>
 #include <FireDAC.DatS.hpp>
 #include <FireDAC.Stan.Param.hpp>
-#include "VCL_NNDBTreeView.h"
+#include "VCL_NNDBMiracle.h"
 //---------------------------------------------------------------------------
 class TdmvJayaShrilaPrabhupada : public TdmvRes
 {

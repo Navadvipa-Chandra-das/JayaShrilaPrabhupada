@@ -21,7 +21,7 @@
 #include <FireDAC.Stan.Option.hpp>
 #include <FireDAC.Stan.Param.hpp>
 #include <Vcl.ExtCtrls.hpp>
-#include "VCL_NNDBGrid.h"
+#include "VCL_NNDBMiracle.h"
 #include <Vcl.DBGrids.hpp>
 #include <Vcl.Grids.hpp>
 #include "VCL_NNStoryData.h"

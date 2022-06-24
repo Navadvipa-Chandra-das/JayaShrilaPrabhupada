@@ -74,12 +74,6 @@ inherited fmvExplorer: TfmvExplorer
       end
     end
   end
-  inherited tbStatus: TNNVPanel
-    Top = 752
-    Height = 22
-    ExplicitTop = 752
-    ExplicitHeight = 22
-  end
   object paCommod: TNNVPanel [5]
     Left = 192
     Top = 57
@@ -239,7 +233,6 @@ inherited fmvExplorer: TfmvExplorer
     OnEnter = DBTreeViewEnter
     EditKindID = deKindID
     OnNodeAdminChange = DBTreeViewNodeAdminChange
-    ActiveOrder = 0
   end
   object paColor: TNNVPanel [7]
     Left = 192
@@ -982,7 +975,7 @@ inherited fmvExplorer: TfmvExplorer
     OnLastExit = naColorKindLastExit
     EndToEndViewingNeed = True
     TreeView = tvExamples
-    DetailDataSource = dmvNewNavadvipa.dsColor
+    DetailDataSet = dmvNewNavadvipa.quColor
     DataSource = dmvNewNavadvipa.dsColorKind
     Left = 116
     Top = 100
@@ -1009,7 +1002,7 @@ inherited fmvExplorer: TfmvExplorer
     ReloadEnabled = False
     TreeView = tvExamples
     LoadOrder = 3
-    DetailDataSource = dmvNewNavadvipa.dsUsers
+    DetailDataSet = dmvNewNavadvipa.quUsers
     Left = 172
     Top = 100
   end
@@ -1123,15 +1116,9 @@ inherited fmvExplorer: TfmvExplorer
     Left = 38
     Top = 54
   end
-  inherited pmSearchEdit: TPopupMenu
-    Left = 66
+  inherited ddDB: TNNVDateTimeDialog
+    Left = 94
     Top = 54
-    inherited mipSECaseSensitive: TMenuItem
-      Checked = True
-    end
-    inherited mipSEFiltered: TMenuItem
-      Checked = True
-    end
   end
   object naCommodKind: TNNVNodeAdmin [24]
     OnLoadNodes = naCommodKindLoadNodes
@@ -1144,20 +1131,20 @@ inherited fmvExplorer: TfmvExplorer
     EndToEndViewingNeed = True
     TreeView = tvExamples
     LoadOrder = 4
-    DetailDataSource = dmvNewNavadvipa.dsCommod
+    DetailDataSet = dmvNewNavadvipa.quCommod
     DataSource = dmvNewNavadvipa.dsCommodKind
     Left = 200
     Top = 101
-  end
-  inherited ddDB: TNNVDateTimeDialog
-    Left = 94
-    Top = 54
   end
   inherited pmDBGrid: TPopupMenu
     Left = 122
     Top = 54
   end
-  object naRightsKind: TNNVNodeAdmin [27]
+  inherited pmDBTreeView: TPopupMenu
+    Left = 310
+    Top = 153
+  end
+  object naRightsKind: TNNVNodeAdmin
     OnLoadNodes = naRightsKindLoadNodes
     OnGetNodeParams = naRightsKindGetNodeParams
     OnFirstEnter = naRightsKindFirstEnter
@@ -1168,12 +1155,12 @@ inherited fmvExplorer: TfmvExplorer
     EndToEndViewingNeed = True
     TreeView = tvExamples
     LoadOrder = 5
-    DetailDataSource = dmvNewNavadvipa.dsRights
+    DetailDataSet = dmvNewNavadvipa.quRights
     DataSource = dmvNewNavadvipa.dsRightsKind
     Left = 228
     Top = 101
   end
-  object naRoleKind: TNNVNodeAdmin [28]
+  object naRoleKind: TNNVNodeAdmin
     OnLoadNodes = naRoleKindLoadNodes
     OnGetNodeParams = naRoleKindGetNodeParams
     OnFirstEnter = naRoleKindFirstEnter
@@ -1184,31 +1171,27 @@ inherited fmvExplorer: TfmvExplorer
     EndToEndViewingNeed = True
     TreeView = tvExamples
     LoadOrder = 6
-    DetailDataSource = dmvNewNavadvipa.dsRole
+    DetailDataSet = dmvNewNavadvipa.quRole
     DataSource = dmvNewNavadvipa.dsRoleKind
     Left = 256
     Top = 101
   end
-  object DRoleRights: TNNVDialog [29]
+  object DRoleRights: TNNVDialog
     OnPrepare = DRoleRightsPrepare
     OnExecute = DRoleRightsExecute
     Left = 228
     Top = 153
   end
-  object DUserRights: TNNVDialog [30]
+  object DUserRights: TNNVDialog
     OnPrepare = DUserRightsPrepare
     OnExecute = dUserRightsExecute
     Left = 255
     Top = 153
   end
-  object DUserRole: TNNVDialog [31]
+  object DUserRole: TNNVDialog
     OnPrepare = DUserRolePrepare
     OnExecute = DUserRoleExecute
     Left = 283
-    Top = 153
-  end
-  inherited pmDBTreeView: TPopupMenu
-    Left = 310
     Top = 153
   end
 end

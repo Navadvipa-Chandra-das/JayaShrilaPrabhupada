@@ -11,7 +11,7 @@
 #pragma link "VCL_NNConfig"
 #pragma link "VCL_NNDmRes"
 #pragma link "VCL_NNRightsManager"
-#pragma link "VCL_NNDBTreeView"
+#pragma link "VCL_NNDBMiracle"
 #pragma resource "*.dfm"
 
 TdmvJayaShrilaPrabhupada *dmvJayaShrilaPrabhupada;

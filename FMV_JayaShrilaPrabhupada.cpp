@@ -12,7 +12,7 @@
 #include "VCL_NNFmLock.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
-#pragma link "VCL_NNDBGrid"
+#pragma link "VCL_NNDBMiracle"
 #pragma link "VCL_NNStoryData"
 #pragma link "VCL_NNConfig"
 #pragma link "VCL_NNFlagBox"

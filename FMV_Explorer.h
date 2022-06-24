@@ -14,10 +14,9 @@
 #include "VCL_NNRightsManager.h"
 #include <Vcl.DBCtrls.hpp>
 #include <Vcl.ExtCtrls.hpp>
-#include "VCL_NNDBTreeView.h"
+#include "VCL_NNDBMiracle.h"
 #include "VCL_NNSplitter.h"
 #include <Vcl.ComCtrls.hpp>
-#include "VCL_NNDBGrid.h"
 #include <Data.DB.hpp>
 #include <Vcl.DBGrids.hpp>
 #include <Vcl.Grids.hpp>
@@ -34,9 +33,7 @@
 #include "VCL_NNDBComboBoxDateTime.h"
 #include <Vcl.Mask.hpp>
 #include "VCL_NNDBComboBox.h"
-#include "VCL_NNDBSearchEdit.h"
 #include <Vcl.Menus.hpp>
-#include "VCL_NNDBSearchDialog.h"
 #include "VCL_NNFrPeriod.h"
 #include "VCL_NNFrDoubleDiapazon.h"
 #include "VCL_NNFrDiapazon.h"
