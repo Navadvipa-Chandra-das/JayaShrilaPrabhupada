@@ -24,7 +24,6 @@
 #include "VCL_NNDBMiracle.h"
 #include <Vcl.DBGrids.hpp>
 #include <Vcl.Grids.hpp>
-#include "VCL_NNStoryData.h"
 #include "VCL_NNConfig.h"
 #include "VCL_NNFlagBox.h"
 #include "VCL_NNFmRes.h"

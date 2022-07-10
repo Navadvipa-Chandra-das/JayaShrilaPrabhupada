@@ -1179,7 +1179,7 @@ inherited fmvExplorer: TfmvExplorer
   object DRoleRights: TNNVDialog
     OnPrepare = DRoleRightsPrepare
     OnExecute = DRoleRightsExecute
-    Left = 228
+    Left = 227
     Top = 153
   end
   object DUserRights: TNNVDialog

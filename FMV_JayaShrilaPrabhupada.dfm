@@ -76,7 +76,6 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
     Top = 8
   end
   inherited alRes: TNNVActionList
-    Images = dmvNewNavadvipa.ilDB
     Left = 155
     Top = 7
     object alExamples: TAction [0]

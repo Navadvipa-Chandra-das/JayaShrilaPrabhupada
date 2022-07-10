@@ -13,7 +13,6 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "VCL_NNDBMiracle"
-#pragma link "VCL_NNStoryData"
 #pragma link "VCL_NNConfig"
 #pragma link "VCL_NNFlagBox"
 #pragma link "VCL_NNFmRes"

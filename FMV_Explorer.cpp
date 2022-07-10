@@ -698,9 +698,9 @@ void __fastcall TfmvExplorer::RightsGetDialogForm( TObject *Sender, TCustomForm 
 
 void __fastcall TfmvExplorer::DRoleRightsExecute( TObject *Sender )
 {
-  dmvNewNavadvipa->quRoleRights->CWCheckEditMode();
-  NNV::SetFieldValue( dmvNewNavadvipa->quRoleRightsEntityID, fmvRights->ResultNo );
-  NNV::SetFieldValue( dmvNewNavadvipa->quRoleRightsRight,    fmvRights->ResultNote );
+  fmvRights->MultiResultExecute( dmvNewNavadvipa->quRoleRights
+                               , dmvNewNavadvipa->quRoleRightsEntityID
+                               , dmvNewNavadvipa->quRoleRightsRight );
 }
 //---------------------------------------------------------------------------
 
@@ -712,9 +712,9 @@ void __fastcall TfmvExplorer::DUserRightsPrepare( TObject *Sender )
 
 void __fastcall TfmvExplorer::DUserRightsExecute( TObject *Sender )
 {
-  dmvNewNavadvipa->quUserRights->CWCheckEditMode();
-  NNV::SetFieldValue( dmvNewNavadvipa->quUserRightsEntityID, fmvRights->ResultNo );
-  NNV::SetFieldValue( dmvNewNavadvipa->quUserRightsRight,    fmvRights->ResultNote );
+  fmvRights->MultiResultExecute( dmvNewNavadvipa->quUserRights
+                               , dmvNewNavadvipa->quUserRightsEntityID
+                               , dmvNewNavadvipa->quUserRightsRight );
 }
 //---------------------------------------------------------------------------
 
@@ -726,9 +726,9 @@ void __fastcall TfmvExplorer::DUserRolePrepare( TObject *Sender )
 
 void __fastcall TfmvExplorer::DUserRoleExecute( TObject *Sender )
 {
-  dmvNewNavadvipa->quUserRoles->CWCheckEditMode();
-  NNV::SetFieldValue( dmvNewNavadvipa->quUserRolesEntityID, fmvRoles->ResultNo );
-  NNV::SetFieldValue( dmvNewNavadvipa->quUserRolesRole,     fmvRoles->ResultNote );
+  fmvRoles->MultiResultExecute( dmvNewNavadvipa->quUserRoles
+                              , dmvNewNavadvipa->quUserRolesEntityID
+                              , dmvNewNavadvipa->quUserRolesRole );
 }
 //---------------------------------------------------------------------------
 
