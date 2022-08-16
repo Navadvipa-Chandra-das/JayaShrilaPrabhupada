@@ -15,6 +15,7 @@
 #include "VCL_NNActionList.h"
 #include <System.Actions.hpp>
 #include <Vcl.ActnList.hpp>
+#include "VCL_NNLanguageManager.h"
 //---------------------------------------------------------------------------
 class TfmvLoginJayaShrilaPrabhupada : public TfmvLogin
 {

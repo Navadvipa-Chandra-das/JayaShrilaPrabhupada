@@ -12,6 +12,7 @@
 #pragma link "VCL_NNDmRes"
 #pragma link "VCL_NNRightsManager"
 #pragma link "VCL_NNDBMiracle"
+#pragma link "VCL_NNLanguageManager"
 #pragma resource "*.dfm"
 
 TdmvJayaShrilaPrabhupada *dmvJayaShrilaPrabhupada;

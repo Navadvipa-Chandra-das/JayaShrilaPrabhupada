@@ -8,6 +8,10 @@ inherited dmvJayaShrilaPrabhupada: TdmvJayaShrilaPrabhupada
   end
   inherited rrData: TNNVRight
     Left = 28
-    Top = 0
+    Top = 65535
+  end
+  inherited lnData: TNNVLanguage
+    Left = 56
+    Top = 65535
   end
 end

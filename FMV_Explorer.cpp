@@ -39,6 +39,7 @@
 #pragma link "VCL_NNFrShortIntDiapazon"
 #pragma link "VCL_NNDrawGrid"
 #pragma link "VCL_NNDialog"
+#pragma link "VCL_NNLanguageManager"
 #pragma resource "*.dfm"
 TfmvExplorer *fmvExplorer;
 

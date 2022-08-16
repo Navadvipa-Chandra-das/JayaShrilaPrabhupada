@@ -16,16 +16,16 @@ USEFORM("..\NewNavadvipa\VCL_NNFrShortIntDiapazon.cpp", frvShortIntDiapazon); /*
 USEFORM("..\NewNavadvipa\VCL_NNFrDoubleDiapazon.cpp", frvDoubleDiapazon); /* TFrame: File Type */
 USEFORM("..\NewNavadvipa\VCL_NNFrIntDiapazon.cpp", frvIntDiapazon); /* TFrame: File Type */
 USEFORM("..\NewNavadvipa\VCL_NNFrLogin.cpp", frvLogin); /* TFrame: File Type */
+USEFORM("..\NewNavadvipa\VCL_NNFmLock.cpp", fmvLock);
 USEFORM("FMV_LoginJayaShrilaPrabhupada.cpp", fmvLoginJayaShrilaPrabhupada);
 USEFORM("DMV_JayaShrilaPrabhupada.cpp", dmvJayaShrilaPrabhupada); /* TDataModule: File Type */
 USEFORM("FMV_Explorer.cpp", fmvExplorer);
 USEFORM("FMV_JayaShrilaPrabhupada.cpp", fmvJayaShrilaPrabhupada);
+USEFORM("..\NewNavadvipa\VCL_NNFmChangePassword.cpp", fmvChangePassword);
 USEFORM("..\NewNavadvipa\VCL_NNFmDateTime.cpp", fmvDateTime);
 USEFORM("..\NewNavadvipa\VCL_NNFmDB.cpp", fmvDB);
-USEFORM("..\NewNavadvipa\VCL_NNFmLock.cpp", fmvLock);
 USEFORM("..\NewNavadvipa\VCL_NNDmRes.cpp", dmvRes); /* TDataModule: File Type */
 USEFORM("..\NewNavadvipa\VCL_NNDmvNewNavadvipa.cpp", dmvNewNavadvipa); /* TDataModule: File Type */
-USEFORM("..\NewNavadvipa\VCL_NNFmChangePassword.cpp", fmvChangePassword);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {

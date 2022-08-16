@@ -1017,7 +1017,7 @@ inherited fmvExplorer: TfmvExplorer
     Top = 152
   end
   inherited alRes: TNNVActionList
-    Left = 172
+    Left = 197
     Top = 152
     object aRightsIndexGenerate: TAction [0]
       Category = 'Rights'
@@ -1104,8 +1104,12 @@ inherited fmvExplorer: TfmvExplorer
       OnExecute = aGenerateRightsConstsWithoutIndexExecute
     end
   end
+  inherited lnRes: TNNVLanguage
+    Left = 173
+    Top = 152
+  end
   inherited dsData: TDataSource
-    Left = 200
+    Left = 225
     Top = 152
   end
   inherited mmDB: TMainMenu
@@ -1114,10 +1118,6 @@ inherited fmvExplorer: TfmvExplorer
   end
   inherited sdDB: TNNVDBSearchDialog
     Left = 38
-    Top = 54
-  end
-  inherited ddDB: TNNVDateTimeDialog
-    Left = 94
     Top = 54
   end
   object naCommodKind: TNNVNodeAdmin [24]
@@ -1136,12 +1136,16 @@ inherited fmvExplorer: TfmvExplorer
     Left = 200
     Top = 101
   end
+  inherited ddDB: TNNVDateTimeDialog
+    Left = 94
+    Top = 54
+  end
   inherited pmDBGrid: TPopupMenu
     Left = 122
     Top = 54
   end
   inherited pmDBTreeView: TPopupMenu
-    Left = 310
+    Left = 335
     Top = 153
   end
   object naRightsKind: TNNVNodeAdmin
@@ -1179,19 +1183,19 @@ inherited fmvExplorer: TfmvExplorer
   object DRoleRights: TNNVDialog
     OnPrepare = DRoleRightsPrepare
     OnExecute = DRoleRightsExecute
-    Left = 227
+    Left = 252
     Top = 153
   end
   object DUserRights: TNNVDialog
     OnPrepare = DUserRightsPrepare
     OnExecute = dUserRightsExecute
-    Left = 255
+    Left = 280
     Top = 153
   end
   object DUserRole: TNNVDialog
     OnPrepare = DUserRolePrepare
     OnExecute = DUserRoleExecute
-    Left = 283
+    Left = 308
     Top = 153
   end
 end

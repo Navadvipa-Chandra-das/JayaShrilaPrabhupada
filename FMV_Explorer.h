@@ -42,6 +42,7 @@
 #include "VCL_NNFrShortIntDiapazon.h"
 #include "VCL_NNDrawGrid.h"
 #include "VCL_NNDialog.h"
+#include "VCL_NNLanguageManager.h"
 //---------------------------------------------------------------------------
 class TfmvExplorer : public TfmvDB
 {

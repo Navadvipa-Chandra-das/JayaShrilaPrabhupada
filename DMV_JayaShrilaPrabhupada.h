@@ -32,6 +32,7 @@
 #include <FireDAC.DatS.hpp>
 #include <FireDAC.Stan.Param.hpp>
 #include "VCL_NNDBMiracle.h"
+#include "VCL_NNLanguageManager.h"
 //---------------------------------------------------------------------------
 class TdmvJayaShrilaPrabhupada : public TdmvRes
 {

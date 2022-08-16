@@ -37,6 +37,7 @@
 #include <Vcl.PlatformDefaultStyleActnCtrls.hpp>
 #include <Vcl.Menus.hpp>
 #include "VCL_NNActionList.h"
+#include "VCL_NNLanguageManager.h"
 //---------------------------------------------------------------------------
 class TfmvJayaShrilaPrabhupada : public TfmvRes
 {

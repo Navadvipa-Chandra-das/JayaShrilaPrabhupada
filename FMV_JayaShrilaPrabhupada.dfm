@@ -76,7 +76,7 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
     Top = 8
   end
   inherited alRes: TNNVActionList
-    Left = 155
+    Left = 150
     Top = 7
     object alExamples: TAction [0]
       Category = 'Forms'
@@ -159,6 +159,10 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
       OnExecute = aRightsRefreshExecute
     end
   end
+  inherited lnRes: TNNVLanguage
+    Left = 95
+    Top = 8
+  end
   object frxReport1: TfrxReport
     Version = '2022.1.3'
     DotMatrixReport = False
@@ -174,8 +178,8 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
       'begin'
       ''
       'end.')
-    Left = 116
-    Top = 8
+    Left = 123
+    Top = 7
     Datasets = <>
     Variables = <>
     Style = <>
@@ -197,8 +201,8 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
   end
   object mmShrilaPrabhupada: TMainMenu
     Images = dmvNewNavadvipa.ilDB
-    Left = 185
-    Top = 8
+    Left = 179
+    Top = 7
     object miAction: TMenuItem
       Caption = '&'#1044#1077#1081#1089#1090#1074#1080#1103
       object miExamples: TMenuItem
