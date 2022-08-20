@@ -197,12 +197,6 @@
             <DependentOn>..\NewNavadvipa\VCL_NNFmFormList.h</DependentOn>
             <BuildOrder>25</BuildOrder>
         </CppCompile>
-        <CppCompile Include="..\NewNavadvipa\VCL_NNFmLanguage.cpp">
-            <Form>fmvLanguage</Form>
-            <FormType>dfm</FormType>
-            <DependentOn>..\NewNavadvipa\VCL_NNFmLanguage.h</DependentOn>
-            <BuildOrder>26</BuildOrder>
-        </CppCompile>
         <CppCompile Include="..\NewNavadvipa\VCL_NNFmLock.cpp">
             <Form>fmvLock</Form>
             <FormType>dfm</FormType>
@@ -310,7 +304,6 @@
         <FormResources Include="..\NewNavadvipa\VCL_NNDmRes.dfm"/>
         <FormResources Include="..\NewNavadvipa\VCL_NNDmvNewNavadvipa.dfm"/>
         <FormResources Include="..\NewNavadvipa\VCL_NNFmChangePassword.dfm"/>
-        <FormResources Include="..\NewNavadvipa\VCL_NNFmLanguage.dfm"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -350,8 +343,13 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32c270.dll" Class="DependencyModule">
-                    <Platform Name="Win32">
+                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx64\libcgcrtl.dylib" Class="DependencyModule">
+                    <Platform Name="OSX64">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx32\libcgcrtl.dylib" Class="DependencyModule">
+                    <Platform Name="OSX32">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -367,11 +365,6 @@
                 </DeployFile>
                 <DeployFile Condition="'$(UsingDelphiRTL)'=='true'" LocalName="$(BDS)\bin\borlndmm.dll" Class="DependencyModule">
                     <Platform Name="Win32">
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx32\libcgcrtl.dylib" Class="DependencyModule">
-                    <Platform Name="OSX32">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -412,8 +405,8 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\Redist\osx64\libcgcrtl.dylib" Class="DependencyModule">
-                    <Platform Name="OSX64">
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\bin\cc32c270.dll" Class="DependencyModule">
+                    <Platform Name="Win32">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

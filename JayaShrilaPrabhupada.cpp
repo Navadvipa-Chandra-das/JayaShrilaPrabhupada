@@ -26,7 +26,6 @@ USEFORM("..\NewNavadvipa\VCL_NNFmDB.cpp", fmvDB);
 USEFORM("..\NewNavadvipa\VCL_NNDmRes.cpp", dmvRes); /* TDataModule: File Type */
 USEFORM("..\NewNavadvipa\VCL_NNDmvNewNavadvipa.cpp", dmvNewNavadvipa); /* TDataModule: File Type */
 USEFORM("..\NewNavadvipa\VCL_NNFmChangePassword.cpp", fmvChangePassword);
-USEFORM("..\NewNavadvipa\VCL_NNFmLanguage.cpp", fmvLanguage);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {
