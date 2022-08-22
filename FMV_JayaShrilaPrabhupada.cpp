@@ -17,7 +17,6 @@
 #pragma link "VCL_NNFlagBox"
 #pragma link "VCL_NNFmRes"
 #pragma link "VCL_NNRightsManager"
-#pragma link "frxClass"
 #pragma link "VCL_NNActionList"
 #pragma link "VCL_NNLanguageManager"
 #pragma resource "*.dfm"

@@ -8,7 +8,7 @@
 #include "DMV_JayaShrilaPrabhupada.h"
 #include "VCL_NNFmChangePassword.h"
 #include "VCL_NNColor.h"
-#include "VCL_NNFmvCode.h"
+#include "VCL_NNFmCode.h"
 #include "VCL_NNFmRights.h"
 #include "VCL_NNFormAdmin.h"
 #include "VCL_NNFmRoles.h"

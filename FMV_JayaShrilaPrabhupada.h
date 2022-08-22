@@ -28,13 +28,11 @@
 #include "VCL_NNFlagBox.h"
 #include "VCL_NNFmRes.h"
 #include "VCL_NNRightsManager.h"
-#include "frxClass.hpp"
 #include <Vcl.ToolWin.hpp>
 #include <System.Actions.hpp>
 #include <Vcl.ActnList.hpp>
 #include <Vcl.ActnCtrls.hpp>
 #include <Vcl.ActnMan.hpp>
-#include <Vcl.PlatformDefaultStyleActnCtrls.hpp>
 #include <Vcl.Menus.hpp>
 #include "VCL_NNActionList.h"
 #include "VCL_NNLanguageManager.h"
@@ -42,7 +40,6 @@
 class TfmvJayaShrilaPrabhupada : public TfmvRes
 {
 __published:	// IDE-managed Components
-  TfrxReport *frxReport1;
   TToolBar *tbrTest;
   TToolButton *tbExamples;
   TMainMenu *mmShrilaPrabhupada;
