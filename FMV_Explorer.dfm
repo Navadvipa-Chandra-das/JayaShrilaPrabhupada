@@ -11,15 +11,6 @@ inherited fmvExplorer: TfmvExplorer
     ExplicitLeft = 186
     ExplicitHeight = 717
   end
-  object paConfig: TNNVPanel [1]
-    Left = 192
-    Top = 57
-    Width = 993
-    Height = 695
-    Align = alClient
-    TabOrder = 1
-    Visible = False
-  end
   inherited paT: TNNVPanel
     TabOrder = 3
     inherited paTL: TNNVPanel
@@ -28,7 +19,7 @@ inherited fmvExplorer: TfmvExplorer
       end
     end
   end
-  object paNumberToWords: TNNVPanel [3]
+  object paNumberToWords: TNNVPanel [2]
     Left = 192
     Top = 57
     Width = 993
@@ -74,7 +65,7 @@ inherited fmvExplorer: TfmvExplorer
       end
     end
   end
-  object paCommod: TNNVPanel [5]
+  object paCommod: TNNVPanel [4]
     Left = 192
     Top = 57
     Width = 993
@@ -218,7 +209,7 @@ inherited fmvExplorer: TfmvExplorer
         end>
     end
   end
-  object tvExamples: TNNVDBTreeView [6]
+  object tvExamples: TNNVDBTreeView [5]
     Left = 0
     Top = 57
     Width = 189
@@ -234,7 +225,7 @@ inherited fmvExplorer: TfmvExplorer
     EditKindID = deKindID
     OnNodeAdminChange = DBTreeViewNodeAdminChange
   end
-  object paColor: TNNVPanel [7]
+  object paColor: TNNVPanel [6]
     Left = 192
     Top = 57
     Width = 993
@@ -388,7 +379,7 @@ inherited fmvExplorer: TfmvExplorer
       end
     end
   end
-  object paRole: TNNVPanel [8]
+  object paRole: TNNVPanel [7]
     Left = 192
     Top = 57
     Width = 993
@@ -515,7 +506,7 @@ inherited fmvExplorer: TfmvExplorer
         end>
     end
   end
-  object paRights: TNNVPanel [9]
+  object paRights: TNNVPanel [8]
     Left = 192
     Top = 57
     Width = 993
@@ -610,7 +601,7 @@ inherited fmvExplorer: TfmvExplorer
       end
     end
   end
-  object paUsers: TNNVPanel [10]
+  object paUsers: TNNVPanel [9]
     Left = 192
     Top = 57
     Width = 993
@@ -943,6 +934,118 @@ inherited fmvExplorer: TfmvExplorer
       end
     end
   end
+  object paConfig: TNNVPanel [10]
+    Left = 192
+    Top = 57
+    Width = 993
+    Height = 695
+    Align = alClient
+    TabOrder = 1
+    Visible = False
+    object Golovolomka15: TNNVGolovolomka15
+      Left = 0
+      Top = 29
+      Width = 993
+      Height = 666
+      Align = alClient
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -43
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 0
+      OnPobeda = Golovolomka15Pobeda
+    end
+    object tbrGolovolomka15: TToolBar
+      Left = 0
+      Top = 0
+      Width = 993
+      Height = 29
+      Caption = 'tbrGolovolomka15'
+      Images = dmvNewNavadvipa.ilDB
+      TabOrder = 1
+      object ToolButton1: TToolButton
+        Left = 0
+        Top = 0
+        Action = aGolovolomka15StartPosition
+      end
+      object ToolButton2: TToolButton
+        Left = 23
+        Top = 0
+        Action = aGolovolomka15Mix
+      end
+      object nbGolovolomka15MixCount: TNumberBox
+        Left = 46
+        Top = 0
+        Width = 41
+        Height = 22
+        Hint = #1057#1082#1086#1083#1100#1082#1086' '#1093#1086#1076#1086#1074' '#1087#1077#1088#1077#1084#1077#1096#1080#1074#1072#1090#1100'?'
+        MinValue = 1.000000000000000000
+        MaxValue = 150.000000000000000000
+        TabOrder = 0
+        Value = 1.000000000000000000
+      end
+      object nbGolovolomka15HodPause: TNumberBox
+        Left = 87
+        Top = 0
+        Width = 41
+        Height = 22
+        Hint = #1055#1072#1091#1079#1072' '#1087#1088#1080' '#1087#1077#1088#1077#1084#1077#1096#1080#1074#1072#1085#1080#1080' '#1074' '#1084#1080#1083#1083#1080#1089#1077#1082#1091#1085#1076#1072#1093
+        MinValue = 3.000000000000000000
+        MaxValue = 1500.000000000000000000
+        TabOrder = 1
+        Value = 3.000000000000000000
+      end
+    end
+  end
+  object paLanguages: TNNVPanel [11]
+    Left = 192
+    Top = 57
+    Width = 993
+    Height = 695
+    Align = alClient
+    TabOrder = 10
+    Visible = False
+    object dgLanguages: TNNVDBGrid
+      Left = 0
+      Top = 0
+      Width = 993
+      Height = 695
+      Align = alClient
+      DataSource = dmvNewNavadvipa.dsLanguages
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnEnter = DBGridEnter
+      OnTitleClick = DBGridTitleClick
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'LanguagesID'
+          Visible = False
+          OrderBy = 'a."LanguagesID"'
+        end
+        item
+          Expanded = False
+          FieldName = 'LanguagesStringID'
+          Width = 114
+          Visible = True
+          OrderBy = 'a."LanguagesStringID"'
+        end
+        item
+          Expanded = False
+          FieldName = 'Languages'
+          Width = 252
+          Visible = True
+          OrderBy = 'a."Languages"'
+        end>
+    end
+  end
   inherited fbRes: TNNVFlagBox
     caFree = True
     ShowInWindowList = True
@@ -955,10 +1058,10 @@ inherited fmvExplorer: TfmvExplorer
     Left = 116
     Top = 151
   end
-  object naConfig: TNNVNodeAdmin [13]
-    OnLoadNodes = naConfigLoadNodes
-    OnEnter = naConfigEnter
-    OnExit = naConfigExit
+  object naGolovolomka15: TNNVNodeAdmin [14]
+    OnLoadNodes = naGolovolomka15LoadNodes
+    OnEnter = naGolovolomka15Enter
+    OnExit = naGolovolomka15Exit
     ReadOnly = True
     ReloadEnabled = False
     TreeView = tvExamples
@@ -966,7 +1069,7 @@ inherited fmvExplorer: TfmvExplorer
     Left = 88
     Top = 100
   end
-  object naColorKind: TNNVNodeAdmin [14]
+  object naColorKind: TNNVNodeAdmin [15]
     OnLoadNodes = naColorKindLoadNodes
     OnGetNodeParams = naColorKindGetNodeParams
     OnFirstEnter = naColorKindFirstEnter
@@ -980,7 +1083,7 @@ inherited fmvExplorer: TfmvExplorer
     Left = 116
     Top = 100
   end
-  object naNumberToWords: TNNVNodeAdmin [15]
+  object naNumberToWords: TNNVNodeAdmin [16]
     OnLoadNodes = naNumberToWordsLoadNodes
     OnFirstEnter = naNumberToWordsFirstEnter
     OnEnter = naNumberToWordsEnter
@@ -992,7 +1095,7 @@ inherited fmvExplorer: TfmvExplorer
     Left = 144
     Top = 100
   end
-  object naUsers: TNNVNodeAdmin [16]
+  object naUsers: TNNVNodeAdmin [17]
     OnLoadNodes = naUsersLoadNodes
     OnFirstEnter = naUsersFirstEnter
     OnEnter = naUsersEnter
@@ -1006,7 +1109,7 @@ inherited fmvExplorer: TfmvExplorer
     Left = 172
     Top = 100
   end
-  object nwExamples: TNNVNumberToWords [17]
+  object nwExamples: TNNVNumberToWords [18]
     OnChange = nwExamplesChange
     Left = 150
     Top = 53
@@ -1103,6 +1206,19 @@ inherited fmvExplorer: TfmvExplorer
       ImageIndex = 10
       OnExecute = aGenerateRightsConstsWithoutIndexExecute
     end
+    object aGolovolomka15StartPosition: TAction
+      Category = 'Golobolomka15'
+      Caption = #1057#1090#1072#1088#1090#1086#1074#1072#1103' '#1087#1086#1079#1080#1094#1080#1103
+      Hint = #1057#1090#1072#1088#1090#1086#1074#1072#1103' '#1087#1086#1079#1080#1094#1080#1103
+      ImageIndex = 147
+      OnExecute = aGolovolomka15StartPositionExecute
+    end
+    object aGolovolomka15Mix: TAction
+      Category = 'Golobolomka15'
+      Caption = 'aGolovolomka15Mix'
+      ImageIndex = 167
+      OnExecute = aGolovolomka15MixExecute
+    end
   end
   inherited lnRes: TNNVLanguage
     Left = 173
@@ -1120,7 +1236,7 @@ inherited fmvExplorer: TfmvExplorer
     Left = 38
     Top = 54
   end
-  object naCommodKind: TNNVNodeAdmin [24]
+  object naCommodKind: TNNVNodeAdmin [25]
     OnLoadNodes = naCommodKindLoadNodes
     OnGetNodeParams = naCommodKindGetNodeParams
     OnFirstEnter = naCommodKindFirstEnter
@@ -1197,5 +1313,19 @@ inherited fmvExplorer: TfmvExplorer
     OnExecute = DUserRoleExecute
     Left = 308
     Top = 153
+  end
+  object naLanguages: TNNVNodeAdmin
+    OnLoadNodes = naLanguagesLoadNodes
+    OnFirstEnter = naLanguagesFirstEnter
+    OnEnter = naLanguagesEnter
+    OnExit = naLanguagesExit
+    OnLastExit = naLanguagesLastExit
+    ReadOnly = True
+    ReloadEnabled = False
+    TreeView = tvExamples
+    LoadOrder = 7
+    DetailDataSet = dmvNewNavadvipa.quLanguages
+    Left = 280
+    Top = 101
   end
 end

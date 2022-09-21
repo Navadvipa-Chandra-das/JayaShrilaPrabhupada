@@ -71,23 +71,29 @@ __published:	// IDE-managed Components
   TAction *aRightsRefresh;
   TToolButton *tbRightsRefresh;
   TMenuItem *miRightsRefresh;
+  TComboBox *cbLanguage;
   void __fastcall alExamplesExecute( TObject *Sender );
-  void __fastcall aChangePassordExecute(TObject *Sender);
-  void __fastcall aFormListShowExecute(TObject *Sender);
-  void __fastcall aCurrentMainExecute(TObject *Sender);
-  void __fastcall aFormPrevExecute(TObject *Sender);
-  void __fastcall aFormNextExecute(TObject *Sender);
-  void __fastcall aFormCyclePrevExecute(TObject *Sender);
-  void __fastcall aFormCycleNextExecute(TObject *Sender);
-  void __fastcall aFormPrevUpdate(TObject *Sender);
-  void __fastcall aFormNextUpdate(TObject *Sender);
-  void __fastcall FormCreate(TObject *Sender);
-  void __fastcall aLockExecute(TObject *Sender);
-  void __fastcall aRightsRefreshExecute(TObject *Sender);
+  void __fastcall aChangePassordExecute( TObject *Sender );
+  void __fastcall aFormListShowExecute( TObject *Sender );
+  void __fastcall aCurrentMainExecute( TObject *Sender );
+  void __fastcall aFormPrevExecute( TObject *Sender );
+  void __fastcall aFormNextExecute( TObject *Sender );
+  void __fastcall aFormCyclePrevExecute( TObject *Sender );
+  void __fastcall aFormCycleNextExecute( TObject *Sender );
+  void __fastcall aFormPrevUpdate( TObject *Sender );
+  void __fastcall aFormNextUpdate( TObject *Sender );
+  void __fastcall FormCreate( TObject *Sender );
+  void __fastcall aLockExecute( TObject *Sender );
+  void __fastcall aRightsRefreshExecute( TObject *Sender );
+  void __fastcall cbLanguageChange( TObject *Sender );
+  void __fastcall lnResLanguage( TObject *Sender );
+  void __fastcall coResLoad( TObject *Sender );
+  void __fastcall coResSave( TObject *Sender );
 private:	// User declarations
   typedef TfmvRes inherited;
   void __fastcall PrepareLock( TObject *Sender );
   void __fastcall PrepareUnLock( TObject *Sender );
+  void __fastcall PrepareLanguages();
 protected:
   virtual void __fastcall RegisterForHistory() {};
 public:		// User declarations

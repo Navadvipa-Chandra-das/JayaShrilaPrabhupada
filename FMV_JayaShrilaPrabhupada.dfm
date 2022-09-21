@@ -59,6 +59,16 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
       Top = 0
       Action = aRightsRefresh
     end
+    object cbLanguage: TComboBox
+      Left = 138
+      Top = 0
+      Width = 145
+      Height = 21
+      Hint = #1071#1079#1099#1082' '#1087#1088#1086#1075#1088#1072#1084#1084#1099
+      Style = csDropDownList
+      TabOrder = 0
+      OnChange = cbLanguageChange
+    end
   end
   inherited fbRes: TNNVFlagBox
     caFree = True

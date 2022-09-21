@@ -43,6 +43,8 @@
 #include "VCL_NNDrawGrid.h"
 #include "VCL_NNDialog.h"
 #include "VCL_NNLanguageManager.h"
+#include "VCL_NNGolovolomka15.h"
+#include <Vcl.NumberBox.hpp>
 //---------------------------------------------------------------------------
 class TfmvExplorer : public TfmvDB
 {
@@ -51,7 +53,7 @@ __published:	// IDE-managed Components
   TNNVSplitter *splExamples;
   TNNVPanel *paUsers;
   TNNVDBGrid *dgUsers;
-  TNNVNodeAdmin *naConfig;
+  TNNVNodeAdmin *naGolovolomka15;
   TNNVNodeAdmin *naColorKind;
   TNNVNodeAdmin *naNumberToWords;
   TNNVNodeAdmin *naUsers;
@@ -129,12 +131,23 @@ __published:	// IDE-managed Components
   TToolButton *tbGenerateRightsConstsWithoutIndex;
   TAction *aRightsIndexGenerate;
   TToolButton *tbRightsIndexGenerate;
+  TNNVGolovolomka15 *Golovolomka15;
+  TToolBar *tbrGolovolomka15;
+  TAction *aGolovolomka15StartPosition;
+  TAction *aGolovolomka15Mix;
+  TToolButton *ToolButton1;
+  TToolButton *ToolButton2;
+  TNumberBox *nbGolovolomka15MixCount;
+  TNumberBox *nbGolovolomka15HodPause;
+  TNNVNodeAdmin *naLanguages;
+  TNNVPanel *paLanguages;
+  TNNVDBGrid *dgLanguages;
   void __fastcall coResLoad( TObject *Sender );
   void __fastcall coResSave( TObject *Sender );
   void __fastcall coResEndLoad( TObject *Sender );
-  void __fastcall naConfigEnter( TObject *Sender );
-  void __fastcall naConfigExit( TObject *Sender );
-  void __fastcall naConfigLoadNodes( TObject *Sender );
+  void __fastcall naGolovolomka15Enter( TObject *Sender );
+  void __fastcall naGolovolomka15Exit( TObject *Sender );
+  void __fastcall naGolovolomka15LoadNodes( TObject *Sender );
   void __fastcall FormCreate(TObject *Sender);
   void __fastcall FormDestroy(TObject *Sender);
   void __fastcall naColorKindEnter(TObject *Sender );
@@ -227,7 +240,14 @@ __published:	// IDE-managed Components
   void __fastcall aGenerateRightsConstsWithoutIndexExecute(TObject *Sender);
   void __fastcall aRightsIndexGenerateExecute(TObject *Sender);
   void __fastcall rrResRight( TObject *Sender );
-
+  void __fastcall aGolovolomka15StartPositionExecute(TObject *Sender);
+  void __fastcall aGolovolomka15MixExecute(TObject *Sender);
+  void __fastcall Golovolomka15Pobeda( TObject *Sender );
+  void __fastcall naLanguagesEnter( TObject *Sender );
+  void __fastcall naLanguagesExit( TObject *Sender );
+  void __fastcall naLanguagesLoadNodes( TObject *Sender );
+  void __fastcall naLanguagesFirstEnter( TObject *Sender );
+  void __fastcall naLanguagesLastExit( TObject *Sender );
 private:	// User declarations
   typedef TfmvDB inherited;
   void __fastcall LoadNodeAdmins();

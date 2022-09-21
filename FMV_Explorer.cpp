@@ -40,6 +40,7 @@
 #pragma link "VCL_NNDrawGrid"
 #pragma link "VCL_NNDialog"
 #pragma link "VCL_NNLanguageManager"
+#pragma link "VCL_NNGolovolomka15"
 #pragma resource "*.dfm"
 TfmvExplorer *fmvExplorer;
 
@@ -80,24 +81,26 @@ void __fastcall TfmvExplorer::coResSave( TObject *Sender )
 
 void __fastcall TfmvExplorer::LoadNodeAdmins()
 {
-  naConfig->LoadFromFiler( coRes->Filer );
+  naGolovolomka15->LoadFromFiler( coRes->Filer );
   naColorKind->LoadFromFiler( coRes->Filer );
   naNumberToWords->LoadFromFiler( coRes->Filer );
   naUsers->LoadFromFiler( coRes->Filer );
   naCommodKind->LoadFromFiler( coRes->Filer );
   naRightsKind->LoadFromFiler( coRes->Filer );
   naRoleKind->LoadFromFiler( coRes->Filer );
+  naLanguages->LoadFromFiler( coRes->Filer );
 }
 
 void __fastcall TfmvExplorer::SaveNodeAdmins()
 {
-  naConfig->SaveToFiler( coRes->Filer );
+  naGolovolomka15->SaveToFiler( coRes->Filer );
   naColorKind->SaveToFiler( coRes->Filer );
   naNumberToWords->SaveToFiler( coRes->Filer );
   naUsers->SaveToFiler( coRes->Filer );
   naCommodKind->SaveToFiler( coRes->Filer );
   naRightsKind->SaveToFiler( coRes->Filer );
   naRoleKind->SaveToFiler( coRes->Filer );
+  naLanguages->SaveToFiler( coRes->Filer );
 }
 
 void __fastcall TfmvExplorer::LoadTrees()
@@ -120,6 +123,7 @@ void __fastcall TfmvExplorer::LoadGrids()
   dgRoleRights->LoadFromFiler( coRes->Filer );
   dgUserRights->LoadFromFiler( coRes->Filer );
   dgUserRoles->LoadFromFiler( coRes->Filer );
+  dgLanguages->LoadFromFiler( coRes->Filer );
 }
 
 void __fastcall TfmvExplorer::SaveGrids()
@@ -132,6 +136,7 @@ void __fastcall TfmvExplorer::SaveGrids()
   dgRoleRights->SaveToFiler( coRes->Filer );
   dgUserRights->SaveToFiler( coRes->Filer );
   dgUserRoles->SaveToFiler( coRes->Filer );
+  dgLanguages->SaveToFiler( coRes->Filer );
 }
 
 void __fastcall TfmvExplorer::coResEndLoad( TObject *Sender )
@@ -143,27 +148,26 @@ void __fastcall TfmvExplorer::coResEndLoad( TObject *Sender )
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExplorer::naConfigEnter( TObject *Sender )
+void __fastcall TfmvExplorer::naGolovolomka15Enter( TObject *Sender )
 {
-  //DataSet = dmCurrency->odCurrency;
   paConfig->Visible = true;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExplorer::naConfigExit( TObject *Sender )
+void __fastcall TfmvExplorer::naGolovolomka15Exit( TObject *Sender )
 {
   paConfig->Visible = false;
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExplorer::naConfigLoadNodes( TObject *Sender )
+void __fastcall TfmvExplorer::naGolovolomka15LoadNodes( TObject *Sender )
 {
-  naConfig->CurrentNode = ((TNNVTreeNode*)( tvExamples->Items->Add( nullptr, "Пример сохранения настроек" ) ));
-  naConfig->CurrentNode->NodeAdmin = naConfig;
-  naConfig->CurrentNode->PK = NNV::EmptyPK;
-  naConfig->CurrentNode->ImageIndex = (int)NNV::TImagesKind::imCurrency;
-  naConfig->CurrentNode->SelectedIndex = (int)NNV::TImagesKind::imCurrency;
-  naConfig->LocateNode = naConfig->CurrentNode;
+  naGolovolomka15->CurrentNode = ((TNNVTreeNode*)( tvExamples->Items->Add( nullptr, L"Головоломка 15" ) ));
+  naGolovolomka15->CurrentNode->NodeAdmin = naGolovolomka15;
+  naGolovolomka15->CurrentNode->PK = NNV::EmptyPK;
+  naGolovolomka15->CurrentNode->ImageIndex = (int)NNV::TImagesKind::imCurrency;
+  naGolovolomka15->CurrentNode->SelectedIndex = (int)NNV::TImagesKind::imCurrency;
+  naGolovolomka15->LocateNode = naGolovolomka15->CurrentNode;
 }
 //---------------------------------------------------------------------------
 
@@ -894,6 +898,60 @@ void __fastcall TfmvExplorer::rrResRight( TObject *Sender )
   dgColor->ReadOnly         = !Rights[ NNRights::ColorEdit ];
   dgRole->ReadOnly          = !Rights[ NNRights::RoleEdit ];
   dgRoleRights->ReadOnly    = !Rights[ NNRights::RoleEdit ];
+  dgLanguages->ReadOnly     = !Rights[ NNRights::LanguagesEdit ];
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::aGolovolomka15StartPositionExecute( TObject *Sender )
+{
+  Golovolomka15->StartPosition();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::aGolovolomka15MixExecute( TObject *Sender )
+{
+  Golovolomka15->Mix( nbGolovolomka15MixCount->Value, nbGolovolomka15HodPause->Value );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::Golovolomka15Pobeda( TObject *Sender )
+{
+  ShowMessage( L"Поздравляем! Вы решили ""Головоломку 15""!" );
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::naLanguagesEnter( TObject *Sender )
+{
+  paLanguages->Visible = true;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::naLanguagesExit( TObject *Sender )
+{
+  paLanguages->Visible = false;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::naLanguagesLoadNodes( TObject *Sender )
+{
+  naLanguages->CurrentNode = ((TNNVTreeNode*)( tvExamples->Items->Add( nullptr, L"Языки программы" ) ));
+  naLanguages->CurrentNode->NodeAdmin = naLanguages;
+  naLanguages->CurrentNode->PK = NNV::EmptyPK;
+  naLanguages->CurrentNode->ImageIndex = (int)NNV::TImagesKind::imEnterprise;
+  naLanguages->CurrentNode->SelectedIndex = (int)NNV::TImagesKind::imEnterprise;
+  naLanguages->LocateNode = naLanguages->CurrentNode;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::naLanguagesFirstEnter( TObject *Sender )
+{
+  dmvNewNavadvipa->quLanguages->CWOpen();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::naLanguagesLastExit( TObject *Sender )
+{
+  dmvNewNavadvipa->quLanguages->CWClose();
 }
 //---------------------------------------------------------------------------
 

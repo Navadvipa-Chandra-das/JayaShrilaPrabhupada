@@ -175,9 +175,6 @@ Coordinates=678,849,119,36
 [dgCommod]
 Coordinates=580,528,80,36
 
-[naConfig]
-Coordinates=520,849,66,36
-
 [edNumberToWords]
 Coordinates=164,300,126,58
 
@@ -487,4 +484,7 @@ Visible=True
 
 [naColorKind]
 Coordinates=451,849,60,36
+
+[naPanel15]
+Coordinates=520,849,66,36
 
