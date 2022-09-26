@@ -100,6 +100,7 @@ void __fastcall TfmvJayaShrilaPrabhupada::FormCreate( TObject *Sender )
 {
   // Здесь важно то, что dmvNewNavadvipa имеет своим хозяином главную форму, а не Application
   // Это важно, что разрушение объектов будет идти в дорлжном порядке
+  // И мы сможем сохранить настройки главной формы в базе данных, а не во внешнем файле!
   dmvNewNavadvipa = new TdmvNewNavadvipa( this, dmvJayaShrilaPrabhupada->DoLogin );
   FixWhileEmbarcaderoBug();
   PrepareLanguages();
