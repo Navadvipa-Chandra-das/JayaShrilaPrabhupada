@@ -28,9 +28,6 @@ Coordinates=1120,276,109,36
 [tbActionListSetup]
 Coordinates=696,574,115,36
 
-[paConfig]
-Coordinates=281,232,66,58
-
 [naUsers]
 Coordinates=1120,386,62,36
 
@@ -487,4 +484,7 @@ Coordinates=451,849,60,36
 
 [naPanel15]
 Coordinates=520,849,66,36
+
+[paGolovolomka15]
+Coordinates=281,232,66,58
 

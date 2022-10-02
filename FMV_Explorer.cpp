@@ -150,13 +150,13 @@ void __fastcall TfmvExplorer::coResEndLoad( TObject *Sender )
 
 void __fastcall TfmvExplorer::naGolovolomka15Enter( TObject *Sender )
 {
-  paConfig->Visible = true;
+  paGolovolomka15->Visible = true;
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::naGolovolomka15Exit( TObject *Sender )
 {
-  paConfig->Visible = false;
+  paGolovolomka15->Visible = false;
 }
 //---------------------------------------------------------------------------
 
@@ -914,7 +914,7 @@ void __fastcall TfmvExplorer::aGolovolomka15MixExecute( TObject *Sender )
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TfmvExplorer::Golovolomka15Pobeda( TObject *Sender )
+void __fastcall TfmvExplorer::Golovolomka15Vijaya( TObject *Sender )
 {
   ShowMessage( L"Поздравляем! Вы решили ""Головоломку 15""!" );
 }

@@ -71,7 +71,6 @@ inherited fmvJayaShrilaPrabhupada: TfmvJayaShrilaPrabhupada
     end
   end
   inherited fbRes: TNNVFlagBox
-    caFree = True
     ShowInWindowList = True
     Left = 12
     Top = 8

@@ -57,7 +57,7 @@ __published:	// IDE-managed Components
   TNNVNodeAdmin *naColorKind;
   TNNVNodeAdmin *naNumberToWords;
   TNNVNodeAdmin *naUsers;
-  TNNVPanel *paConfig;
+  TNNVPanel *paGolovolomka15;
   TNNVPanel *paNumberToWords;
   TMemo *meNumberToWords;
   TNNVPanel *paNumberToWordsT;
@@ -98,7 +98,7 @@ __published:	// IDE-managed Components
   TNNVNodeAdmin *naRoleKind;
   TNNVDBGrid *dgRights;
   TAction *aGenerateColorConsts;
-  TToolBar *tbRole;
+  TToolBar *tbrRole;
   TNNVDBGrid *dgRole;
   TNNVSplitter *splRole;
   TNNVDBGrid *dgRoleRights;
@@ -135,8 +135,8 @@ __published:	// IDE-managed Components
   TToolBar *tbrGolovolomka15;
   TAction *aGolovolomka15StartPosition;
   TAction *aGolovolomka15Mix;
-  TToolButton *ToolButton1;
-  TToolButton *ToolButton2;
+  TToolButton *tbGolovolomka15StartPosition;
+  TToolButton *tbGolovolomka15Mix;
   TNumberBox *nbGolovolomka15MixCount;
   TNumberBox *nbGolovolomka15HodPause;
   TNNVNodeAdmin *naLanguages;
@@ -242,7 +242,7 @@ __published:	// IDE-managed Components
   void __fastcall rrResRight( TObject *Sender );
   void __fastcall aGolovolomka15StartPositionExecute(TObject *Sender);
   void __fastcall aGolovolomka15MixExecute(TObject *Sender);
-  void __fastcall Golovolomka15Pobeda( TObject *Sender );
+  void __fastcall Golovolomka15Vijaya( TObject *Sender );
   void __fastcall naLanguagesEnter( TObject *Sender );
   void __fastcall naLanguagesExit( TObject *Sender );
   void __fastcall naLanguagesLoadNodes( TObject *Sender );
