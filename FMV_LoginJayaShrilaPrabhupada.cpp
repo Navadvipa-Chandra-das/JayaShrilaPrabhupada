@@ -15,10 +15,18 @@
 #pragma link "VCL_NNLanguageManager"
 #pragma resource "*.dfm"
 TfmvLoginJayaShrilaPrabhupada *fmvLoginJayaShrilaPrabhupada;
+
 //---------------------------------------------------------------------------
 __fastcall TfmvLoginJayaShrilaPrabhupada::TfmvLoginJayaShrilaPrabhupada( TComponent* Owner )
   : inherited( Owner )
 {
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvLoginJayaShrilaPrabhupada::FormCreate( TObject *Sender )
+{
+  inherited::FormCreate( Sender );
+  frvLogin->imLogin->Picture->LoadFromFile( "ShrilaPrabhupada.bmp" );
 }
 //---------------------------------------------------------------------------
 

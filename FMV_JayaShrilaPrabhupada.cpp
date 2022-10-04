@@ -111,7 +111,8 @@ void __fastcall TfmvJayaShrilaPrabhupada::FormCreate( TObject *Sender )
 void __fastcall TfmvJayaShrilaPrabhupada::PrepareLanguages()
 {
   dmvNewNavadvipa->lmDB->PrepareStrings( cbLanguage->Items );
-  dmvNewNavadvipa->lmDB->CurrentLanguageID = NNVConst::MainLanguageID;
+  dmvNewNavadvipa->lmDB->MainLanguageID = NNVConst::MainLanguageID;
+  cbLanguage->ItemIndex = dmvNewNavadvipa->lmDB->LanguageIDToItemIndex( dmvNewNavadvipa->lmDB->CurrentLanguageID );
   NNVConst::MainLanguageIndex = dmvNewNavadvipa->lmDB->LanguageIDToItemIndex( dmvNewNavadvipa->lmDB->CurrentLanguageID );
 }
 
@@ -154,7 +155,6 @@ void __fastcall TfmvJayaShrilaPrabhupada::cbLanguageChange( TObject *Sender )
 
 void __fastcall TfmvJayaShrilaPrabhupada::lnResLanguage( TObject *Sender )
 {
-  inherited::lnResLanguage( Sender );
   cbLanguage->ItemIndex = dmvNewNavadvipa->lmDB->LanguageIDToItemIndex( dmvNewNavadvipa->lmDB->CurrentLanguageID );
 }
 //---------------------------------------------------------------------------

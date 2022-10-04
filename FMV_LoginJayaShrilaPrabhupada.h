@@ -20,6 +20,7 @@
 class TfmvLoginJayaShrilaPrabhupada : public TfmvLogin
 {
 __published:	// IDE-managed Components
+  void __fastcall FormCreate(TObject *Sender);
 private:	// User declarations
   typedef TfmvLogin inherited;
 public:		// User declarations
