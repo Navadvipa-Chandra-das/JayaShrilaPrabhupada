@@ -4,7 +4,7 @@
 #pragma hdrstop
 
 #include "FMV_Explorer.h"
-#include "VCL_NNDmvNewNavadvipa.h"
+#include "VCL_NNDmNewNavadvipa.h"
 #include "DMV_JayaShrilaPrabhupada.h"
 #include "VCL_NNFmChangePassword.h"
 #include "VCL_NNColor.h"
@@ -15,7 +15,6 @@
 #include "VCL_NNRightsIndex.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
-#pragma link "VCL_NNConfig"
 #pragma link "VCL_NNFlagBox"
 #pragma link "VCL_NNFmDB"
 #pragma link "VCL_NNPanel"

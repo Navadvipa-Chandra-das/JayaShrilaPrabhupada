@@ -7,7 +7,6 @@
 #include <Vcl.Controls.hpp>
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
-#include "VCL_NNConfig.h"
 #include "VCL_NNFlagBox.h"
 #include "VCL_NNFmDB.h"
 #include "VCL_NNPanel.h"

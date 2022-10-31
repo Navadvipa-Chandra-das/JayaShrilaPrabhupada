@@ -18,8 +18,8 @@ USEFORM("FMV_LoginJayaShrilaPrabhupada.cpp", fmvLoginJayaShrilaPrabhupada);
 USEFORM("FMV_JayaShrilaPrabhupada.cpp", fmvJayaShrilaPrabhupada);
 USEFORM("FMV_Explorer.cpp", fmvExplorer);
 USEFORM("DMV_JayaShrilaPrabhupada.cpp", dmvJayaShrilaPrabhupada); /* TDataModule: File Type */
-USEFORM("..\NewNavadvipa\VCL_NNDmvNewNavadvipa.cpp", dmvNewNavadvipa); /* TDataModule: File Type */
 USEFORM("..\NewNavadvipa\VCL_NNDmRes.cpp", dmvRes); /* TDataModule: File Type */
+USEFORM("..\NewNavadvipa\VCL_NNDmNewNavadvipa.cpp", dmvNewNavadvipa); /* TDataModule: File Type */
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {

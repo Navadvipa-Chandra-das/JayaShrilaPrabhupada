@@ -3,7 +3,7 @@
 #pragma hdrstop
 
 #include "VCL_NNColor.h"
-#include "VCL_NNDmvNewNavadvipa.h"
+#include "VCL_NNDmNewNavadvipa.h"
 // #include <math.h>
 
 // ---------------------------------------------------------------------------

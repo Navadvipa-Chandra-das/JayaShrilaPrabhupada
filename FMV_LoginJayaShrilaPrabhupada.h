@@ -9,7 +9,7 @@
 #include <Vcl.Forms.hpp>
 #include "VCL_NNFmLogin.h"
 #include "VCL_NNFrLogin.h"
-#include "VCL_NNConfig.h"
+#include "VCL_NNDBMiracle.h"
 #include "VCL_NNFlagBox.h"
 #include "VCL_NNRightsManager.h"
 #include "VCL_NNActionList.h"

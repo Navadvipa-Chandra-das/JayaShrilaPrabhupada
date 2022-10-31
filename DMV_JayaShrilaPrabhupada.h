@@ -4,7 +4,6 @@
 #define VCL_DMJayaShrilePrabhupadaH
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
-#include "VCL_NNConfig.h"
 #include "VCL_NNDmRes.h"
 #include "VCL_NNRightsManager.h"
 #include <Data.DB.hpp>

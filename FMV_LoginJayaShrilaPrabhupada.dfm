@@ -3,8 +3,6 @@ inherited fmvLoginJayaShrilaPrabhupada: TfmvLoginJayaShrilaPrabhupada
   Caption = #1042#1093#1086#1076' '#1074' "'#1044#1078#1072#1103' '#1064#1088#1080#1083#1072' '#1055#1088#1072#1073#1093#1091#1087#1072#1076#1072'"'
   ClientHeight = 672
   ClientWidth = 804
-  ExplicitLeft = -100
-  ExplicitTop = -86
   ExplicitWidth = 810
   ExplicitHeight = 701
   PixelsPerInch = 96
@@ -12,9 +10,13 @@ inherited fmvLoginJayaShrilaPrabhupada: TfmvLoginJayaShrilaPrabhupada
   inherited frvLogin: TfrvLogin
     Width = 804
     Height = 672
+    ExplicitWidth = 804
+    ExplicitHeight = 672
     inherited imLogin: TImage
       Width = 804
       Height = 672
+      ExplicitWidth = 804
+      ExplicitHeight = 672
     end
     inherited laUser: TLabel
       Left = 496
@@ -45,6 +47,12 @@ inherited fmvLoginJayaShrilaPrabhupada: TfmvLoginJayaShrilaPrabhupada
       Top = 362
       ExplicitLeft = 496
       ExplicitTop = 362
+    end
+    inherited laSchema: TLabel
+      Left = 496
+      Top = 395
+      ExplicitLeft = 496
+      ExplicitTop = 395
     end
     inherited cbUser: TComboBox
       Left = 588
@@ -78,9 +86,15 @@ inherited fmvLoginJayaShrilaPrabhupada: TfmvLoginJayaShrilaPrabhupada
     end
     inherited chbResetConfig: TCheckBox
       Left = 588
-      Top = 399
+      Top = 430
       ExplicitLeft = 588
-      ExplicitTop = 399
+      ExplicitTop = 430
+    end
+    inherited edSchema: TEdit
+      Left = 588
+      Top = 392
+      ExplicitLeft = 588
+      ExplicitTop = 392
     end
   end
 end

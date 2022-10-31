@@ -474,7 +474,247 @@ inherited fmvExplorer: TfmvExplorer
       end
     end
   end
-  object paUsers: TNNVPanel [8]
+  object paLanguages: TNNVPanel [8]
+    Left = 192
+    Top = 57
+    Width = 993
+    Height = 695
+    Align = alClient
+    TabOrder = 10
+    Visible = False
+    object dgLanguages: TNNVDBGrid
+      Left = 0
+      Top = 0
+      Width = 993
+      Height = 695
+      Align = alClient
+      DataSource = dmvNewNavadvipa.dsLanguages
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnEnter = DBGridEnter
+      OnTitleClick = DBGridTitleClick
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'LanguagesID'
+          Visible = False
+          OrderBy = 'a."LanguagesID"'
+        end
+        item
+          Expanded = False
+          FieldName = 'LanguagesStringID'
+          Width = 114
+          Visible = True
+          OrderBy = 'a."LanguagesStringID"'
+        end
+        item
+          Expanded = False
+          FieldName = 'Languages'
+          Width = 252
+          Visible = True
+          OrderBy = 'a."Languages"'
+        end>
+    end
+  end
+  object paRole: TNNVPanel [9]
+    Left = 192
+    Top = 57
+    Width = 993
+    Height = 695
+    Align = alClient
+    TabOrder = 8
+    Visible = False
+    object splRole: TNNVSplitter
+      Left = 0
+      Top = 326
+      Width = 993
+      Height = 3
+      Cursor = crVSplit
+      Align = alTop
+      ExplicitWidth = 369
+    end
+    object tbrRole: TToolBar
+      Left = 0
+      Top = 0
+      Width = 993
+      Height = 29
+      Caption = 'tbrRole'
+      Images = dmvNewNavadvipa.ilDB
+      TabOrder = 0
+    end
+    object dgRoleRights: TNNVDBGrid
+      Left = 0
+      Top = 329
+      Width = 993
+      Height = 366
+      Align = alClient
+      DataSource = dmvNewNavadvipa.dsRoleRights
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
+      PopupMenu = pmDBGrid
+      TabOrder = 2
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnDrawColumnCell = dgRoleRightsDrawColumnCell
+      OnEditButtonClick = DBGridEditButtonClick
+      OnEnter = DBGridEnter
+      OnKeyDown = DBGridKeyDown
+      OnTitleClick = DBGridTitleClick
+      OnDBCut = dgRoleRightsDBCut
+      OnDBCopy = dgRoleRightsDBCopy
+      OnDBPaste = dgRoleRightsDBPaste
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'RoleRightsID'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'RoleID'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'EntityID'
+          Visible = False
+        end
+        item
+          ButtonStyle = cbsEllipsis
+          Expanded = False
+          FieldName = 'Right'
+          ReadOnly = True
+          Width = 445
+          Visible = True
+          Dialog = DRoleRights
+        end>
+    end
+    object dgRole: TNNVDBGrid
+      Left = 0
+      Top = 29
+      Width = 993
+      Height = 297
+      Align = alTop
+      DataSource = dmvNewNavadvipa.dsRole
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
+      PopupMenu = pmDBGrid
+      TabOrder = 1
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnDrawColumnCell = dgRoleDrawColumnCell
+      OnEnter = DBGridEnter
+      OnKeyDown = DBGridKeyDown
+      OnTitleClick = DBGridTitleClick
+      OnDBCut = dgRoleDBCut
+      OnDBCopy = dgRoleDBCopy
+      OnDBPaste = dgRoleDBPaste
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'EntityID'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'KindID'
+          Visible = False
+        end
+        item
+          Expanded = False
+          FieldName = 'Actual'
+          Font.Charset = SYMBOL_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -11
+          Font.Name = 'Wingdings'
+          Font.Style = []
+          ReadOnly = True
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Entity'
+          Width = 400
+          Visible = True
+        end>
+    end
+  end
+  object paGolovolomka15: TNNVPanel [10]
+    Left = 192
+    Top = 57
+    Width = 993
+    Height = 695
+    Align = alClient
+    TabOrder = 1
+    Visible = False
+    object Golovolomka15: TNNVGolovolomka15
+      Left = 0
+      Top = 29
+      Width = 993
+      Height = 666
+      Align = alClient
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -43
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 0
+      OnVijaya = Golovolomka15Vijaya
+    end
+    object tbrGolovolomka15: TToolBar
+      Left = 0
+      Top = 0
+      Width = 993
+      Height = 29
+      Caption = 'tbrGolovolomka15'
+      Images = dmvNewNavadvipa.ilDB
+      TabOrder = 1
+      object tbGolovolomka15StartPosition: TToolButton
+        Left = 0
+        Top = 0
+        Action = aGolovolomka15StartPosition
+      end
+      object tbGolovolomka15Mix: TToolButton
+        Left = 23
+        Top = 0
+        Action = aGolovolomka15Mix
+      end
+      object nbGolovolomka15MixCount: TNumberBox
+        Left = 46
+        Top = 0
+        Width = 41
+        Height = 22
+        Hint = #1057#1082#1086#1083#1100#1082#1086' '#1093#1086#1076#1086#1074' '#1087#1077#1088#1077#1084#1077#1096#1080#1074#1072#1090#1100'?'
+        Decimal = 0
+        MinValue = 1.000000000000000000
+        MaxValue = 150.000000000000000000
+        TabOrder = 0
+        Value = 25.000000000000000000
+      end
+      object nbGolovolomka15HodPause: TNumberBox
+        Left = 87
+        Top = 0
+        Width = 41
+        Height = 22
+        Hint = #1055#1072#1091#1079#1072' '#1087#1088#1080' '#1087#1077#1088#1077#1084#1077#1096#1080#1074#1072#1085#1080#1080' '#1074' '#1084#1080#1083#1083#1080#1089#1077#1082#1091#1085#1076#1072#1093
+        MinValue = 3.000000000000000000
+        MaxValue = 1500.000000000000000000
+        TabOrder = 1
+        Value = 300.000000000000000000
+      end
+    end
+  end
+  object paUsers: TNNVPanel [11]
     Left = 192
     Top = 57
     Width = 993
@@ -522,50 +762,59 @@ inherited fmvExplorer: TfmvExplorer
           Font.Style = []
           ReadOnly = True
           Visible = True
+          OrderBy = 'a."IsDeleted"'
         end
         item
           Expanded = False
           FieldName = 'UserID'
           Visible = True
+          OrderBy = 'a."UserID"'
         end
         item
           Expanded = False
           FieldName = 'Name'
           Visible = True
+          OrderBy = 'a."Name"'
         end
         item
           Expanded = False
           FieldName = 'Note'
           Width = 143
           Visible = True
+          OrderBy = 'a."Note"'
         end
         item
           Expanded = False
           FieldName = 'Anketa.FIO'
           Visible = True
+          OrderBy = '(a."Anketa")."FIO"'
         end
         item
           Expanded = False
           FieldName = 'Anketa.INN'
           Width = 100
           Visible = True
+          OrderBy = '(a."Anketa")."INN"'
         end
         item
           Expanded = False
           FieldName = 'Anketa.Passport'
           Visible = True
+          OrderBy = '(a."Anketa")."Passport"'
         end
         item
           Expanded = False
           FieldName = 'Anketa.PassportKemVydan'
           Width = 100
           Visible = True
+          OrderBy = '(a."Anketa")."PassportKemVydan"'
         end
         item
           ButtonStyle = cbsEllipsis
           Expanded = False
           FieldName = 'Anketa.PassportDate'
           Visible = True
+          OrderBy = '(a."Anketa")."PassportDate"'
         end
         item
           ButtonStyle = cbsEllipsis
@@ -573,6 +822,7 @@ inherited fmvExplorer: TfmvExplorer
           FieldName = 'BirthDate'
           Width = 100
           Visible = True
+          OrderBy = 'a."BirthDate"'
         end
         item
           ButtonStyle = cbsEllipsis
@@ -580,6 +830,7 @@ inherited fmvExplorer: TfmvExplorer
           FieldName = 'CreateDate'
           Width = 100
           Visible = True
+          OrderBy = 'a."CreateDate"'
         end>
     end
     object paUsersT: TNNVPanel
@@ -804,246 +1055,6 @@ inherited fmvExplorer: TfmvExplorer
             Visible = True
             Dialog = DUserRole
           end>
-      end
-    end
-  end
-  object paLanguages: TNNVPanel [9]
-    Left = 192
-    Top = 57
-    Width = 993
-    Height = 695
-    Align = alClient
-    TabOrder = 10
-    Visible = False
-    object dgLanguages: TNNVDBGrid
-      Left = 0
-      Top = 0
-      Width = 993
-      Height = 695
-      Align = alClient
-      DataSource = dmvNewNavadvipa.dsLanguages
-      TabOrder = 0
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clWindowText
-      TitleFont.Height = -11
-      TitleFont.Name = 'Tahoma'
-      TitleFont.Style = []
-      OnEnter = DBGridEnter
-      OnTitleClick = DBGridTitleClick
-      Columns = <
-        item
-          Expanded = False
-          FieldName = 'LanguagesID'
-          Visible = False
-          OrderBy = 'a."LanguagesID"'
-        end
-        item
-          Expanded = False
-          FieldName = 'LanguagesStringID'
-          Width = 114
-          Visible = True
-          OrderBy = 'a."LanguagesStringID"'
-        end
-        item
-          Expanded = False
-          FieldName = 'Languages'
-          Width = 252
-          Visible = True
-          OrderBy = 'a."Languages"'
-        end>
-    end
-  end
-  object paRole: TNNVPanel [10]
-    Left = 192
-    Top = 57
-    Width = 993
-    Height = 695
-    Align = alClient
-    TabOrder = 8
-    Visible = False
-    object splRole: TNNVSplitter
-      Left = 0
-      Top = 326
-      Width = 993
-      Height = 3
-      Cursor = crVSplit
-      Align = alTop
-      ExplicitWidth = 369
-    end
-    object tbrRole: TToolBar
-      Left = 0
-      Top = 0
-      Width = 993
-      Height = 29
-      Caption = 'tbrRole'
-      Images = dmvNewNavadvipa.ilDB
-      TabOrder = 0
-    end
-    object dgRoleRights: TNNVDBGrid
-      Left = 0
-      Top = 329
-      Width = 993
-      Height = 366
-      Align = alClient
-      DataSource = dmvNewNavadvipa.dsRoleRights
-      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
-      PopupMenu = pmDBGrid
-      TabOrder = 2
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clWindowText
-      TitleFont.Height = -11
-      TitleFont.Name = 'Tahoma'
-      TitleFont.Style = []
-      OnDrawColumnCell = dgRoleRightsDrawColumnCell
-      OnEditButtonClick = DBGridEditButtonClick
-      OnEnter = DBGridEnter
-      OnKeyDown = DBGridKeyDown
-      OnTitleClick = DBGridTitleClick
-      OnDBCut = dgRoleRightsDBCut
-      OnDBCopy = dgRoleRightsDBCopy
-      OnDBPaste = dgRoleRightsDBPaste
-      Columns = <
-        item
-          Expanded = False
-          FieldName = 'RoleRightsID'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'RoleID'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'EntityID'
-          Visible = False
-        end
-        item
-          ButtonStyle = cbsEllipsis
-          Expanded = False
-          FieldName = 'Right'
-          ReadOnly = True
-          Width = 445
-          Visible = True
-          Dialog = DRoleRights
-        end>
-    end
-    object dgRole: TNNVDBGrid
-      Left = 0
-      Top = 29
-      Width = 993
-      Height = 297
-      Align = alTop
-      DataSource = dmvNewNavadvipa.dsRole
-      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
-      PopupMenu = pmDBGrid
-      TabOrder = 1
-      TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clWindowText
-      TitleFont.Height = -11
-      TitleFont.Name = 'Tahoma'
-      TitleFont.Style = []
-      OnDrawColumnCell = dgRoleDrawColumnCell
-      OnEnter = DBGridEnter
-      OnKeyDown = DBGridKeyDown
-      OnTitleClick = DBGridTitleClick
-      OnDBCut = dgRoleDBCut
-      OnDBCopy = dgRoleDBCopy
-      OnDBPaste = dgRoleDBPaste
-      Columns = <
-        item
-          Expanded = False
-          FieldName = 'EntityID'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'KindID'
-          Visible = False
-        end
-        item
-          Expanded = False
-          FieldName = 'Actual'
-          Font.Charset = SYMBOL_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Wingdings'
-          Font.Style = []
-          ReadOnly = True
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'Entity'
-          Width = 400
-          Visible = True
-        end>
-    end
-  end
-  object paGolovolomka15: TNNVPanel [11]
-    Left = 192
-    Top = 57
-    Width = 993
-    Height = 695
-    Align = alClient
-    TabOrder = 1
-    Visible = False
-    object Golovolomka15: TNNVGolovolomka15
-      Left = 0
-      Top = 29
-      Width = 993
-      Height = 666
-      Align = alClient
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -43
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentBackground = False
-      ParentFont = False
-      TabOrder = 0
-      OnVijaya = Golovolomka15Vijaya
-    end
-    object tbrGolovolomka15: TToolBar
-      Left = 0
-      Top = 0
-      Width = 993
-      Height = 29
-      Caption = 'tbrGolovolomka15'
-      Images = dmvNewNavadvipa.ilDB
-      TabOrder = 1
-      object tbGolovolomka15StartPosition: TToolButton
-        Left = 0
-        Top = 0
-        Action = aGolovolomka15StartPosition
-      end
-      object tbGolovolomka15Mix: TToolButton
-        Left = 23
-        Top = 0
-        Action = aGolovolomka15Mix
-      end
-      object nbGolovolomka15MixCount: TNumberBox
-        Left = 46
-        Top = 0
-        Width = 41
-        Height = 22
-        Hint = #1057#1082#1086#1083#1100#1082#1086' '#1093#1086#1076#1086#1074' '#1087#1077#1088#1077#1084#1077#1096#1080#1074#1072#1090#1100'?'
-        Decimal = 0
-        MinValue = 1.000000000000000000
-        MaxValue = 150.000000000000000000
-        TabOrder = 0
-        Value = 25.000000000000000000
-      end
-      object nbGolovolomka15HodPause: TNumberBox
-        Left = 87
-        Top = 0
-        Width = 41
-        Height = 22
-        Hint = #1055#1072#1091#1079#1072' '#1087#1088#1080' '#1087#1077#1088#1077#1084#1077#1096#1080#1074#1072#1085#1080#1080' '#1074' '#1084#1080#1083#1083#1080#1089#1077#1082#1091#1085#1076#1072#1093
-        MinValue = 3.000000000000000000
-        MaxValue = 1500.000000000000000000
-        TabOrder = 1
-        Value = 300.000000000000000000
       end
     end
   end

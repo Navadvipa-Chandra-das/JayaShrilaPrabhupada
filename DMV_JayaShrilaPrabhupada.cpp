@@ -4,11 +4,11 @@
 
 #include "DMV_JayaShrilaPrabhupada.h"
 #include "FMV_LoginJayaShrilaPrabhupada.h"
-#include "VCL_NNDmvNewNavadvipa.h"
+#include "VCL_NNDmNewNavadvipa.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma classgroup "Vcl.Controls.TControl"
-#pragma link "VCL_NNConfig"
+#pragma link "VCL_NNDBMiracle"
 #pragma link "VCL_NNDmRes"
 #pragma link "VCL_NNRightsManager"
 #pragma link "VCL_NNDBMiracle"
@@ -28,10 +28,11 @@ __fastcall TdmvJayaShrilaPrabhupada::TdmvJayaShrilaPrabhupada( TComponent* Owner
 
 void __fastcall TdmvJayaShrilaPrabhupada::DoLogin( TObject* Sender, TFDConnection *AConnection )
 {
-  AConnection->Params->UserName           = SuperUserName;
-  AConnection->Params->Database           = L"NewNavadvipa";
-  AConnection->Params->Values[ "Server" ] = L"127.0.0.1";
-  AConnection->Params->Values[ "Port" ]   = 5432;
+  AConnection->Params->UserName                     = SuperUserName;
+  AConnection->Params->Database                     = L"NewNavadvipa";
+  AConnection->Params->Values[ "Server" ]           = L"127.0.0.1";
+  AConnection->Params->Values[ "Port" ]             = 5432;
+  AConnection->Params->Values[ "PrabhupadaSchema" ] = L"\"NewNavadvipa\".";
 
   fmvLoginJayaShrilaPrabhupada = new TfmvLoginJayaShrilaPrabhupada( Application );
   fmvLoginJayaShrilaPrabhupada->ShowFormLogin( AConnection );
