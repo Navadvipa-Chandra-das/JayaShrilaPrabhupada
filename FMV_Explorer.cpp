@@ -328,7 +328,6 @@ void __fastcall TfmvExplorer::naCommodKindExit( TObject *Sender )
 
 void __fastcall TfmvExplorer::naCommodKindFirstEnter( TObject *Sender )
 {
-  dmvNewNavadvipa->quCommodKind->CWOpen();
   dmvNewNavadvipa->quCommod->CWOpen();
 }
 //---------------------------------------------------------------------------
@@ -336,7 +335,6 @@ void __fastcall TfmvExplorer::naCommodKindFirstEnter( TObject *Sender )
 void __fastcall TfmvExplorer::naCommodKindLastExit(TObject *Sender5)
 {
   dmvNewNavadvipa->quCommod->CWClose();
-  dmvNewNavadvipa->quCommodKind->CWClose();
 }
 //---------------------------------------------------------------------------
 
@@ -396,7 +394,6 @@ void __fastcall TfmvExplorer::dgCommodDBPaste( TObject *Sender )
 
 void __fastcall TfmvExplorer::naColorKindFirstEnter( TObject *Sender )
 {
-  dmvNewNavadvipa->quColorKind->CWOpen();
   dmvNewNavadvipa->quColor->CWOpen();
 }
 //---------------------------------------------------------------------------
@@ -404,7 +401,6 @@ void __fastcall TfmvExplorer::naColorKindFirstEnter( TObject *Sender )
 void __fastcall TfmvExplorer::naColorKindLastExit( TObject *Sender )
 {
   dmvNewNavadvipa->quColor->CWClose();
-  dmvNewNavadvipa->quColorKind->CWClose();
 }
 //---------------------------------------------------------------------------
 
@@ -497,21 +493,19 @@ void __fastcall TfmvExplorer::naRightsKindExit( TObject *Sender )
 
 void __fastcall TfmvExplorer::naRightsKindFirstEnter( TObject *Sender )
 {
-  dmvNewNavadvipa->quRightsKind->CWOpen();
   dmvNewNavadvipa->quRights->CWOpen();
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TfmvExplorer::naRightsKindGetNodeParams( TObject *Sender, TNNVNodeParams &NodeParams )
-{
-  dmvNewNavadvipa->SetNodeParamsRightsKind( NodeParams );
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TfmvExplorer::naRightsKindLastExit( TObject *Sender )
 {
   dmvNewNavadvipa->quRights->CWClose();
-  dmvNewNavadvipa->quRightsKind->CWClose();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfmvExplorer::naRightsKindGetNodeParams( TObject *Sender, TNNVNodeParams &NodeParams )
+{
+  dmvNewNavadvipa->SetNodeParamsRightsKind( NodeParams );
 }
 //---------------------------------------------------------------------------
 
@@ -536,7 +530,7 @@ void __fastcall TfmvExplorer::naRoleKindExit( TObject *Sender )
 
 void __fastcall TfmvExplorer::naRoleKindFirstEnter( TObject *Sender )
 {
-  dmvNewNavadvipa->quRoleKind->CWOpen();
+  //dmvNewNavadvipa->quRoleKind->CWOpen();
   dmvNewNavadvipa->quRole->CWOpen();
   dmvNewNavadvipa->quRoleRights->CWOpen();
 }
@@ -552,7 +546,7 @@ void __fastcall TfmvExplorer::naRoleKindLastExit( TObject *Sender )
 {
   dmvNewNavadvipa->quRoleRights->CWClose();
   dmvNewNavadvipa->quRole->CWClose();
-  dmvNewNavadvipa->quRoleKind->CWClose();
+  //dmvNewNavadvipa->quRoleKind->CWClose();
 }
 //---------------------------------------------------------------------------
 

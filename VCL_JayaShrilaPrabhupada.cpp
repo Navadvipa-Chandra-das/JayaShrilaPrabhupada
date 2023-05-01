@@ -4,22 +4,22 @@
 #pragma hdrstop
 #include <tchar.h>
 //---------------------------------------------------------------------------
-USEFORM("..\NewNavadvipa\VCL_NNFmLock.cpp", fmvLock);
-USEFORM("..\NewNavadvipa\VCL_NNFmFormList.cpp", fmvFormList);
-USEFORM("..\NewNavadvipa\VCL_NNFmDB.cpp", fmvDB);
-USEFORM("..\NewNavadvipa\VCL_NNFmCode.cpp", fmvCode);
-USEFORM("..\NewNavadvipa\VCL_NNFmChangePassword.cpp", fmvChangePassword);
+USEFORM("FMV_Explorer.cpp", fmvExplorer);
+USEFORM("DMV_JayaShrilaPrabhupada.cpp", dmvJayaShrilaPrabhupada); /* TDataModule: File Type */
 USEFORM("..\NewNavadvipa\VCL_NNFrLogin.cpp", frvLogin); /* TFrame: File Type */
 USEFORM("..\NewNavadvipa\VCL_NNFmRoles.cpp", fmvRoles);
 USEFORM("..\NewNavadvipa\VCL_NNFmRights.cpp", fmvRights);
-USEFORM("..\NewNavadvipa\VCL_NNFmRes.cpp", fmvRes);
-USEFORM("..\NewNavadvipa\VCL_NNFmLogin.cpp", fmvLogin);
 USEFORM("FMV_LoginJayaShrilaPrabhupada.cpp", fmvLoginJayaShrilaPrabhupada);
 USEFORM("FMV_JayaShrilaPrabhupada.cpp", fmvJayaShrilaPrabhupada);
-USEFORM("FMV_Explorer.cpp", fmvExplorer);
-USEFORM("DMV_JayaShrilaPrabhupada.cpp", dmvJayaShrilaPrabhupada); /* TDataModule: File Type */
+USEFORM("..\NewNavadvipa\VCL_NNFmCode.cpp", fmvCode);
+USEFORM("..\NewNavadvipa\VCL_NNFmChangePassword.cpp", fmvChangePassword);
 USEFORM("..\NewNavadvipa\VCL_NNDmRes.cpp", dmvRes); /* TDataModule: File Type */
 USEFORM("..\NewNavadvipa\VCL_NNDmNewNavadvipa.cpp", dmvNewNavadvipa); /* TDataModule: File Type */
+USEFORM("..\NewNavadvipa\VCL_NNFmRes.cpp", fmvRes);
+USEFORM("..\NewNavadvipa\VCL_NNFmLogin.cpp", fmvLogin);
+USEFORM("..\NewNavadvipa\VCL_NNFmLock.cpp", fmvLock);
+USEFORM("..\NewNavadvipa\VCL_NNFmFormList.cpp", fmvFormList);
+USEFORM("..\NewNavadvipa\VCL_NNFmDB.cpp", fmvDB);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {
